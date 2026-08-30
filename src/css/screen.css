@@ -95,7 +95,6 @@ a:hover, a:focus { color: #999; }
 
 /* 5. Layout ------------------------------------------------------------- */
 div#page { width: 946px; margin: 20px auto; padding: 30px 17px 10px 17px; }
-body.essay2026 div#page { width: min(1180px, 100% - 34px); }
 div#content-wrap { overflow: auto; clear: both; margin: 0 3px 35px 0; padding: 40px 0 70px 0; border: 1px solid #DDD;
                    box-shadow: 1px 1px 7px rgba(153,153,153,.2); border-radius: 5px; background: rgba(252,250,250,.69); }
 div#content-pri { float: right; width: 516px; margin: 0; padding: 5px 110px 0 87px; border-left: 1px dashed #DDD; }
@@ -114,6 +113,18 @@ div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: no
 div#content-pri p a:visited { text-decoration: underline; color: #d0656a; }
 div#content-pri ul li a:visited, div#content-pri ol li a:visited { text-decoration: none; color: #d0656a; }
 div#content-pri p a:hover, div#content-pri ul li a:hover, div#content-pri ol li a:hover { text-decoration: underline; color: #666; }
+/* Prose lists inside an entry: hanging markers, no rules. The dashed-rule
+   rows stay for ledger lists (archive, books, the sidebar). */
+div#content-pri .entry > ul, div#content-pri .commentary > ul { list-style: none; margin: 0 0 15px 0; padding: 0 0 0 16px; }
+div#content-pri .entry > ul > li, div#content-pri .commentary > ul > li {
+    position: relative; width: auto; padding: 3px 0; border: 0; }
+div#content-pri .entry > ul > li::before, div#content-pri .commentary > ul > li::before {
+    content: "\2013"; position: absolute; left: -16px; color: #999; }
+div#content-pri .entry > ol, div#content-pri .commentary > ol { margin: 0 0 15px 0; padding: 0 0 0 22px; list-style: decimal outside; }
+div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li {
+    width: auto; padding: 3px 0; border: 0; }
+div#content-pri .entry > ul ul, div#content-pri .entry > ol ul { margin: 4px 0 4px 0; }
+
 div#content-pri table { border-collapse: collapse; margin: 0 0 15px; font-size: 15px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }  /* ours */
 div#content-pri th { font-weight: normal; text-align: left; border-bottom: 1px dashed #DDD; }
 div#content-pri th, div#content-pri td { padding: 5px 12px 5px 0; vertical-align: top; }
@@ -210,14 +221,30 @@ div#content-pri blockquote.quote-panel p:has(> cite:only-child) { font-size: 12p
 .modern div#content-pri aside.callout-mark p.callout-title { font-size: 15px; letter-spacing: 0; text-transform: none; color: #333; }
 
 /* 8b. 2026 body elements (ours, in the v4 vocabulary) --------------- */
-/* callouts: the image/card treatment applied to a note */
-div#content-pri aside.callout { margin: 6px 0 15px 0; padding: 12px 15px 4px 15px; background: #FFFAFA; border: 1px solid #DDD;
-    border-left: 3px solid #999; box-shadow: 1px 1px 7px rgba(153,153,153,.2); }
-div#content-pri aside.callout-tip { border-left-color: #d24b21; }
-div#content-pri aside.callout-warning { border-left-color: #ba1820; }
+/* callouts: the card treatment applied to a note. Muted ink hues only —
+   they must still read as printed paper, never as a screen UI. */
+div#content-pri aside.callout { margin: 6px 0 18px 0; padding: 12px 15px 4px 15px; background: #FDFBFA;
+    border: 1px solid #DDD; border-left: 3px solid #6b6b6b; box-shadow: 1px 1px 7px rgba(153,153,153,.2); }
 div#content-pri aside.callout p { font-size: 14px; line-height: 20px; margin: 0 0 8px 0; }
-div#content-pri aside.callout p.callout-title { margin: 0 0 4px 0; font-size: 12px; font-style: normal; text-transform: uppercase;
-    letter-spacing: 1px; color: #666; }
+div#content-pri aside.callout p.callout-title { margin: 0 0 5px 0; font-size: 12px; font-style: normal;
+    text-transform: uppercase; letter-spacing: 1px; color: #6b6b6b; }
+div#content-pri aside.callout ul, div#content-pri aside.callout ol { margin: 0 0 8px 0; }
+div#content-pri aside.callout li { font-size: 14px; padding: 3px 0; border-bottom: 1px dotted #E4E0DA; }
+div#content-pri aside.callout li:first-child { border-top: 0; }
+div#content-pri aside.callout li:last-child { border-bottom: 0; }
+/* note — slate: context, definition, "where this sits" */
+div#content-pri aside.callout-note { border-left-color: #43606f; background: #FAFBFC; }
+div#content-pri aside.callout-note p.callout-title { color: #43606f; }
+/* tip — moss: method, how to write it */
+div#content-pri aside.callout-tip { border-left-color: #5c6b4a; background: #FBFCFA; }
+div#content-pri aside.callout-tip p.callout-title { color: #5c6b4a; }
+/* key — ochre: the thing to remember */
+div#content-pri aside.callout-key { border-left-color: #8a6a2f; background: #FDFBF6; }
+div#content-pri aside.callout-key p.callout-title { color: #8a6a2f; }
+/* warning — the house red: the mistake, the caution */
+div#content-pri aside.callout-warning { border-left-color: #ba1820; background: #FDFAFA; }
+div#content-pri aside.callout-warning p.callout-title { color: #ba1820; }
+
 /* collapsibles */
 div#content-pri details { margin: 6px 0 15px 0; padding: 0 15px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }
 div#content-pri details summary { cursor: pointer; padding: 8px 0; font-size: 15px; list-style-position: outside; }
@@ -240,8 +267,16 @@ pre mark.highlight-line { display: inline-block; width: 100%; background: rgba(1
 pre mark.highlight-line-add { background: rgba(210,75,33,.10); }
 pre mark.highlight-line-remove { background: rgba(153,153,153,.15); text-decoration: line-through; }
 /* table of contents: sidebar (v4 "Jump directly to") + an in-body copy for narrow canvases */
-div#content-sec ul.toc ul { margin: 0; }
-div#content-sec ul.toc ul li { font-size: 12px; padding-right: 12px; border-top: 0; }
+div#content-sec h3 + ul.toc { margin-top: 0; }
+div#content-sec ul.toc { margin: 0 0 35px 25px; border-top: 1px solid #CCC; }
+div#content-sec ul.toc > li { padding: 6px 0 6px 0; font-size: 13px; line-height: 17px; border-bottom: 1px solid #E4E0DA; }
+div#content-sec ul.toc > li:first-child { border-top: 0; }
+div#content-sec ul.toc > li:last-child { border-bottom: 1px solid #CCC; }
+div#content-sec ul.toc ul { margin: 4px 0 0 0; border: 0; }
+div#content-sec ul.toc ul li { padding: 2px 0; font-size: 11px; font-style: italic; line-height: 15px;
+    color: #999; border: 0; }
+div#content-sec ul.toc ul li a:link, div#content-sec ul.toc ul li a:visited { color: #999; }
+div#content-sec ul.toc ul li a:hover { color: #ba1820; text-decoration: none; }
 div#content-pri .toc-inline { display: none; margin: 0 0 30px 0; padding: 10px 0; border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
 div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; }
 div#content-pri .toc-inline ul li { font-size: 14px; padding: 2px 0; border: 0; }
@@ -263,61 +298,9 @@ div#content-pri p.meta span.rt { color: #999; }
   #branding .m-name { color: #000; }
 }
 
-/* 8c. The 2026 reading layout — opt in with `layout2026: true` (ours) ----
-   Three tracks: a margin for sidenotes, the text column, and room to break
-   out. Space and scale do the modernising; no colour, no motion, no JS. */
-.essay2026 div#content-wrap { padding: 40px 0 70px 0; }
-.essay2026 div#content-sec { display: none; }
-.essay2026 div#content-pri {
-  float: none; width: auto; margin: 0; padding: 5px 40px 0 40px; border-left: 0;
-  display: grid; grid-template-columns: 190px minmax(0, 40em) 190px; column-gap: 28px; justify-content: center;
-}
-.essay2026 div#content-pri > * { grid-column: 2; }
-.essay2026 div#content-pri > .entry { display: contents; }   /* let paragraphs be grid items */
-.essay2026 div#content-pri > .entry > * { grid-column: 2; }
-.essay2026 div#content-pri > .entry > aside.sidenote {
-  grid-column: 1; margin: 4px 0 12px 0; text-align: right; font-size: 12px; line-height: 17px; color: #666; border: 0;
-}
-.essay2026 div#content-pri > .entry > aside.sidenote p { font-size: 12px; line-height: 17px; color: #666; margin: 0 0 6px 0; }
-.essay2026 div#content-pri > .entry > .bleed { grid-column: 1 / -1; }
-.essay2026 div#content-pri > .entry > .bleed pre { margin-bottom: 0; }
-.essay2026 div#content-pri > aside.sidenote {
-  grid-column: 1; margin: 4px 0 12px 0; padding: 0 0 0 0; text-align: right;
-  font-size: 12px; line-height: 17px; color: #666; border: 0;
-}
-.essay2026 div#content-pri > aside.sidenote p { font-size: 12px; line-height: 17px; color: #666; margin: 0 0 6px 0; }
-.essay2026 div#content-pri > .bleed { grid-column: 1 / -1; }
-.essay2026 div#content-pri > .bleed img { width: 100%; }
-/* scale and air: the part that actually reads as 2026 */
-.essay2026 div#content-pri p,
-.essay2026 div#content-pri ul li,
-.essay2026 div#content-pri ol li { font-size: clamp(15px, 0.55vw + 12.6px, 17px); line-height: 1.62; }
-.essay2026 div#content-pri .entry > p:first-of-type { font-size: clamp(18px, 0.7vw + 15px, 21px); line-height: 1.5; }
-.essay2026 div#content-pri p { margin: 0 0 1.15em 0; }
-.essay2026 div#content-pri h2.page-title { font-size: clamp(35px, 2.2vw + 22px, 52px); line-height: 1.08; text-wrap: balance; }
-.essay2026 div#content-pri .entry h2 { margin: 48px 0 12px 0; font-size: clamp(20px, 0.8vw + 16px, 26px); text-wrap: balance; }
-.essay2026 div#content-pri .entry h3 { margin: 40px 0 10px 0; }
-.essay2026 div#content-pri p.sub { margin-bottom: 34px; text-wrap: pretty; }
-.essay2026 div#content-pri p.meta { margin-bottom: 40px; }
-.essay2026 div#content-pri blockquote { margin: 24px 0; }
-.essay2026 div#content-pri pre { margin-bottom: 24px; }
-.essay2026 :is(h2, h3, h4) { scroll-margin-top: 24px; }
-@media (max-width: 1100px) {
-  .essay2026 div#content-pri { grid-template-columns: minmax(0, 1fr); padding: 5px 24px 0 24px; }
-  .essay2026 div#content-pri > *,
-  .essay2026 div#content-pri > .entry > * { grid-column: 1; }
-  .essay2026 div#content-pri > .entry > .bleed { grid-column: 1; }
-  .essay2026 div#content-pri > .entry > aside.sidenote,
-  .essay2026 div#content-pri > aside.sidenote {
-    grid-column: 1; text-align: left; margin: 0 0 16px 0; padding: 8px 0 8px 14px; border-left: 1px solid #DDD;
-  }
-  .essay2026 div#content-pri > .bleed { grid-column: 1; }
-}
-
 /* 9. Media queries (v4's two widths) ------------------------------------ */
 @media (max-width: 989px) {
   div#page { width: 468px; }
-  body.essay2026 div#page { width: min(468px, 100% - 20px); }
   .home ul#nav-primary { padding-bottom: 30px; }
   #page ul.subnav { margin-bottom: 0; }
   div#content-pri { float: none; width: 408px; margin: 0; padding: 0 30px; border-left: 0; }   /* ours: gutter both sides (v4: 0 30px 0 0) */

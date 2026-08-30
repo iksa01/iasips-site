@@ -120,9 +120,12 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 ## 7. Rules, lists, footnotes, quotes
 
 - hr: 1px dashed #ccc, 35px above/below (markdown `---`); `***` = "⁂".
-- Lists inside the text column: no markers; 15px rows, 5px padding, dashed
-  #DDD rule below, dashed #CCC above the first; `span` inside a row is
-  11px italic #999. ol numerals hang into the 87px gutter.
+- Two list registers (split 2026-08-30):
+  **Prose lists**, inside an entry — hanging en-dash marker in #999, 3px
+  padding, NO rules. A bulleted argument must not read as a table.
+  **Ledger lists** — the archive, the about-page data lists, the sidebar:
+  v4's rows, 15px, 5px padding, dashed #DDD below, dashed #CCC above the
+  first; `span` inside a row is 11px italic #999.
 - Footnotes: `[n]` markers 10px #666; a "FOOTNOTES" spaced-caps heading
   with a #DDD rule 60px above (30px in the journal); ol#footnotes 11px
   #666, #DDD rule below; each note begins with a 9px "↑" backlink.
@@ -141,9 +144,16 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 rebuilding Colly in 2026"; the shell stays v4, the post body gains
 modern elements drawn in v4's vocabulary)
 
-- Callouts (`::: note|tip|warning Title`): the image/card treatment on a
-  note — #FFFAFA fill, 1px #DDD border, shadow, 3px left rule (#999 note,
-  #d24b21 tip, #ba1820 warning), 12px spaced-caps title, 14px/20px text.
+- Callouts (`::: note|tip|key|warning Title`): the card treatment on a note —
+  1px #DDD border, shadow, a 3px left rule, 12px spaced-caps title in the
+  rule's colour, 14px/20px text, and a barely-tinted fill. Four muted ink
+  hues, added 2026-08-30 on Kalyan's ask for "better colours"; they are the
+  ONLY exception to §2's one-accent rule and exist nowhere else:
+    note    slate  #43606f on #FAFBFC — context, definition, where it sits
+    tip     moss   #5c6b4a on #FBFCFA — method, how to write it
+    key     ochre  #8a6a2f on #FDFBF6 — the thing to remember
+    warning red    #ba1820 on #FDFAFA — the mistake, the caution
+  Lists inside a callout use dotted rules, not dashed.
 - Collapsibles (`::: details Summary`): native <details>, dashed rules,
   red marker. No JS.
 - Code fences: language, `/2-3` highlighted lines (rgba red .08), and
@@ -151,7 +161,9 @@ modern elements drawn in v4's vocabulary)
 - Table of contents (front matter `toc: true`): built from ## and ###
   heads; rendered in the v4 sidebar under "In this entry" (the "Jump
   directly to" pattern) and, on canvases ≤989px where the sidebar hides,
-  as a rule-bound block under the meta line.
+  as a rule-bound block under the meta line. Sidebar form: #CCC rule top
+  and bottom, #E4E0DA between; h2 items 13px/17px, h3 items 11px italic
+  #999 indented beneath their parent.
 - Section anchors: every ## and ### gets an id and a "#" link visible on
   hover (#999, 14px).
 - <kbd>: VT323 16px on white, 1px #CCC border, 2px bottom, 3px radius.
@@ -213,4 +225,6 @@ package-lock.json, .nvmrc, reference/**, this file.
 | pre only, Courier | Prism colours at build time; VT323 8-bit face; inline code on #EEE | posts carry code; Kalyan's ask |
 | ≤989px: text flush left, numerals hidden | 30px gutter both sides; ol and footnote numerals kept | "not showing fully" — Kalyan 2026-08-30 |
 | — | `sub`, `toc` front-matter keys | tagline under titles; table of contents |
+| — | four muted callout hues (§7b) | Kalyan, "better colours" |
+| v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |

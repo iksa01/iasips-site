@@ -89,6 +89,31 @@ the breakpoint must reset children to column 1.
 Not adopted (and I recommend against): dark mode, view transitions, sticky
 sidebar, extra hues, JS widgets.
 
+## 2026-08-30 — the sample essay becomes a real specimen
+
+Kalyan: "I like the present journal sample essay. Keep that as it is...
+forget about the 2026 one." The layout2026 experiment is REMOVED (post, CSS
+block and the ::: side / ::: bleed containers) — recoverable from commit
+98efd0d if ever wanted.
+
+Done instead, on his list:
+- Better colours: callouts now carry four muted ink hues — slate (note),
+  moss (tip), ochre (key), red (warning) — the only exception to the
+  one-accent rule, recorded in DESIGN.md §7b and §14.
+- Sidebar "In this entry" reworked: rules top and bottom, h2 items 13px,
+  h3 items 11px italic grey indented beneath.
+- Prose lists split from ledger lists: hanging en-dash, no rules. v4's
+  dashed rows stay for the archive, about-page data and the sidebar.
+- Code that overflowed the 516px column was rewritten to fit; a code block
+  should never need horizontal scrolling in the reading column.
+- The sample essay is now a full UPSC specimen ("The Basic Structure
+  Doctrine", GS2/Polity) exercising every element: dropcap, TOC, prose and
+  numbered lists, two tables, blockquote with cite, all four callouts, a
+  <details>, a titled code block with line highlighting, asterism,
+  footnotes. It is a DESIGN SPECIMEN, not Kalyan's published writing —
+  facts are standard constitutional history and the practice stems are
+  framed, not quoted from past papers.
+
 ## Status
 - NOT frozen. Kalyan has not said "frozen". Until then CSS/layout edits
   are allowed on his instruction.
