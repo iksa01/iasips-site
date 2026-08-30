@@ -64,6 +64,8 @@ decline and report.
 - `---` is the hairline; `***` is the asterism. Footnotes are `[^n]`.
 - Callouts: `::: note Title` / `::: tip Title` / `::: warning Title` … `:::`.
   Collapsible: `::: details Summary line` … `:::`.
+- 2026 reading layout (front matter `layout2026: true`): `::: side` puts a
+  note in the margin, `::: bleed` lets a block span the full width.
 - Code fences: ```js/2-3 title="file.js" — language, highlighted lines,
   filename tab; all optional.
 

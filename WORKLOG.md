@@ -67,6 +67,28 @@ from Colly's shelf into a docs site. Awaiting his pick; each is a "design
 change". Delete /modern/, its .callout-colour/-colourb/-mark CSS block and the
 extra container names in .eleventy.js once decided.
 
+## 2026-08-30 — "make it 2026" (joshwcomeau.com)
+
+Kalyan: joshwcomeau.com reads as 2026, how do we get there. Measured what
+that site actually does: ~42rem measure, fluid type, generous air, and a
+three-track grid where images/demos BREAK OUT of the reading column. Its
+other signatures — dark mode, interactive widgets, motion, second hues — are
+forbidden by DESIGN.md §10/§12 and would stop this looking like a miscellany.
+
+So: 2026 = space, scale and the grid. Built as opt-in, shell untouched.
+Front matter `layout2026: true` gives a post:
+  - three tracks (sidenote margin | 40em column | break-out), centred
+  - `::: side` renders a margin sidenote (Tufte); folds inline under 1100px
+  - `::: bleed` spans the full panel width
+  - fluid type via clamp() 15->17px, leading 1.62, text-wrap: balance
+  - #post uses display:contents so paragraphs are real grid items
+Demo: /journal/layout-2026/ (working entry — delete when decided).
+Gotcha fixed: at narrow widths `grid-column: 2` invents a second column, so
+the breakpoint must reset children to column 1.
+
+Not adopted (and I recommend against): dark mode, view transitions, sticky
+sidebar, extra hues, JS widgets.
+
 ## Status
 - NOT frozen. Kalyan has not said "frozen". Until then CSS/layout edits
   are allowed on his instruction.

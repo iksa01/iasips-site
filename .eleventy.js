@@ -92,6 +92,18 @@ module.exports = function (eleventyConfig) {
       },
     });
   }
+  // 2026 layout blocks: ::: side  (margin sidenote)  and  ::: bleed  (break-out)
+  md.use(markdownItContainer, "side", {
+    render(tokens, i) {
+      return tokens[i].nesting === 1 ? '<aside class="sidenote">\n' : "</aside>\n";
+    },
+  });
+  md.use(markdownItContainer, "bleed", {
+    render(tokens, i) {
+      return tokens[i].nesting === 1 ? '<div class="bleed">\n' : "</div>\n";
+    },
+  });
+
   md.use(markdownItContainer, "details", {
     render(tokens, i) {
       const tk = tokens[i];
