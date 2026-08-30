@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+<div id="content-wrap">
+<div id="content-pri">
+<h2 class="page-title">{{ title }}</h2>
+{% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
+<div class="entry{% if dropcap %} dropcap{% endif %}">
+{{ content | safe }}
+</div>
+</div>
+<div id="content-sec"></div>
+</div>

@@ -1,0 +1,268 @@
+/* screen.css — Simon Collison's v4 system, transcribed from
+   reference/colly-v4/screen.css (measured 2026-08-30) and adopted whole on
+   Kalyan's side-by-side verdict. Pixel values are v4's own. Departures are
+   marked "ours". FROZEN once Kalyan says so (DESIGN.md §13). */
+
+/* 0. The one webfont: the wordmark face (v4 used a logo image) --------- */
+@font-face { font-family: 'League Gothic'; src: url('/fonts/LeagueGothic-Regular.woff2') format('woff2');
+             font-weight: normal; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'VT323'; src: url('/fonts/VT323-Regular.woff2') format('woff2');
+             font-weight: normal; font-style: normal; font-display: swap; }   /* the 8-bit code face (design change 2026-08-30) */
+
+/* 1. Body and page ------------------------------------------------------ */
+html { background: #F3EFEB; }                              /* paper-tile.jpg mean */
+body { text-rendering: optimizeLegibility; margin: 0; padding: 0;
+       font-family: "Times New Roman", Times, Cambria, serif; font-size: 13px; line-height: 22px; color: #333;
+       background-image: linear-gradient(to right, rgba(192,189,183,.135) 1px, transparent 1px),
+                         linear-gradient(to bottom, rgba(192,189,183,.135) 1px, transparent 1px);
+       background-size: 10.5px 10.5px; }                   /* graph-tile.png, drawn in CSS */
+
+/* 2. Default styling ---------------------------------------------------- */
+ul li a span.strap { display: block; text-align: center; font-style: italic; }
+ul li a span.label { display: block; text-align: center; padding: 2px 0 0 0; font-size: 12px; font-weight: normal;
+                     font-style: normal; text-transform: uppercase; letter-spacing: 1px; color: #000; }
+ul li span.label span { display: inline; font-size: 15px; }
+ul li span.label span.kern-a { display: inline; font-size: 15px; letter-spacing: 0; }
+ul li span.label span.kern { display: inline; font-size: 12px; letter-spacing: 0; }
+ul li a:link, ul li a:visited, ol li a:link, ol li a:visited { color: #999; text-decoration: none; }
+ul li a:hover, ol li a:hover { color: #ba1820; text-decoration: none; }
+.fl { float: left; margin: 7px 4px 0 0; padding: 0; font-size: 65px; line-height: 62%; color: #ba1820; }
+
+/* Code (v4 pre, plus build-time Prism colours in the v4 palette — ours) */
+pre { margin: 6px 0 15px 0; padding: 20px; background: #EEE; border-top: 1px solid #CCC; border-bottom: 1px solid #CCC;
+      font-family: 'VT323', "Courier New", Courier, monospace; font-size: 18px; line-height: 20px; overflow: auto; tab-size: 2; }
+pre[class*="language-"] { padding: 20px; }
+code { margin: 0; padding: 0; font-family: 'VT323', Courier, monospace; font-size: 18px; line-height: 1; }
+p code, li code, td code { padding: 0 4px; background: #EEE; font-size: 17px; }
+pre code { padding: 0; background: none; font-size: inherit; line-height: inherit; }
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: #999; font-style: italic; }
+.token.punctuation { color: #999; }
+.token.keyword, .token.tag, .token.important, .token.atrule, .token.rule { color: #ba1820; }
+.token.string, .token.attr-value, .token.char, .token.regex, .token.inserted { color: #d24b21; }
+.token.number, .token.boolean, .token.constant, .token.symbol, .token.deleted { color: #666; }
+.token.function, .token.class-name, .token.selector, .token.property, .token.attr-name, .token.builtin { color: #000; }
+.token.operator, .token.entity, .token.url, .token.variable { color: #333; }
+.token.bold { font-weight: bold; } .token.italic { font-style: italic; }
+
+hr { margin: 35px 0; border: 0; border-top: 1px dashed #ccc; }
+hr.asterism { border: 0; text-align: center; color: #ccc; font-size: 16px; line-height: 1; }   /* ours */
+hr.asterism::before { content: "⁂"; }
+
+/* 3. Headings ----------------------------------------------------------- */
+/* Masthead: v4's logo.png lockup set in type (ours). */
+#branding { margin: 0 0 18px 0; padding: 8px 0 20px 0; text-align: center; }
+#branding a { display: block; width: 460px; margin: -22px auto 0 auto; text-decoration: none; color: #333; }
+#branding .m-strap { display: block; font-style: italic; font-size: 15px; line-height: 20px; color: #555; }
+#branding .m-line { display: block; font-weight: bold; font-size: 13px; line-height: 18px; letter-spacing: 2px;
+                    text-transform: uppercase; color: #333; }
+#branding .m-name { display: block; font-family: 'League Gothic', 'Arial Narrow', Impact, sans-serif; font-size: 56px;
+                    line-height: 52px; letter-spacing: .5px; text-transform: uppercase; color: #ba1820; }
+#branding a:hover .m-name { color: #333; }
+
+div#content-pri h2.page-title { clear: both; margin: 10px 0 0 0; padding: 0 0 28px 0; font-weight: normal; font-size: 35px;
+                                line-height: 29px;
+                                background: linear-gradient(rgba(102,102,102,.24), rgba(102,102,102,.24)) center bottom 13px / 100% 1px repeat-x; }
+.journal#article div#content-pri h2.page-title { margin: 0; line-height: 40px; }
+h2.ext-dests { clear: both; margin: 20px 0 32px 0; padding: 0; text-align: center; font-weight: normal; font-size: 28px;
+               line-height: 20px; font-family: 'League Gothic', 'Arial Narrow', Impact, sans-serif; text-transform: uppercase;
+               letter-spacing: .5px; }                       /* ext-refs.png set in type (ours) */
+h2.ext-dests a:link, h2.ext-dests a:visited { color: #333; text-decoration: none; }
+h2.ext-dests a span { color: #ba1820; }
+h2.ext-dests a small { font-family: "Times New Roman", Times, serif; font-size: 12px; letter-spacing: 1px; color: #ba1820; }
+h2.ext-dests a:hover { text-decoration: underline; }
+.journal#multiple div#content-pri h3 { clear: both; margin: 10px 0 0 0; padding: 0; font-weight: normal; font-size: 35px; }
+.journal#multiple div#content-pri h3 a:link, .journal#multiple div#content-pri h3 a:visited { display: block; width: 100%;
+    font-size: 25px; padding: 0 0 12px 0; text-decoration: none; border-bottom: 1px solid #DDD; line-height: 30px; }
+.journal#multiple div#content-pri h3 a:link { color: #ba1820; }
+.journal#multiple div#content-pri h3 a:visited { color: #d0656a; }
+.journal#multiple div#content-pri h3 a:hover { border-bottom: 1px solid #999; }
+div#content-sec h3 { clear: both; text-align: right; margin: 0 0 7px 25px; padding: 0; font-size: 12px; color: #000;
+                     font-weight: normal; font-style: normal; text-transform: uppercase; letter-spacing: 1px; line-height: 120%; }
+h4 { clear: both; margin: 10px 0 12px 0; padding: 0; font-weight: normal; font-size: 14px; color: #333; text-transform: uppercase; }
+.journal div#content-pri h4 span { font-size: 10px; }
+h5 { margin: 30px 0 10px 0; font-weight: normal; font-size: 20px; }
+h5 span { font-size: 11px; font-style: italic; color: #999; }
+h6 { clear: both; margin: 30px 0 0 0; padding: 0; font-size: 14px; color: #333; text-transform: uppercase; }
+.biography h6 { margin: 14px 0 4px 0; font-weight: normal; color: #666; text-transform: capitalize; }
+.entry h1, .entry h2 { clear: both; margin: 30px 0 10px 0; font-weight: normal; font-size: 20px; line-height: 26px; }  /* ours: in-body heads */
+.entry h3 { margin: 30px 0 10px 0; font-weight: normal; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* 4. Links -------------------------------------------------------------- */
+a { outline: 0; }
+a:link, a:visited { color: #ba1820; }
+a:hover, a:focus { color: #999; }
+
+/* 5. Layout ------------------------------------------------------------- */
+div#page { width: 946px; margin: 20px auto; padding: 30px 17px 10px 17px; }
+div#content-wrap { overflow: auto; clear: both; margin: 0 3px 35px 0; padding: 40px 0 70px 0; border: 1px solid #DDD;
+                   box-shadow: 1px 1px 7px rgba(153,153,153,.2); border-radius: 5px; background: rgba(252,250,250,.69); }
+div#content-pri { float: right; width: 516px; margin: 0; padding: 5px 110px 0 87px; border-left: 1px dashed #DDD; }
+div#content-sec { float: left; width: 196px; margin: 0; padding: 0 25px 0 0; }
+
+div#content-pri ul { list-style-type: none; margin: 0; padding: 0; }
+div#content-pri ol { margin: 0; padding: 0; }
+div#content-pri ul li, div#content-pri ol li { width: 100%; padding: 5px 0; border-bottom: 1px dashed #DDD; font-size: 15px; }
+.archive div#content-pri ul li.date-heading { margin: 30px 0 0 0; padding-bottom: 10px; font-weight: normal; font-size: 18px; }
+div#content-pri ul li:first-child { border-top: 1px dashed #CCC; }
+.archive div#content-pri ul li:first-child { border-top: 0; }
+div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #999; }
+div#content-pri p { font-size: 15px; color: #333; }
+div#content-pri p a:link { text-decoration: underline; color: #ba1820; }
+div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: none; color: #ba1820; }
+div#content-pri p a:visited { text-decoration: underline; color: #d0656a; }
+div#content-pri ul li a:visited, div#content-pri ol li a:visited { text-decoration: none; color: #d0656a; }
+div#content-pri p a:hover, div#content-pri ul li a:hover, div#content-pri ol li a:hover { text-decoration: underline; color: #666; }
+div#content-pri table { border-collapse: collapse; margin: 0 0 15px; font-size: 15px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }  /* ours */
+div#content-pri th { font-weight: normal; text-align: left; border-bottom: 1px dashed #DDD; }
+div#content-pri th, div#content-pri td { padding: 5px 12px 5px 0; vertical-align: top; }
+
+div#content-pri p.sub { clear: both; margin: 0 0 44px 0; padding: 0; font-weight: normal; font-size: 15px; color: #333; text-transform: uppercase; }
+div#content-pri p.sub span { margin: 0; padding: 0; font-size: 10px; }
+div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 26px; }     /* v4 p.intro */
+div#content-pri .entry.dropcap > p:first-of-type::first-letter { float: left; margin: 0 3px 0 0; font-size: 57px; line-height: 92%; }
+div#content-pri p.meta { margin: 0 0 45px 0; padding: 6px 0; font-size: 13px; font-style: italic; color: #666; line-height: 19px;
+                         border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
+div#content-pri img { margin: 6px 0 2px 0; padding: 7px; background: #FFFAFA; border: 1px solid #ddd; box-shadow: 1px 1px 7px rgba(153,153,153,.2); max-width: 100%; box-sizing: border-box; }
+div#content-pri figure { margin: 0 0 15px; }
+div#content-pri figcaption { margin-top: 2px; font-size: 12px; color: #666; }                          /* v4 cite */
+div#content-pri cite { display: block; margin-top: -13px; margin-bottom: 20px; padding: 0; font-size: 12px; }
+div#content-pri cite span { color: #999; }
+div#content-pri blockquote { margin: 0; padding: 0 0 0 15px; border-left: 3px solid #EEE; }
+div#content-pri blockquote p { font-size: 16px; color: #666; margin-bottom: 7px; line-height: 150%; }
+div#content-pri blockquote cite { margin: 0; padding: 7px 0 0 0; color: #666; }
+div#content-pri #post { padding-bottom: 80px; }
+div#content-pri sup.footnote-ref { font-size: 10px; line-height: 0; color: #666; }
+div#content-pri sup.footnote-ref a:link, div#content-pri sup.footnote-ref a:visited { color: #666; text-decoration: none; }
+div#content-pri ol#footnotes::before { content: "Footnotes"; display: block; padding: 10px 0; margin: 60px 0 0 0; font-size: 12px;
+    font-weight: normal; font-style: normal; text-transform: uppercase; letter-spacing: 1px; line-height: 120%; color: #666;
+    border-top: 1px solid #DDD; }                                                                       /* v4 p#footnote */
+.journal div#content-pri ol#footnotes::before { margin: 30px 0 0 0; }
+div#content-pri ol#footnotes { padding: 0 0 10px 0; color: #666; font-size: 11px; margin: 0; line-height: 125%; border-bottom: 1px solid #DDD; list-style: decimal outside; }
+div#content-pri ol#footnotes li { font-size: 11px; border: 0; padding: 0; width: auto; }
+div#content-pri ol#footnotes li > p { display: inline; margin: 0; font-size: 11px; color: #666; }
+div#content-pri ol#footnotes a.scrollto { margin-top: -2px; padding: 0 3px 0 2px; font-size: 9px; text-decoration: none; }
+
+div#content-sec p { margin: 4px 0 0 25px; padding: 10px 0 9px 0; font-size: 14px; font-style: italic; color: #666; text-align: right;
+                    line-height: 19px; border-top: 1px dashed #CCC; }
+.biography div#content-sec p { border-top: 0; }
+div#content-sec ul { list-style-type: none; margin: 4px 0 35px 25px; padding: 0; }
+div#content-sec ul li { text-align: right; width: 100%; padding: 2px 0; font-size: 13px; border-bottom: 1px dashed #CCC; }
+div#content-sec ul li:first-child { border-top: 1px dashed #CCC; }
+div#content-sec p a:link, div#content-sec ul li a:link { text-decoration: none; color: #ba1820; }
+div#content-sec p a:visited, div#content-sec ul li a:visited { text-decoration: none; color: #d0656a; }
+div#content-sec p a:hover, div#content-sec ul li a:hover { text-decoration: underline; color: #666; }
+div#content-sec img { background: #FFFAFA; margin: 0 0 0 30px; padding: 7px; border: 1px solid #eee;
+                      box-shadow: 1px 1px 7px rgba(153,153,153,.2); transform: rotate(-2deg); }
+div#content-sec p.home-link { text-align: left; margin: 0 0 40px 25px; padding: 0; border: 0; font-style: normal; font-size: 12px;
+                              text-transform: uppercase; letter-spacing: 1px; }                    /* v4 home-c.png, in type */
+
+/* 6. Navigation --------------------------------------------------------- */
+ul#nav-primary { clear: both; list-style-type: none; margin: 12px 0 30px 0; padding: 0 0 28px 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.home ul#nav-primary { margin: 12px 0 0 0; padding: 0 0 41px 0; }
+.external ul#nav-primary { margin: 12px 0 10px 0; padding: 0; }
+
+li.card { line-height: 18px; width: 207px; padding: 10px; border: 1px solid #DDD; color: #333;
+          box-shadow: 1px 1px 7px rgba(153,153,153,.2); border-radius: 5px; background-color: #fff; opacity: .6; }
+.home li.card, .external li.card, ul.subnav li.card { background-color: rgba(253,251,251,.55); opacity: 1; }
+li.card.current, li.card:hover { background-color: #fff; opacity: 1; }
+li.card a { display: block; }
+li.card .engraving { display: flex; height: 105px; overflow: hidden; align-items: flex-end; justify-content: center; }
+li.card .engraving img { display: block; max-width: 100%; }
+
+ul.subnav { list-style-type: none; margin: 0 0 10px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; line-height: 18px; }
+ul.subnav:last-of-type { margin: 0; padding: 0 0 50px 0; }
+ul.subnav li.card { text-align: center; font-size: 13px; font-style: italic; font-weight: normal; color: #d24b21; }
+
+/* 7. Siteinfo / footer -------------------------------------------------- */
+div#siteinfo { position: relative; clear: both; text-align: center; padding: 60px 0 0 0; color: #999; }   /* v4: 125px above deranged.png */
+div#siteinfo p { margin: 0; padding: 0; }
+div#siteinfo p span { font-family: Courier, monospace; color: #fca0a5; }
+div#siteinfo a:link, div#siteinfo a:visited { text-decoration: underline; color: #beb2b2; }
+
+/* 8. Quote entries (ours — DESIGN.md §8, in the v4 palette) ------------- */
+div#content-pri blockquote.quote-panel { margin: 0 0 10px 0; padding: 4px 0 4px 15px; border-left: 3px solid #ba1820; }
+div#content-pri blockquote.quote-panel p { font-size: 24px; line-height: 32px; color: #333; margin: 0 0 8px 0; }
+div#content-pri blockquote.quote-panel cite { display: block; margin: 0; padding: 4px 0 0 0; font-size: 12px; font-style: normal;
+                                             text-transform: uppercase; letter-spacing: 1px; color: #333; }
+div#content-pri blockquote.quote-panel cite::before { content: "— "; }
+div#content-pri blockquote.quote-panel p:has(> cite:only-child) { font-size: 12px; line-height: 19px; margin: 0; }
+
+/* 8b. 2026 body elements (ours, in the v4 vocabulary) --------------- */
+/* callouts: the image/card treatment applied to a note */
+div#content-pri aside.callout { margin: 6px 0 15px 0; padding: 12px 15px 4px 15px; background: #FFFAFA; border: 1px solid #DDD;
+    border-left: 3px solid #999; box-shadow: 1px 1px 7px rgba(153,153,153,.2); }
+div#content-pri aside.callout-tip { border-left-color: #d24b21; }
+div#content-pri aside.callout-warning { border-left-color: #ba1820; }
+div#content-pri aside.callout p { font-size: 14px; line-height: 20px; margin: 0 0 8px 0; }
+div#content-pri aside.callout p.callout-title { margin: 0 0 4px 0; font-size: 12px; font-style: normal; text-transform: uppercase;
+    letter-spacing: 1px; color: #666; }
+/* collapsibles */
+div#content-pri details { margin: 6px 0 15px 0; padding: 0 15px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }
+div#content-pri details summary { cursor: pointer; padding: 8px 0; font-size: 15px; list-style-position: outside; }
+div#content-pri details summary::marker { color: #ba1820; }
+div#content-pri details[open] summary { border-bottom: 1px dashed #DDD; margin-bottom: 8px; }
+/* keys and abbreviations */
+kbd { font-family: 'VT323', Courier, monospace; font-size: 16px; padding: 0 5px; background: #fff; border: 1px solid #CCC;
+      border-bottom-width: 2px; border-radius: 3px; white-space: nowrap; }
+abbr[title] { text-decoration: underline dotted #999; text-underline-offset: 2px; cursor: help; }
+/* section anchors */
+div#content-pri .entry h2 .anchor, div#content-pri .entry h3 .anchor { visibility: hidden; margin-left: 6px; font-size: 14px;
+    text-decoration: none; color: #999; letter-spacing: 0; }
+div#content-pri .entry h2:hover .anchor, div#content-pri .entry h3:hover .anchor { visibility: visible; }
+/* code: filename tab + highlighted lines */
+div#content-pri figure.code { margin: 6px 0 15px 0; }
+div#content-pri figure.code figcaption { margin: 0; padding: 3px 20px; background: #E4E4E4; border-top: 1px solid #CCC;
+    font-family: 'VT323', Courier, monospace; font-size: 16px; color: #666; }
+div#content-pri figure.code pre { margin: 0; border-top: 0; }
+pre mark.highlight-line { display: inline-block; width: 100%; background: rgba(186,24,32,.08); color: inherit; }
+pre mark.highlight-line-add { background: rgba(210,75,33,.10); }
+pre mark.highlight-line-remove { background: rgba(153,153,153,.15); text-decoration: line-through; }
+/* table of contents: sidebar (v4 "Jump directly to") + an in-body copy for narrow canvases */
+div#content-sec ul.toc ul { margin: 0; }
+div#content-sec ul.toc ul li { font-size: 12px; padding-right: 12px; border-top: 0; }
+div#content-pri .toc-inline { display: none; margin: 0 0 30px 0; padding: 10px 0; border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
+div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+div#content-pri .toc-inline ul li { font-size: 14px; padding: 2px 0; border: 0; }
+div#content-pri .toc-inline ul ul { margin-left: 15px; }
+/* older / newer (v4 p.paginate) */
+div#content-pri p.paginate { margin: 0; padding: 10px 0; font-size: 12px; font-weight: normal; font-style: normal; text-transform: uppercase;
+    letter-spacing: 1px; color: #333; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; display: flex; justify-content: space-between; gap: 20px; }
+div#content-pri p.paginate a { padding: 1px 3px; text-decoration: none; }
+/* reading time sits in the v4 meta line */
+div#content-pri p.meta span.rt { color: #999; }
+/* 9c. Print (ours) ------------------------------------------------------ */
+@media print {
+  body { background: #fff; font-size: 12pt; }
+  ul#nav-primary, h2.ext-dests, ul.subnav, div#content-sec, div#content-pri p.paginate, .anchor, .toc-inline { display: none; }
+  div#page { width: auto; padding: 0; }
+  div#content-wrap { border: 0; box-shadow: none; background: none; }
+  div#content-pri { float: none; width: auto; padding: 0; border: 0; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
+  #branding .m-name { color: #000; }
+}
+
+/* 9. Media queries (v4's two widths) ------------------------------------ */
+@media (max-width: 989px) {
+  div#page { width: 468px; }
+  .home ul#nav-primary { padding-bottom: 30px; }
+  #page ul.subnav { margin-bottom: 0; }
+  div#content-pri { float: none; width: 408px; margin: 0; padding: 0 30px; border-left: 0; }   /* ours: gutter both sides (v4: 0 30px 0 0) */
+  div#content-sec { display: none; }
+  div#content-pri ol { padding-left: 1.6em; }
+  div#content-pri ol#footnotes { padding-left: 1.6em; }
+  div#content-pri .toc-inline { display: block; }
+  div#content-pri #post img { width: 380px; height: auto; }
+  div#siteinfo p { font-size: 14px; }
+}
+@media (max-width: 509px) {
+  div#page { padding: 30px 0 10px 0; width: 306px; }
+  .home ul#nav-primary { padding-bottom: 30px; }
+  #branding a { width: 306px; }
+  ul#nav-primary li.card, ul.subnav li.card { width: 285px; }
+  .biography li.card .engraving, .journal li.card .engraving, .archive li.card .engraving, .contact li.card .engraving { display: none; }
+  div#content-pri { width: 266px; margin: 0; padding: 0 20px; }
+  div#content-pri h2.page-title { font-size: 25px; }
+  div#content-pri #post img { width: 240px; height: auto; }
+  div#siteinfo p { font-size: 12px; }
+}

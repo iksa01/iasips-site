@@ -1,0 +1,3 @@
+{#- Quote entry block (DESIGN.md §8). Expects: qhtml. -#}
+{%- set parts = qhtml | quoteParts %}
+<blockquote class="quote-panel">{{ parts.quote | safe }}</blockquote>

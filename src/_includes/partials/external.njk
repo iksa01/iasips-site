@@ -1,0 +1,10 @@
+{% from "partials/card.njk" import card %}
+<h2 class="ext-dests"><a href="{{ site.externalsHref }}">External <span>References</span> <small>{ view all }</small></a></h2>
+{%- set letters = ["a", "b", "c", "d"] %}
+{%- for row in site.externals %}
+<ul id="subnav-{{ letters[loop.index0] }}" class="subnav">
+{%- for item in row %}
+{{ card(item, false) }}
+{%- endfor %}
+</ul>
+{%- endfor %}

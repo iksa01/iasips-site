@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+bodyClass: journal
+bodyId: multiple
+---
+<div id="content-wrap">
+<div id="content-pri">
+<h2 class="page-title">{{ title }}</h2>
+{% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
+{%- for e in collections.journal %}
+{%- include "partials/index-entry.njk" %}
+{%- endfor %}
+</div>
+<div id="content-sec"></div>
+</div>

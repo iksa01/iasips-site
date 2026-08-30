@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+bodyClass: journal
+bodyId: article
+---
+{%- set older = collections.journal | getNextCollectionItem %}
+{%- set newer = collections.journal | getPreviousCollectionItem %}
+{%- set tocItems = content | toc if toc else [] %}
+<div id="content-wrap">
+<div id="content-pri">
+{%- if type == "quote" %}
+{%- set qhtml = content %}{% set parts = qhtml | quoteParts %}
+<div id="post">
+{%- include "partials/quote-panel.njk" %}
+<p class="meta">{{ page.date | dateLong | safe }}{% if tags and tags.length %} <br>Archived in {{ tags | join(" | ") }}{% endif %}</p>
+{%- if parts.commentary | trim %}
+<hr>
+<div class="commentary">{{ parts.commentary | safe }}</div>
+{%- endif %}
+</div>
+{%- else %}
+<h2 class="page-title">{{ title }}</h2>
+{% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
+<p class="meta">{{ page.date | dateLong | safe }} <span class="rt">· {{ content | readingTime }} min read</span>{% if tags and tags.length %} <br>Archived in {{ tags | join(" | ") }}{% endif %}</p>
+{%- if tocItems.length %}
+<div class="toc-inline"><h3>In this entry</h3>{% include "partials/toc-list.njk" %}</div>
+{%- endif %}
+<div id="post" class="entry{% if dropcap %} dropcap{% endif %}">
+{{ content | safe }}
+</div>
+{%- endif %}
+{%- if older or newer %}
+<p class="paginate"><span>{% if older %}<a href="{{ older.url }}">&larr; Older: {{ older.data.title | truncate(40) }}</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}">Newer: {{ newer.data.title | truncate(40) }} &rarr;</a>{% endif %}</span></p>
+{%- endif %}
+</div>
+<div id="content-sec">
+<p class="home-link"><a href="/journal/">The Journal</a></p>
+{%- if tocItems.length %}
+<h3>In this entry</h3>
+{% include "partials/toc-list.njk" %}
+{%- endif %}
+</div>
+</div>

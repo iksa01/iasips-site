@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+bodyClass: archive
+---
+<div id="content-wrap">
+<div id="content-pri">
+<h2 class="page-title">{{ title }}</h2>
+{% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
+<ul>
+{%- for g in collections.journal | byYear %}
+<li class="date-heading">{{ g.year }}</li>
+{%- for e in g.items %}
+<li><a href="{{ e.url }}">{{ e.data.title }}</a> <span>{{ e.date | dateLong | safe }}</span></li>
+{%- endfor %}
+{%- endfor %}
+</ul>
+</div>
+<div id="content-sec"></div>
+</div>

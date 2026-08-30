@@ -1,0 +1,4 @@
+[
+  { "date": "2026-12-31", "event": "TODO: forthcoming event", "place": "TODO: city, country", "url": "https://TODO.example", "note": "TODO: date line", "links": [] },
+  { "date": "2026-01-01", "event": "TODO: past event", "place": "TODO: city, country", "url": "https://TODO.example", "note": "", "links": [ { "label": "slides", "url": "https://TODO.example" } ] }
+]

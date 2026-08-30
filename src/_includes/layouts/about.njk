@@ -1,0 +1,63 @@
+---
+layout: layouts/base.njk
+bodyClass: biography
+---
+<div id="content-wrap" class="has-aside">
+<div id="content-pri">
+<h2 class="page-title">{{ title }}</h2>
+{% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
+{%- set parts = content | splitFootnotes %}
+<div class="entry{% if dropcap %} dropcap{% endif %}">
+{{ parts.body | safe }}
+</div>
+{%- if books.length %}
+<h5 id="my-books">Selected Books <span>* denotes co-author</span></h5>
+<ul class="ledger">
+{%- for b in books %}
+<li>{{ b.year }}: {% if b.url %}<a href="{{ b.url }}">{{ b.title }}</a>{% else %}{{ b.title }}{% endif %}{% if b.note %} <span>{{ b.note }}</span>{% endif %}</li>
+{%- endfor %}
+</ul>
+{%- endif %}
+{%- if talks.length %}
+<h5 id="my-presentations">Presentations, workshops, events</h5>
+{%- set forthcoming = [] %}{% set previous = [] %}
+{%- for t in talks %}{% if t.date >= build.date %}{% set forthcoming = (forthcoming.push(t), forthcoming) %}{% else %}{% set previous = (previous.push(t), previous) %}{% endif %}{% endfor %}
+{%- if forthcoming.length %}
+<h6>Forthcoming</h6>
+<ul class="ledger">
+{%- for t in forthcoming %}
+<li>{{ t.date | year }}: {% if t.url %}<a href="{{ t.url }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}{% if t.place %}, {{ t.place }}{% endif %}{% if t.note %} <span>{{ t.note }}</span>{% endif %}</li>
+{%- endfor %}
+</ul>
+{%- endif %}
+{%- if previous.length %}
+<h6>Selected previous</h6>
+<ul class="ledger">
+{%- for t in previous %}
+<li>{{ t.date | year }}: {% if t.url %}<a href="{{ t.url }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}{% if t.place %}, {{ t.place }}{% endif %}{% if t.links and t.links.length %} <span>({% for l in t.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% if not loop.last %} / {% endif %}{% endfor %})</span>{% endif %}</li>
+{%- endfor %}
+</ul>
+{%- endif %}
+{%- endif %}
+{%- if interviews.length %}
+<h5 id="my-interviews">Selected Interviews</h5>
+<ul class="ledger">
+{%- for i in interviews %}
+<li>{{ i.date | year }}: {% if i.url %}<a href="{{ i.url }}">{{ i.title }}</a>{% else %}{{ i.title }}{% endif %}{% if i.note %} <span>{{ i.note }}</span>{% endif %}</li>
+{%- endfor %}
+</ul>
+{%- endif %}
+{{ parts.notes | safe }}
+</div>
+<div id="content-sec">
+<p class="home-link"><a href="/">Home</a></p>
+{#- TODO: portrait — <img src="/images/portrait.jpg" alt="Kalyan" width="196"> (v4 simon-nine.jpg, 196px wide). -#}
+<h3>Jump directly to</h3>
+<ul>
+{%- if books.length %}<li><a href="#my-books">Books</a></li>{% endif %}
+{%- if talks.length %}<li><a href="#my-presentations">Presentations</a></li>{% endif %}
+{%- if interviews.length %}<li><a href="#my-interviews">Interviews</a></li>{% endif %}
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</div>
+</div>

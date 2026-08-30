@@ -1,0 +1,99 @@
+{
+  "url": "https://TODO.example",
+  "title": "TODO: site title",
+  "author": "Kalyan",
+  "language": "en",
+  "masthead": {
+    "strap": "TODO: italic line (v4: “Established Nottingham 2003”)",
+    "line": "TODO: caps line (v4: “The celebrated new miscellany of”)",
+    "name": "Kalyan"
+  },
+  "nav": [
+    {
+      "href": "/about/",
+      "strap": "TODO: strap line for the about card",
+      "label": "About Kalyan",
+      "engraving": "/images/engravings/PLACEHOLDER-colly-pig.png"
+    },
+    {
+      "href": "/journal/",
+      "strap": "TODO: strap line for the journal card",
+      "label": "The Journal",
+      "engraving": "/images/engravings/PLACEHOLDER-colly-butterfly.png"
+    },
+    {
+      "href": "/archive/",
+      "strap": "TODO: strap line for the archive card",
+      "label": "The Archive",
+      "engraving": "/images/engravings/PLACEHOLDER-colly-bigfish.png"
+    },
+    {
+      "href": "/contact/",
+      "strap": "TODO: strap line for the contact card",
+      "label": "Receiving Your Emails",
+      "kern": {
+        "0": "kern-a"
+      },
+      "engraving": "/images/engravings/PLACEHOLDER-colly-crab.png"
+    }
+  ],
+  "externalsHref": "/external/",
+  "externals": [
+    [
+      {
+        "href": "https://TODO.example/newsletter",
+        "strap": "TODO: strap",
+        "label": "News Letter",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-salamander.png"
+      },
+      {
+        "href": "https://x.com/TODO",
+        "strap": "TODO: strap",
+        "label": "Follow Me On X",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-beetle.png"
+      },
+      {
+        "href": "/feed.xml",
+        "strap": "TODO: strap",
+        "label": "RSS Feed",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-snake.png"
+      },
+      {
+        "href": "https://TODO.example",
+        "strap": "TODO: strap",
+        "label": "TODO Destination",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-tortoise.png"
+      }
+    ],
+    [
+      {
+        "href": "https://TODO.example",
+        "strap": "TODO: strap",
+        "label": "TODO Destination",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-reptile.png"
+      },
+      {
+        "href": "https://TODO.example",
+        "strap": "TODO: strap",
+        "label": "TODO Destination",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-grasshopper.png"
+      },
+      {
+        "href": "https://TODO.example",
+        "strap": "TODO: strap",
+        "label": "TODO Destination",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-rabbit.png"
+      },
+      {
+        "href": "https://TODO.example",
+        "strap": "TODO: strap",
+        "label": "TODO Destination",
+        "engraving": "/images/engravings/PLACEHOLDER-colly-wasp.png"
+      }
+    ]
+  ],
+  "colophon": [
+    "Copyright © Kalyan 2026. TODO: licence line. Grab the <a href=\"/feed.xml\">RSS feed</a>.",
+    "TODO: the witty “engineered in / scaffolded by / kept alive with” line. Scaffolded by <a href=\"https://www.11ty.dev/\">Eleventy</a>."
+  ]
+}
