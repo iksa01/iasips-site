@@ -174,6 +174,13 @@ ul.subnav { list-style-type: none; margin: 0 0 10px 0; padding: 0; display: flex
 ul.subnav:last-of-type { margin: 0; padding: 0 0 50px 0; }
 ul.subnav li.card { text-align: center; font-size: 13px; font-style: italic; font-weight: normal; color: #d24b21; }
 
+/* 6b. Engraving samples — working page, delete with the page (ours) ---- */
+.samples { clear: both; }
+.samples p.samples-lede { max-width: 640px; margin: 0 auto 30px auto; text-align: center; font-size: 15px; color: #333; }
+h3.sample-head { clear: both; margin: 30px 0 12px 0; font-weight: normal; font-size: 20px; color: #333; }
+h3.sample-head span { display: block; font-size: 13px; font-style: italic; color: #999; }
+.samples p.samples-foot { clear: both; margin: 20px 0 0 0; font-size: 12px; font-style: italic; color: #999; }
+
 /* 7. Siteinfo / footer -------------------------------------------------- */
 div#siteinfo { position: relative; clear: both; text-align: center; padding: 60px 0 0 0; color: #999; }   /* v4: 125px above deranged.png */
 div#siteinfo p { margin: 0; padding: 0; }

@@ -11,6 +11,22 @@
   callouts, details, code tabs + line marks (VT323), sidebar TOC, anchors,
   kbd/abbr, reading time, older/newer, print. DESIGN.md §7b.
 
+## 2026-08-30 — engraving samples
+
+Kalyan asked for alternatives to Colly's copied animals. Sixteen open-licensed
+engravings pulled from Wikimedia Commons, processed like Colly's (greyscale,
+background knocked to transparency, trimmed, 200x160, bottom-anchored) into
+images/engravings/samples/, four themes x four cards. Preview at /engravings/
+(working page, excluded from collections — delete it and src/_data/
+engravingSamples.json, layouts/engravings.njk and the .samples CSS block once
+a theme is chosen). Provenance and licences: images/engravings/CREDITS.md.
+
+Lesson from the proof: Colly's animals are CUT-OUT creatures on white. Sources
+that are full plates (scene, foliage, plate borders) do not read at 200x160.
+The best of the sixteen are the ones already isolated — tiger, pigeon, owl,
+peacock. Whichever theme wins, the remaining slots should be re-sourced as
+isolated woodcuts (Brehms Tierleben and Bewick are the richest seams).
+
 ## Status
 - NOT frozen. Kalyan has not said "frozen". Until then CSS/layout edits
   are allowed on his instruction.

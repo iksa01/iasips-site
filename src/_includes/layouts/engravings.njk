@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+bodyClass: external
+---
+{% from "partials/card.njk" import card %}
+<div class="samples">
+<p class="samples-lede">{{ sub }}</p>
+{%- for theme in engravingSamples %}
+<h3 class="sample-head" id="{{ theme.id }}">{{ theme.name }} <span>{{ theme.note }}</span></h3>
+<ul class="subnav">
+{%- for slot in theme.cards %}
+{%- set n = site.nav[loop.index0] %}
+{{ card({ href: "#" + theme.id, strap: n.strap, label: n.label, kern: n.kern, engraving: "/images/engravings/samples/" + slot + ".png" }, false) }}
+{%- endfor %}
+</ul>
+{%- endfor %}
+<p class="samples-foot">Sources and licences: <code>images/engravings/CREDITS.md</code>. Working page — not part of the site.</p>
+</div>

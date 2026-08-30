@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fauna",
+    "name": "Indian fauna",
+    "note": "Colly's shelf, your creatures — peacock, tiger, hornbill, cobra.",
+    "cards": ["fauna-about", "fauna-journal", "fauna-archive", "fauna-contact"]
+  },
+  {
+    "id": "objects",
+    "name": "The writer's desk",
+    "note": "Instruments rather than animals — inkstand, lamp, globe, the post.",
+    "cards": ["objects-about", "objects-journal", "objects-archive", "objects-contact"]
+  },
+  {
+    "id": "botanical",
+    "name": "Botanical plates",
+    "note": "Lotus, fern, banyan, mango — quieter, more paper than ink.",
+    "cards": ["botanical-about", "botanical-journal", "botanical-archive", "botanical-contact"]
+  },
+  {
+    "id": "mixed",
+    "name": "Keyed to the card",
+    "note": "Each picture argues its own card — owl reads, scribe writes, library keeps, pigeon carries.",
+    "cards": ["mixed-about", "mixed-journal", "mixed-archive", "mixed-contact"]
+  }
+]
