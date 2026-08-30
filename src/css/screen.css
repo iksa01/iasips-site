@@ -179,6 +179,11 @@ ul.subnav li.card { text-align: center; font-size: 13px; font-style: italic; fon
 .samples p.samples-lede { max-width: 640px; margin: 0 auto 30px auto; text-align: center; font-size: 15px; color: #333; }
 h3.sample-head { clear: both; margin: 30px 0 12px 0; font-weight: normal; font-size: 20px; color: #333; }
 h3.sample-head span { display: block; font-size: 13px; font-style: italic; color: #999; }
+ul.pool { list-style: none; margin: 0 0 30px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+ul.pool li { width: 152px; padding: 8px; border: 1px solid #DDD; background: rgba(253,251,251,.55); text-align: center; }
+ul.pool li img { display: block; width: 100%; height: auto; }
+ul.pool li span { display: block; margin-top: 4px; font-size: 11px; font-style: italic; color: #999; }
+ul.subnav.faded li.card { opacity: .55; }
 .samples p.samples-foot { clear: both; margin: 20px 0 0 0; font-size: 12px; font-style: italic; color: #999; }
 
 /* 7. Siteinfo / footer -------------------------------------------------- */

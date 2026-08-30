@@ -27,6 +27,29 @@ The best of the sixteen are the ones already isolated — tiger, pigeon, owl,
 peacock. Whichever theme wins, the remaining slots should be re-sourced as
 isolated woodcuts (Brehms Tierleben and Bewick are the richest seams).
 
+## 2026-08-30 — engravings, round 2 (the method that worked)
+
+Kalyan on round 1: "None are actually good... the image is not as clear as
+his." Right. Measuring Colly's own PNGs gave the target profile:
+
+    coverage 9-23% of the tile inked | opaque alpha 74-91% | faint alpha 4-10%
+
+Round 1 scored coverage 17-56% and opaque alpha 3-10% — dense full plates
+rendered as a faint wash. Two faults: sources were plates (scene, foliage,
+plate borders) not cut-out creatures, and the alpha ramp was too soft.
+
+Fixes: (1) alpha ramp lo=0.10 hi=0.18 exp=0.35 — ink goes opaque fast, paper
+goes to nothing (scratchpad process.py); (2) source from Gosse's *Natural
+History* (1849-56) on Commons — 233 files, one subject per file, all PD — and
+pick by SCORING every one against the profile rather than by eye.
+
+The 18 winners are in images/engravings/gosse/. Proposed set: Buceros
+(hornbill head) / Chatterer feather / Fishes p 168 / Eagle Foot, with a pool
+of 14 alternates on /engravings/. Kalyan picks the mapping.
+
+Reusable lesson: measure the reference, score candidates against it, and let
+the numbers choose. Guessing by eye produced four rounds of "not close".
+
 ## Status
 - NOT frozen. Kalyan has not said "frozen". Until then CSS/layout edits
   are allowed on his instruction.
@@ -35,6 +58,7 @@ isolated woodcuts (Brehms Tierleben and Bewick are the richest seams).
 - Every "TODO:" is a fact only Kalyan can supply.
 - Open offers: inline the CSS at build time; Press Start 2P as an
   alternative code face; galleries / series grouping for posts.
+- Awaiting: which Gosse engraving goes on which of the four cards.
 
 ## How to resume
     cd ~/Sites/kalyan-site && claude      # CLAUDE.md loads; read DESIGN.md, AGENTS.md, this file

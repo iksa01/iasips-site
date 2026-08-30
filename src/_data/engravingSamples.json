@@ -1,26 +1,37 @@
-[
-  {
-    "id": "fauna",
-    "name": "Indian fauna",
-    "note": "Colly's shelf, your creatures — peacock, tiger, hornbill, cobra.",
-    "cards": ["fauna-about", "fauna-journal", "fauna-archive", "fauna-contact"]
+{
+  "proposed": {
+    "name": "Gosse — the proposed set",
+    "note": "Philip Henry Gosse, Natural History (1849–1856). Public domain, isolated cuts, chosen by measuring 233 of them against Colly's own profile.",
+    "cards": ["buceros", "chatterer-feather", "fishes-p-168", "eagle-foot"]
   },
-  {
-    "id": "objects",
-    "name": "The writer's desk",
-    "note": "Instruments rather than animals — inkstand, lamp, globe, the post.",
-    "cards": ["objects-about", "objects-journal", "objects-archive", "objects-contact"]
+  "pool": {
+    "name": "The rest of the pool",
+    "note": "Same book, same treatment. Say which one goes on which card and I will swap it.",
+    "items": [
+      { "slug": "fishes-p-105", "label": "Fish" },
+      { "slug": "fishes-p-268", "label": "Sunfish" },
+      { "slug": "fishes-p-145", "label": "Eel" },
+      { "slug": "fishes-p-272", "label": "Lancelet" },
+      { "slug": "duck-beak", "label": "Duck beak" },
+      { "slug": "heron-claw", "label": "Heron claw" },
+      { "slug": "pelican-foot", "label": "Pelican foot" },
+      { "slug": "falcon-beak", "label": "Falcon beak" },
+      { "slug": "macaw-skull", "label": "Macaw skull" },
+      { "slug": "goldfinch-nest", "label": "Goldfinch nest" },
+      { "slug": "alexandrine", "label": "Alexandrine" },
+      { "slug": "coly", "label": "Coly" },
+      { "slug": "green-tody", "label": "Green tody" },
+      { "slug": "emu", "label": "Emu" }
+    ]
   },
-  {
-    "id": "botanical",
-    "name": "Botanical plates",
-    "note": "Lotus, fern, banyan, mango — quieter, more paper than ink.",
-    "cards": ["botanical-about", "botanical-journal", "botanical-archive", "botanical-contact"]
-  },
-  {
-    "id": "mixed",
-    "name": "Keyed to the card",
-    "note": "Each picture argues its own card — owl reads, scribe writes, library keeps, pigeon carries.",
-    "cards": ["mixed-about", "mixed-journal", "mixed-archive", "mixed-contact"]
+  "old": {
+    "name": "First attempt — superseded",
+    "note": "The four themes from the earlier round, kept for comparison. Too dense; full plates rather than cut-out creatures.",
+    "rows": [
+      { "id": "fauna", "cards": ["fauna-about", "fauna-journal", "fauna-archive", "fauna-contact"] },
+      { "id": "objects", "cards": ["objects-about", "objects-journal", "objects-archive", "objects-contact"] },
+      { "id": "botanical", "cards": ["botanical-about", "botanical-journal", "botanical-archive", "botanical-contact"] },
+      { "id": "mixed", "cards": ["mixed-about", "mixed-journal", "mixed-archive", "mixed-contact"] }
+    ]
   }
-]
+}

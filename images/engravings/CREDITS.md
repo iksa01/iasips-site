@@ -1,30 +1,42 @@
 # Engraving samples — provenance and licences
 
-Sixteen public-domain / open-licensed engravings from Wikimedia Commons,
-fetched and processed 2026-08-30: greyscaled, background knocked to
-transparency, trimmed, fitted to 200x160 and bottom-anchored — the same
-treatment Colly's animals have. They are SAMPLES, to let Kalyan choose a
-theme (see /engravings/ on the site). The chosen set becomes the real
-engravings; the rest get deleted.
+## Gosse set (the good one)
 
-Items marked CC BY require a visible credit line if used. Public domain /
-No restrictions items do not.
+Philip Henry Gosse, *Natural History* (1849–1856) — isolated Victorian wood
+engravings, one subject per file, all **public domain**, from Wikimedia Commons.
+Chosen by measurement: each was scored against Colly's own engravings
+(coverage 9–23%, opaque-alpha 74–91%) and these ranked closest out of 233.
+Processed identically: greyscale, paper knocked to transparency with a hard
+alpha ramp so the line work stays opaque, trimmed, 200×160, bottom-anchored.
 
-| slot | file | source | licence |
+| file | subject | source | licence |
 |---|---|---|---|
-| botanical/about | samples/botanical-about.png | [Planche 61 Botanique Et Minéralogie, Botanique 1.2.3 Nymphæa](https://commons.wikimedia.org/wiki/File:Planche_61_Botanique_Et_Minéralogie,_Botanique_1.2.3_Nymphæa_Nelumbo._Histoire_Naturelle_Tome_Deuxieme_(Bis)_(IA_dr_planche-61-botanique-et-minralogie-botanique-123-nympha-nelumbo-histo-10404838).jpg) | Public domain |
-| botanical/archive | samples/botanical-archive.png | [A spreading banyan tree-John Greig after James Forbes, 1774.](https://commons.wikimedia.org/wiki/File:A_spreading_banyan_tree-John_Greig_after_James_Forbes,_1774.jpg) | Public domain |
-| botanical/contact | samples/botanical-contact.png | [Mango (Mangifera indica L.); fruiting tree, leaves, fruit, f](https://commons.wikimedia.org/wiki/File:Mango_(Mangifera_indica_L.);_fruiting_tree,_leaves,_fruit,_f_Wellcome_V0042597.jpg) | CC BY 4.0 |
-| botanical/journal | samples/botanical-journal.png | [Illustrations of the British flora- a series of wood engravi](https://commons.wikimedia.org/wiki/File:Illustrations_of_the_British_flora-_a_series_of_wood_engravings,_with_dissections,_of_British_plants_(1880)_(20555459069).jpg) | No restrictions |
-| fauna/about | samples/fauna-about.png | [Brehms Tierleben - allgemeine Kunde des Tierreichs - mit 180](https://commons.wikimedia.org/wiki/File:Brehms_Tierleben_-_allgemeine_Kunde_des_Tierreichs_-_mit_1800_Abbildungen_im_Text,_9_Karten_und_180_Tafeln_in_Farbendruck_und_Holzschnitt_(1891)_(20406011102).jpg) | No restrictions |
-| fauna/archive | samples/fauna-archive.png | [Illustrated natural history of the animal kingdom, being a s](https://commons.wikimedia.org/wiki/File:Illustrated_natural_history_of_the_animal_kingdom,_being_a_systematic_and_popular_description_of_the_habits,_structure,_and_classification_of_animals_from_the_highest_to_the_lowest_forms,_with_their_(Pl._4)_(8413599535).jpg) | Public domain |
-| fauna/contact | samples/fauna-contact.png | [CobraWoodcut.jpg](https://commons.wikimedia.org/wiki/File:CobraWoodcut.jpg) | Public domain |
-| fauna/journal | samples/fauna-journal.png | [Koenigstiger-drawing.jpg](https://commons.wikimedia.org/wiki/File:Koenigstiger-drawing.jpg) | Public domain |
-| mixed/about | samples/mixed-about.png | [Bewick Thomas Barn Owl Tyto alba.png](https://commons.wikimedia.org/wiki/File:Bewick_Thomas_Barn_Owl_Tyto_alba.png) | Public domain |
-| mixed/archive | samples/mixed-archive.png | [Boutique de M. Dentu, libraire, dans la galerie d'Orléans, e](https://commons.wikimedia.org/wiki/File:Boutique_de_M._Dentu,_libraire,_dans_la_galerie_d'Orléans,_en_1829.jpg) | Public domain |
-| mixed/contact | samples/mixed-contact.png | [The variation of animals and plants under domestication (190](https://commons.wikimedia.org/wiki/File:The_variation_of_animals_and_plants_under_domestication_(1900)_(14591905627).jpg) | No restrictions |
-| mixed/journal | samples/mixed-journal.png | [Teutsch Cicero illustrations (BM 1895,0420.132).jpg](https://commons.wikimedia.org/wiki/File:Teutsch_Cicero_illustrations_(BM_1895,0420.132).jpg) | Public domain |
-| objects/about | samples/objects-about.png | [Ink stand designed ca. 1778 for Sir W.W. Wynn at Sion-house ](https://commons.wikimedia.org/wiki/File:Ink_stand_designed_ca._1778_for_Sir_W.W._Wynn_at_Sion-house_LCCN89715610.jpg) | Public domain |
-| objects/archive | samples/objects-archive.png | [Astronomy; a terrestrial globe, with a device for projecting](https://commons.wikimedia.org/wiki/File:Astronomy;_a_terrestrial_globe,_with_a_device_for_projecting_Wellcome_V0024736.jpg) | CC BY 4.0 |
-| objects/contact | samples/objects-contact.png | [A gallant courtier in elaborate costume walking the street w](https://commons.wikimedia.org/wiki/File:A_gallant_courtier_in_elaborate_costume_walking_the_street_w_Wellcome_V0019521.jpg) | CC BY 4.0 |
-| objects/journal | samples/objects-journal.png | [Fig. 10 - verre du bec d'Argand LCCN2006691769.jpg](https://commons.wikimedia.org/wiki/File:Fig._10_-_verre_du_bec_d'Argand_LCCN2006691769.jpg) | Public domain |
+| gosse/alexandrine.png | Birds - Alexandrine | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Alexandrine.jpg) | Public domain |
+| gosse/buceros.png | Birds - Buceros | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Buceros.jpg) | Public domain |
+| gosse/chatterer-feather.png | Birds - Chatterer feather | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Chatterer_feather.jpg) | Public domain |
+| gosse/coly.png | Birds - Coly | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Coly.jpg) | Public domain |
+| gosse/duck-beak.png | Birds - Duck beak | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Duck_beak.jpg) | Public domain |
+| gosse/eagle-foot.png | Birds - Eagle Foot | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Eagle_Foot.jpg) | Public domain |
+| gosse/emu.png | Birds - Emu | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Emu.jpg) | Public domain |
+| gosse/falcon-beak.png | Birds - Falcon beak | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Falcon_beak.jpg) | Public domain |
+| gosse/fishes-p-105.png | Fishes p 105 | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Fishes_p_105.png) | Public domain |
+| gosse/fishes-p-145.png | Fishes p 145 | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Fishes_p_145.png) | Public domain |
+| gosse/fishes-p-168.png | Fishes p 168 | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Fishes_p_168.png) | Public domain |
+| gosse/fishes-p-268.png | Fishes p 268 | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Fishes_p_268.png) | Public domain |
+| gosse/fishes-p-272.png | Fishes p 272 | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Fishes_p_272.png) | Public domain |
+| gosse/goldfinch-nest.png | Birds - Goldfinch nest | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Goldfinch_nest.jpg) | Public domain |
+| gosse/green-tody.png | Birds - Green Tody | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Green_Tody.jpg) | Public domain |
+| gosse/heron-claw.png | Birds - Heron claw | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Heron_claw.jpg) | Public domain |
+| gosse/macaw-skull.png | Birds - Macaw skull | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Macaw_skull.jpg) | Public domain |
+| gosse/pelican-foot.png | Birds - Pelican foot | [Commons](https://commons.wikimedia.org/wiki/File:Natural_History,_Birds_-_Pelican_foot.jpg) | Public domain |
+
+## Earlier samples (superseded)
+
+`samples/` holds the first four themes (fauna, objects, botanical, mixed) —
+Kalyan's verdict: not as clear as Colly's. Kept only for reference; delete
+with the /engravings/ page. Three of those were CC BY; the Gosse set is not.
+
+## Placeholders
+
+`PLACEHOLDER-colly-*.png` are Simon Collison's own artwork, copied so the
+slots could be judged. Not licensed for this site — must be replaced.
