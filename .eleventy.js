@@ -92,6 +92,14 @@ module.exports = function (eleventyConfig) {
       },
     });
   }
+  // A run-in sidehead list: the term in spaced caps, the gloss beside it.
+  // ::: cases  — for case lists, definitions, anything term-plus-explanation.
+  md.use(markdownItContainer, "cases", {
+    render(tokens, i) {
+      return tokens[i].nesting === 1 ? '<div class="sidehead-list">\n' : "</div>\n";
+    },
+  });
+
   md.use(markdownItContainer, "details", {
     render(tokens, i) {
       const tk = tokens[i];

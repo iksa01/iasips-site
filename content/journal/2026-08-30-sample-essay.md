@@ -16,9 +16,11 @@ GS Paper II — *Indian Constitution: historical underpinnings, evolution, featu
 
 The dispute was narrow and technical, and it was about a single word. Article 368 lets Parliament amend "this Constitution". Does an amendment count as "law" under Article 13(2), which forbids the State from making any law that takes away a fundamental right?
 
-- **Shankari Prasad (1951)** — no. A constitutional amendment is made under constituent power, not legislative power, so Article 13 does not touch it. The First Amendment survived.
-- **Sajjan Singh (1965)** — same answer, but two judges recorded doubts. The doubt is the seed of everything that follows.
-- **Golaknath (1967)** — reversed. By 6:5, an amendment *is* law for Article 13, so Parliament cannot abridge fundamental rights at all. The Court gave the ruling prospective effect, sparing earlier amendments.
+::: cases
+- **Shankari Prasad, 1951** No. A constitutional amendment is made under constituent power, not legislative power, so Article 13 does not touch it. The First Amendment survived.
+- **Sajjan Singh, 1965** The same answer, but two judges recorded doubts. That doubt is the seed of everything which follows.
+- **Golaknath, 1967** Reversed, by 6:5. An amendment *is* law for the purposes of Article 13, so Parliament cannot abridge fundamental rights at all. The Court gave the ruling prospective effect, sparing the amendments already made.
+:::
 
 Golaknath was a fortress, and fortresses invite siege. Parliament replied with the **24th Amendment (1971)**, which stated in terms that Article 13 shall not apply to amendments and that Parliament may amend any provision. Along with the 25th and 29th Amendments, it set up the collision that became *Kesavananda*.
 
@@ -52,12 +54,14 @@ No exhaustive list exists, and the Court has repeatedly refused to make one. Wha
 Supremacy of the Constitution · republican and democratic form of government · secular character · separation of powers between legislature, executive and judiciary. Everything else you cite should be attached to a case.
 :::
 
-- Sovereign, democratic, republican structure
-- Rule of law and judicial review, including under Articles 32 and 226
-- Free and fair elections *(Indira Nehru Gandhi, 1975)*
-- The balance between Fundamental Rights and Directive Principles *(Minerva Mills, 1980)*
-- Federalism and secularism *(S. R. Bommai, 1994)*
-- Independence of the judiciary *(NJAC judgment, 2015, striking down the 99th Amendment)*
+| Feature | Established or affirmed in |
+|---|---|
+| Sovereign, democratic, republican structure | Kesavananda Bharati, 1973 |
+| Rule of law; judicial review under Articles 32 and 226 | Kesavananda Bharati, 1973 |
+| Free and fair elections | Indira Nehru Gandhi, 1975 |
+| Balance between Fundamental Rights and Directive Principles | Minerva Mills, 1980 |
+| Federalism and secularism | S. R. Bommai, 1994 |
+| Independence of the judiciary | NJAC judgment, 2015 |
 
 ::: warning The mistake that costs marks
 Do not write that the doctrine makes fundamental rights unamendable. *Kesavananda* expressly overruled *Golaknath* on that point. Rights **can** be amended; what cannot be done is to damage the essential features. The distinction is the whole answer.

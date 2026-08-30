@@ -85,8 +85,8 @@ h5 { margin: 30px 0 10px 0; font-weight: normal; font-size: 20px; }
 h5 span { font-size: 11px; font-style: italic; color: #999; }
 h6 { clear: both; margin: 30px 0 0 0; padding: 0; font-size: 14px; color: #333; text-transform: uppercase; }
 .biography h6 { margin: 14px 0 4px 0; font-weight: normal; color: #666; text-transform: capitalize; }
-.entry h1, .entry h2 { clear: both; margin: 30px 0 10px 0; font-weight: normal; font-size: 20px; line-height: 26px; }  /* ours: in-body heads */
-.entry h3 { margin: 30px 0 10px 0; font-weight: normal; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.entry h1, .entry h2 { clear: both; margin: 42px 0 12px 0; font-weight: normal; font-size: 20px; line-height: 26px; }  /* ours: in-body heads */
+.entry h3 { margin: 36px 0 10px 0; font-weight: normal; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
 /* 4. Links -------------------------------------------------------------- */
 a { outline: 0; }
@@ -107,31 +107,50 @@ div#content-pri ul li, div#content-pri ol li { width: 100%; padding: 5px 0; bord
 div#content-pri ul li:first-child { border-top: 1px dashed #CCC; }
 .archive div#content-pri ul li:first-child { border-top: 0; }
 div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #999; }
-div#content-pri p { font-size: 15px; color: #333; }
+div#content-pri p { font-size: 15px; line-height: 24px; color: #333; margin: 0 0 15px 0; }
 div#content-pri p a:link { text-decoration: underline; color: #ba1820; }
 div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: none; color: #ba1820; }
 div#content-pri p a:visited { text-decoration: underline; color: #d0656a; }
 div#content-pri ul li a:visited, div#content-pri ol li a:visited { text-decoration: none; color: #d0656a; }
 div#content-pri p a:hover, div#content-pri ul li a:hover, div#content-pri ol li a:hover { text-decoration: underline; color: #666; }
+/* Run-in sidehead list (::: cases) — the term in spaced caps, the gloss
+   beside it. For case lists, definitions, terms with an explanation. */
+div#content-pri .sidehead-list { margin: 4px 0 20px 0; }
+div#content-pri .sidehead-list ul { list-style: none; margin: 0; padding: 0; }
+div#content-pri .sidehead-list li { width: auto; padding: 11px 0 11px 0; border: 0;
+    border-top: 1px dotted #E0DCD6; font-size: 15px; line-height: 24px; }
+div#content-pri .sidehead-list li:first-child { border-top: 1px solid #CCC; }
+div#content-pri .sidehead-list li:last-child { border-bottom: 1px solid #CCC; }
+div#content-pri .sidehead-list li::before { content: none; }
+div#content-pri .sidehead-list li > strong:first-child { display: block; margin-bottom: 2px;
+    font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #43606f; }
+
 /* Prose lists inside an entry: hanging markers, no rules. The dashed-rule
    rows stay for ledger lists (archive, books, the sidebar). */
 div#content-pri .entry > ul, div#content-pri .commentary > ul { list-style: none; margin: 0 0 15px 0; padding: 0 0 0 16px; }
 div#content-pri .entry > ul > li, div#content-pri .commentary > ul > li {
-    position: relative; width: auto; padding: 3px 0; border: 0; }
+    position: relative; width: auto; padding: 0 0 9px 0; border: 0; line-height: 23px; }
 div#content-pri .entry > ul > li::before, div#content-pri .commentary > ul > li::before {
     content: "\2013"; position: absolute; left: -16px; color: #999; }
 div#content-pri .entry > ol, div#content-pri .commentary > ol { margin: 0 0 15px 0; padding: 0 0 0 22px; list-style: decimal outside; }
 div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li {
-    width: auto; padding: 3px 0; border: 0; }
+    width: auto; padding: 0 0 9px 0; border: 0; line-height: 23px; }
+div#content-pri .entry > ol > li::marker { color: #999; }
 div#content-pri .entry > ul ul, div#content-pri .entry > ol ul { margin: 4px 0 4px 0; }
 
-div#content-pri table { border-collapse: collapse; margin: 0 0 15px; font-size: 15px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }  /* ours */
-div#content-pri th { font-weight: normal; text-align: left; border-bottom: 1px dashed #DDD; }
-div#content-pri th, div#content-pri td { padding: 5px 12px 5px 0; vertical-align: top; }
+div#content-pri table { border-collapse: collapse; width: calc(100% + 110px); margin: 4px 0 22px 0;
+    font-size: 14px; line-height: 20px; border-top: 1px solid #CCC; border-bottom: 1px solid #CCC;
+    font-variant-numeric: tabular-nums; }
+div#content-pri thead th { padding: 7px 16px 7px 0; font-weight: normal; font-size: 12px; text-align: left;
+    text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px solid #CCC; white-space: nowrap; }
+div#content-pri tbody td { padding: 9px 16px 9px 0; vertical-align: top; border-bottom: 1px dotted #E0DCD6; }
+div#content-pri tbody tr:last-child td { border-bottom: 0; }
+div#content-pri tbody td:last-child, div#content-pri thead th:last-child { padding-right: 0; }
+div#content-pri td strong { font-weight: bold; }
 
 div#content-pri p.sub { clear: both; margin: 0 0 44px 0; padding: 0; font-weight: normal; font-size: 15px; color: #333; text-transform: uppercase; }
 div#content-pri p.sub span { margin: 0; padding: 0; font-size: 10px; }
-div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 26px; }     /* v4 p.intro */
+div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 29px; margin-bottom: 20px; }     /* v4 p.intro */
 div#content-pri .entry.dropcap > p:first-of-type::first-letter { float: left; margin: 0 3px 0 0; font-size: 57px; line-height: 92%; }
 div#content-pri p.meta { margin: 0 0 45px 0; padding: 6px 0; font-size: 13px; font-style: italic; color: #666; line-height: 19px;
                          border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
@@ -308,6 +327,7 @@ div#content-pri p.meta span.rt { color: #999; }
   div#content-pri ol { padding-left: 1.6em; }
   div#content-pri ol#footnotes { padding-left: 1.6em; }
   div#content-pri .toc-inline { display: block; }
+  div#content-pri table { width: 100%; }
   div#content-pri #post img { width: 380px; height: auto; }
   div#siteinfo p { font-size: 14px; }
 }
@@ -319,6 +339,7 @@ div#content-pri p.meta span.rt { color: #999; }
   .biography li.card .engraving, .journal li.card .engraving, .archive li.card .engraving, .contact li.card .engraving { display: none; }
   div#content-pri { width: 266px; margin: 0; padding: 0 20px; }
   div#content-pri h2.page-title { font-size: 25px; }
+  div#content-pri table { width: 100%; font-size: 13px; }
   div#content-pri #post img { width: 240px; height: auto; }
   div#siteinfo p { font-size: 12px; }
 }

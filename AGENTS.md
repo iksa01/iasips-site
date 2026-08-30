@@ -66,7 +66,10 @@ decline and report.
   `::: warning Title` … `:::` — slate, moss, ochre, red respectively.
   Collapsible: `::: details Summary line` … `:::`.
 - Code fences: ```js/2-3 title="file.js" — language, highlighted lines,
-  filename tab; all optional.
+  filename tab; all optional. Keep lines short enough to fit the column;
+  a code block must never scroll sideways.
+- Term lists: `::: cases` around a bulleted list whose items begin with a
+  bold term renders each term as a spaced-caps sidehead above its gloss.
 
 ## 5. Data files (talks/books/interviews JSON)
 

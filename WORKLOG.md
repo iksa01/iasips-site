@@ -114,6 +114,21 @@ Done instead, on his list:
   facts are standard constitutional history and the practice stems are
   framed, not quoted from past papers.
 
+## 2026-08-30 — presentation pass on the specimen
+
+Kalyan: "design-wise, tables-wise, line-spacing-wise there is a lot of scope
+to improve... the table is all in a column only... the numbered bullets are
+not proper." All three were real.
+
+- Bullets: "- **Shankari Prasad (1951)** — no. ..." produced dash soup (list
+  marker + em dash). Added `::: cases`, a run-in sidehead list: term in
+  spaced-caps slate on its own line, gloss beneath, dotted rules between.
+- Tables: now reclaim the 110px right gutter, tabular numerals, spaced-caps
+  header, dotted row rules, 9px padding. Reset to 100% at the breakpoints.
+  A second table replaced the basic-structure feature bullets.
+- Line spacing: paragraphs 15px/24px (was 22px), 15px between; prose list
+  rows 23px with 9px beneath; section heads 42px clear (was 30px).
+
 ## Status
 - NOT frozen. Kalyan has not said "frozen". Until then CSS/layout edits
   are allowed on his instruction.

@@ -27,7 +27,10 @@ the "8-bit" terminal face Kalyan asked for on 2026-08-30 (design change);
 18px/20px in blocks, 17px inline. Fallback Courier New.
 These are the only two webfonts. Never a sans-serif for text.
 
-- body 13px / 22px; paragraphs, list rows and table cells 15px.
+- body 13px / 22px; paragraphs 15px/24px with 15px between them (v4 set
+  22px; raised 2026-08-30 on Kalyan's ask — the measure is 516px and needed
+  the air). Prose list rows 15px/23px with 9px beneath. Table cells 14px/20px.
+- Section heads sit 42px clear of the text above them (v4: 30px).
 - lede (first paragraph of an entry, v4 p.intro): 18px / 26px.
 - page title h2: 35px / 29px normal weight (article: 40px), 28px below,
   a 1px rgba(102,102,102,.24) rule 13px above the bottom (v4 underline.png).
@@ -131,7 +134,15 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
   #666, #DDD rule below; each note begins with a 9px "↑" backlink.
 - Blockquote: 3px #EEE left rule, 15px padding, 16px #666 text; `<cite>`
   7px below in #666.
-- Tables (ours): dashed rules above, below and under the header.
+- Tables (ours, reworked 2026-08-30): a table reclaims the column's right
+  gutter — `width: calc(100% + 110px)` — because data strangled into the
+  516px measure is unreadable. 14px/20px, tabular numerals, header in 12px
+  spaced caps #666, 1px #CCC above/below/under the header, dotted #E0DCD6
+  between rows, 9px cell padding, no zebra. Full width at the breakpoints.
+- Run-in sidehead list (`::: cases`): term as its own line in 12px spaced
+  caps slate, gloss beneath at 15px/24px, dotted rules between, solid #CCC
+  top and bottom. Use where a bullet would collide with an em dash — case
+  lists, definitions, any term-plus-explanation.
 - Code: v4 pre (20px padding, #EEE fill, 1px #CCC rules above and below)
   set in VT323 18px/20px (v4: Courier New 12px/140%). Fenced blocks are coloured at build time by
   Prism classes (ours) in the palette only: keywords/tags red, strings
@@ -226,5 +237,7 @@ package-lock.json, .nvmrc, reference/**, this file.
 | ≤989px: text flush left, numerals hidden | 30px gutter both sides; ol and footnote numerals kept | "not showing fully" — Kalyan 2026-08-30 |
 | — | `sub`, `toc` front-matter keys | tagline under titles; table of contents |
 | — | four muted callout hues (§7b) | Kalyan, "better colours" |
+| 22px leading, 30px above heads | 24px leading, 42px above heads | Kalyan, "line-spacing-wise there is scope" |
+| tables inside the 516px column | tables reclaim the 110px right gutter | Kalyan, "the table is all in a column only" |
 | v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
