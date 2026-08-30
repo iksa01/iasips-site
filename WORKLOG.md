@@ -58,7 +58,20 @@ the numbers choose. Guessing by eye produced four rounds of "not close".
 - Every "TODO:" is a fact only Kalyan can supply.
 - Open offers: inline the CSS at build time; Press Start 2P as an
   alternative code face; galleries / series grouping for posts.
-- Awaiting: which Gosse engraving goes on which of the four cards.
+- Cards DONE 2026-08-30: Kalyan picked emu, falcon, alexandrine, Coly.
+  Wired as Alexandrine=About, Coly=Journal, Emu=Archive, Falcon beak=Contact;
+  the eight external cards took the rest of the Gosse pool. No Colly artwork
+  is referenced on any real page now (his files stay in images/engravings/
+  as PLACEHOLDER-* for reference only).
+- Geometry lesson: Colly's ink sits in rows 59-155 of the 200x160 tile (a
+  ~69-97px band, bottom-anchored) because the card window is only 105px tall.
+  Fill the whole 160px and the card crops the creature's head off.
+- Idea parked (Kalyan, 2026-08-30): engraved PORTRAITS instead of animals --
+  Sherlock Holmes, Poirot, thinkers. His half-remembered reference is Ethan
+  Marcotte's original Responsive Web Design example, "The Baker Street
+  Inquirer" (alistapart.github.io/code-samples/responsive-web-design/), which
+  uses Sidney Paget's Holmes illustrations. Paget died 1908, so they are
+  public domain and the same pipeline would work.
 
 ## How to resume
     cd ~/Sites/kalyan-site && claude      # CLAUDE.md loads; read DESIGN.md, AGENTS.md, this file

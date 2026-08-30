@@ -13,19 +13,19 @@
       "href": "/about/",
       "strap": "TODO: strap line for the about card",
       "label": "About Kalyan",
-      "engraving": "/images/engravings/PLACEHOLDER-colly-pig.png"
+      "engraving": "/images/engravings/gosse/alexandrine.png"
     },
     {
       "href": "/journal/",
       "strap": "TODO: strap line for the journal card",
       "label": "The Journal",
-      "engraving": "/images/engravings/PLACEHOLDER-colly-butterfly.png"
+      "engraving": "/images/engravings/gosse/coly.png"
     },
     {
       "href": "/archive/",
       "strap": "TODO: strap line for the archive card",
       "label": "The Archive",
-      "engraving": "/images/engravings/PLACEHOLDER-colly-bigfish.png"
+      "engraving": "/images/engravings/gosse/emu.png"
     },
     {
       "href": "/contact/",
@@ -34,7 +34,7 @@
       "kern": {
         "0": "kern-a"
       },
-      "engraving": "/images/engravings/PLACEHOLDER-colly-crab.png"
+      "engraving": "/images/engravings/gosse/falcon-beak.png"
     }
   ],
   "externalsHref": "/external/",
@@ -44,25 +44,25 @@
         "href": "https://TODO.example/newsletter",
         "strap": "TODO: strap",
         "label": "News Letter",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-salamander.png"
+        "engraving": "/images/engravings/gosse/fishes-p-168.png"
       },
       {
         "href": "https://x.com/TODO",
         "strap": "TODO: strap",
         "label": "Follow Me On X",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-beetle.png"
+        "engraving": "/images/engravings/gosse/chatterer-feather.png"
       },
       {
         "href": "/feed.xml",
         "strap": "TODO: strap",
         "label": "RSS Feed",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-snake.png"
+        "engraving": "/images/engravings/gosse/fishes-p-145.png"
       },
       {
         "href": "https://TODO.example",
         "strap": "TODO: strap",
         "label": "TODO Destination",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-tortoise.png"
+        "engraving": "/images/engravings/gosse/green-tody.png"
       }
     ],
     [
@@ -70,25 +70,25 @@
         "href": "https://TODO.example",
         "strap": "TODO: strap",
         "label": "TODO Destination",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-reptile.png"
+        "engraving": "/images/engravings/gosse/buceros.png"
       },
       {
         "href": "https://TODO.example",
         "strap": "TODO: strap",
         "label": "TODO Destination",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-grasshopper.png"
+        "engraving": "/images/engravings/gosse/eagle-foot.png"
       },
       {
         "href": "https://TODO.example",
         "strap": "TODO: strap",
         "label": "TODO Destination",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-rabbit.png"
+        "engraving": "/images/engravings/gosse/goldfinch-nest.png"
       },
       {
         "href": "https://TODO.example",
         "strap": "TODO: strap",
         "label": "TODO Destination",
-        "engraving": "/images/engravings/PLACEHOLDER-colly-wasp.png"
+        "engraving": "/images/engravings/gosse/fishes-p-105.png"
       }
     ]
   ],

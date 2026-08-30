@@ -7,7 +7,15 @@ engravings, one subject per file, all **public domain**, from Wikimedia Commons.
 Chosen by measurement: each was scored against Colly's own engravings
 (coverage 9–23%, opaque-alpha 74–91%) and these ranked closest out of 233.
 Processed identically: greyscale, paper knocked to transparency with a hard
-alpha ramp so the line work stays opaque, trimmed, 200×160, bottom-anchored.
+alpha ramp so the line work stays opaque, trimmed, then fitted into the same
+geometry as Colly's — subject no more than 186×92, bottom-anchored in a
+200×160 tile, which is what his 105px card window expects (his own ink sits
+in rows 59–155).
+
+**In use on the real cards:** Alexandrine (About), Coly (Journal), Emu
+(Archive), Falcon beak (Contact) — Kalyan's choice, 2026-08-30. The eight
+external-reference cards use the rest, so no Colly artwork appears on any
+real page.
 
 | file | subject | source | licence |
 |---|---|---|---|
