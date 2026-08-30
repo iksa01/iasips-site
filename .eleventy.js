@@ -92,6 +92,19 @@ module.exports = function (eleventyConfig) {
       },
     });
   }
+  // ::: plan Title  — a printed planning grid (answer skeletons, structures).
+  // A bulleted list inside becomes rows: bold lead-in = the stage label.
+  md.use(markdownItContainer, "plan", {
+    render(tokens, i) {
+      const tk = tokens[i];
+      if (tk.nesting === 1) {
+        const title = tk.info.trim().slice("plan".length).trim();
+        return `<div class="plan">${title ? `<p class="plan-title">${esc(title)}</p>` : ""}\n`;
+      }
+      return "</div>\n";
+    },
+  });
+
   // A run-in sidehead list: the term in spaced caps, the gloss beside it.
   // ::: cases  — for case lists, definitions, anything term-plus-explanation.
   md.use(markdownItContainer, "cases", {

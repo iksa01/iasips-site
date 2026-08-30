@@ -85,19 +85,17 @@ Do not narrate the cases in order. Take a position in the first two lines, then 
 
 A skeleton that fits a 15-mark answer in about 250 words:
 
-```text/4-5 title="Answer skeleton — 15 marks, ~250 words"
-INTRO  what the doctrine holds. No history yet.
-A  Origin       Art 13 v Art 368 -> Golaknath
-                -> 24th Am -> Kesavananda
-B  Content      4 features, one case each
-C  Application  Minerva Mills, 42nd Am cl. 4-5
-D  Critique     counter-majoritarian; content
-                undefined; judicial veto
-CONCL  limited power guarantees the power
-```
+::: plan Answer skeleton — 15 marks, about 250 words
+- **Intro** One line on what the doctrine holds. No history yet, no throat-clearing.
+- **Origin** Article 13 against Article 368, then Golaknath, then the 24th Amendment, then Kesavananda.
+- **Content** Four accepted features, one case attached to each.
+- **Application** Minerva Mills: clauses 4 and 5 of the 42nd Amendment struck down.
+- **Critique** Counter-majoritarian; content undefined; a judicial veto over an elected House.
+- **Conclusion** One or two lines: the limit on the power is what guarantees the power.
+:::
 
 ::: details A longer skeleton, for a 250-mark paper's 20-marker
-Add a fifth body paragraph on the doctrine's export — Bangladesh and Pakistan have engaged with it, and Singapore's courts have declined it — and a line on `I. R. Coelho` bringing the Ninth Schedule inside judicial review. Keep the critique; a 20-marker without a counter-view reads as a summary, not an argument.
+Add a fifth body paragraph on the doctrine's export — Bangladesh and Pakistan have engaged with it, and Singapore's courts have declined it — and a line on *I. R. Coelho* bringing the Ninth Schedule inside judicial review. Keep the critique; a 20-marker without a counter-view reads as a summary, not an argument.
 :::
 
 **Directive words matter more than content.** *Examine* asks you to test a claim; *critically examine* requires a verdict; *discuss* wants both sides held in balance. Practice stems, framed rather than quoted from past papers:

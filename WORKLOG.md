@@ -129,6 +129,21 @@ not proper." All three were real.
 - Line spacing: paragraphs 15px/24px (was 22px), 15px between; prose list
   rows 23px with 9px beneath; section heads 42px clear (was 30px).
 
+## 2026-08-30 — the skeleton was not code
+
+Kalyan: "the tender code block ... the worst of all the designs." Correct,
+and the fault was categorical, not cosmetic: an answer skeleton was being
+set in VT323 on grey because it *looked* tabular, when it is prose in a
+structure. Added `::: plan Title` — a printed planning grid: spaced-caps
+label hanging at 116px, gloss in the body serif, dotted rules, reclaiming
+the right gutter like a table. The code block is gone from the specimen;
+VT323 and Prism stay for actual code.
+
+Two gotchas hit on the way: a CSS grid on the row broke whenever the gloss
+contained <em> (it became a stray grid item) — use a hanging absolute label
+instead; and long labels wrapped out of their absolutely-positioned box, so
+labels must stay one word ("Application", not "Body C · Application").
+
 ## Status
 - NOT frozen. Kalyan has not said "frozen". Until then CSS/layout edits
   are allowed on his instruction.

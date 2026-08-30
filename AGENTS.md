@@ -68,6 +68,9 @@ decline and report.
 - Code fences: ```js/2-3 title="file.js" — language, highlighted lines,
   filename tab; all optional. Keep lines short enough to fit the column;
   a code block must never scroll sideways.
+- Planning grids: `::: plan Title` around a bulleted list whose items begin
+  with a bold label — for answer skeletons and structures. Never use a code
+  fence for these; code styling is for code.
 - Term lists: `::: cases` around a bulleted list whose items begin with a
   bold term renders each term as a spaced-caps sidehead above its gloss.
 

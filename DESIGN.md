@@ -139,6 +139,13 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
   516px measure is unreadable. 14px/20px, tabular numerals, header in 12px
   spaced caps #666, 1px #CCC above/below/under the header, dotted #E0DCD6
   between rows, 9px cell padding, no zebra. Full width at the breakpoints.
+- Planning grid (`::: plan Title`): an answer skeleton, a structure, a
+  schedule. Title in 12px spaced caps over a #CCC rule; each row is a
+  hanging label in 12px spaced-caps slate at 116px, gloss beside it at
+  15px/22px, dotted rules between. Reclaims the right gutter like a table;
+  the label stacks above the gloss at the breakpoints.
+  **An answer skeleton is not code and must never be set as code** — that
+  was the 2026-08-30 correction. Code styling (§7) is for code only.
 - Run-in sidehead list (`::: cases`): term as its own line in 12px spaced
   caps slate, gloss beneath at 15px/24px, dotted rules between, solid #CCC
   top and bottom. Use where a bullet would collide with an em dash — case
@@ -239,5 +246,6 @@ package-lock.json, .nvmrc, reference/**, this file.
 | — | four muted callout hues (§7b) | Kalyan, "better colours" |
 | 22px leading, 30px above heads | 24px leading, 42px above heads | Kalyan, "line-spacing-wise there is scope" |
 | tables inside the 516px column | tables reclaim the 110px right gutter | Kalyan, "the table is all in a column only" |
+| answer skeleton set as a code block | `::: plan` printed grid | Kalyan: "the worst of all the designs" — it was never code |
 | v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |

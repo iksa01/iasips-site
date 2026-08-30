@@ -113,6 +113,23 @@ div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: no
 div#content-pri p a:visited { text-decoration: underline; color: #d0656a; }
 div#content-pri ul li a:visited, div#content-pri ol li a:visited { text-decoration: none; color: #d0656a; }
 div#content-pri p a:hover, div#content-pri ul li a:hover, div#content-pri ol li a:hover { text-decoration: underline; color: #666; }
+/* Planning grid (::: plan) — an answer skeleton is not code, so it is not
+   set as code. A printed form: stage label in spaced caps, content in the
+   body serif, hairline rules, reclaiming the right gutter like a table. */
+div#content-pri .plan { width: calc(100% + 110px); margin: 4px 0 22px 0;
+    border-top: 1px solid #CCC; border-bottom: 1px solid #CCC; }
+div#content-pri .plan p.plan-title { margin: 0; padding: 7px 0; font-size: 12px; font-style: normal;
+    text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px solid #CCC; }
+div#content-pri .plan ul { list-style: none; margin: 0; padding: 0; }
+div#content-pri .plan li { position: relative; width: auto; min-height: 22px; padding: 9px 0 9px 132px;
+    font-size: 15px; line-height: 22px; border: 0; border-bottom: 1px dotted #E0DCD6; }
+div#content-pri .plan li:last-child { border-bottom: 0; }
+div#content-pri .plan li::before { content: none; }
+div#content-pri .plan li > strong:first-child { position: absolute; left: 0; top: 9px; width: 116px;
+    font-weight: normal; font-size: 12px; line-height: 22px; text-transform: uppercase;
+    letter-spacing: 1px; color: #43606f; }
+div#content-pri .plan li em { font-style: italic; color: #666; }
+
 /* Run-in sidehead list (::: cases) — the term in spaced caps, the gloss
    beside it. For case lists, definitions, terms with an explanation. */
 div#content-pri .sidehead-list { margin: 4px 0 20px 0; }
@@ -328,6 +345,9 @@ div#content-pri p.meta span.rt { color: #999; }
   div#content-pri ol#footnotes { padding-left: 1.6em; }
   div#content-pri .toc-inline { display: block; }
   div#content-pri table { width: 100%; }
+  div#content-pri .plan { width: 100%; }
+  div#content-pri .plan li { padding-left: 0; }
+  div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
   div#content-pri #post img { width: 380px; height: auto; }
   div#siteinfo p { font-size: 14px; }
 }
@@ -340,6 +360,9 @@ div#content-pri p.meta span.rt { color: #999; }
   div#content-pri { width: 266px; margin: 0; padding: 0 20px; }
   div#content-pri h2.page-title { font-size: 25px; }
   div#content-pri table { width: 100%; font-size: 13px; }
+  div#content-pri .plan { width: 100%; }
+  div#content-pri .plan li { padding-left: 0; }
+  div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
   div#content-pri #post img { width: 240px; height: auto; }
   div#siteinfo p { font-size: 12px; }
 }
