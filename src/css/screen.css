@@ -200,6 +200,14 @@ div#content-pri blockquote.quote-panel cite { display: block; margin: 0; padding
 div#content-pri blockquote.quote-panel cite::before { content: "— "; }
 div#content-pri blockquote.quote-panel p:has(> cite:only-child) { font-size: 12px; line-height: 19px; margin: 0; }
 
+/* 8a-demo. /modern/ working page only — delete with the page (ours) ---- */
+.modern div#content-pri aside.callout-colour { border-left-color: #3a5f7d; }
+.modern div#content-pri aside.callout-colour p.callout-title { color: #3a5f7d; }
+.modern div#content-pri aside.callout-colourb { border-left-color: #5c6b4a; }
+.modern div#content-pri aside.callout-colourb p.callout-title { color: #5c6b4a; }
+.modern div#content-pri aside.callout-mark { border-left-color: #333; }
+.modern div#content-pri aside.callout-mark p.callout-title { font-size: 15px; letter-spacing: 0; text-transform: none; color: #333; }
+
 /* 8b. 2026 body elements (ours, in the v4 vocabulary) --------------- */
 /* callouts: the image/card treatment applied to a note */
 div#content-pri aside.callout { margin: 6px 0 15px 0; padding: 12px 15px 4px 15px; background: #FFFAFA; border: 1px solid #DDD;

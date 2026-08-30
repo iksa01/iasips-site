@@ -50,6 +50,23 @@ of 14 alternates on /engravings/. Kalyan picks the mapping.
 Reusable lesson: measure the reference, score candidates against it, and let
 the numbers choose. Guessing by eye produced four rounds of "not close".
 
+## 2026-08-30 — /modern/ (what 2026 adds)
+
+Kalyan asked what Eleventy/2026 can do that 2010 could not — colour boxes,
+fonts, icons. Built /modern/ as a working page showing the options live:
+callouts as they stand, callouts in a muted ink-blue and moss (what a second
+and third hue would cost), printer's marks (manicule, fleuron, asterism,
+pilcrow, dagger) as the in-register answer to "icons", and a list of the
+genuinely new capabilities — Eleventy's image pipeline (AVIF/WebP/srcset at
+build time), :has(), container queries, subgrid, text-wrap: balance, clamp(),
+cascade layers.
+
+Recommendation given: take marks, the image pipeline, text-wrap: balance and
+clamp(). Leave extra hues and view transitions — they are what would turn it
+from Colly's shelf into a docs site. Awaiting his pick; each is a "design
+change". Delete /modern/, its .callout-colour/-colourb/-mark CSS block and the
+extra container names in .eleventy.js once decided.
+
 ## Status
 - NOT frozen. Kalyan has not said "frozen". Until then CSS/layout edits
   are allowed on his instruction.
