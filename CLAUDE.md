@@ -17,7 +17,7 @@ change only when his instruction contains "design change" (AGENTS.md §9).
 
 ## Where we are
 
-Read `WORKLOG.md` first — it holds the round-by-round history and the open
+Read `RESTART.md` for how to run and resume this project, and `WORKLOG.md` first — it holds the round-by-round history and the open
 offers. Then DESIGN.md (§7b is the 2026 body), then AGENTS.md.
 
 ## Build
