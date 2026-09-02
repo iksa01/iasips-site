@@ -51,6 +51,7 @@ Serves on <http://localhost:8080/>. Pages:
 | `/` | home: masthead, four cards, external references, colophon |
 | `/journal/` | the journal index — the page you called "beautiful" |
 | `/journal/sample-essay/` | the specimen: callouts, tables, plan grid, TOC, footnotes |
+| `/journal/sample-note/` | the notes specimen: a one-page structured note |
 | `/journal/sample-quote/` | a quote entry |
 | `/about/` `/archive/` `/external/` `/contact/` | the rest |
 | `/engravings/` | working page: the Gosse card pictures |
@@ -132,11 +133,14 @@ Settled and not to be relitigated:
 
 ## 4. The decisions waiting for you
 
-1. **Every `TODO:`** in the tree is a fact only you can supply — masthead
-   lines, the four card straps, page taglines, the About text, external
+1. **Every `TODO:`** in the tree is a fact only you can supply — page
+   taglines, the About text, the licence line, external
    destinations, the colophon, `site.url`, `description` and `ogImage`
    (a 1200×630 picture for link previews) in site.json, the portrait.
    Say *"draft them"* and options get put in front of you to approve.
+   The masthead lines, card straps and colophon credit were DRAFTED on
+   2026-09-03 for your eye (WORKLOG 2026-09-03 e) — say the word to change
+   any of them.
 2. **Colly's animals** remain in `images/engravings/` as `PLACEHOLDER-colly-*`.
    No real page references them any more, but they are his artwork and
    should be deleted before publishing.

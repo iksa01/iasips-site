@@ -318,3 +318,29 @@ git at 6c9b6f0 if the choice is ever revisited).
 Still his to write: the masthead's two lines, the four card straps, the
 external straps, the colophon (he wants a Colly credit — "designed by Mr.
 Colly… purely inspired by Mr. Simon Collison"), site.url, description.
+
+## 2026-09-03 (e) — mark inside the rule; drafts set for Kalyan's eye
+
+Kalyan on the hanging mark: "so ugly… the mark should come within the
+line." It now floats at the start of the first line, inside the rule.
+Facts he gave: Hyderabad; ikse.in since 2016; in the UPSC field since 2010
+but "I don't want to claim that". His credit line, verbatim: "Designed
+after Mr. Simon Collison. This is his brainchild."
+
+DRAFTS, set on his "let me look at them once you set them" — not approved,
+change on his word (all in src/_data/site.json):
+- masthead: "Established Hyderabad 2016" / "The considered notes and
+  journal of" / Kalyan
+- cards: "Prepared with due diligence" · "Notes from the reading room" ·
+  "Filed and cross-referenced" · "Kalyan is presently" (Receiving Your Emails)
+- externals: "Longer letters, now and then" (Substack) · "Pictures from the
+  field" (Instagram) · "Shorter thoughts, more often" (X) · "Every entry,
+  delivered to you" (RSS)
+- colophon line 2: "Designed after Mr. Simon Collison. This is his
+  brainchild. Built in Hyderabad, scaffolded by Eleventy." Line 1's licence
+  is still TODO.
+The sample note is now a NOTES SPECIMEN — "Article 368 on one page" — a
+short, structured note using every box for its purpose: note = where it
+sits, key = hold this, tip = how to use it, warning = the traps, plus a
+plan grid, a table, a cases list, a details fold and a footnote. Standard
+constitutional facts; not his writing. The quote entry keeps tag [Sample].

@@ -190,9 +190,10 @@ div#content-pri figcaption { margin-top: 2px; font-size: 12px; color: #666; }   
 div#content-pri cite { display: block; margin-top: -13px; margin-bottom: 20px; padding: 0; font-size: 12px; }
 div#content-pri cite span { color: #6c6c6c; }
 div#content-pri blockquote { position: relative; margin: 0; padding: 0 0 0 15px; border-left: 3px solid #EEE; }
-/* the hanging quotation mark (Kalyan, 2026-09-03: "a hybrid of one and two") — sits in the left gutter, outside the rule */
-div#content-pri blockquote::before { content: "\201C"; position: absolute; right: 100%; margin-right: 10px; top: -4px;
-    font-size: 48px; line-height: 1; color: #d0656a; font-style: normal; }
+/* the opening quotation mark (Kalyan, 2026-09-03: "a hybrid of one and two"; then "the mark should come within the
+   line") — inside the rule, leading the first line, the text wrapping beneath it */
+div#content-pri blockquote::before { content: "\201C"; float: left; margin: 4px 8px 0 0; font-size: 40px; line-height: 24px;
+    color: #d0656a; font-style: normal; }
 div#content-pri blockquote.quote-panel::before, div#content-pri aside.callout blockquote::before { content: none; }
 div#content-pri blockquote p { font-size: 16px; color: #666; margin-bottom: 7px; line-height: 150%; }
 div#content-pri blockquote cite { margin: 0; padding: 7px 0 0 0; color: #666; }
@@ -390,7 +391,6 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   .biography li.card .engraving, .journal li.card .engraving, .archive li.card .engraving, .contact li.card .engraving { display: none; }
   div#content-pri { width: auto; margin: 0; padding: 0 18px; }
   div#content-pri .page-title { font-size: 25px; }
-  div#content-pri blockquote::before { content: none; }              /* no gutter for the mark on a phone */
   div#content-pri table { width: 100%; font-size: 13px; }
   div#content-pri .plan { width: 100%; }
   div#content-pri .plan li { padding-left: 0; }

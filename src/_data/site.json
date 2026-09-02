@@ -6,32 +6,32 @@
   "author": "Kalyan",
   "language": "en",
   "masthead": {
-    "strap": "TODO: italic line (v4: “Established Nottingham 2003”)",
-    "line": "TODO: caps line (v4: “The celebrated new miscellany of”)",
+    "strap": "Established Hyderabad 2016",
+    "line": "The considered notes and journal of",
     "name": "Kalyan"
   },
   "nav": [
     {
       "href": "/about/",
-      "strap": "TODO: strap line for the about card",
+      "strap": "Prepared with due diligence",
       "label": "About Kalyan",
       "engraving": "/images/engravings/gosse/alexandrine.png"
     },
     {
       "href": "/journal/",
-      "strap": "TODO: strap line for the journal card",
+      "strap": "Notes from the reading room",
       "label": "The Journal",
       "engraving": "/images/engravings/gosse/coly.png"
     },
     {
       "href": "/archive/",
-      "strap": "TODO: strap line for the archive card",
+      "strap": "Filed and cross-referenced",
       "label": "The Archive",
       "engraving": "/images/engravings/gosse/emu.png"
     },
     {
       "href": "/contact/",
-      "strap": "TODO: strap line for the contact card",
+      "strap": "Kalyan is presently",
       "label": "Receiving Your Emails",
       "kern": {
         "0": "kern-a"
@@ -44,25 +44,25 @@
     [
       {
         "href": "https://TODO.substack.com",
-        "strap": "TODO: strap for the Substack card",
+        "strap": "Longer letters, now and then",
         "label": "Substack Letters",
         "engraving": "/images/engravings/gosse/chatterer-feather.png"
       },
       {
         "href": "https://instagram.com/TODO",
-        "strap": "TODO: strap for the Instagram card",
+        "strap": "Pictures from the field",
         "label": "Instagram Pictures",
         "engraving": "/images/engravings/gosse/green-tody.png"
       },
       {
         "href": "https://x.com/TODO",
-        "strap": "TODO: strap for the X card",
+        "strap": "Shorter thoughts, more often",
         "label": "Follow Me On X",
         "engraving": "/images/engravings/gosse/goldfinch-nest.png"
       },
       {
         "href": "/feed.xml",
-        "strap": "TODO: strap for the feed card",
+        "strap": "Every entry, delivered to you",
         "label": "RSS Feed",
         "engraving": "/images/engravings/gosse/fishes-p-145.png"
       }
@@ -70,6 +70,6 @@
   ],
   "colophon": [
     "Copyright © Kalyan 2026. TODO: licence line. Grab the <a href=\"/feed.xml\">RSS feed</a>.",
-    "TODO: the witty “engineered in / scaffolded by / kept alive with” line. Scaffolded by <a href=\"https://www.11ty.dev/\">Eleventy</a>."
+    "Designed after <a href=\"https://colly.com/\">Mr. Simon Collison</a>. This is his brainchild. Built in Hyderabad, scaffolded by <a href=\"https://www.11ty.dev/\">Eleventy</a>."
   ]
 }
