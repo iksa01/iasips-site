@@ -4,23 +4,59 @@ Everything lives in one folder. Nothing is in the cloud, nothing is pushed.
 
     ~/Sites/kalyan-site
 
+## 0. The whole thing in three steps
+
+**Step 1 — start the site.** In a terminal:
+
+    cd ~/Sites/kalyan-site && ./start.sh
+
+It builds, serves on <http://localhost:8080/>, opens your browser, and
+rebuilds every time you save a file. Leave that terminal running.
+Stop it with Ctrl+C.
+
+**Step 2 — open Claude.** In a *second* terminal:
+
+    cd ~/Sites/kalyan-site && claude
+
+**Step 3 — paste this as your first message** (it is saved in `PROMPT.txt`,
+so you can also just say: *read PROMPT.txt and follow it*):
+
+> Read RESTART.md, WORKLOG.md, DESIGN.md and AGENTS.md in this repo before
+> doing anything.
+>
+> Context in one line: this is my personal site — Simon Collison's Colly v4
+> design (colly.com/v4), transcribed whole, built with Eleventy 3, zero
+> JavaScript on the page. DESIGN.md is the visual law and WORKLOG.md is the
+> history of every decision and why.
+>
+> Rules: do not invent my words — every "TODO:" is a fact only I can supply.
+> Never run npm install. Do not change src/css/, src/_includes/ or
+> .eleventy.js unless my instruction contains the phrase "design change".
+>
+> The dev server is already running at http://localhost:8080/ — do not start
+> another one.
+>
+> Tell me where we left off and what is waiting on me.
+
+That is everything. The rest of this file is detail.
+
 ## 1. See the site
 
-    cd ~/Sites/kalyan-site
-    npx @11ty/eleventy --serve
+    cd ~/Sites/kalyan-site && ./start.sh
 
-It prints the address — usually <http://localhost:8080/>. Pages:
+Serves on <http://localhost:8080/>. Pages:
 
 | page | what it is |
 |---|---|
 | `/` | home: masthead, four cards, external references, colophon |
 | `/journal/` | the journal index — the page you called "beautiful" |
-| `/journal/sample-essay/` | the 2026 post body: callouts, code, TOC, footnotes |
+| `/journal/sample-essay/` | the specimen: callouts, tables, plan grid, TOC, footnotes |
 | `/journal/sample-quote/` | a quote entry |
 | `/about/` `/archive/` `/external/` `/contact/` | the rest |
-| `/engravings/` | working page: the Gosse card pictures to choose from |
+| `/engravings/` | working page: the Gosse card pictures |
+| `/modern/` | working page: colour options and printer's marks |
 
-Stop the server with <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+Stop the server with Ctrl+C.
 
 ## 2. Restart the work with Claude
 

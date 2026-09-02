@@ -1,0 +1,16 @@
+Read RESTART.md, WORKLOG.md, DESIGN.md and AGENTS.md in this repo before
+doing anything.
+
+Context in one line: this is my personal site — Simon Collison's Colly v4
+design (colly.com/v4), transcribed whole, built with Eleventy 3, zero
+JavaScript on the page. DESIGN.md is the visual law and WORKLOG.md is the
+history of every decision and why.
+
+Rules: do not invent my words — every "TODO:" is a fact only I can supply.
+Never run npm install. Do not change src/css/, src/_includes/ or
+.eleventy.js unless my instruction contains the phrase "design change".
+
+The dev server is already running at http://localhost:8080/ — do not start
+another one.
+
+Tell me where we left off and what is waiting on me.
