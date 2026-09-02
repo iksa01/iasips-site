@@ -54,8 +54,6 @@ Serves on <http://localhost:8080/>. Pages:
 | `/journal/sample-note/` | the notes specimen: a one-page structured note |
 | `/journal/sample-quote/` | a quote entry |
 | `/about/` `/archive/` `/external/` `/contact/` | the rest |
-| `/engravings/` | working page: the Gosse card pictures |
-| `/modern/` | working page: colour options and printer's marks |
 
 Stop the server with Ctrl+C.
 
@@ -145,7 +143,7 @@ Settled and not to be relitigated:
 3. **The sample journal entries** are specimens, not your writing. The essay
    is a UPSC piece on the Basic Structure Doctrine used to exercise every
    element; the quote and note entries are public-domain stand-ins.
-4. **Working pages** to delete once decided: `/engravings/` and `/modern/`.
+4. ~~Working pages~~ `/engravings/` and `/modern/` — deleted 2026-09-03.
 5. Open offers: inline the CSS at build time; Press Start 2P instead of
    VT323 for code; image pipeline (AVIF/WebP/srcset at build time); the
    callouts sit narrower than the tables, which leaves a ragged right edge.

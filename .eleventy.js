@@ -80,7 +80,7 @@ module.exports = function (eleventyConfig) {
 
   // Callouts and collapsibles (DESIGN.md §7): ::: note|tip|warning [Title] … :::
   // and ::: details Summary … :::  — markdown syntax, no raw HTML in content.
-  for (const kind of ["note", "tip", "warning", "key", "colour", "colourb", "mark"]) {
+  for (const kind of ["note", "tip", "warning", "key"]) {
     md.use(markdownItContainer, kind, {
       render(tokens, i) {
         const tk = tokens[i];

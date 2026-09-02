@@ -362,3 +362,14 @@ links, structured data, robots and sitemap now carry the real address.
 He asked whether the work is saved: it is committed in git, locally, on
 branch agent/post-page-colly; nothing is on GitHub yet. A tarball backup
 was written to ~/Sites/ this session.
+
+## 2026-09-03 (h) — working pages gone; first push to GitHub
+
+Kalyan: "delete the engravings and the modern one… we can push it to
+GitHub. Bottom line." /engravings/ and /modern/ deleted with their layout,
+data file, CSS blocks (6b, 8a-demo) and the demo container names in
+.eleventy.js. images/engravings/samples/ (the sixteen open-licensed
+round-one cuts) is kept as a pool; CREDITS.md covers it. He is "still not
+convinced with the design… minute tweaks… I will let you know" — so NOT
+frozen. GitHub is a living copy: every commit here is pushed with
+`git push`; history is kept there too.

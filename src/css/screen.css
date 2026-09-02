@@ -239,18 +239,6 @@ ul.subnav { list-style-type: none; margin: 0 0 10px 0; padding: 0; display: flex
 ul.subnav:last-of-type { margin: 0; padding: 0 0 50px 0; }
 ul.subnav li.card { text-align: center; font-size: 13px; font-style: italic; font-weight: normal; color: #d24b21; }
 
-/* 6b. Engraving samples — working page, delete with the page (ours) ---- */
-.samples { clear: both; }
-.samples p.samples-lede { max-width: 640px; margin: 0 auto 30px auto; text-align: center; font-size: 15px; color: #333; }
-h3.sample-head { clear: both; margin: 30px 0 12px 0; font-weight: normal; font-size: 20px; color: #333; }
-h3.sample-head span { display: block; font-size: 13px; font-style: italic; color: #999; }
-ul.pool { list-style: none; margin: 0 0 30px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-ul.pool li { width: 152px; padding: 8px; border: 1px solid #DDD; background: rgba(253,251,251,.55); text-align: center; }
-ul.pool li img { display: block; width: 100%; height: auto; }
-ul.pool li span { display: block; margin-top: 4px; font-size: 11px; font-style: italic; color: #999; }
-ul.subnav.faded li.card { opacity: .55; }
-.samples p.samples-foot { clear: both; margin: 20px 0 0 0; font-size: 12px; font-style: italic; color: #999; }
-
 /* 7. Siteinfo / footer -------------------------------------------------- */
 div#siteinfo { position: relative; clear: both; text-align: center; padding: 60px 0 0 0; color: #6c6c6c; }   /* v4 #999: 125px above deranged.png */
 div#siteinfo p { margin: 0; padding: 0; }
@@ -264,14 +252,6 @@ div#content-pri blockquote.quote-panel cite { display: block; margin: 0; padding
                                              text-transform: uppercase; letter-spacing: 1px; color: #333; text-align: right; }
 div#content-pri blockquote.quote-panel cite::before { content: "— "; }
 div#content-pri blockquote.quote-panel p:has(> cite:only-child) { font-size: 12px; line-height: 19px; margin: 0; }
-
-/* 8a-demo. /modern/ working page only — delete with the page (ours) ---- */
-.modern div#content-pri aside.callout-colour { border-left-color: #3a5f7d; }
-.modern div#content-pri aside.callout-colour p.callout-title { color: #3a5f7d; }
-.modern div#content-pri aside.callout-colourb { border-left-color: #5c6b4a; }
-.modern div#content-pri aside.callout-colourb p.callout-title { color: #5c6b4a; }
-.modern div#content-pri aside.callout-mark { border-left-color: #333; }
-.modern div#content-pri aside.callout-mark p.callout-title { font-size: 15px; letter-spacing: 0; text-transform: none; color: #333; }
 
 /* 8b. 2026 body elements (ours, in the v4 vocabulary) --------------- */
 /* callouts: the card treatment applied to a note. Muted ink hues only —
