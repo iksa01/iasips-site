@@ -12,7 +12,7 @@ bodyId: article
 {%- set qhtml = content %}{% set parts = qhtml | quoteParts %}
 <div id="post">
 {%- include "partials/quote-panel.njk" %}
-<p class="meta">{{ page.date | dateLong | safe }}{% if tags and tags.length %} <br>Archived in {{ tags | join(" | ") }}{% endif %}</p>
+<p class="meta"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if tags and tags.length %} <br>Archived in {{ tags | join(" | ") }}{% endif %}</p>
 {%- if parts.commentary | trim %}
 <hr>
 <div class="commentary">{{ parts.commentary | safe }}</div>
@@ -21,14 +21,14 @@ bodyId: article
 {%- else %}
 <h2 class="page-title">{{ title }}</h2>
 {% if sub %}<p class="sub tagline">{{ sub }}</p>{% endif %}
-<p class="sub dateline">{{ page.date | dateLong | safe }}</p>
-<p class="meta entry-meta">{{ page.date | dateLong | safe }} <span class="rt">· {{ content | readingTime }} min read</span>{% if tags and tags.length %} · Archived in {{ tags | join(" | ") }}{% endif %}</p>
+<p class="sub dateline"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time></p>
+<p class="meta entry-meta"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if updated %} · Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateLong | safe }}</time>{% endif %} <span class="rt">· {{ content | readingTime }} min read</span>{% if tags and tags.length %} · Archived in {{ tags | join(" | ") }}{% endif %}</p>
 {%- if tocItems.length %}
 <div class="toc-inline"><h3>In this entry</h3>{% include "partials/toc-list.njk" %}</div>
 {%- endif %}
-<div id="post" class="entry{% if dropcap %} dropcap{% endif %}">
+<article id="post" class="entry{% if dropcap %} dropcap{% endif %}">
 {{ content | safe }}
-</div>
+</article>
 {%- endif %}
 {%- if older or newer %}
 <p class="paginate"><span>{% if older %}<a href="{{ older.url }}">&larr; Older: {{ older.data.title | truncate(40) }}</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}">Newer: {{ newer.data.title | truncate(40) }} &rarr;</a>{% endif %}</span></p>
@@ -44,6 +44,9 @@ bodyId: article
 <div class="aside">
 {%- if tags and tags.length %}
 <p>Archived in {{ tags | join(" | ") }}</p>
+{%- endif %}
+{%- if updated %}
+<p>Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateLong | safe }}</time></p>
 {%- endif %}
 <p>{{ content | readingTime }} min read</p>
 </div>

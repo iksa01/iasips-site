@@ -215,3 +215,37 @@ desktop window renders his 468px tier — compare at 1280×1250, not 1280×3000.
 
 Still open from this round: the aside heading and every other TODO are his
 words; Jason Santamaria's footer is parked for later.
+
+## 2026-09-03 — 2026 practices + what algebrica.org taught (design change)
+
+Kalyan: "please apply 2026 best practices. adopt best practices from
+algebrica, if we don't like it we can roll back." Given in answer to the
+audit list, so treated as the design-change instruction. Same branch.
+Sidebar stays LEFT — that is Colly's; Wayback captures of his posts from
+2011, 2012 and 2014 all carry Prev / № / Next in the left sidebar, never the
+foot (the foot pagination on his journal INDEX is page numbers).
+
+Fixed (invisible unless you look):
+- The stylesheet was linked `media="screen"`, so the print rules never ran.
+- `a { outline: 0 }` (v4) removed; 2px red ring on :focus-visible.
+- Landmarks: header / nav / main / footer / article; every date a <time>.
+- Head: description (entry `sub`, else site.json `description` — TODO),
+  canonical from site.url, rel=prev/next on entries, color-scheme light.
+- Contrast: #999 text was 2.6:1 on the paper. Text roles are #6c6c6c now
+  (4.5:1); markers (dashes, numerals, hr, anchors) keep #999. Colophon
+  links #beb2b2 → #8a7c7c.
+
+Borrowed from algebrica.org (WordPress + jQuery + MathJax underneath; what
+makes it read well is one serif, hairlines, air — which we had — plus):
+- Paragraph numbers in the left gutter, 11px tabular #999. Direct paragraphs
+  of an entry only; callouts, quotes, lists unnumbered. Off on the phone tier.
+- Justified, hyphenated entry paragraphs (`hyphens: auto` needs lang="en",
+  which base.njk sets); `text-wrap: pretty` on paragraphs, `balance` on heads.
+- Front matter `updated:` → "Updated 3rd September 2026" in the sidebar
+  aside and the narrow meta line. New key, recorded in AGENTS.md §4.
+Not borrowed: sans interface face, icons, search, AI-summary buttons,
+cookie banner — forbidden by §12 or need script.
+
+Kalyan's "line under the date": Colly rules under the TITLE on both the
+index and the post, and we match him; a rule under the date is one line of
+CSS if he wants it after seeing this round.

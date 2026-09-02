@@ -1,7 +1,9 @@
 {% from "partials/card.njk" import card %}
+<nav aria-label="Site">
 <ul id="nav-primary">
 {%- for item in site.nav %}
 {%- set current = (page.url == item.href) or (item.href != "/" and page.url.startsWith(item.href)) %}
 {{ card(item, current) }}
 {%- endfor %}
 </ul>
+</nav>

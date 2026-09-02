@@ -27,6 +27,16 @@ the "8-bit" terminal face Kalyan asked for on 2026-08-30 (design change);
 18px/20px in blocks, 17px inline. Fallback Courier New.
 These are the only two webfonts. Never a sans-serif for text.
 
+- Entry paragraphs are JUSTIFIED with automatic hyphenation (`hyphens:
+  auto`, `lang="en"`), `text-wrap: pretty`; headings `text-wrap: balance`.
+  Borrowed from algebrica.org on Kalyan's ask, 2026-09-03 — the even block
+  is what makes that site read as a book. Lists, callouts, tables stay
+  ragged.
+- Paragraph numbers (algebrica.org, 2026-09-03): every direct paragraph of
+  an entry carries its ordinal in the left gutter — 11px tabular #999,
+  right-aligned 12px clear of the text, at the paragraph's first baseline.
+  The lede counts as 1. Callout, blockquote and list paragraphs are not
+  numbered. Hidden on the phone tier, where there is no gutter.
 - body 13px / 22px; paragraphs 15px/24px with 15px between them (v4 set
   22px; raised 2026-08-30 on Kalyan's ask — the measure is 516px and needed
   the air). Prose list rows 15px/23px with 9px beneath. Table cells 14px/20px.
@@ -59,6 +69,13 @@ image fill #FFFAFA · subnav strap #d24b21 · colophon links #beb2b2, span
 #fca0a5 · grid rgba(192,189,183,.135) · card fill rgba(253,251,251,.55) ·
 content fill rgba(252,250,250,.69) · shadow 1px 1px 7px rgba(153,153,153,.2).
 Links in text: red, underlined. No dark mode.
+Contrast (2026-09-03): #999 is kept for MARKERS — list dashes, ol numerals,
+the hr, anchors, code punctuation — but where #999 coloured WORDS (card
+straps, the h5 qualifier, ledger-row spans, sidebar h3 items, the reading
+time, the colophon) the ink is now #6c6c6c, the lightest grey that clears
+4.5:1 on the paper. v4's #999 text measured 2.6:1.
+Keyboard focus: a 2px #ba1820 outline, 2px off, on :focus-visible only
+(v4 switched outlines off).
 
 ## 3. Graph-paper field
 
@@ -67,6 +84,15 @@ Paper colour plus a one-weight CSS lattice every 10.5px at the grid colour
 cards sit on it as translucent white.
 
 ## 4. Page skeleton (v4 markup, ids kept)
+
+Landmarks (2026-09-03, invisible): `<header>` wraps masthead and nav,
+`<nav aria-label="Site">` wraps ul#nav-primary, `<main>` wraps the page
+content, `<footer>` wraps external references and #siteinfo; an entry's
+#post is an `<article>`; every date is a `<time datetime>`.
+Head: charset, viewport, title, description (the entry's `sub`, else
+site.json `description`), canonical (`site.url` + page URL), rel=prev /
+rel=next on entries (older / newer), color-scheme light, the stylesheet
+for ALL media (print rules were dead while it said `media="screen"`), RSS.
 
 Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 
@@ -88,7 +114,9 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
                  p.paginate "← OLDER / NEWER →" in 12px spaced caps between
                  dashed rules (v4's Prev/№/Next badge, in type) → h3 aside
                  heading (site.json `asideHeading`; v4: "Superfluous Aside")
-                 → p rows "Archived in …" and "n min read" in the sidebar's
+                 → p rows "Archived in …", "Updated <date>" (front matter
+                 `updated`, when present; algebrica.org's "Updated" line)
+                 and "n min read" in the sidebar's
                  italic 14px with dashed #CCC rules → h3 "In this entry" +
                  the TOC. Under 989px, where the sidebar hides, the entry
                  shows instead one italic p.meta line — "date · n min read ·
@@ -215,7 +243,10 @@ modern elements drawn in v4's vocabulary)
   into the column under 989px. There is no meta block under a post title
   on desktop (2026-09-02: v4's post shows title, date, lede — nothing else).
 - Print: nav, cards, sidebar and pagination hidden; white ground; external
-  link URLs printed after the link text.
+  link URLs printed after the link text. Paragraph numbers print.
+- Front matter `updated: YYYY-MM-DD` (2026-09-03): shown as "Updated …" in
+  the sidebar aside and the narrow meta line; feeds the canonical modified
+  date. Optional.
 
 ## 8. Quote entries (type: quote) — ours
 
@@ -284,3 +315,5 @@ package-lock.json, .nvmrc, reference/**, this file.
 | v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
 | post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |
+| ragged-right paragraphs | justified, hyphenated, numbered in the gutter; `updated` line | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
+| #999 text, outlines off, `media="screen"`, div soup | #6c6c6c text, focus ring, all-media stylesheet, landmarks, time, description/canonical/prev/next | 2026 practices, Kalyan 2026-09-03 |

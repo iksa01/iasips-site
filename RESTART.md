@@ -116,6 +116,10 @@ Settled and not to be relitigated:
 - **A post opens like Colly's**: title, date, lede. Categories, reading
   time and Older/Newer live in the sidebar; on a phone they collapse to one
   italic line. The phone tier is fluid, not v4's fixed 306px.
+- **2026-09-03**: entry paragraphs are justified, hyphenated and numbered
+  in the gutter (from algebrica.org); `updated:` front matter shows an
+  "Updated" line; landmarks, focus ring, description/canonical/prev/next,
+  darker grey text for contrast. Sidebar stays left, as Colly's.
 - An **answer skeleton is not code** — it uses `::: plan`, never a code fence.
 - The "2026 layout" experiment (margin sidenotes, fluid type) was built and
   then dropped on your instruction. It is recoverable from commit `98efd0d`.

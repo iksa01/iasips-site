@@ -2,6 +2,7 @@
 title: "The Basic Structure Doctrine"
 sub: "How the Court fenced off the Constitution from its own amending power"
 date: 2026-08-30
+updated: 2026-09-03
 tags: [GS2, Polity]
 dropcap: true
 toc: true

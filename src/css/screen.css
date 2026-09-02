@@ -25,7 +25,7 @@ ul li a span.label { display: block; text-align: center; padding: 2px 0 0 0; fon
 ul li span.label span { display: inline; font-size: 15px; }
 ul li span.label span.kern-a { display: inline; font-size: 15px; letter-spacing: 0; }
 ul li span.label span.kern { display: inline; font-size: 12px; letter-spacing: 0; }
-ul li a:link, ul li a:visited, ol li a:link, ol li a:visited { color: #999; text-decoration: none; }
+ul li a:link, ul li a:visited, ol li a:link, ol li a:visited { color: #6c6c6c; text-decoration: none; }   /* v4 #999; 4.5:1 on the paper (2026-09-03) */
 ul li a:hover, ol li a:hover { color: #ba1820; text-decoration: none; }
 .fl { float: left; margin: 7px 4px 0 0; padding: 0; font-size: 65px; line-height: 62%; color: #ba1820; }
 
@@ -82,16 +82,16 @@ div#content-sec h3 { clear: both; text-align: right; margin: 0 0 7px 25px; paddi
 h4 { clear: both; margin: 10px 0 12px 0; padding: 0; font-weight: normal; font-size: 14px; color: #333; text-transform: uppercase; }
 .journal div#content-pri h4 span { font-size: 10px; }
 h5 { margin: 30px 0 10px 0; font-weight: normal; font-size: 20px; }
-h5 span { font-size: 11px; font-style: italic; color: #999; }
+h5 span { font-size: 11px; font-style: italic; color: #6c6c6c; }
 h6 { clear: both; margin: 30px 0 0 0; padding: 0; font-size: 14px; color: #333; text-transform: uppercase; }
 .biography h6 { margin: 14px 0 4px 0; font-weight: normal; color: #666; text-transform: capitalize; }
 .entry h1, .entry h2 { clear: both; margin: 42px 0 12px 0; font-weight: normal; font-size: 20px; line-height: 26px; }  /* ours: in-body heads */
 .entry h3 { margin: 36px 0 10px 0; font-weight: normal; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
 /* 4. Links -------------------------------------------------------------- */
-a { outline: 0; }
 a:link, a:visited { color: #ba1820; }
 a:hover, a:focus { color: #999; }
+a:focus-visible, summary:focus-visible { outline: 2px solid #ba1820; outline-offset: 2px; }   /* keyboard focus (v4: outline 0) */
 
 /* 5. Layout ------------------------------------------------------------- */
 div#page { width: 946px; margin: 20px auto; padding: 30px 17px 10px 17px; }
@@ -106,8 +106,16 @@ div#content-pri ul li, div#content-pri ol li { width: 100%; padding: 5px 0; bord
 .archive div#content-pri ul li.date-heading { margin: 30px 0 0 0; padding-bottom: 10px; font-weight: normal; font-size: 18px; }
 div#content-pri ul li:first-child { border-top: 1px dashed #CCC; }
 .archive div#content-pri ul li:first-child { border-top: 0; }
-div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #999; }
-div#content-pri p { font-size: 15px; line-height: 24px; color: #333; margin: 0 0 15px 0; }
+div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #6c6c6c; }
+div#content-pri p { font-size: 15px; line-height: 24px; color: #333; margin: 0 0 15px 0; text-wrap: pretty; }
+/* Entry paragraphs: justified, hyphenated, numbered in the gutter (algebrica.org, 2026-09-03) */
+div#content-pri .entry > p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+div#content-pri .entry { counter-reset: para; }
+div#content-pri .entry > p { position: relative; counter-increment: para; }
+div#content-pri .entry > p::before { content: counter(para) "."; position: absolute; right: 100%; margin-right: 12px; top: 0;
+    width: 3em; text-align: right; font-size: 11px; line-height: 24px; color: #999; font-style: normal; font-variant-numeric: tabular-nums; }
+div#content-pri .entry > p:first-of-type::before { line-height: 29px; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 div#content-pri p a:link { text-decoration: underline; color: #ba1820; }
 div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: none; color: #ba1820; }
 div#content-pri p a:visited { text-decoration: underline; color: #d0656a; }
@@ -179,7 +187,7 @@ div#content-pri img { margin: 6px 0 2px 0; padding: 7px; background: #FFFAFA; bo
 div#content-pri figure { margin: 0 0 15px; }
 div#content-pri figcaption { margin-top: 2px; font-size: 12px; color: #666; }                          /* v4 cite */
 div#content-pri cite { display: block; margin-top: -13px; margin-bottom: 20px; padding: 0; font-size: 12px; }
-div#content-pri cite span { color: #999; }
+div#content-pri cite span { color: #6c6c6c; }
 div#content-pri blockquote { margin: 0; padding: 0 0 0 15px; border-left: 3px solid #EEE; }
 div#content-pri blockquote p { font-size: 16px; color: #666; margin-bottom: 7px; line-height: 150%; }
 div#content-pri blockquote cite { margin: 0; padding: 7px 0 0 0; color: #666; }
@@ -246,10 +254,10 @@ ul.subnav.faded li.card { opacity: .55; }
 .samples p.samples-foot { clear: both; margin: 20px 0 0 0; font-size: 12px; font-style: italic; color: #999; }
 
 /* 7. Siteinfo / footer -------------------------------------------------- */
-div#siteinfo { position: relative; clear: both; text-align: center; padding: 60px 0 0 0; color: #999; }   /* v4: 125px above deranged.png */
+div#siteinfo { position: relative; clear: both; text-align: center; padding: 60px 0 0 0; color: #6c6c6c; }   /* v4 #999: 125px above deranged.png */
 div#siteinfo p { margin: 0; padding: 0; }
 div#siteinfo p span { font-family: Courier, monospace; color: #fca0a5; }
-div#siteinfo a:link, div#siteinfo a:visited { text-decoration: underline; color: #beb2b2; }
+div#siteinfo a:link, div#siteinfo a:visited { text-decoration: underline; color: #8a7c7c; }   /* v4 #beb2b2 measured 1.9:1 */
 
 /* 8. Quote entries (ours — DESIGN.md §8, in the v4 palette) ------------- */
 div#content-pri blockquote.quote-panel { margin: 0 0 10px 0; padding: 4px 0 4px 15px; border-left: 3px solid #ba1820; }
@@ -321,8 +329,8 @@ div#content-sec ul.toc > li:first-child { border-top: 0; }
 div#content-sec ul.toc > li:last-child { border-bottom: 1px solid #CCC; }
 div#content-sec ul.toc ul { margin: 4px 0 0 0; border: 0; }
 div#content-sec ul.toc ul li { padding: 2px 0; font-size: 11px; font-style: italic; line-height: 15px;
-    color: #999; border: 0; }
-div#content-sec ul.toc ul li a:link, div#content-sec ul.toc ul li a:visited { color: #999; }
+    color: #6c6c6c; border: 0; }
+div#content-sec ul.toc ul li a:link, div#content-sec ul.toc ul li a:visited { color: #6c6c6c; }
 div#content-sec ul.toc ul li a:hover { color: #ba1820; text-decoration: none; }
 div#content-pri .toc-inline { display: none; margin: 0 0 30px 0; padding: 10px 0; border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
 div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; }
@@ -334,7 +342,7 @@ div#content-pri p.paginate { margin: 0; padding: 10px 0; font-size: 12px; font-w
     /* the column's Older/Newer shows only under 989px; on desktop the sidebar carries it (2026-09-02) */
 div#content-pri p.paginate a { padding: 1px 3px; text-decoration: none; }
 /* reading time sits in the v4 meta line */
-div#content-pri p.meta span.rt { color: #999; }
+div#content-pri p.meta span.rt { color: #6c6c6c; }
 /* 9c. Print (ours) ------------------------------------------------------ */
 @media print {
   body { background: #fff; font-size: 12pt; }
@@ -379,5 +387,6 @@ div#content-pri p.meta span.rt { color: #999; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
   div#content-pri #post img { width: auto; max-width: 100%; height: auto; }
+  div#content-pri .entry > p::before { content: none; }              /* no gutter for the numbers on a phone */
   div#siteinfo p { font-size: 12px; }
 }
