@@ -116,13 +116,13 @@ div#content-pri p a:hover, div#content-pri ul li a:hover, div#content-pri ol li 
 /* Planning grid (::: plan) — an answer skeleton is not code, so it is not
    set as code. A printed form: stage label in spaced caps, content in the
    body serif, hairline rules, reclaiming the right gutter like a table. */
-div#content-pri .plan { width: calc(100% + 110px); margin: 4px 0 22px 0;
-    border-top: 1px solid #CCC; border-bottom: 1px solid #CCC; }
+div#content-pri .plan { width: 100%; margin: 4px 0 22px 0;
+    border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }             /* inside the measure (2026-09-02) */
 div#content-pri .plan p.plan-title { margin: 0; padding: 7px 0; font-size: 12px; font-style: normal;
-    text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px solid #CCC; }
+    text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px dashed #CCC; }
 div#content-pri .plan ul { list-style: none; margin: 0; padding: 0; }
 div#content-pri .plan li { position: relative; width: auto; min-height: 22px; padding: 9px 0 9px 132px;
-    font-size: 15px; line-height: 22px; border: 0; border-bottom: 1px dotted #E0DCD6; }
+    font-size: 15px; line-height: 22px; border: 0; border-bottom: 1px dashed #DDD; }
 div#content-pri .plan li:last-child { border-bottom: 0; }
 div#content-pri .plan li::before { content: none; }
 div#content-pri .plan li > strong:first-child { position: absolute; left: 0; top: 9px; width: 116px;
@@ -135,9 +135,9 @@ div#content-pri .plan li em { font-style: italic; color: #666; }
 div#content-pri .sidehead-list { margin: 4px 0 20px 0; }
 div#content-pri .sidehead-list ul { list-style: none; margin: 0; padding: 0; }
 div#content-pri .sidehead-list li { width: auto; padding: 11px 0 11px 0; border: 0;
-    border-top: 1px dotted #E0DCD6; font-size: 15px; line-height: 24px; }
-div#content-pri .sidehead-list li:first-child { border-top: 1px solid #CCC; }
-div#content-pri .sidehead-list li:last-child { border-bottom: 1px solid #CCC; }
+    border-top: 1px dashed #DDD; font-size: 15px; line-height: 24px; }         /* v4 ledger rules (2026-09-02) */
+div#content-pri .sidehead-list li:first-child { border-top: 1px dashed #CCC; }
+div#content-pri .sidehead-list li:last-child { border-bottom: 1px dashed #DDD; }
 div#content-pri .sidehead-list li::before { content: none; }
 div#content-pri .sidehead-list li > strong:first-child { display: block; margin-bottom: 2px;
     font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #43606f; }
@@ -155,18 +155,22 @@ div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li {
 div#content-pri .entry > ol > li::marker { color: #999; }
 div#content-pri .entry > ul ul, div#content-pri .entry > ol ul { margin: 4px 0 4px 0; }
 
-div#content-pri table { border-collapse: collapse; width: calc(100% + 110px); margin: 4px 0 22px 0;
-    font-size: 14px; line-height: 20px; border-top: 1px solid #CCC; border-bottom: 1px solid #CCC;
+/* Tables sit inside the measure with v4's ledger rules (2026-09-02; the
+   2026-08-30 gutter-reclaim was reversed: "going out of the scope"). */
+div#content-pri table { border-collapse: collapse; width: 100%; margin: 4px 0 22px 0;
+    font-size: 14px; line-height: 20px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD;
     font-variant-numeric: tabular-nums; }
-div#content-pri thead th { padding: 7px 16px 7px 0; font-weight: normal; font-size: 12px; text-align: left;
-    text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px solid #CCC; white-space: nowrap; }
-div#content-pri tbody td { padding: 9px 16px 9px 0; vertical-align: top; border-bottom: 1px dotted #E0DCD6; }
+div#content-pri thead th { padding: 7px 16px 7px 0; font-weight: normal; font-size: 12px; line-height: 16px; text-align: left;
+    vertical-align: bottom; text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px dashed #CCC; }
+div#content-pri tbody td { padding: 9px 16px 9px 0; vertical-align: top; border-bottom: 1px dashed #DDD; }
 div#content-pri tbody tr:last-child td { border-bottom: 0; }
 div#content-pri tbody td:last-child, div#content-pri thead th:last-child { padding-right: 0; }
 div#content-pri td strong { font-weight: bold; }
 
 div#content-pri p.sub { clear: both; margin: 0 0 44px 0; padding: 0; font-weight: normal; font-size: 15px; color: #333; text-transform: uppercase; }
 div#content-pri p.sub span { margin: 0; padding: 0; font-size: 10px; }
+div#content-pri p.sub.tagline { margin-bottom: 12px; }                         /* front-matter tagline above the date (ours) */
+div#content-pri p.meta.entry-meta { display: none; }                          /* narrow canvases only: the sidebar's rows, in one line */
 div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 29px; margin-bottom: 20px; }     /* v4 p.intro */
 div#content-pri .entry.dropcap > p:first-of-type::first-letter { float: left; margin: 0 3px 0 0; font-size: 57px; line-height: 92%; }
 div#content-pri p.meta { margin: 0 0 45px 0; padding: 6px 0; font-size: 13px; font-style: italic; color: #666; line-height: 19px;
@@ -180,14 +184,14 @@ div#content-pri blockquote { margin: 0; padding: 0 0 0 15px; border-left: 3px so
 div#content-pri blockquote p { font-size: 16px; color: #666; margin-bottom: 7px; line-height: 150%; }
 div#content-pri blockquote cite { margin: 0; padding: 7px 0 0 0; color: #666; }
 div#content-pri #post { padding-bottom: 80px; }
-div#content-pri sup.footnote-ref { font-size: 10px; line-height: 0; color: #666; }
+div#content-pri sup.footnote-ref { font-size: 10px; line-height: 0; color: #666; scroll-margin-top: 33vh; }  /* the "↑" lands the sentence, not the marker (ours; v4: jQuery scrollTo) */
 div#content-pri sup.footnote-ref a:link, div#content-pri sup.footnote-ref a:visited { color: #666; text-decoration: none; }
 div#content-pri ol#footnotes::before { content: "Footnotes"; display: block; padding: 10px 0; margin: 60px 0 0 0; font-size: 12px;
     font-weight: normal; font-style: normal; text-transform: uppercase; letter-spacing: 1px; line-height: 120%; color: #666;
     border-top: 1px solid #DDD; }                                                                       /* v4 p#footnote */
 .journal div#content-pri ol#footnotes::before { margin: 30px 0 0 0; }
 div#content-pri ol#footnotes { padding: 0 0 10px 0; color: #666; font-size: 11px; margin: 0; line-height: 125%; border-bottom: 1px solid #DDD; list-style: decimal outside; }
-div#content-pri ol#footnotes li { font-size: 11px; border: 0; padding: 0; width: auto; }
+div#content-pri ol#footnotes li { font-size: 11px; border: 0; padding: 0; width: auto; scroll-margin-top: 30px; }
 div#content-pri ol#footnotes li > p { display: inline; margin: 0; font-size: 11px; color: #666; }
 div#content-pri ol#footnotes a.scrollto { margin-top: -2px; padding: 0 3px 0 2px; font-size: 9px; text-decoration: none; }
 
@@ -204,6 +208,13 @@ div#content-sec img { background: #FFFAFA; margin: 0 0 0 30px; padding: 7px; bor
                       box-shadow: 1px 1px 7px rgba(153,153,153,.2); transform: rotate(-2deg); }
 div#content-sec p.home-link { text-align: left; margin: 0 0 40px 25px; padding: 0; border: 0; font-style: normal; font-size: 12px;
                               text-transform: uppercase; letter-spacing: 1px; }                    /* v4 home-c.png, in type */
+/* entry sidebar (v4's post sidebar, 2026-09-02): prev/next row, then the aside rows, then the TOC */
+div#content-sec p.paginate { display: flex; justify-content: space-between; gap: 10px; margin: -10px 0 35px 25px; padding: 8px 0;
+                             border-top: 1px dashed #CCC; border-bottom: 1px dashed #CCC; text-align: left; font-style: normal;
+                             font-size: 12px; line-height: 18px; text-transform: uppercase; letter-spacing: 1px; }  /* v4 Prev/№/Next badge, in type */
+div#content-sec .aside { margin: 0 0 35px 0; }
+div#content-sec .aside p { margin-top: 0; }
+div#content-sec .aside p:last-child { border-bottom: 1px dashed #CCC; }
 
 /* 6. Navigation --------------------------------------------------------- */
 ul#nav-primary { clear: both; list-style-type: none; margin: 12px 0 30px 0; padding: 0 0 28px 0; display: flex; flex-wrap: wrap; gap: 10px; }
@@ -319,7 +330,8 @@ div#content-pri .toc-inline ul li { font-size: 14px; padding: 2px 0; border: 0; 
 div#content-pri .toc-inline ul ul { margin-left: 15px; }
 /* older / newer (v4 p.paginate) */
 div#content-pri p.paginate { margin: 0; padding: 10px 0; font-size: 12px; font-weight: normal; font-style: normal; text-transform: uppercase;
-    letter-spacing: 1px; color: #333; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; display: flex; justify-content: space-between; gap: 20px; }
+    letter-spacing: 1px; color: #333; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; display: none; justify-content: space-between; gap: 20px; }
+    /* the column's Older/Newer shows only under 989px; on desktop the sidebar carries it (2026-09-02) */
 div#content-pri p.paginate a { padding: 1px 3px; text-decoration: none; }
 /* reading time sits in the v4 meta line */
 div#content-pri p.meta span.rt { color: #999; }
@@ -344,7 +356,9 @@ div#content-pri p.meta span.rt { color: #999; }
   div#content-pri ol { padding-left: 1.6em; }
   div#content-pri ol#footnotes { padding-left: 1.6em; }
   div#content-pri .toc-inline { display: block; }
-  div#content-pri table { width: 100%; }
+  div#content-pri p.sub.dateline { display: none; }                 /* the one-line meta stands in for date + sidebar rows */
+  div#content-pri p.meta.entry-meta { display: block; }
+  div#content-pri p.paginate { display: flex; }
   div#content-pri .plan { width: 100%; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
@@ -352,17 +366,18 @@ div#content-pri p.meta span.rt { color: #999; }
   div#siteinfo p { font-size: 14px; }
 }
 @media (max-width: 509px) {
-  div#page { padding: 30px 0 10px 0; width: 306px; }
+  /* the phone tier, fluid (2026-09-02; v4: a fixed 306px canvas and 260px column) */
+  div#page { width: auto; margin: 12px 10px; padding: 24px 0 10px 0; }
   .home ul#nav-primary { padding-bottom: 30px; }
-  #branding a { width: 306px; }
-  ul#nav-primary li.card, ul.subnav li.card { width: 285px; }
+  #branding a { width: auto; }
+  ul#nav-primary li.card, ul.subnav li.card { width: auto; flex: 1 1 100%; box-sizing: border-box; }
   .biography li.card .engraving, .journal li.card .engraving, .archive li.card .engraving, .contact li.card .engraving { display: none; }
-  div#content-pri { width: 266px; margin: 0; padding: 0 20px; }
+  div#content-pri { width: auto; margin: 0; padding: 0 18px; }
   div#content-pri h2.page-title { font-size: 25px; }
   div#content-pri table { width: 100%; font-size: 13px; }
   div#content-pri .plan { width: 100%; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
-  div#content-pri #post img { width: 240px; height: auto; }
+  div#content-pri #post img { width: auto; max-width: 100%; height: auto; }
   div#siteinfo p { font-size: 12px; }
 }

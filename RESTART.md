@@ -110,8 +110,12 @@ Settled and not to be relitigated:
   domain. The eight external cards use the rest of that pool.
 - **Callouts** carry four muted ink hues: slate (note), moss (tip), ochre
   (key), red (warning). The only exception to the one-accent rule.
-- **Tables** reclaim the 110px right gutter; prose lists have hanging
+- **Tables** sit inside the 516px column with v4's dashed ledger rules
+  (2026-09-02; they briefly reclaimed the gutter); prose lists have hanging
   en-dashes and no rules; leading is 24px; section heads sit 42px clear.
+- **A post opens like Colly's**: title, date, lede. Categories, reading
+  time and Older/Newer live in the sidebar; on a phone they collapse to one
+  italic line. The phone tier is fluid, not v4's fixed 306px.
 - An **answer skeleton is not code** — it uses `::: plan`, never a code fence.
 - The "2026 layout" experiment (margin sidenotes, fluid type) was built and
   then dropped on your instruction. It is recoverable from commit `98efd0d`.
@@ -209,8 +213,13 @@ publishing** — the URL is permanent.
     git status               # what is uncommitted
     git diff                 # what changed
 
-Nine commits so far, all local on `main`. Nothing is on GitHub; say the word
-if you want it pushed to a private repo.
+All commits are local. The 2026-09-02 post-page work sits on the branch
+`agent/post-page-colly` (AGENTS.md §7); to fold it into `main` once you are
+happy:
+
+    git checkout main && git merge agent/post-page-colly
+
+Nothing is on GitHub; say the word if you want it pushed to a private repo.
 
 ## 8. If you want a backup right now
 

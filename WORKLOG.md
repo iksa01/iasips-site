@@ -170,3 +170,48 @@ labels must stay one word ("Application", not "Body C · Application").
 ## How to resume
     cd ~/Sites/kalyan-site && claude      # CLAUDE.md loads; read DESIGN.md, AGENTS.md, this file
     npx @11ty/eleventy --serve            # http://localhost:8080/ (or the port it prints)
+
+## 2026-09-02 — the post page becomes Colly's post page (design change)
+
+Kalyan came back "meticulous about every inch" with colly.com/v4/about/#f5,
+/v4/journal/ and v5.jasonsantamaria.com (the latter for a later footer only
+— "don't change anything as of now"). Measured both sites in headless Chrome
+at 1280/430/375 and compared our entry with a 2014 Wayback capture of a real
+v4 post (colly.com/comments/2013_a_year_in_review — the /v4/ archive has no
+post pages). He approved the fix list with "yes please make the changes",
+given in answer to the "design change" gate; treated as that instruction.
+
+What was wrong and what changed:
+- "The table is going out of the scope": tables and `::: plan` were 626px,
+  ending flush on the panel border while everything else is 516px. Back
+  inside the measure. Rows now use v4's ledger rule (dashed #DDD, dashed
+  #CCC at the top and under the header) — the dotted #E0DCD6 was invisible
+  on his screen ("should there be horizontal lines also?"). Table headers
+  were `nowrap`, which pushed the second table 26px out of the column on a
+  phone; they wrap now. `::: cases` took the same dashed rules.
+- "Can it all be in one line?": v4's post has NO meta block — title, date
+  as p.sub (uppercase, 10px ordinal), lede. Ours now does the same. The
+  categories and reading time moved to the sidebar under an h3 from
+  site.json `asideHeading` (TODO; v4: "Superfluous Aside"), with Older /
+  Newer as a spaced-caps row where v4 has its Prev/№/Next badge. Under
+  989px the sidebar hides, so one italic line "date · n min read · Archived
+  in …" stands in, and the foot p.paginate returns.
+- Footnotes "going a little bit here and there": the ↑ targeted the 10px
+  marker, so the sentence sat above the screen. `scroll-margin-top: 33vh`
+  on markers, 30px on notes. v4 did this with jQuery scrollTo; no script.
+- Phone: at 375px the fixed 306px canvas left 35px of paper each side and a
+  266px column (71% of the screen); at 430px, 62px and 62%. Colly's own
+  site does exactly the same at that width — it is v4's tier, inherited —
+  but he is right that it wastes the phone. The ≤509px tier is fluid now:
+  10px paper each side, 18px panel gutter, 314px column at 375 (84%).
+- Verified at 1280/430/375: every block 516px on desktop; scrollWidth equals
+  the viewport at every width; no element crosses the panel.
+
+Measuring notes for next time: `chrome --headless --screenshot` cannot go
+below ~500px wide and ignores `orientation`, so use DevTools
+`Emulation.setDeviceMetricsOverride` (scratchpad shot.mjs / measure.mjs).
+Colly's media queries key on device-width and orientation, so a tall
+desktop window renders his 468px tier — compare at 1280×1250, not 1280×3000.
+
+Still open from this round: the aside heading and every other TODO are his
+words; Jason Santamaria's footer is parked for later.

@@ -34,7 +34,10 @@ These are the only two webfonts. Never a sans-serif for text.
 - lede (first paragraph of an entry, v4 p.intro): 18px / 26px.
 - page title h2: 35px / 29px normal weight (article: 40px), 28px below,
   a 1px rgba(102,102,102,.24) rule 13px above the bottom (v4 underline.png).
-- p.sub: 15px uppercase, no tracking, 44px below.
+- p.sub: 15px uppercase, no tracking, 44px below. On a journal entry the
+  DATE is the p.sub — v4's post form, `<p class="sub">31<span>st</span>
+  December 2013</p>`, ordinal 10px (2026-09-02). A front-matter `sub`
+  tagline, where present, sits as a p.sub line 12px above the date.
 - journal-index entry title: 25px / 30px red link with a 1px #DDD rule;
   date h4 14px uppercase with a 10px ordinal span; blurb = first
   paragraph, no drop cap; p.meta 13px italic #666 between rules.
@@ -76,9 +79,21 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
     #content-pri floats RIGHT, 516px, padding 5px 110px 0 87px, 1px dashed
                  #DDD left rule. Furniture: h2.page-title → p.sub → lede →
                  body; h5/h6 section heads; ol#footnotes last.
+                 On an entry: h2.page-title → p.sub tagline (optional) →
+                 p.sub date → lede. No meta line on desktop (v4 post form).
     #content-sec floats LEFT, 196px + 25px right padding, right-aligned:
                  p.home-link, portrait (7px #FFFAFA padding, rotated -2°),
                  h3, list with dashed rows. Always present; may be empty.
+                 On an entry (v4's post sidebar, 2026-09-02): p.home-link →
+                 p.paginate "← OLDER / NEWER →" in 12px spaced caps between
+                 dashed rules (v4's Prev/№/Next badge, in type) → h3 aside
+                 heading (site.json `asideHeading`; v4: "Superfluous Aside")
+                 → p rows "Archived in …" and "n min read" in the sidebar's
+                 italic 14px with dashed #CCC rules → h3 "In this entry" +
+                 the TOC. Under 989px, where the sidebar hides, the entry
+                 shows instead one italic p.meta line — "date · n min read ·
+                 Archived in …" — in place of the p.sub date, the inline TOC,
+                 and v4's p.paginate at the post foot.
   h2.ext-dests   "EXTERNAL REFERENCES { VIEW ALL }" — League Gothic 28px,
                  "References" red, links to /external/.
   ul.subnav ×2   rows of the same cards (§5) for external destinations.
@@ -132,23 +147,32 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 - Footnotes: `[n]` markers 10px #666; a "FOOTNOTES" spaced-caps heading
   with a #DDD rule 60px above (30px in the journal); ol#footnotes 11px
   #666, #DDD rule below; each note begins with a 9px "↑" backlink.
+  Jumps land with context: markers carry `scroll-margin-top: 33vh` and
+  notes 30px, so the "↑" puts the sentence, not just the marker, in view
+  (v4 did this with a jQuery scrollTo; we ship no script). A note at the
+  foot of a short page still cannot reach the top of the screen — the page
+  ends — and that is accepted.
 - Blockquote: 3px #EEE left rule, 15px padding, 16px #666 text; `<cite>`
   7px below in #666.
-- Tables (ours, reworked 2026-08-30): a table reclaims the column's right
-  gutter — `width: calc(100% + 110px)` — because data strangled into the
-  516px measure is unreadable. 14px/20px, tabular numerals, header in 12px
-  spaced caps #666, 1px #CCC above/below/under the header, dotted #E0DCD6
-  between rows, 9px cell padding, no zebra. Full width at the breakpoints.
+- Tables (ours; reworked 2026-09-02): a table sits INSIDE the 516px
+  measure like everything else — the 2026-08-30 gutter-reclaim was reversed
+  on Kalyan's "the table is going out of the scope". 14px/20px, tabular
+  numerals, header in 12px spaced caps #666 that wraps rather than
+  overflowing, and v4's ledger rules: 1px dashed #CCC above the table and
+  under the header, 1px dashed #DDD between and below the rows. 9px cell
+  padding, no vertical rules, no zebra.
 - Planning grid (`::: plan Title`): an answer skeleton, a structure, a
   schedule. Title in 12px spaced caps over a #CCC rule; each row is a
   hanging label in 12px spaced-caps slate at 116px, gloss beside it at
-  15px/22px, dotted rules between. Reclaims the right gutter like a table;
-  the label stacks above the gloss at the breakpoints.
+  15px/22px, dashed #DDD rules between (dashed #CCC above the title). Sits
+  inside the measure like a table; the label stacks above the gloss at the
+  breakpoints.
   **An answer skeleton is not code and must never be set as code** — that
   was the 2026-08-30 correction. Code styling (§7) is for code only.
 - Run-in sidehead list (`::: cases`): term as its own line in 12px spaced
-  caps slate, gloss beneath at 15px/24px, dotted rules between, solid #CCC
-  top and bottom. Use where a bullet would collide with an em dash — case
+  caps slate, gloss beneath at 15px/24px, dashed #DDD rules between,
+  dashed #CCC above the first and dashed #DDD below the last (the ledger
+  register). Use where a bullet would collide with an em dash — case
   lists, definitions, any term-plus-explanation.
 - Code: v4 pre (20px padding, #EEE fill, 1px #CCC rules above and below)
   set in VT323 18px/20px (v4: Courier New 12px/140%). Fenced blocks are coloured at build time by
@@ -186,8 +210,10 @@ modern elements drawn in v4's vocabulary)
   hover (#999, 14px).
 - <kbd>: VT323 16px on white, 1px #CCC border, 2px bottom, 3px radius.
   <abbr title>: dotted #999 underline.
-- Meta line gains "· n min read" in #999. Post foot gains v4's p.paginate
-  with "← Older" / "Newer →" entry links.
+- Reading time ("n min read") and the categories live in the entry's
+  sidebar aside (§4), Older/Newer in the sidebar p.paginate; both fall back
+  into the column under 989px. There is no meta block under a post title
+  on desktop (2026-09-02: v4's post shows title, date, lede — nothing else).
 - Print: nav, cards, sidebar and pagination hidden; white ground; external
   link URLs printed after the link text.
 
@@ -211,8 +237,14 @@ sitemap (/sitemap.xml) are built at build time.
 
 ≤989px: canvas 468px, cards two across, sidebar hidden, text column 408px
 with a 30px gutter each side, list numerals indented.
-≤509px: canvas 306px, cards full width, inner-page engravings hidden,
-text column 260px, page title 25px.
+≤509px (the phone tier; made fluid 2026-09-02): the canvas fills the
+viewport with 10px of paper each side and no canvas padding; cards full
+width; inner-page engravings hidden; the text column fills the panel with
+an 18px gutter each side; page title 25px; images no wider than the column.
+v4 fixed this tier at a 306px canvas / 260px column, which on a 375–430px
+phone left 35–62px of graph paper each side — Kalyan, 2026-09-02: "the
+middle of the body is getting less space whereas the squares in the
+background are eating up a lot of space."
 
 ## 12. Permanently forbidden
 
@@ -245,7 +277,10 @@ package-lock.json, .nvmrc, reference/**, this file.
 | — | `sub`, `toc` front-matter keys | tagline under titles; table of contents |
 | — | four muted callout hues (§7b) | Kalyan, "better colours" |
 | 22px leading, 30px above heads | 24px leading, 42px above heads | Kalyan, "line-spacing-wise there is scope" |
-| tables inside the 516px column | tables reclaim the 110px right gutter | Kalyan, "the table is all in a column only" |
+| — | tables, `::: plan`, `::: cases` inside the 516px column with v4's dashed ledger rules | 2026-08-30 they reclaimed the gutter; reversed 2026-09-02, "the table is going out of the scope" |
+| ≤509px: fixed 306px canvas | fluid phone tier, 10px paper each side | Kalyan 2026-09-02, the paper "eating up a lot of space" |
+| jQuery scrollTo for footnotes | `scroll-margin-top` on markers and notes | no script |
 | answer skeleton set as a code block | `::: plan` printed grid | Kalyan: "the worst of all the designs" — it was never code |
 | v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
+| post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |

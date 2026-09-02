@@ -1,6 +1,7 @@
 {
   "url": "https://TODO.example",
   "title": "TODO: site title",
+  "asideHeading": "TODO: sidebar heading over an entry’s details (v4: “Superfluous Aside”)",
   "author": "Kalyan",
   "language": "en",
   "masthead": {

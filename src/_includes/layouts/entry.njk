@@ -20,8 +20,9 @@ bodyId: article
 </div>
 {%- else %}
 <h2 class="page-title">{{ title }}</h2>
-{% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
-<p class="meta">{{ page.date | dateLong | safe }} <span class="rt">· {{ content | readingTime }} min read</span>{% if tags and tags.length %} <br>Archived in {{ tags | join(" | ") }}{% endif %}</p>
+{% if sub %}<p class="sub tagline">{{ sub }}</p>{% endif %}
+<p class="sub dateline">{{ page.date | dateLong | safe }}</p>
+<p class="meta entry-meta">{{ page.date | dateLong | safe }} <span class="rt">· {{ content | readingTime }} min read</span>{% if tags and tags.length %} · Archived in {{ tags | join(" | ") }}{% endif %}</p>
 {%- if tocItems.length %}
 <div class="toc-inline"><h3>In this entry</h3>{% include "partials/toc-list.njk" %}</div>
 {%- endif %}
@@ -35,6 +36,18 @@ bodyId: article
 </div>
 <div id="content-sec">
 <p class="home-link"><a href="/journal/">The Journal</a></p>
+{%- if older or newer %}
+<p class="paginate"><span>{% if older %}<a href="{{ older.url }}" title="{{ older.data.title }}">&larr; Older</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}" title="{{ newer.data.title }}">Newer &rarr;</a>{% endif %}</span></p>
+{%- endif %}
+{%- if type != "quote" %}
+<h3>{{ site.asideHeading }}</h3>
+<div class="aside">
+{%- if tags and tags.length %}
+<p>Archived in {{ tags | join(" | ") }}</p>
+{%- endif %}
+<p>{{ content | readingTime }} min read</p>
+</div>
+{%- endif %}
 {%- if tocItems.length %}
 <h3>In this entry</h3>
 {% include "partials/toc-list.njk" %}

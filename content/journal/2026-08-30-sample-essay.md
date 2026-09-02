@@ -54,7 +54,7 @@ No exhaustive list exists, and the Court has repeatedly refused to make one. Wha
 Supremacy of the Constitution · republican and democratic form of government · secular character · separation of powers between legislature, executive and judiciary. Everything else you cite should be attached to a case.
 :::
 
-| Feature | Established or affirmed in |
+| Feature | Affirmed in |
 |---|---|
 | Sovereign, democratic, republican structure | Kesavananda Bharati, 1973 |
 | Rule of law; judicial review under Articles 32 and 226 | Kesavananda Bharati, 1973 |
