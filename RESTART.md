@@ -226,13 +226,9 @@ publishing** — the URL is permanent.
     git status               # what is uncommitted
     git diff                 # what changed
 
-All commits are local. The 2026-09-02 post-page work sits on the branch
-`agent/post-page-colly` (AGENTS.md §7); to fold it into `main` once you are
-happy:
-
-    git checkout main && git merge agent/post-page-colly
-
-Nothing is on GitHub; say the word if you want it pushed to a private repo.
+All commits are local, all on `main` (the 2026-09-02/03 branch was
+merged on Kalyan's word on 2026-09-03: "whatever you're showing me right
+now is the final thing"). Nothing is on GitHub; Kalyan will say when.
 
 ## 8. If you want a backup right now
 
