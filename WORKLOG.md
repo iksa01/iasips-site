@@ -281,3 +281,18 @@ published in HTML, Markdown and all that drama." Design change, same branch.
   identity markup.
 - Fact for Kalyan: site.json `ogImage` — a 1200×630 image for link
   previews — and, as before, `site.url` and `description`.
+
+## 2026-09-03 (c) — /samples/ working page: box colours and quote styles
+
+Kalyan: the moss and ochre boxes sit oddly on a cream-and-red page; show
+three or four options for the boxes and for the Ambedkar quotation, "it
+should not spoil the design". Built content/samples.md (working page, own
+<style> block, excluded from collections — delete it with the decision):
+Sets A (palette only: grey / rose #d0656a / orange-red #d24b21 / red),
+B (warm inks: grey / sepia #7a5a3a / burgundy #7a1f2b / red), C (one ink,
+no tints: dashed / grey / black / red rules), D (one hue in four weights);
+Quotes 1 (Colly's, as now), 2 (hanging red quotation mark, italic, spaced
+caps cite), 3 (centred epigraph between hairlines), 4 (the quote-entry
+panel at 20px), 5 (a card like the boxes). Awaiting his letter and number.
+Gotcha: page-only rules must be written `body.samples-page div#content-pri …`
+to out-rank the stylesheet's `div#content-pri aside.callout-note`.
