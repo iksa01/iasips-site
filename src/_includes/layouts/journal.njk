@@ -7,7 +7,8 @@ bodyId: multiple
 <div id="content-pri">
 <h2 class="page-title">{{ title }}</h2>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
-{%- for e in collections.journal %}
+{%- set entries = (collections[tag] | reverse) if tag else collections.journal %}
+{%- for e in entries %}
 {%- include "partials/index-entry.njk" %}
 {%- endfor %}
 </div>

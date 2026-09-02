@@ -44,10 +44,14 @@ These are the only two webfonts. Never a sans-serif for text.
 - lede (first paragraph of an entry, v4 p.intro): 18px / 26px.
 - page title h2: 35px / 29px normal weight (article: 40px), 28px below,
   a 1px rgba(102,102,102,.24) rule 13px above the bottom (v4 underline.png).
-- p.sub: 15px uppercase, no tracking, 44px below. On a journal entry the
-  DATE is the p.sub — v4's post form, `<p class="sub">31<span>st</span>
-  December 2013</p>`, ordinal 10px (2026-09-02). A front-matter `sub`
-  tagline, where present, sits as a p.sub line 12px above the date.
+- p.sub: 15px uppercase, no tracking, 44px below. A front-matter `sub`
+  tagline on an entry sits 12px above the meta line.
+- Entry meta line (2026-09-03, Kalyan: "can it all be in one line?"): one
+  italic 13px #666 line between #DDD rules, v4's index p.meta form —
+  "30th August 2026 · Updated 3rd September 2026 · 7 min read · Archived in
+  GS2 | Polity", categories as red links to their category pages. The same
+  line at every width. (2026-09-02 tried v4's uppercase p.sub date with the
+  rest in the sidebar; Kalyan found the sidebar "complicated".)
 - journal-index entry title: 25px / 30px red link with a 1px #DDD rule;
   date h4 14px uppercase with a 10px ordinal span; blurb = first
   paragraph, no drop cap; p.meta 13px italic #666 between rules.
@@ -90,9 +94,21 @@ Landmarks (2026-09-03, invisible): `<header>` wraps masthead and nav,
 content, `<footer>` wraps external references and #siteinfo; an entry's
 #post is an `<article>`; every date is a `<time datetime>`.
 Head: charset, viewport, title, description (the entry's `sub`, else
-site.json `description`), canonical (`site.url` + page URL), rel=prev /
-rel=next on entries (older / newer), color-scheme light, the stylesheet
-for ALL media (print rules were dead while it said `media="screen"`), RSS.
+site.json `description`), author, canonical (`site.url` + page URL),
+rel=prev / rel=next on entries (older / newer), color-scheme light, the
+stylesheet for ALL media (print rules were dead while it said
+`media="screen"`), RSS, a preload for the wordmark font.
+Search and answer engines (2026-09-03, Kalyan: "SEO- and GEO-friendly"):
+Open Graph title/description/url/type/site_name, og:image when site.json
+`ogImage` names a 1200×630 image, twitter:card summary, article
+published/modified times, and a JSON-LD block — BlogPosting on entries,
+WebSite elsewhere — carrying headline, dates, author, keywords (the tags)
+and URL. JSON-LD is DATA in a script element, not code that runs; §10's
+no-JavaScript rule stands.
+  - Category pages (/journal/category/<slug>/, 2026-09-03): one per tag,
+    built from the tags in front matter, in the journal index's shape with
+    the title "Archived in <Tag>". Every "Archived in" is a link to them —
+    v4 linked its categories the same way.
 
 Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 
@@ -106,22 +122,16 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
                  #DDD left rule. Furniture: h2.page-title → p.sub → lede →
                  body; h5/h6 section heads; ol#footnotes last.
                  On an entry: h2.page-title → p.sub tagline (optional) →
-                 p.sub date → lede. No meta line on desktop (v4 post form).
+                 p.meta line (§1) → lede.
     #content-sec floats LEFT, 196px + 25px right padding, right-aligned:
                  p.home-link, portrait (7px #FFFAFA padding, rotated -2°),
                  h3, list with dashed rows. Always present; may be empty.
-                 On an entry (v4's post sidebar, 2026-09-02): p.home-link →
-                 p.paginate "← OLDER / NEWER →" in 12px spaced caps between
-                 dashed rules (v4's Prev/№/Next badge, in type) → h3 aside
-                 heading (site.json `asideHeading`; v4: "Superfluous Aside")
-                 → p rows "Archived in …", "Updated <date>" (front matter
-                 `updated`, when present; algebrica.org's "Updated" line)
-                 and "n min read" in the sidebar's
-                 italic 14px with dashed #CCC rules → h3 "In this entry" +
-                 the TOC. Under 989px, where the sidebar hides, the entry
-                 shows instead one italic p.meta line — "date · n min read ·
-                 Archived in …" — in place of the p.sub date, the inline TOC,
-                 and v4's p.paginate at the post foot.
+                 On an entry (2026-09-03): p.home-link → p.paginate
+                 "← OLDER / NEWER →" in 12px spaced caps between dashed
+                 rules (v4's Prev/№/Next badge, in type) → h3 "In this
+                 entry" + the TOC. Nothing else. Under 989px, where the
+                 sidebar hides, the TOC moves inline under the meta line and
+                 v4's p.paginate returns at the post foot.
   h2.ext-dests   "EXTERNAL REFERENCES { VIEW ALL }" — League Gothic 28px,
                  "References" red, links to /external/.
   ul.subnav ×2   rows of the same cards (§5) for external destinations.
@@ -238,15 +248,16 @@ modern elements drawn in v4's vocabulary)
   hover (#999, 14px).
 - <kbd>: VT323 16px on white, 1px #CCC border, 2px bottom, 3px radius.
   <abbr title>: dotted #999 underline.
-- Reading time ("n min read") and the categories live in the entry's
-  sidebar aside (§4), Older/Newer in the sidebar p.paginate; both fall back
-  into the column under 989px. There is no meta block under a post title
-  on desktop (2026-09-02: v4's post shows title, date, lede — nothing else).
+- Reading time, updated date and categories sit in the one meta line under
+  the title (§1). Older/Newer live in the sidebar p.paginate and fall back
+  to the post foot under 989px.
+- Touch canvases (≤989px): TOC rows 7px padding, Older/Newer 8px, footnote
+  markers and backlinks padded to a fingertip (2026-09-03).
 - Print: nav, cards, sidebar and pagination hidden; white ground; external
   link URLs printed after the link text. Paragraph numbers print.
 - Front matter `updated: YYYY-MM-DD` (2026-09-03): shown as "Updated …" in
-  the sidebar aside and the narrow meta line; feeds the canonical modified
-  date. Optional.
+  the meta line; feeds dateModified, article:modified_time and the
+  sitemap's lastmod. Optional.
 
 ## 8. Quote entries (type: quote) — ours
 
@@ -260,7 +271,8 @@ modern elements drawn in v4's vocabulary)
 
 ## 10. Motion and JavaScript
 
-No JavaScript on any page. No transitions beyond the browser defaults; the
+No JavaScript on any page (a JSON-LD data block in the head is not
+JavaScript — nothing executes). No transitions beyond the browser defaults; the
 only transform is the sidebar portrait's -2° (v4). RSS (/feed.xml) and
 sitemap (/sitemap.xml) are built at build time.
 
@@ -316,4 +328,6 @@ package-lock.json, .nvmrc, reference/**, this file.
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
 | post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |
 | ragged-right paragraphs | justified, hyphenated, numbered in the gutter; `updated` line | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
+| sidebar aside ("Superfluous Aside") with categories, read time | one meta line under the title; sidebar = journal link, Older/Newer, TOC | Kalyan 2026-09-03: "we are complicating the sidebar… push it below the title" |
+| category pages, hCard | category pages; Open Graph, JSON-LD, sitemap lastmod, image dimensions, font preload | Kalyan 2026-09-03: "lightning-fast, SEO- and GEO-friendly" |
 | #999 text, outlines off, `media="screen"`, div soup | #6c6c6c text, focus ring, all-media stylesheet, landmarks, time, description/canonical/prev/next | 2026 practices, Kalyan 2026-09-03 |

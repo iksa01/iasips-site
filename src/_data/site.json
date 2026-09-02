@@ -2,7 +2,7 @@
   "url": "https://TODO.example",
   "title": "TODO: site title",
   "description": "TODO: one sentence describing the site, for search results and link previews",
-  "asideHeading": "TODO: sidebar heading over an entry’s details (v4: “Superfluous Aside”)",
+  "ogImage": "",
   "author": "Kalyan",
   "language": "en",
   "masthead": {

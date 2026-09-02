@@ -3,10 +3,10 @@
 {%- set qhtml = e.templateContent %}
 {%- include "partials/quote-panel.njk" %}
 <h4><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time></h4>
-<p class="meta">{% if e.data.tags and e.data.tags.length %}Archived in {{ e.data.tags | join(" | ") }} <br>{% endif %}<a href="{{ e.url }}">Permanent link &rarr;</a></p>
+<p class="meta">{% if e.data.tags and e.data.tags.length %}Archived in {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %} <br>{% endif %}<a href="{{ e.url }}">Permanent link &rarr;</a></p>
 {%- else %}
 <h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
 <h4><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time></h4>
 <p class="blurb">{{ e.templateContent | firstParagraph | safe }}</p>
-<p class="meta">{% if e.data.tags and e.data.tags.length %}Archived in {{ e.data.tags | join(" | ") }} <br>{% endif %}Read on, <a href="{{ e.url }}">there is more &rarr;</a></p>
+<p class="meta">{% if e.data.tags and e.data.tags.length %}Archived in {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %} <br>{% endif %}Read on, <a href="{{ e.url }}">there is more &rarr;</a></p>
 {%- endif %}

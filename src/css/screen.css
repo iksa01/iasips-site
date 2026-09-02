@@ -177,8 +177,8 @@ div#content-pri td strong { font-weight: bold; }
 
 div#content-pri p.sub { clear: both; margin: 0 0 44px 0; padding: 0; font-weight: normal; font-size: 15px; color: #333; text-transform: uppercase; }
 div#content-pri p.sub span { margin: 0; padding: 0; font-size: 10px; }
-div#content-pri p.sub.tagline { margin-bottom: 12px; }                         /* front-matter tagline above the date (ours) */
-div#content-pri p.meta.entry-meta { display: none; }                          /* narrow canvases only: the sidebar's rows, in one line */
+div#content-pri p.sub.tagline { margin-bottom: 12px; }                         /* front-matter tagline above the meta line (ours) */
+div#content-pri p.meta.entry-meta a:link, div#content-pri p.meta.entry-meta a:visited { color: #ba1820; text-decoration: underline; }
 div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 29px; margin-bottom: 20px; }     /* v4 p.intro */
 div#content-pri .entry.dropcap > p:first-of-type::first-letter { float: left; margin: 0 3px 0 0; font-size: 57px; line-height: 92%; }
 div#content-pri p.meta { margin: 0 0 45px 0; padding: 6px 0; font-size: 13px; font-style: italic; color: #666; line-height: 19px;
@@ -216,13 +216,10 @@ div#content-sec img { background: #FFFAFA; margin: 0 0 0 30px; padding: 7px; bor
                       box-shadow: 1px 1px 7px rgba(153,153,153,.2); transform: rotate(-2deg); }
 div#content-sec p.home-link { text-align: left; margin: 0 0 40px 25px; padding: 0; border: 0; font-style: normal; font-size: 12px;
                               text-transform: uppercase; letter-spacing: 1px; }                    /* v4 home-c.png, in type */
-/* entry sidebar (v4's post sidebar, 2026-09-02): prev/next row, then the aside rows, then the TOC */
+/* entry sidebar (v4's post sidebar, 2026-09-02; simplified 2026-09-03): prev/next row, then the TOC */
 div#content-sec p.paginate { display: flex; justify-content: space-between; gap: 10px; margin: -10px 0 35px 25px; padding: 8px 0;
                              border-top: 1px dashed #CCC; border-bottom: 1px dashed #CCC; text-align: left; font-style: normal;
                              font-size: 12px; line-height: 18px; text-transform: uppercase; letter-spacing: 1px; }  /* v4 Prev/№/Next badge, in type */
-div#content-sec .aside { margin: 0 0 35px 0; }
-div#content-sec .aside p { margin-top: 0; }
-div#content-sec .aside p:last-child { border-bottom: 1px dashed #CCC; }
 
 /* 6. Navigation --------------------------------------------------------- */
 ul#nav-primary { clear: both; list-style-type: none; margin: 12px 0 30px 0; padding: 0 0 28px 0; display: flex; flex-wrap: wrap; gap: 10px; }
@@ -364,9 +361,12 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   div#content-pri ol { padding-left: 1.6em; }
   div#content-pri ol#footnotes { padding-left: 1.6em; }
   div#content-pri .toc-inline { display: block; }
-  div#content-pri p.sub.dateline { display: none; }                 /* the one-line meta stands in for date + sidebar rows */
-  div#content-pri p.meta.entry-meta { display: block; }
   div#content-pri p.paginate { display: flex; }
+  /* tap targets on touch canvases (2026-09-03) */
+  div#content-pri .toc-inline ul li { padding: 7px 0; }
+  div#content-pri p.paginate a { padding: 8px 3px; }
+  div#content-pri ol#footnotes a.scrollto { padding: 6px 8px 6px 4px; }
+  div#content-pri sup.footnote-ref a { padding: 8px 4px; }
   div#content-pri .plan { width: 100%; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }

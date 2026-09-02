@@ -5,8 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
-<meta name="description" content="{{ (sub or site.description) | striptags | escape }}">
+{%- set pageDescription = (sub or site.description) | striptags %}
+<meta name="description" content="{{ pageDescription | escape }}">
+<meta name="author" content="{{ site.author }}">
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{% if bodyId == "article" %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ (title or site.title) | escape }}">
+<meta property="og:description" content="{{ pageDescription | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+{%- if site.ogImage %}
+<meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+{%- endif %}
+<meta name="twitter:card" content="summary">
+{%- if bodyId == "article" %}
+<meta property="article:published_time" content="{{ page.date | dateISO }}">
+{%- if updated %}<meta property="article:modified_time" content="{{ updated | dateISO }}">{% endif %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "BlogPosting",
+  "headline": title, "description": pageDescription,
+  "datePublished": page.date | dateISO, "dateModified": (updated or page.date) | dateISO,
+  "author": { "@type": "Person", "name": site.author, "url": site.url },
+  "keywords": (tags | join(", ")) if tags else "",
+  "inLanguage": site.language,
+  "mainEntityOfPage": site.url + page.url, "url": site.url + page.url
+} | dump | safe }}</script>
+{%- else %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "WebSite",
+  "name": site.title, "url": site.url, "description": site.description | striptags,
+  "author": { "@type": "Person", "name": site.author, "url": site.url },
+  "inLanguage": site.language
+} | dump | safe }}</script>
+{%- endif %}
+<link rel="preload" href="/fonts/LeagueGothic-Regular.woff2" as="font" type="font/woff2" crossorigin>
 {%- if bodyId == "article" %}
 {%- set olderHead = collections.journal | getNextCollectionItem %}
 {%- set newerHead = collections.journal | getPreviousCollectionItem %}

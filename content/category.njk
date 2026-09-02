@@ -1,0 +1,12 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter: ["all", "journal"]
+layout: layouts/journal.njk
+permalink: "/journal/category/{{ tag | slugify }}/"
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "Archived in {{ tag }}"
+---

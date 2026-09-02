@@ -106,7 +106,9 @@ decline and report.
   attributes in content.
 - No JavaScript, anywhere.
 - No analytics, SEO plugins, meta-tag "improvements", redirects, or
-  third-party services.
+  third-party services. (The head's description, Open Graph and JSON-LD
+  are the template's, set once by design change — DESIGN.md §4 — and
+  are not to be extended.)
 - No redesign suggestions, style tweaks, or "modernization" — not in
   commits, not as drive-by fixes, not as comments in content files.
 - No creation of new sections, page types, or templates.

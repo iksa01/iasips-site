@@ -249,3 +249,35 @@ cookie banner — forbidden by §12 or need script.
 Kalyan's "line under the date": Colly rules under the TITLE on both the
 index and the post, and we match him; a rule under the date is one line of
 CSS if he wants it after seeing this round.
+
+## 2026-09-03 (b) — simpler sidebar, one meta line, category pages, SEO/GEO head
+
+Kalyan: "lightning-fast, SEO- and GEO-friendly… as close as possible to
+Colly… we are complicating the sidebar… can we push it below the title? do
+we have to have headings over 'superfluous aside'?… I don't want my notes
+published in HTML, Markdown and all that drama." Design change, same branch.
+
+- The sidebar aside and its heading are gone. One italic meta line under
+  the title at every width: date · Updated · n min read · Archived in
+  <links>. It is v4's index p.meta form, so still his. Sidebar = journal
+  link, Older/Newer, In this entry. `asideHeading` removed from site.json.
+- Category pages: content/category.njk paginates Eleventy's tag
+  collections into /journal/category/<slug>/ using the journal layout with
+  the title "Archived in <Tag>". journal.njk takes `collections[tag]`
+  (reversed — tag collections come oldest-first) when `tag` is set. Every
+  "Archived in" on the index, the entry and the meta line is a link now,
+  as v4's were.
+- Head for search and answer engines: author, Open Graph (title,
+  description, url, type, site_name; og:image only when site.json
+  `ogImage` is set — a fact for Kalyan), twitter:card, article
+  published/modified times, JSON-LD BlogPosting on entries and WebSite
+  elsewhere. JSON-LD is data, not script; DESIGN §10 says so.
+- Speed: wordmark font preloaded; card engravings carry width/height and
+  decoding=async (no layout shift); sitemap gets lastmod from `updated`
+  or the date.
+- Touch: TOC rows, Older/Newer, footnote markers and backlinks padded on
+  canvases ≤989px.
+- Refused, on his word: Markdown copies of posts. Held: print polish,
+  identity markup.
+- Fact for Kalyan: site.json `ogImage` — a 1200×630 image for link
+  previews — and, as before, `site.url` and `description`.

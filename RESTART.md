@@ -120,6 +120,10 @@ Settled and not to be relitigated:
   in the gutter (from algebrica.org); `updated:` front matter shows an
   "Updated" line; landmarks, focus ring, description/canonical/prev/next,
   darker grey text for contrast. Sidebar stays left, as Colly's.
+- **2026-09-03 (b)**: the sidebar aside is gone; one meta line under the
+  title carries date, updated, reading time and linked categories.
+  Category pages at `/journal/category/<tag>/`. Open Graph and JSON-LD in
+  the head, sitemap last-modified dates, font preload, image dimensions.
 - An **answer skeleton is not code** — it uses `::: plan`, never a code fence.
 - The "2026 layout" experiment (margin sidenotes, fluid type) was built and
   then dropped on your instruction. It is recoverable from commit `98efd0d`.
@@ -128,7 +132,8 @@ Settled and not to be relitigated:
 
 1. **Every `TODO:`** in the tree is a fact only you can supply — masthead
    lines, the four card straps, page taglines, the About text, external
-   destinations, the colophon, `site.url`, the portrait. About twelve lines.
+   destinations, the colophon, `site.url`, `description` and `ogImage`
+   (a 1200×630 picture for link previews) in site.json, the portrait.
    Say *"draft them"* and options get put in front of you to approve.
 2. **Colly's animals** remain in `images/engravings/` as `PLACEHOLDER-colly-*`.
    No real page references them any more, but they are his artwork and
