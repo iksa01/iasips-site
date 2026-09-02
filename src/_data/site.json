@@ -1,5 +1,5 @@
 {
-  "url": "https://TODO.example",
+  "url": "https://ias.ips.in",
   "title": "TODO: site title",
   "description": "TODO: one sentence describing the site, for search results and link previews",
   "ogImage": "",
@@ -43,19 +43,19 @@
   "externals": [
     [
       {
-        "href": "https://TODO.substack.com",
+        "href": "https://upsc.substack.com",
         "strap": "Longer letters, now and then",
         "label": "Substack Letters",
         "engraving": "/images/engravings/gosse/chatterer-feather.png"
       },
       {
-        "href": "https://instagram.com/TODO",
+        "href": "https://instagram.com/upscverse",
         "strap": "Pictures from the field",
         "label": "Instagram Pictures",
         "engraving": "/images/engravings/gosse/green-tody.png"
       },
       {
-        "href": "https://x.com/TODO",
+        "href": "https://x.com/upscverse",
         "strap": "Shorter thoughts, more often",
         "label": "Follow Me On X",
         "engraving": "/images/engravings/gosse/goldfinch-nest.png"

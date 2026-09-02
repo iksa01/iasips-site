@@ -353,3 +353,12 @@ push 'Archived in' and 'Read on' into one single line." Done: blockquote
 and quote-panel cites are text-align right; the journal index p.meta is
 one line with a middot where v4 had a <br>. The red mark is gone from
 the stylesheet entirely. Design change, same branch.
+
+## 2026-09-03 (g) — facts from Kalyan: domain and handles
+
+site.url = https://ias.ips.in (his domain, "I already own"); Substack
+upsc.substack.com; X and Instagram @upscverse. Set in site.json. Canonical
+links, structured data, robots and sitemap now carry the real address.
+He asked whether the work is saved: it is committed in git, locally, on
+branch agent/post-page-colly; nothing is on GitHub yet. A tarball backup
+was written to ~/Sites/ this session.
