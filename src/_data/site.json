@@ -43,54 +43,28 @@
   "externals": [
     [
       {
-        "href": "https://TODO.example/newsletter",
-        "strap": "TODO: strap",
-        "label": "News Letter",
-        "engraving": "/images/engravings/gosse/fishes-p-168.png"
-      },
-      {
-        "href": "https://x.com/TODO",
-        "strap": "TODO: strap",
-        "label": "Follow Me On X",
+        "href": "https://TODO.substack.com",
+        "strap": "TODO: strap for the Substack card",
+        "label": "Substack Letters",
         "engraving": "/images/engravings/gosse/chatterer-feather.png"
       },
       {
-        "href": "/feed.xml",
-        "strap": "TODO: strap",
-        "label": "RSS Feed",
-        "engraving": "/images/engravings/gosse/fishes-p-145.png"
-      },
-      {
-        "href": "https://TODO.example",
-        "strap": "TODO: strap",
-        "label": "TODO Destination",
+        "href": "https://instagram.com/TODO",
+        "strap": "TODO: strap for the Instagram card",
+        "label": "Instagram Pictures",
         "engraving": "/images/engravings/gosse/green-tody.png"
-      }
-    ],
-    [
-      {
-        "href": "https://TODO.example",
-        "strap": "TODO: strap",
-        "label": "TODO Destination",
-        "engraving": "/images/engravings/gosse/buceros.png"
       },
       {
-        "href": "https://TODO.example",
-        "strap": "TODO: strap",
-        "label": "TODO Destination",
-        "engraving": "/images/engravings/gosse/eagle-foot.png"
-      },
-      {
-        "href": "https://TODO.example",
-        "strap": "TODO: strap",
-        "label": "TODO Destination",
+        "href": "https://x.com/TODO",
+        "strap": "TODO: strap for the X card",
+        "label": "Follow Me On X",
         "engraving": "/images/engravings/gosse/goldfinch-nest.png"
       },
       {
-        "href": "https://TODO.example",
-        "strap": "TODO: strap",
-        "label": "TODO Destination",
-        "engraving": "/images/engravings/gosse/fishes-p-105.png"
+        "href": "/feed.xml",
+        "strap": "TODO: strap for the feed card",
+        "label": "RSS Feed",
+        "engraving": "/images/engravings/gosse/fishes-p-145.png"
       }
     ]
   ],

@@ -89,6 +89,10 @@ cards sit on it as translucent white.
 
 ## 4. Page skeleton (v4 markup, ids kept)
 
+Headings (2026-09-03): every page has ONE h1 — the page title on inner
+pages (class .page-title carries v4's h2 styling), the wordmark on the
+home page. In-body heads are h2/h3. Search engines read the outline.
+robots.txt allows everything and names the sitemap.
 Landmarks (2026-09-03, invisible): `<header>` wraps masthead and nav,
 `<nav aria-label="Site">` wraps ul#nav-primary, `<main>` wraps the page
 content, `<footer>` wraps external references and #siteinfo; an entry's
@@ -134,7 +138,9 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
                  v4's p.paginate returns at the post foot.
   h2.ext-dests   "EXTERNAL REFERENCES { VIEW ALL }" — League Gothic 28px,
                  "References" red, links to /external/.
-  ul.subnav ×2   rows of the same cards (§5) for external destinations.
+  ul.subnav ×1   one row of four cards (§5) for external destinations —
+                 Substack, Instagram, X, RSS (Kalyan, 2026-09-03: "I won't
+                 be using so many"). v4 had four rows.
   #siteinfo      centred #999 prose, two paragraphs, 60px above.
 
   - Journal (/journal/): v4 "multiple" shape per entry — h3 title link,
@@ -191,7 +197,10 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
   foot of a short page still cannot reach the top of the screen — the page
   ends — and that is accepted.
 - Blockquote: 3px #EEE left rule, 15px padding, 16px #666 text; `<cite>`
-  7px below in #666.
+  7px below in #666 — v4's — plus a 48px "“" in #d0656a hanging in the left
+  gutter outside the rule (Kalyan, 2026-09-03: "a hybrid of one and two…
+  include the quotation marks without destroying the design"). Not on the
+  quote-entry panel, not inside callouts, not on the phone tier.
 - Tables (ours; reworked 2026-09-02): a table sits INSIDE the 516px
   measure like everything else — the 2026-08-30 gutter-reclaim was reversed
   on Kalyan's "the table is going out of the scope". 14px/20px, tabular
@@ -229,10 +238,14 @@ modern elements drawn in v4's vocabulary)
   rule's colour, 14px/20px text, and a barely-tinted fill. Four muted ink
   hues, added 2026-08-30 on Kalyan's ask for "better colours"; they are the
   ONLY exception to §2's one-accent rule and exist nowhere else:
-    note    slate  #43606f on #FAFBFC — context, definition, where it sits
-    tip     moss   #5c6b4a on #FBFCFA — method, how to write it
-    key     ochre  #8a6a2f on #FDFBF6 — the thing to remember
-    warning red    #ba1820 on #FDFAFA — the mistake, the caution
+    note    grey      rule #CCC,    title #6c6c6c on #FBFAF9 — context
+    tip     pale rose rule #e3b3b5, title #a94f54 on #FDFAFA — method
+    key     rose      rule #d0656a, title #ba1820 on #FDF8F8 — remember
+    warning red       rule #ba1820, title #ba1820 on #FDF6F6 — the mistake
+  (2026-09-03, Kalyan chose "set D" — one hue in four weights — over the
+  slate/moss/ochre inks of 2026-08-30, which "sat oddly on a cream-and-red
+  page". With the inks gone, the `::: plan` and `::: cases` labels are
+  #6c6c6c, and the site is back to one accent.)
   Lists inside a callout use dotted rules, not dashed.
 - Collapsibles (`::: details Summary`): native <details>, dashed rules,
   red marker. No JS.
@@ -329,5 +342,8 @@ package-lock.json, .nvmrc, reference/**, this file.
 | post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |
 | ragged-right paragraphs | justified, hyphenated, numbered in the gutter; `updated` line | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
 | sidebar aside ("Superfluous Aside") with categories, read time | one meta line under the title; sidebar = journal link, Older/Newer, TOC | Kalyan 2026-09-03: "we are complicating the sidebar… push it below the title" |
+| four callout inks (ours, 08-30) | one hue in four weights (§7b) | Kalyan 2026-09-03: "I like set D" |
+| plain blockquote | blockquote with a hanging red quotation mark | Kalyan 2026-09-03: "a hybrid of one and two" |
+| h2 page titles, no h1 | h1 page titles, styled as before; h1 wordmark on the home page | one h1 per page, 2026 |
 | category pages, hCard | category pages; Open Graph, JSON-LD, sitemap lastmod, image dimensions, font preload | Kalyan 2026-09-03: "lightning-fast, SEO- and GEO-friendly" |
 | #999 text, outlines off, `media="screen"`, div soup | #6c6c6c text, focus ring, all-media stylesheet, landmarks, time, description/canonical/prev/next | 2026 practices, Kalyan 2026-09-03 |

@@ -296,3 +296,25 @@ caps cite), 3 (centred epigraph between hairlines), 4 (the quote-entry
 panel at 20px), 5 (a card like the boxes). Awaiting his letter and number.
 Gotcha: page-only rules must be written `body.samples-page div#content-pri …`
 to out-rank the stylesheet's `div#content-pri aside.callout-note`.
+
+## 2026-09-03 (d) — set D, the hybrid quotation, h1s, robots, four cards
+
+Kalyan: "I like set D and number 2… a hybrid of one and two… include the
+quotation marks without destroying the design… I might ask you to change
+it in the future." Design change, same branch. /samples/ deleted (it is in
+git at 6c9b6f0 if the choice is ever revisited).
+- Boxes: set D — grey #CCC / pale rose #e3b3b5 / rose #d0656a / red, titles
+  #6c6c6c / #a94f54 / #ba1820 / #ba1820 (the tip title darkened from the
+  sample's #b95c60 to clear 4.5:1). Slate is gone everywhere; `::: plan`
+  and `::: cases` labels are #6c6c6c. One accent again.
+- Quotation: Colly's blockquote unchanged, plus a 48px "“" in #d0656a
+  hanging in the left gutter outside the rule. Off on the quote-entry
+  panel, inside callouts, and on the phone tier (no gutter).
+- Headings: page titles are h1 (class .page-title keeps v4's h2 styling);
+  on the home page the wordmark is the h1. In-body heads stay h2/h3.
+- content/robots.njk → /robots.txt with the sitemap line.
+- External cards: one row — Substack, Instagram, X, RSS. URLs and straps
+  are TODO. He mentioned two Substacks; the RSS slot can become the second.
+Still his to write: the masthead's two lines, the four card straps, the
+external straps, the colophon (he wants a Colly credit — "designed by Mr.
+Colly… purely inspired by Mr. Simon Collison"), site.url, description.

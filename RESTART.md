@@ -108,8 +108,10 @@ Settled and not to be relitigated:
 - **Card engravings chosen**: Alexandrine (About), Coly (Journal), Emu
   (Archive), Falcon beak (Contact), from Gosse's *Natural History*, public
   domain. The eight external cards use the rest of that pool.
-- **Callouts** carry four muted ink hues: slate (note), moss (tip), ochre
-  (key), red (warning). The only exception to the one-accent rule.
+- **Callouts** carry one red in four weights: grey (note), pale rose (tip),
+  rose (key), red (warning) — "set D", chosen 2026-09-03. One accent only.
+- **Blockquotes** are Colly's, plus a hanging red quotation mark in the
+  gutter (2026-09-03).
 - **Tables** sit inside the 516px column with v4's dashed ledger rules
   (2026-09-02; they briefly reclaimed the gutter); prose lists have hanging
   en-dashes and no rules; leading is 24px; section heads sit 42px clear.
@@ -165,9 +167,9 @@ Create `content/journal/YYYY-MM-DD-some-slug.md`:
 
     Ordinary text. A footnote looks like this[^1].
 
-    ::: note Context, definition, where it sits      (slate)
-    ::: tip Method, how to write it                   (moss)
-    ::: key The thing to remember                     (ochre)
+    ::: note Context, definition, where it sits      (grey)
+    ::: tip Method, how to write it                   (pale rose)
+    ::: key The thing to remember                     (rose)
     ::: warning The mistake that costs marks          (red)
     ::: details Fold this away                        (click to open)
 

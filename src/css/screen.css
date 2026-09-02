@@ -60,10 +60,11 @@ hr.asterism::before { content: "⁂"; }
                     line-height: 52px; letter-spacing: .5px; text-transform: uppercase; color: #ba1820; }
 #branding a:hover .m-name { color: #333; }
 
-div#content-pri h2.page-title { clear: both; margin: 10px 0 0 0; padding: 0 0 28px 0; font-weight: normal; font-size: 35px;
+div#content-pri .page-title { clear: both; margin: 10px 0 0 0; padding: 0 0 28px 0; font-weight: normal; font-size: 35px;
                                 line-height: 29px;
                                 background: linear-gradient(rgba(102,102,102,.24), rgba(102,102,102,.24)) center bottom 13px / 100% 1px repeat-x; }
-.journal#article div#content-pri h2.page-title { margin: 0; line-height: 40px; }
+.journal#article div#content-pri .page-title { margin: 0; line-height: 40px; }
+#branding h1 { display: inline; margin: 0; padding: 0; font-size: inherit; line-height: inherit; font-weight: inherit; }   /* home: the name is the h1 */
 h2.ext-dests { clear: both; margin: 20px 0 32px 0; padding: 0; text-align: center; font-weight: normal; font-size: 28px;
                line-height: 20px; font-family: 'League Gothic', 'Arial Narrow', Impact, sans-serif; text-transform: uppercase;
                letter-spacing: .5px; }                       /* ext-refs.png set in type (ours) */
@@ -135,7 +136,7 @@ div#content-pri .plan li:last-child { border-bottom: 0; }
 div#content-pri .plan li::before { content: none; }
 div#content-pri .plan li > strong:first-child { position: absolute; left: 0; top: 9px; width: 116px;
     font-weight: normal; font-size: 12px; line-height: 22px; text-transform: uppercase;
-    letter-spacing: 1px; color: #43606f; }
+    letter-spacing: 1px; color: #6c6c6c; }
 div#content-pri .plan li em { font-style: italic; color: #666; }
 
 /* Run-in sidehead list (::: cases) — the term in spaced caps, the gloss
@@ -148,7 +149,7 @@ div#content-pri .sidehead-list li:first-child { border-top: 1px dashed #CCC; }
 div#content-pri .sidehead-list li:last-child { border-bottom: 1px dashed #DDD; }
 div#content-pri .sidehead-list li::before { content: none; }
 div#content-pri .sidehead-list li > strong:first-child { display: block; margin-bottom: 2px;
-    font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #43606f; }
+    font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #6c6c6c; }
 
 /* Prose lists inside an entry: hanging markers, no rules. The dashed-rule
    rows stay for ledger lists (archive, books, the sidebar). */
@@ -188,7 +189,11 @@ div#content-pri figure { margin: 0 0 15px; }
 div#content-pri figcaption { margin-top: 2px; font-size: 12px; color: #666; }                          /* v4 cite */
 div#content-pri cite { display: block; margin-top: -13px; margin-bottom: 20px; padding: 0; font-size: 12px; }
 div#content-pri cite span { color: #6c6c6c; }
-div#content-pri blockquote { margin: 0; padding: 0 0 0 15px; border-left: 3px solid #EEE; }
+div#content-pri blockquote { position: relative; margin: 0; padding: 0 0 0 15px; border-left: 3px solid #EEE; }
+/* the hanging quotation mark (Kalyan, 2026-09-03: "a hybrid of one and two") — sits in the left gutter, outside the rule */
+div#content-pri blockquote::before { content: "\201C"; position: absolute; right: 100%; margin-right: 10px; top: -4px;
+    font-size: 48px; line-height: 1; color: #d0656a; font-style: normal; }
+div#content-pri blockquote.quote-panel::before, div#content-pri aside.callout blockquote::before { content: none; }
 div#content-pri blockquote p { font-size: 16px; color: #666; margin-bottom: 7px; line-height: 150%; }
 div#content-pri blockquote cite { margin: 0; padding: 7px 0 0 0; color: #666; }
 div#content-pri #post { padding-bottom: 80px; }
@@ -284,17 +289,20 @@ div#content-pri aside.callout ul, div#content-pri aside.callout ol { margin: 0 0
 div#content-pri aside.callout li { font-size: 14px; padding: 3px 0; border-bottom: 1px dotted #E4E0DA; }
 div#content-pri aside.callout li:first-child { border-top: 0; }
 div#content-pri aside.callout li:last-child { border-bottom: 0; }
-/* note — slate: context, definition, "where this sits" */
-div#content-pri aside.callout-note { border-left-color: #43606f; background: #FAFBFC; }
-div#content-pri aside.callout-note p.callout-title { color: #43606f; }
-/* tip — moss: method, how to write it */
-div#content-pri aside.callout-tip { border-left-color: #5c6b4a; background: #FBFCFA; }
-div#content-pri aside.callout-tip p.callout-title { color: #5c6b4a; }
-/* key — ochre: the thing to remember */
-div#content-pri aside.callout-key { border-left-color: #8a6a2f; background: #FDFBF6; }
-div#content-pri aside.callout-key p.callout-title { color: #8a6a2f; }
+/* One hue in four weights (Kalyan, 2026-09-03, "set D"): the house red
+   getting stronger as the box gets more important. Replaces the four inks
+   of 2026-08-30, which sat oddly on a cream-and-red page. */
+/* note — grey: context, definition, "where this sits" */
+div#content-pri aside.callout-note { border-left-color: #CCC; background: #FBFAF9; }
+div#content-pri aside.callout-note p.callout-title { color: #6c6c6c; }
+/* tip — pale rose: method, how to write it */
+div#content-pri aside.callout-tip { border-left-color: #e3b3b5; background: #FDFAFA; }
+div#content-pri aside.callout-tip p.callout-title { color: #a94f54; }
+/* key — rose: the thing to remember */
+div#content-pri aside.callout-key { border-left-color: #d0656a; background: #FDF8F8; }
+div#content-pri aside.callout-key p.callout-title { color: #ba1820; }
 /* warning — the house red: the mistake, the caution */
-div#content-pri aside.callout-warning { border-left-color: #ba1820; background: #FDFAFA; }
+div#content-pri aside.callout-warning { border-left-color: #ba1820; background: #FDF6F6; }
 div#content-pri aside.callout-warning p.callout-title { color: #ba1820; }
 
 /* collapsibles */
@@ -381,7 +389,8 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   ul#nav-primary li.card, ul.subnav li.card { width: auto; flex: 1 1 100%; box-sizing: border-box; }
   .biography li.card .engraving, .journal li.card .engraving, .archive li.card .engraving, .contact li.card .engraving { display: none; }
   div#content-pri { width: auto; margin: 0; padding: 0 18px; }
-  div#content-pri h2.page-title { font-size: 25px; }
+  div#content-pri .page-title { font-size: 25px; }
+  div#content-pri blockquote::before { content: none; }              /* no gutter for the mark on a phone */
   div#content-pri table { width: 100%; font-size: 13px; }
   div#content-pri .plan { width: 100%; }
   div#content-pri .plan li { padding-left: 0; }

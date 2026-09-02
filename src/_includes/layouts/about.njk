@@ -4,7 +4,7 @@ bodyClass: biography
 ---
 <div id="content-wrap" class="has-aside">
 <div id="content-pri">
-<h2 class="page-title">{{ title }}</h2>
+<h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
 {%- set parts = content | splitFootnotes %}
 <div class="entry{% if dropcap %} dropcap{% endif %}">
