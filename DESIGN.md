@@ -144,8 +144,8 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
   #siteinfo      centred #999 prose, two paragraphs, 60px above.
 
   - Journal (/journal/): v4 "multiple" shape per entry — h3 title link,
-    h4 date, p.blurb (first paragraph), p.meta "Archived in … | Read on,
-    there is more →".
+    h4 date, p.blurb (first paragraph), p.meta "Archived in … · Read on,
+    there is more →" on ONE line (v4 broke it over two; Kalyan 2026-09-03).
   - Archive (/archive/): 18px year headings, then title + 11px italic
     date rows with dashed rules.
   - Home (/): masthead, cards, external references, colophon — nothing else.
@@ -196,12 +196,11 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
   (v4 did this with a jQuery scrollTo; we ship no script). A note at the
   foot of a short page still cannot reach the top of the screen — the page
   ends — and that is accepted.
-- Blockquote: 3px #EEE left rule, 15px padding, 16px #666 text; `<cite>`
-  7px below in #666 — v4's — plus a 40px "“" in #d0656a floated at the
-  start of the first line, inside the rule, the text wrapping beneath it
-  (Kalyan, 2026-09-03: "a hybrid of one and two"; a first version hung it
-  in the gutter outside the rule and he called it "so ugly… the mark should
-  come within the line"). Not on the quote-entry panel, not inside callouts.
+- Blockquote: 3px #EEE left rule, 15px padding, 16px #666 text — v4's —
+  with the `<cite>` 7px below in #666, RIGHT-aligned (Kalyan, 2026-09-03:
+  "push B. R. Ambedkar to the right"). A red opening quotation mark was
+  tried twice that day, hanging and then inline, and rejected both times:
+  "remove the quotation marks, I think we can understand that."
 - Tables (ours; reworked 2026-09-02): a table sits INSIDE the 516px
   measure like everything else — the 2026-08-30 gutter-reclaim was reversed
   on Kalyan's "the table is going out of the scope". 14px/20px, tabular
@@ -278,7 +277,7 @@ modern elements drawn in v4's vocabulary)
 - Body = quote paragraph(s), then `<cite>Name</cite>`, then optionally
   `---` and commentary (permalink only).
 - Panel: 3px red left rule, 24px/32px Times text, "— NAME" 12px spaced
-  caps; the journal index shows the panel with h4 date and p.meta; the
+  caps set right; the journal index shows the panel with h4 date and p.meta; the
   permalink adds p.meta and, after a dashed hr, the commentary.
 
 ## 9. Images — see §7. loading="lazy" is added by the build.
@@ -344,7 +343,7 @@ package-lock.json, .nvmrc, reference/**, this file.
 | ragged-right paragraphs | justified, hyphenated, numbered in the gutter; `updated` line | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
 | sidebar aside ("Superfluous Aside") with categories, read time | one meta line under the title; sidebar = journal link, Older/Newer, TOC | Kalyan 2026-09-03: "we are complicating the sidebar… push it below the title" |
 | four callout inks (ours, 08-30) | one hue in four weights (§7b) | Kalyan 2026-09-03: "I like set D" |
-| plain blockquote | blockquote with a red opening quotation mark inside the rule | Kalyan 2026-09-03: "a hybrid of one and two… within the line" |
+| cite under the quote, left | cite right-aligned on blockquotes and the quote panel | Kalyan 2026-09-03: "push the name to the right" |
 | h2 page titles, no h1 | h1 page titles, styled as before; h1 wordmark on the home page | one h1 per page, 2026 |
 | category pages, hCard | category pages; Open Graph, JSON-LD, sitemap lastmod, image dimensions, font preload | Kalyan 2026-09-03: "lightning-fast, SEO- and GEO-friendly" |
 | #999 text, outlines off, `media="screen"`, div soup | #6c6c6c text, focus ring, all-media stylesheet, landmarks, time, description/canonical/prev/next | 2026 practices, Kalyan 2026-09-03 |

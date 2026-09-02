@@ -344,3 +344,12 @@ short, structured note using every box for its purpose: note = where it
 sits, key = hold this, tip = how to use it, warning = the traps, plus a
 plan grid, a table, a cases list, a details fold and a footnote. Standard
 constitutional facts; not his writing. The quote entry keeps tag [Sample].
+
+## 2026-09-03 (f) — no quotation mark; names to the right; one-line index meta
+
+Kalyan: "remove the quotation marks, I think we can understand that…
+push B. R. Ambedkar to the right… push Samuel Johnson to the right…
+push 'Archived in' and 'Read on' into one single line." Done: blockquote
+and quote-panel cites are text-align right; the journal index p.meta is
+one line with a middot where v4 had a <br>. The red mark is gone from
+the stylesheet entirely. Design change, same branch.
