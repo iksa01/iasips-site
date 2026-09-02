@@ -225,6 +225,24 @@ module.exports = function (eleventyConfig) {
   });
 
   // Archive: [{year, items}] newest first.
+  eleventyConfig.addFilter("monthName", (date) => MONTHS[new Date(date).getUTCMonth()]);
+  // v4 archive: entries grouped under "December 2014"-style headings.
+  eleventyConfig.addFilter("byMonth", (items) => {
+    const out = [];
+    for (const it of items) {
+      const d = new Date(it.date), key = `${d.getUTCFullYear()}-${d.getUTCMonth()}`;
+      let g = out.find((x) => x.key === key);
+      if (!g) { g = { key, year: d.getUTCFullYear(), month: MONTHS[d.getUTCMonth()], items: [] }; out.push(g); }
+      g.items.push(it);
+    }
+    return out;
+  });
+  // Every tag in use, alphabetical, for the archive sidebar.
+  eleventyConfig.addFilter("tagList", (items) => {
+    const s = new Set();
+    for (const it of items) for (const t of it.data.tags || []) s.add(t);
+    return [...s].sort((a, b) => a.localeCompare(b));
+  });
   eleventyConfig.addFilter("byYear", (items) => {
     const out = [];
     for (const it of items) {

@@ -373,3 +373,30 @@ round-one cuts) is kept as a pool; CREDITS.md covers it. He is "still not
 convinced with the design… minute tweaks… I will let you know" — so NOT
 frozen. GitHub is a living copy: every commit here is pushed with
 `git push`; history is kept there too.
+
+## 2026-09-03 (i) — faithfulness pass: what the 08-30 transcription missed
+
+Kalyan compared colly.com/v4/ with ours: "in the potted biography he has
+some brief introduction. The same for journal and archives… the latest
+posts are linked there." Right — the home cards were transcribed EMPTY on
+08-30 (DESIGN §4 even said "nothing else"). Measured against the
+reference index.html and put back:
+- Home cards carry v4's copy under the engraving: about and contact a
+  `.fl` drop-cap lead + sentence + red "read on →" (`a.dest`); journal a
+  red § (`.fs`) + newest title + 150-char opening + "More →"; archive the
+  five latest as `a.arch` rows numbered from the oldest = 1 (v4 showed
+  its entry ids). The card macro takes an optional third `copy` argument;
+  nav.njk builds it on the home page only.
+- The two prose blurbs are DRAFTS in site.json `nav[].home` from his
+  facts (Hyderabad, UPSC syllabus). His to rewrite.
+- Archive: month headings ("August 2026") with title-only rows, as v4;
+  sidebar "By year" (anchors) and "By category" (category pages) where v4
+  had "By animal years" / "By categories". New filters byMonth, monthName,
+  tagList in .eleventy.js.
+- Bug fixed: paragraph numbers and justification were applied to every
+  `.entry`, so the Contact and About pages were numbered. Scoped to
+  `#post.entry` (journal entries only).
+Still different from v4, by decision: no contact form or comments, one
+external row not four, the round home-icon set in type, our 2026 body.
+Contact page: v4 has "STATUS: <red>ACTUALLY RESPONDING!</red>" as the sub
+— a red span inside p.sub; ours has no red span. Noted, not done.

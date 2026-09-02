@@ -33,7 +33,8 @@ These are the only two webfonts. Never a sans-serif for text.
   is what makes that site read as a book. Lists, callouts, tables stay
   ragged.
 - Paragraph numbers (algebrica.org, 2026-09-03): every direct paragraph of
-  an entry carries its ordinal in the left gutter — 11px tabular #999,
+  a JOURNAL ENTRY (#post; not the About or Contact pages) carries its
+  ordinal in the left gutter — 11px tabular #999,
   right-aligned 12px clear of the text, at the paragraph's first baseline.
   The lede counts as 1. Callout, blockquote and list paragraphs are not
   numbered. Hidden on the phone tier, where there is no gutter.
@@ -148,7 +149,20 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
     there is more →" on ONE line (v4 broke it over two; Kalyan 2026-09-03).
   - Archive (/archive/): 18px year headings, then title + 11px italic
     date rows with dashed rules.
-  - Home (/): masthead, cards, external references, colophon — nothing else.
+  - Home (/): masthead, cards, external references, colophon. Each home
+    card carries v4's COPY under its engraving (missed on 08-30; Kalyan
+    spotted it 2026-09-03): the about and contact cards a drop-cap lead
+    (`.fl`), a sentence or two and a red "read on →" (`a.dest`); the
+    journal card a red § (`.fs`) + the newest entry's title, its opening
+    (150 chars) and "More →"; the archive card the five latest titles as
+    `a.arch` rows, numbered from the oldest entry = 1 (v4 used entry ids).
+    Copy is 13px/18px #333, 12px below the engraving. The two prose blurbs
+    live in site.json `nav[].home` — Kalyan's words.
+  - Archive (/archive/): v4's shape — entries under "August 2026" month
+    headings, title-only rows with dashed rules; the sidebar carries "By
+    year" (anchors into the list) and "By category" (the category pages),
+    v4's "By animal years" / "By categories". (08-30 grouped by year with
+    a date span, and left the sidebar empty.)
 
 ## 5. Nav cards (v4 markup)
 

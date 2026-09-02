@@ -15,6 +15,12 @@
       "href": "/about/",
       "strap": "Prepared with due diligence",
       "label": "About Kalyan",
+      "home": {
+        "lead": "Hello",
+        "after": ".",
+        "copy": "I’m Kalyan. I read and write about the UPSC syllabus from Hyderabad, and this is where the notes and the journal live.",
+        "more": "Please read on &rarr;"
+      },
       "engraving": "/images/engravings/gosse/alexandrine.png"
     },
     {
@@ -33,6 +39,12 @@
       "href": "/contact/",
       "strap": "Kalyan is presently",
       "label": "Receiving Your Emails",
+      "home": {
+        "lead": "Opinions & queries this way",
+        "after": ".",
+        "copy": "Drop me a line if you wish. I read everything that arrives and reply as promptly as the reading allows.",
+        "more": "&rarr;"
+      },
       "kern": {
         "0": "kern-a"
       },

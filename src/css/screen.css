@@ -28,6 +28,16 @@ ul li span.label span.kern { display: inline; font-size: 12px; letter-spacing: 0
 ul li a:link, ul li a:visited, ol li a:link, ol li a:visited { color: #6c6c6c; text-decoration: none; }   /* v4 #999; 4.5:1 on the paper (2026-09-03) */
 ul li a:hover, ol li a:hover { color: #ba1820; text-decoration: none; }
 .fl { float: left; margin: 7px 4px 0 0; padding: 0; font-size: 65px; line-height: 62%; color: #ba1820; }
+.fs { float: left; margin: 4px 6px 0 0; padding: 0; font-size: 48px; line-height: 62%; color: #ba1820; }   /* v4 § on the journal card */
+a.dest { color: #ba1820; }
+ul li a.dest:link, ul li a.dest:visited, ul li a.arch:link, ul li a.arch:visited { color: #ba1820; text-decoration: none; }
+ul li a.dest:hover, ul li a.arch:hover { color: #999; text-decoration: none; }
+a.arch { display: block; line-height: 22px; }
+a.arch strong { font-weight: bold; }
+/* v4 home cards carry copy under the engraving: the bio and contact blurbs, the newest entry, the five latest titles */
+.home li.card p.home-copy { margin: 12px 0 0 0; padding: 0; font-size: 13px; line-height: 18px; color: #333; text-align: left; }
+.home li.card p.home-copy a { display: inline; }                        /* li.card a is block for the card link; copy links run in */
+.home li.card p.home-copy a.arch { display: block; }
 
 /* Code (v4 pre, plus build-time Prism colours in the v4 palette — ours) */
 pre { margin: 6px 0 15px 0; padding: 20px; background: #EEE; border-top: 1px solid #CCC; border-bottom: 1px solid #CCC;
@@ -104,18 +114,18 @@ div#content-sec { float: left; width: 196px; margin: 0; padding: 0 25px 0 0; }
 div#content-pri ul { list-style-type: none; margin: 0; padding: 0; }
 div#content-pri ol { margin: 0; padding: 0; }
 div#content-pri ul li, div#content-pri ol li { width: 100%; padding: 5px 0; border-bottom: 1px dashed #DDD; font-size: 15px; }
-.archive div#content-pri ul li.date-heading { margin: 30px 0 0 0; padding-bottom: 10px; font-weight: normal; font-size: 18px; }
+.archive div#content-pri ul li.date-heading { margin: 30px 0 0 0; padding-bottom: 10px; font-weight: normal; font-size: 18px; scroll-margin-top: 20px; }
 div#content-pri ul li:first-child { border-top: 1px dashed #CCC; }
 .archive div#content-pri ul li:first-child { border-top: 0; }
 div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #6c6c6c; }
 div#content-pri p { font-size: 15px; line-height: 24px; color: #333; margin: 0 0 15px 0; text-wrap: pretty; }
-/* Entry paragraphs: justified, hyphenated, numbered in the gutter (algebrica.org, 2026-09-03) */
-div#content-pri .entry > p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-div#content-pri .entry { counter-reset: para; }
-div#content-pri .entry > p { position: relative; counter-increment: para; }
-div#content-pri .entry > p::before { content: counter(para) "."; position: absolute; right: 100%; margin-right: 12px; top: 0;
+/* Journal-entry paragraphs (#post only — not the About/Contact pages): justified, hyphenated, numbered in the gutter (algebrica.org, 2026-09-03) */
+div#content-pri #post.entry > p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+div#content-pri #post.entry { counter-reset: para; }
+div#content-pri #post.entry > p { position: relative; counter-increment: para; }
+div#content-pri #post.entry > p::before { content: counter(para) "."; position: absolute; right: 100%; margin-right: 12px; top: 0;
     width: 3em; text-align: right; font-size: 11px; line-height: 24px; color: #999; font-style: normal; font-variant-numeric: tabular-nums; }
-div#content-pri .entry > p:first-of-type::before { line-height: 29px; }
+div#content-pri #post.entry > p:first-of-type::before { line-height: 29px; }
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 div#content-pri p a:link { text-decoration: underline; color: #ba1820; }
 div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: none; color: #ba1820; }
@@ -371,6 +381,6 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
   div#content-pri #post img { width: auto; max-width: 100%; height: auto; }
-  div#content-pri .entry > p::before { content: none; }              /* no gutter for the numbers on a phone */
+  div#content-pri #post.entry > p::before { content: none; }         /* no gutter for the numbers on a phone */
   div#siteinfo p { font-size: 12px; }
 }

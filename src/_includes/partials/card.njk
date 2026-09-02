@@ -1,4 +1,4 @@
 {#- One nav card (v4 pattern): strap + label with versal spans + engraving slot. -#}
-{% macro card(item, current) -%}
-<li class="card{% if current %} current{% endif %}"><a href="{{ item.href }}"{% if current %} aria-current="page"{% endif %}><span class="strap">{{ item.strap }}</span><span class="label">{{ item.label | versals(item.kern) | safe }}</span>{% if item.engraving %}<span class="engraving"><img src="{{ item.engraving }}" alt="" width="200" height="160" decoding="async"></span>{% endif %}</a></li>
+{% macro card(item, current, copy) -%}
+<li class="card{% if current %} current{% endif %}"><a href="{{ item.href }}"{% if current %} aria-current="page"{% endif %}><span class="strap">{{ item.strap }}</span><span class="label">{{ item.label | versals(item.kern) | safe }}</span>{% if item.engraving %}<span class="engraving"><img src="{{ item.engraving }}" alt="" width="200" height="160" decoding="async"></span>{% endif %}</a>{% if copy %}<p class="home-copy">{{ copy | safe }}</p>{% endif %}</li>
 {%- endmacro %}

@@ -3,7 +3,21 @@
 <ul id="nav-primary">
 {%- for item in site.nav %}
 {%- set current = (page.url == item.href) or (item.href != "/" and page.url.startsWith(item.href)) %}
-{{ card(item, current) }}
+{%- set copy = "" %}
+{%- if page.url == "/" %}
+{%- if item.home %}
+{#- v4 li#biography / li#contact: drop-cap lead, a sentence or two, a red "read on" link -#}
+{%- set copy %}<a href="{{ item.href }}" class="dest"><span class="fl">{{ item.home.lead | first }}</span>{{ item.home.lead | replace(item.home.lead | first, "", 1) }}</a>{{ item.home.after }} {{ item.home.copy }} <a href="{{ item.href }}" class="dest">{{ item.home.more | safe }}</a>{% endset %}
+{%- elif item.href == "/journal/" and collections.journal.length %}
+{#- v4 li#journal: § + the newest entry's title, its opening, "More →" -#}
+{%- set latest = collections.journal[0] %}
+{%- set copy %}<a href="{{ latest.url }}" class="dest"><span class="fs">&sect;</span>{{ latest.data.title }}</a><br>{{ latest.templateContent | firstParagraph | striptags | truncate(150) }} <a href="{{ latest.url }}" class="dest">More &rarr;</a>{% endset %}
+{%- elif item.href == "/archive/" and collections.journal.length %}
+{#- v4 li#archive: the five latest, numbered -#}
+{%- set copy %}{% for e in collections.journal | limit(5) %}<a href="{{ e.url }}" class="arch"><strong>{{ collections.journal.length - loop.index0 }}</strong>&mdash;{{ e.data.title }}</a>{% endfor %}{% endset %}
+{%- endif %}
+{%- endif %}
+{{ card(item, current, copy) }}
 {%- endfor %}
 </ul>
 </nav>
