@@ -21,19 +21,19 @@
         "copy": "I’m Kalyan. I read and write about the UPSC syllabus from Hyderabad, and this is where the notes and the journal live.",
         "more": "Please read on &rarr;"
       },
-      "engraving": "/images/engravings/gosse/alexandrine.png"
+      "engraving": "/images/engravings/places/golconda-tombs.png"
     },
     {
       "href": "/journal/",
       "strap": "Notes from the reading room",
       "label": "The Journal",
-      "engraving": "/images/engravings/gosse/coly.png"
+      "engraving": "/images/engravings/places/gooty-fort.png"
     },
     {
       "href": "/archive/",
       "strap": "Filed and cross-referenced",
       "label": "The Archive",
-      "engraving": "/images/engravings/gosse/emu.png"
+      "engraving": "/images/engravings/places/writers-buildings.png"
     },
     {
       "href": "/contact/",
@@ -48,7 +48,7 @@
       "kern": {
         "0": "kern-a"
       },
-      "engraving": "/images/engravings/gosse/falcon-beak.png"
+      "engraving": "/images/engravings/places/qutb-minar.png"
     }
   ],
   "externalsHref": "/external/",
@@ -58,25 +58,25 @@
         "href": "https://upsc.substack.com",
         "strap": "Longer letters, now and then",
         "label": "Substack Letters",
-        "engraving": "/images/engravings/gosse/chatterer-feather.png"
+        "engraving": "/images/engravings/desk/quill-and-books.png"
       },
       {
         "href": "https://instagram.com/UPSCVerse",
         "strap": "Pictures from the field",
         "label": "Instagram Pictures",
-        "engraving": "/images/engravings/gosse/green-tody.png"
+        "engraving": "/images/engravings/desk/camera-kodak.png"
       },
       {
         "href": "https://x.com/UPSCVerse",
         "strap": "Shorter thoughts, more often",
         "label": "Follow Me On X",
-        "engraving": "/images/engravings/gosse/goldfinch-nest.png"
+        "engraving": "/images/engravings/desk/telegraph.png"
       },
       {
         "href": "/feed.xml",
         "strap": "Every entry, delivered to you",
         "label": "RSS Feed",
-        "engraving": "/images/engravings/gosse/fishes-p-145.png"
+        "engraving": "/images/engravings/desk/post-rider.png"
       }
     ]
   ],

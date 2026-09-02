@@ -400,3 +400,42 @@ Still different from v4, by decision: no contact form or comments, one
 external row not four, the round home-icon set in type, our 2026 body.
 Contact page: v4 has "STATUS: <red>ACTUALLY RESPONDING!</red>" as the sub
 — a red span inside p.sub; ours has no red span. Noted, not done.
+
+## 2026-09-03 (j) — engravings, round 3: Kalyan's cities and the writing desk
+
+Kalyan: not convinced by the animals; his cities (born Hyderabad, studied
+Anantapur, Bengaluru, Kolkata, Delhi) for the home cards, the writing desk
+for the external cards; "make sure they are copyright-free."
+
+Sourcing (all Wikimedia Commons, PD or "no known restrictions"):
+free-text search is useless for this — the seams that worked were Commons
+CATEGORIES (Qutb Minar in art, Engravings of Kolkata), the American
+Cyclopaedia and Meyers Konversations-Lexikon woodcuts (search "AmCyc X",
+"Meyers X"), and old spellings (Gooty/Gootee for Anantapur district).
+Fergusson's *History of Indian and Eastern Architecture* is on Commons as a
+category but holds only ~24 plates. No engraving of Anantapur/Lepakshi
+exists; the one period picture of the district is Justinian Gantz's
+19th-c. watercolour of Gooty fort, which the pipeline turns into a
+usable line drawing.
+
+THE METHOD THAT WORKED (scratchpad eng/process2.py): fetch the ORIGINAL at
+full resolution (the API's imageinfo url — the thumb URL regex trick
+fails on tracking suffixes), binarise the line work against the local
+paper level at native size (blur radius ≈ 1% of width, ink = darker than
+paper by k≈0.09–0.13; woodcuts k≈0.2), then shrink with BOX/area averaging
+so line density becomes alpha, gain ≈2.4. Steel engravings and aquatints
+that were grey blocks at preview size come out as engravings this way,
+because their hatching only resolves at full res. Crop to the subject
+first; captions and plate borders otherwise dominate the fit.
+Screenshots via `chrome --screenshot` can't go below ~500px and ignore
+orientation; Read of an image path can return a cached render — write
+crops to NEW filenames.
+
+Installed (images/engravings/places, /desk; CREDITS.md has every source):
+About = Golconda tombs (AmCyc), Journal = Gooty fort (Gantz), Archive =
+Writers' Buildings 1812, Contact = Qutb Minar 1858; Substack = quill and
+books c.1900, Instagram = Meyers bellows camera, X = 1906 spark
+transmitter, RSS = 1683 post rider. Alternatives on /engravings/ (working
+page, delete with the decision): Char Minar 1850, St Andrew's Bangalore
+1867, Government House 1824, Kutub Minar 1872, inkstand 1875, Loman camera.
+The Gosse birds stay in gosse/ as a pool. Awaiting Kalyan's verdict.

@@ -48,3 +48,31 @@ with the /engravings/ page. Three of those were CC BY; the Gosse set is not.
 
 `PLACEHOLDER-colly-*.png` are Simon Collison's own artwork, copied so the
 slots could be judged. Not licensed for this site — must be replaced.
+
+## Places and desk sets (2026-09-03)
+
+Kalyan's cities (Hyderabad, Anantapur, Bengaluru, Kolkata, Delhi) for the four
+home cards and the writing desk for the external cards. All from Wikimedia
+Commons; every source is public domain or 'no known restrictions' (the
+Internet Archive book scans). Made from the FULL-RESOLUTION originals: the
+line work is binarised against the local paper level at native size, then
+shrunk with area averaging so line density becomes alpha (scratchpad
+process2.py) — the same thing a wood engraving does when printed small.
+Fitted to Colly's geometry: ≤186×92, bottom-anchored in a 200×160 tile.
+
+| file | subject | source | licence | date / artist |
+|---|---|---|---|---|
+| places/golconda-tombs.png | Tombs of the Qutb Shahi kings, Golconda (Hyderabad) | [Commons](https://commons.wikimedia.org/wiki/File%3AAmCyc_Golconda.jpg) | Public domain | published 1879 · Unknown artistUnknown artist |
+| places/charminar.png | The Char Minar, Hyderabad | [Commons](https://commons.wikimedia.org/wiki/File%3AThe_Char_Minar%2C_Hyderabad.jpg) | Public domain | 1850 · Fullarton's Gazetteer |
+| places/gooty-fort.png | Gooty fort rock, Anantapur district | [Commons](https://commons.wikimedia.org/wiki/File%3AJustinian_Gantz_-_Gooty_Church_Garden%2C_Andhra_Pradesh_2013_CSK_09540_0158.jpg) | Public domain | 19th century<div sty · Justinian Gantz |
+| places/st-andrews-bangalore.png | St Andrew's Church, Bangalore | [Commons](https://commons.wikimedia.org/wiki/File%3ASt._Andrew%27s_%28Presbyterian%29_Church_at_Bangalore%2C_Madras_Presidency_-_Illustrated_London_News_%281866%29.jpg) | Public domain | 1867 · The Illustrated London News |
+| places/writers-buildings.png | The Writers' Buildings, Calcutta | [Commons](https://commons.wikimedia.org/wiki/File%3AThe_Writers%27_Buildings%2C_Calcutta_LACMA_M.2010.158a-b_%282_of_3%29.jpg) | Public domain | 1812date QS: · Thomas Daniell (England, London, 1749-1840), William Daniell |
+| places/government-house.png | Government House, Calcutta | [Commons](https://commons.wikimedia.org/wiki/File%3AFraserCalcuttaGovernmentHouse.jpg) | Public domain | 1824date QS: · Fraser, James Baillie (1783-1856) |
+| places/qutb-minar.png | Qutb Minar, Delhi | [Commons](https://commons.wikimedia.org/wiki/File%3AQutb_Minar_1858.jpg) | Public domain | 1858 · Various artists. |
+| places/qutb-minar-1872.png | The Kutub Minar, Delhi | [Commons](https://commons.wikimedia.org/wiki/File%3A%22Round_the_world.%22_-_Letters_from_Japan%2C_China%2C_India%2C_and_Egypt_%281872%29_%2814586377638%29.jpg) | No restrictions | 1872 · Fogg, Wm. Perry (William Perry), b. 1826 |
+| desk/quill-and-books.png | Quill, inkwell, books and globe | [Commons](https://commons.wikimedia.org/wiki/File%3AQuill%2C_inkwell%2C_books_and_globe.jpg) | Public domain | circa 1900da · This file was derived from:  <a href="//commons.wikimedia.or |
+| desk/inkstand.png | An inkstand | [Commons](https://commons.wikimedia.org/wiki/File%3AExamples_of_household_taste_%281875%29_%2814779083351%29.jpg) | No restrictions | 1875 · Internet Archive Book Images< |
+| desk/camera-kodak.png | Bellows camera ('Grosser Kodak'), Meyers Konversations-Lexikon plate | [Commons](https://commons.wikimedia.org/wiki/File%3AMeyers_b19_s0746a.jpg) | Public domain | from 1885 until 1890 · various |
+| desk/camera-loman.png | Loman camera, Meyers Konversations-Lexikon plate | [Commons](https://commons.wikimedia.org/wiki/File%3AMeyers_b19_s0746a.jpg) | Public domain | from 1885 until 1890 · various |
+| desk/telegraph.png | Ducretet spark transmitter | [Commons](https://commons.wikimedia.org/wiki/File%3ADucretet-Popov_spark_gap_transmitter.png) | Public domain | 1906 · Unknown.  The engraving is signed "E. Ducretet, Paris", indi |
+| desk/post-rider.png | Post rider blowing his horn, 1683 woodcut | [Commons](https://commons.wikimedia.org/wiki/File%3ADE_Ausschnitt_14_667922X_001.jpg) | Public domain | 1683 · Unknown authorUnknown author |
