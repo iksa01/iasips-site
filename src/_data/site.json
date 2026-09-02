@@ -1,5 +1,5 @@
 {
-  "url": "https://ias.ips.in",
+  "url": "https://iasips.in",
   "title": "TODO: site title",
   "description": "TODO: one sentence describing the site, for search results and link previews",
   "ogImage": "",
@@ -49,13 +49,13 @@
         "engraving": "/images/engravings/gosse/chatterer-feather.png"
       },
       {
-        "href": "https://instagram.com/upscverse",
+        "href": "https://instagram.com/UPSCVerse",
         "strap": "Pictures from the field",
         "label": "Instagram Pictures",
         "engraving": "/images/engravings/gosse/green-tody.png"
       },
       {
-        "href": "https://x.com/upscverse",
+        "href": "https://x.com/UPSCVerse",
         "strap": "Shorter thoughts, more often",
         "label": "Follow Me On X",
         "engraving": "/images/engravings/gosse/goldfinch-nest.png"

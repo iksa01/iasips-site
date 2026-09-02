@@ -165,8 +165,9 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 - label: 12px spaced caps #000; the initial of each word in its own span
   at 15px (`versals` filter); `kern` map adds .kern-a etc.
 - engraving: a 200×160 transparent PNG, bottom-anchored in a 105px slot.
-  Every card has one; current placeholders are Colly's (images/engravings/
-  README.md) and must be replaced by Kalyan's own before publishing.
+  Every card has one, from Gosse's *Natural History* (public domain;
+  images/engravings/CREDITS.md). Colly's own animals, kept as placeholders
+  until 2026-09-03, are deleted.
   Hidden on inner pages ≤509px, as v4.
 - On inner pages non-current cards are at opacity .6, the current card and
   hovered cards at 1 with a solid white fill. On the home and external
@@ -321,7 +322,7 @@ package-lock.json, .nvmrc, reference/**, this file.
 | v4 | ours | why |
 |---|---|---|
 | logo.png, ext-refs.png, home-c.png sprites | the same words set in League Gothic / type | no image assets of Kalyan's yet |
-| animal engravings | Colly's PNGs as PLACEHOLDERS | slots must be judged; replace before publishing |
+| Colly's animal engravings | Gosse's birds and fishes, public domain | his artwork; placeholders deleted 2026-09-03 |
 | paper-tile.jpg texture | flat #F3EFEB | Colly's texture asset |
 | deranged.png + underline-flourish.png ornaments | omitted; 60px colophon gap | Colly's artwork |
 | contact form, comments | none | no JS, no services |

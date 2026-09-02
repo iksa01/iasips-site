@@ -141,9 +141,7 @@ Settled and not to be relitigated:
    The masthead lines, card straps and colophon credit were DRAFTED on
    2026-09-03 for your eye (WORKLOG 2026-09-03 e) — say the word to change
    any of them.
-2. **Colly's animals** remain in `images/engravings/` as `PLACEHOLDER-colly-*`.
-   No real page references them any more, but they are his artwork and
-   should be deleted before publishing.
+2. ~~Colly's animals~~ — deleted 2026-09-03 on your word.
 3. **The sample journal entries** are specimens, not your writing. The essay
    is a UPSC piece on the Basic Structure Doctrine used to exercise every
    element; the quote and note entries are public-domain stand-ins.

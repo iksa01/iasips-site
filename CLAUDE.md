@@ -39,7 +39,7 @@ Node 24 (`.nvmrc`). Never `npm install`; the lockfile is frozen.
 | the stylesheet | `src/css/screen.css` (transcribed from `reference/colly-v4/screen.css`) |
 | wordmark font | `src/fonts/LeagueGothic-Regular.woff2` (OFL) |
 | code font | `src/fonts/VT323-Regular.woff2` (OFL, 8-bit terminal face) |
-| card engravings | `images/engravings/` — PLACEHOLDERS (Colly's), replace before publishing |
+| card engravings | `images/engravings/gosse/` — public-domain Gosse cuts (CREDITS.md) |
 | markdown config (typographer, footnotes, figures, asterism) | `.eleventy.js` |
 | the reference | `reference/colly-v4/` (snapshot of colly.com/v4, 2026-08-30) |
 
