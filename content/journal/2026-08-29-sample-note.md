@@ -2,7 +2,7 @@
 title: "Article 368 on one page"
 sub: "The amending procedure, its three routes, and the four traps"
 date: 2026-08-29
-tags: [GS2, Polity]
+tags: [Notes, Polity]
 ---
 Article 368 is short, and most of the marks lost on it are lost to imprecision rather than ignorance. This note is the whole procedure on one page: what the article says, the three routes an amendment can take, and the four mistakes examiners see most often. It is a design specimen for the notes format, not published writing.
 

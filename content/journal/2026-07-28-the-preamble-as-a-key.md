@@ -2,7 +2,7 @@
 title: "The Preamble as a key"
 sub: "What the Court has said the opening words are for, and what they cannot do"
 date: 2026-07-28
-tags: [GS2, Polity]
+tags: [Notes, Polity]
 dropcap: true
 ---
 The Preamble is the shortest part of the Constitution and the most quoted, and the two facts are related. It is easy to learn and it sounds like a summary, so it is used as one. The Supreme Court has been more careful. It has treated the Preamble as a key to the mind of the makers, to be turned when the text is ambiguous, and it has refused to let it override the text when the text is clear.

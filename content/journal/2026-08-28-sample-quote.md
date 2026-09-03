@@ -1,7 +1,7 @@
 ---
 title: "Without effort"
 date: 2026-08-28
-tags: [Sample]
+tags: [Quotes]
 type: quote
 ---
 What is written without effort is in general read without pleasure.

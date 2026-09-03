@@ -151,7 +151,24 @@ Settled and not to be relitigated:
    callouts sit narrower than the tables, which leaves a ragged right edge.
 6. Nothing is pushed anywhere. Say the word for a private GitHub repo.
 
-## 5. Writing a post
+## 5. Categories and how the journal is used (settled 2026-09-03)
+
+Five categories, by SOURCE, one per post; a subject (Polity, Economy…) may
+ride along as a second tag. Rename in bulk any time before going live;
+after that a rename needs a redirect.
+
+| category | what goes in it | entry kind |
+|---|---|---|
+| Quotes | a line worth keeping, with or without a comment | `type: quote` |
+| Books | an excerpt and what you make of it | `type: quote` + commentary |
+| Press | a newspaper clipping with your analysis | essay with a clipping block (to build) |
+| Listening | a YouTube talk or podcast, with notes | `type: note`, link on the first line |
+| Notes | your own thoughts | `type: note`, or an essay when long |
+
+Rhythm: quotes and notes as they come; a clipping when the paper gives
+you one; an excerpt when a chapter ends; a talk when one is worth keeping.
+
+## 5a. Writing a post
 
 Create `content/journal/YYYY-MM-DD-some-slug.md`:
 

@@ -1,7 +1,7 @@
 ---
 title: "Written and unwritten"
 date: 2026-08-22
-tags: [Reading]
+tags: [Quotes]
 type: quote
 ---
 However good a Constitution may be, if those who are implementing it are not good, it will prove to be bad.
