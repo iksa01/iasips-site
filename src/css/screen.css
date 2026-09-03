@@ -291,6 +291,19 @@ div#content-pri aside.callout-key p.callout-title { color: #ba1820; }
 div#content-pri aside.callout-warning { border-left-color: #ba1820; background: #FDF6F6; }
 div#content-pri aside.callout-warning p.callout-title { color: #ba1820; }
 
+/* press cutting (::: clipping Source) — a cut-out from the paper: dashed edges, the source in spaced caps,
+   the quoted passage at reading size with no blockquote rule; the analysis runs on outside the block */
+div#content-pri .clipping { margin: 6px 0 22px 0; padding: 12px 15px 4px 15px; border: 1px dashed #BBB; background: #FFFDFB; }
+div#content-pri .clipping p.clipping-source { margin: 0 0 10px 0; font-size: 12px; font-style: normal; text-transform: uppercase;
+    letter-spacing: 1px; color: #6c6c6c; }
+div#content-pri .clipping figure { margin: 0 0 12px 0; }
+div#content-pri .clipping img { margin: 0; padding: 0; border: 1px solid #DDD; box-shadow: none; width: 100%; height: auto; }
+div#content-pri .clipping figcaption { margin: 4px 0 0 0; }
+div#content-pri .clipping blockquote { padding: 0; border: 0; }
+div#content-pri .clipping blockquote p { font-size: 15px; line-height: 24px; color: #333; }
+div#content-pri .clipping blockquote cite { text-align: left; }
+div#content-pri .clipping > p { font-size: 14px; line-height: 20px; }
+div#content-pri picture { display: block; }
 /* collapsibles */
 div#content-pri details { margin: 6px 0 15px 0; padding: 0 15px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }
 div#content-pri details summary { cursor: pointer; padding: 8px 0; font-size: 15px; list-style-position: outside; }

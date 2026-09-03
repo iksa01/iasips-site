@@ -72,6 +72,10 @@ decline and report.
 - Code fences: ```js/2-3 title="file.js" — language, highlighted lines,
   filename tab; all optional. Keep lines short enough to fit the column;
   a code block must never scroll sideways.
+- Press cuttings: `::: clipping The Paper, date` around the clipping picture
+  and a `>` quoted passage; the analysis follows after the closing `:::`.
+  Quote a passage, never the whole article. Prepare the picture first:
+  `python3 tools/prepare-image.py images/press/<file>.jpg`.
 - Planning grids: `::: plan Title` around a bulleted list whose items begin
   with a bold label — for answer skeletons and structures. Never use a code
   fence for these; code styling is for code.

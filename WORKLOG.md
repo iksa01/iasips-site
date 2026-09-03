@@ -506,3 +506,21 @@ added across July–September 2026 — two quotes from public-domain authors
 Money Bill, 42nd Amendment) and one short essay (the Preamble). Facts are
 standard; each is a stand-in for his writing and says so or is listed
 here. Twelve entries now; categories GS2, Polity, Reading, Sample.
+
+## 2026-09-03 (p) — the first real test: a press cutting with a picture
+
+Kalyan sent an Indian Express page (C. Raja Mohan, 26 Aug 2026) and asked
+how a clipping-with-analysis post would work, with links to the rest of
+the site. Copyright first: the whole page is the paper's; the post shows
+the headline strip and illustration, quotes one passage, links the
+e-paper, and puts the analysis outside — recorded in DESIGN §7c and AGENTS §4.
+Built: tools/prepare-image.py (PIL: fit 1400px, jpg + webp + avif,
+images/manifest.json with sizes; no npm package — eleventy-img is not in
+the lockfile); the markdown image renderer now emits <picture> with AVIF
+and WebP sources and width/height when the manifest knows the file;
+`::: clipping Source` container + CSS (dashed cutting, source in spaced
+caps, passage at reading size). Specimen post: /journal/central-asia-less-
+romance/ — analysis is a stand-in, says so at the foot. New subject tag
+World. Category Press now exists.
+Workflow for him: drop the file in images/press, run the prepare script,
+write the post with the block, push.

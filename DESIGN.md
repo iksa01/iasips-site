@@ -316,6 +316,21 @@ modern elements drawn in v4's vocabulary)
 
 ## 9. Images — see §7. loading="lazy" is added by the build.
 
+Pictures go through `tools/prepare-image.py` (2026-09-03): fitted to
+1400px wide, saved as a progressive JPG with .webp and .avif siblings, and
+their dimensions recorded in images/manifest.json. The build then writes a
+`<picture>` with the AVIF and WebP sources and puts width/height on the
+img, so the browser takes the smallest format it can and reserves the
+space before the file arrives. An unprepared image still works, as a plain
+img. No client script; no npm package — PIL does the work at prepare time.
+
+§7c. Press cutting (`::: clipping Source line`, 2026-09-03, for the Press
+category): a block with 1px dashed #BBB edges on #FFFDFB, the source in
+12px spaced caps #6c6c6c, then the picture (1px #DDD border, no shadow)
+and the quoted passage at 15px/24px with no blockquote rule. The analysis
+follows OUTSIDE the block in ordinary paragraphs. Quote a passage, never
+the whole piece: the words and the picture are the paper's.
+
 ## 10. Motion and JavaScript
 
 No JavaScript on any page (a JSON-LD data block in the head is not

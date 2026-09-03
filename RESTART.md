@@ -220,6 +220,20 @@ Create `content/journal/YYYY-MM-DD-some-slug.md`:
 
     ![alt text](/images/photo.jpg "Caption in spaced caps")
 
+A picture: put the file in `images/<folder>/`, then run once
+
+    python3 tools/prepare-image.py images/press/my-picture.jpg
+
+which fits it to 1400px, makes the small modern versions beside it, and
+records its size; then reference it as above. A press cutting:
+
+    ::: clipping The Indian Express, 26 August 2026
+    ![headline](/images/press/2026-08-26-clip.jpg "caption")
+    > The passage you are quoting — a passage, never the whole piece.
+    [Read the column →](https://epaper.example/...)
+    :::
+    Your analysis follows here, in ordinary paragraphs.
+
     [^1]: The note. It gets an ↑ backlink automatically.
 
 A quote entry instead: front matter `type: quote`, then the quote, then

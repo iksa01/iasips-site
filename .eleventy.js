@@ -48,6 +48,11 @@ module.exports = function (eleventyConfig) {
       }
     }
   });
+  // Pictures prepared with tools/prepare-image.py have .webp/.avif siblings and an entry in
+  // images/manifest.json; those get a <picture> with modern sources and width/height (no layout shift).
+  const fs = require("fs");
+  const manifestPath = require("path").join(__dirname, "images", "manifest.json");
+  const manifest = fs.existsSync(manifestPath) ? JSON.parse(fs.readFileSync(manifestPath, "utf8")) : {};
   const defaultImage = md.renderer.rules.image;
   md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const token = tokens[idx];
@@ -56,8 +61,16 @@ module.exports = function (eleventyConfig) {
     const attrs = token.attrs.filter(([k]) => k !== "title");
     const saved = token.attrs; token.attrs = attrs;
     if (!token.attrGet("loading")) token.attrSet("loading", "lazy");
-    const img = defaultImage(tokens, idx, options, env, self);
+    token.attrSet("decoding", "async");
+    const src = token.attrGet("src") || "";
+    const dims = manifest[src];
+    if (dims) { token.attrSet("width", String(dims.w)); token.attrSet("height", String(dims.h)); }
+    let img = defaultImage(tokens, idx, options, env, self);
     token.attrs = saved;
+    if (dims && /\.jpe?g$/i.test(src)) {
+      const base = src.replace(/\.jpe?g$/i, "");
+      img = `<picture><source type="image/avif" srcset="${base}.avif"><source type="image/webp" srcset="${base}.webp">${img}</picture>`;
+    }
     return title ? `${img}<figcaption>${md.utils.escapeHtml(title)}</figcaption>` : img;
   };
   // Fenced code (DESIGN.md §7): Prism classes at build time, no client JS.
@@ -92,6 +105,18 @@ module.exports = function (eleventyConfig) {
       },
     });
   }
+  // ::: clipping Source line  — a press cutting: the picture and the quoted passage inside, the source in
+  // spaced caps above; the analysis follows outside the block (DESIGN.md §7c, 2026-09-03).
+  md.use(markdownItContainer, "clipping", {
+    render(tokens, i) {
+      const tk = tokens[i];
+      if (tk.nesting === 1) {
+        const source = tk.info.trim().slice("clipping".length).trim();
+        return `<div class="clipping">${source ? `<p class="clipping-source">${esc(source)}</p>` : ""}\n`;
+      }
+      return "</div>\n";
+    },
+  });
   // ::: plan Title  — a printed planning grid (answer skeletons, structures).
   // A bulleted list inside becomes rows: bold lead-in = the stage label.
   md.use(markdownItContainer, "plan", {
