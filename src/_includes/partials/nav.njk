@@ -11,7 +11,7 @@
 {%- elif item.href == "/journal/" and collections.journal.length %}
 {#- v4 li#journal: § + the newest entry's title, its opening, "More →" -#}
 {%- set latest = collections.journal[0] %}
-{%- set copy %}<a href="{{ latest.url }}" class="dest"><span class="fs">&sect;</span>{{ latest.data.title }}</a><br>{{ latest.templateContent | firstParagraph | striptags | truncate(150) }} <a href="{{ latest.url }}" class="dest">More &rarr;</a>{% endset %}
+{%- set copy %}<a href="{{ latest.url }}" class="dest"><span class="fs">&para;</span>{{ latest.data.title }}</a><br>{{ latest.templateContent | firstParagraph | striptags | truncate(150) }} <a href="{{ latest.url }}" class="dest">More &rarr;</a>{% endset %}
 {%- elif item.href == "/archive/" and collections.journal.length %}
 {#- v4 li#archive: the five latest, numbered -#}
 {%- set copy %}{% for e in collections.journal | limit(5) %}<a href="{{ e.url }}" class="arch"><strong>{{ collections.journal.length - loop.index0 }}</strong>&mdash;{{ e.data.title }}</a>{% endfor %}{% endset %}

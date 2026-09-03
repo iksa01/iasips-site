@@ -153,17 +153,21 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
     only when the list has entries.
     Three entry kinds sit in the one stream as equals (raamdev.com,
     Kalyan 2026-09-03: "a quote… is a post of its own"): an ESSAY shows
-    its opening and "Read on"; a QUOTE (type: quote) shows its h3 title
-    over the §8 panel; a NOTE (type: note) — a thought of a paragraph or
-    two — shows IN FULL at 15px/24px with "Permanent link →", no reading
-    time.
+    its opening and "Read on"; a QUOTE (type: quote) shows the §8 panel
+    alone — no title, no date block (Kalyan, 2026-09-03: "I don't need a
+    title for the quotes… the metadata is much cleaner" on raamdev.com); a
+    NOTE (type: note) — a thought of a paragraph or two — shows its title
+    and its whole body at 15px/24px. Under both, ONE quiet meta line: 12px
+    italic #6c6c6c set right, no rules — "date · Category · Permanent
+    link →". Essays keep v4's h4 date and ruled p.meta.
   - Archive (/archive/): 18px year headings, then title + 11px italic
     date rows with dashed rules.
   - Home (/): masthead, cards, external references, colophon. Each home
     card carries v4's COPY under its engraving (missed on 08-30; Kalyan
     spotted it 2026-09-03): the about and contact cards a drop-cap lead
     (`.fl`), a sentence or two and a red "read on →" (`a.dest`); the
-    journal card a red § (`.fs`) + the newest entry's title, its opening
+    journal card a red ¶ (`.fs`; v4 used §, Kalyan 2026-09-03: "something
+    else") + the newest entry's title, its opening
     (150 chars) and "More →"; the archive card the five latest titles as
     `a.arch` rows, numbered from the oldest entry = 1 (v4 used entry ids).
     Copy is 13px/18px #333, 12px below the engraving. The two prose blurbs
@@ -302,9 +306,10 @@ modern elements drawn in v4's vocabulary)
 - Body = quote paragraph(s), then `<cite>Name</cite>`, then optionally
   `---` and commentary (permalink only).
 - Panel: 3px red left rule, 24px/32px Times text, "— NAME" 12px spaced
-  caps set right; the journal index shows the h3 title, the panel, h4 date
-  and p.meta; the permalink adds p.meta and, after a dashed hr, the
-  commentary. Every quote entry has a title (2026-09-03).
+  caps set right; the journal index shows the panel and the quiet meta
+  line (§4); the permalink adds p.meta and, after a dashed hr, the
+  commentary. `title` in front matter names the page (head, feed,
+  archive) but is not printed on the index or the panel.
 - Note entries (type: note, 2026-09-03): a short thought, shown whole on
   the index (§4) and as an ordinary entry at its permalink.
 

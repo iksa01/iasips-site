@@ -61,7 +61,10 @@ decline and report.
   any new key or value is a design change.
 - Quote entries (type: quote): the quote as plain paragraphs, then
   `<cite>Author</cite>` on its own line, then optionally `---` followed
-  by commentary. See DESIGN.md §8.
+  by commentary. The title names the page but is not printed. See
+  DESIGN.md §8.
+- Note entries (type: note): a title and a paragraph or two, shown whole
+  on the journal index.
 - `---` is the hairline; `***` is the asterism. Footnotes are `[^n]`.
 - Callouts: `::: note Title` / `::: tip Title` / `::: key Title` /
   `::: warning Title` … `:::` — slate, moss, ochre, red respectively.

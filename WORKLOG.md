@@ -490,3 +490,19 @@ journal sidebar and untitled quote entries. Done, design change:
   credit stays in images/engravings/CREDITS.md.
 Licence line (colophon line 1) is still his call: "All rights reserved"
 or a Creative Commons line.
+
+## 2026-09-03 (o) — quiet metadata, no quote titles, a populated journal
+
+Kalyan: "I was talking about how he [Raam Dev] is using quotes. I don't
+need a title for the quotes, and… below the quote, the date and all those
+things… the metadata is much cleaner." Done: quotes on the index show the
+panel alone; quotes and notes get ONE quiet meta line — 12px italic grey,
+set right, no rules — "date · Category · Permanent link →". Essays keep
+v4's h4 date and ruled meta. The home journal card's § became ¶ ("we
+don't have to use the same symbol").
+"Populate my journal… so we can scroll through posts": seven SPECIMENS
+added across July–September 2026 — two quotes from public-domain authors
+(Bacon 1625, Tagore 1910, Ambedkar 1949), three notes (Fundamental Duties,
+Money Bill, 42nd Amendment) and one short essay (the Preamble). Facts are
+standard; each is a stand-in for his writing and says so or is listed
+here. Twelve entries now; categories GS2, Polity, Reading, Sample.

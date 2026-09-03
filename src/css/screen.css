@@ -328,8 +328,16 @@ div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; text-transf
 div#content-pri .toc-inline ul li { font-size: 14px; padding: 2px 0; border: 0; }
 div#content-pri .toc-inline ul ul { margin-left: 15px; }
 /* a note entry on the journal index shows in full (2026-09-03; raamdev.com's asides) — body text at index size */
+.journal#multiple div#content-pri .note-body { margin-top: 14px; }
 .journal#multiple div#content-pri .note-body p { font-size: 15px; line-height: 24px; margin: 0 0 12px 0; }
-.journal#multiple div#content-pri .note-body > p:last-child { margin-bottom: 4px; }
+.journal#multiple div#content-pri .note-body > p:last-child { margin-bottom: 0; }
+/* the quiet meta line under quotes and notes (Kalyan, 2026-09-03: "the metadata is much cleaner" on raamdev.com):
+   one small grey line set right, no rules — date · category · permanent link */
+.journal#multiple div#content-pri p.meta.quiet { margin: 6px 0 50px 0; padding: 0; border: 0; text-align: right;
+    font-size: 12px; line-height: 18px; font-style: italic; color: #6c6c6c; }
+.journal#multiple div#content-pri p.meta.quiet a:link, .journal#multiple div#content-pri p.meta.quiet a:visited { color: #6c6c6c; text-decoration: none; }
+.journal#multiple div#content-pri p.meta.quiet a:hover { color: #ba1820; }
+.journal#multiple div#content-pri blockquote.quote-panel { margin-top: 10px; }
 /* older / newer (v4 p.paginate) */
 div#content-pri p.paginate { margin: 0; padding: 10px 0; font-size: 12px; font-weight: normal; font-style: normal; text-transform: uppercase;
     letter-spacing: 1px; color: #333; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; display: none; justify-content: space-between; gap: 20px; }
