@@ -439,3 +439,21 @@ transmitter, RSS = 1683 post rider. Alternatives on /engravings/ (working
 page, delete with the decision): Char Minar 1850, St Andrew's Bangalore
 1867, Government House 1824, Kutub Minar 1872, inkstand 1875, Loman camera.
 The Gosse birds stay in gosse/ as a pool. Awaiting Kalyan's verdict.
+
+## 2026-09-03 (k) — engravings, round 4: Old Book Illustrations
+
+Kalyan on the cities and the photo conversions: "absolutely bad… one
+direct source of ready-made images in this format." Old Book Illustrations
+(oldbookillustrations.com) is that source: cleaned public-domain 19th-c.
+book engravings, tag pages (/illustrations/tag/<tag>/, pageN/), small-size
+download at /site/assets/files/<id>/<slug>.jpg (500–680px, bottom 7% is a
+watermark line — crop it), one page per image with title, description and
+source book. Search is JS; the tag pages and sitemap are the way in. The
+"tailpiece" and "vignette" tags are the Colly register exactly.
+Harvested 167 (scratchpad eng/obi/pull.py), picked by theme: About = oil
+lamp, Journal = stationery with quill, Archive = books and candle, Contact
+= man reading his mail, Substack = laurel wreath with pen, X = Edison's
+electric pen; Instagram keeps the Meyers camera, RSS the 1683 post rider.
+Five alternates on /engravings/. CREDITS.md has each page link. The
+places/ and desk/ tiles from round 3 stay on disk as a pool; the Gosse
+birds likewise. Awaiting Kalyan's verdict — "we will finalise it".

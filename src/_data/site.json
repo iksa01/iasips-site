@@ -21,19 +21,19 @@
         "copy": "I’m Kalyan. I read and write about the UPSC syllabus from Hyderabad, and this is where the notes and the journal live.",
         "more": "Please read on &rarr;"
       },
-      "engraving": "/images/engravings/places/golconda-tombs.png"
+      "engraving": "/images/engravings/obi/lamp.png"
     },
     {
       "href": "/journal/",
       "strap": "Notes from the reading room",
       "label": "The Journal",
-      "engraving": "/images/engravings/places/gooty-fort.png"
+      "engraving": "/images/engravings/obi/stationery.png"
     },
     {
       "href": "/archive/",
       "strap": "Filed and cross-referenced",
       "label": "The Archive",
-      "engraving": "/images/engravings/places/writers-buildings.png"
+      "engraving": "/images/engravings/obi/book-candle-tailpiece.png"
     },
     {
       "href": "/contact/",
@@ -48,7 +48,7 @@
       "kern": {
         "0": "kern-a"
       },
-      "engraving": "/images/engravings/places/qutb-minar.png"
+      "engraving": "/images/engravings/obi/man-reading-mail.png"
     }
   ],
   "externalsHref": "/external/",
@@ -58,7 +58,7 @@
         "href": "https://upsc.substack.com",
         "strap": "Longer letters, now and then",
         "label": "Substack Letters",
-        "engraving": "/images/engravings/desk/quill-and-books.png"
+        "engraving": "/images/engravings/obi/quill-pencil.png"
       },
       {
         "href": "https://instagram.com/UPSCVerse",
@@ -70,7 +70,7 @@
         "href": "https://x.com/UPSCVerse",
         "strap": "Shorter thoughts, more often",
         "label": "Follow Me On X",
-        "engraving": "/images/engravings/desk/telegraph.png"
+        "engraving": "/images/engravings/obi/edisons-electric-pen.png"
       },
       {
         "href": "/feed.xml",

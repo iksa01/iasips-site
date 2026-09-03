@@ -87,3 +87,27 @@ are derived works of the photographs below, so they carry those licences.
 |---|---|---|---|---|
 | places/lepakshi-nandi-photo.png | The Nandi at Lepakshi, from the side | [Commons](https://commons.wikimedia.org/wiki/File:Lepakshi_nandi_18.JPG) | CC BY-SA 4.0 (credit required; derivative must stay CC BY-SA) | రహ్మానుద్దీన్ |
 | places/charminar-photo.png | The Charminar | [Commons](https://commons.wikimedia.org/wiki/File:Charminar_Kaman_Rd,Hyderabad,_Telangana_22.jpg) | CC BY-SA 4.0 (credit required; derivative must stay CC BY-SA) | Wasiul Bahar |
+
+## Old Book Illustrations set (2026-09-03) — the one in use
+
+Kalyan (2026-09-03): the city and photo experiments were "absolutely bad"; use a
+ready-made source on the site's themes. Old Book Illustrations
+(oldbookillustrations.com) publishes cleaned scans of 19th-century book
+engravings, all public domain; the site asks for a link back, which the
+colophon can carry. Small-size downloads (500–680px), the site's bottom
+watermark cropped, then process2.py (k .13, gain 2.0). Tailpieces and
+vignettes on white — the same register as Colly's cards.
+
+| file | title | page | licence |
+|---|---|---|---|
+| obi/book-candle-tailpiece.png | Tailpiece with Books and Candle | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/book-candle-tailpiece/) | Public domain |
+| obi/stationery.png | Decorative Stationery | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/stationery/) | Public domain |
+| obi/man-reading-mail.png | Man Reading his Mail | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/man-reading-mail/) | Public domain |
+| obi/quill-pencil.png | Laurel Wreath with Pen & Chalk Holder | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/quill-pencil/) | Public domain |
+| obi/edisons-electric-pen.png | Edison's Electric Pen | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/edisons-electric-pen/) | Public domain |
+| obi/lamp.png | Oil Lamp | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/lamp/) | Public domain |
+| obi/vignette-with-scrolls.png | Vignette with Scrolls and Books | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/vignette-with-scrolls/) | Public domain |
+| obi/publishers-mark1.png | Publisher's Mark (1) | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/publishers-mark1/) | Public domain |
+| obi/copper-plate-press.png | Geared Copper-Plate Press | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/copper-plate-press/) | Public domain |
+| obi/orator.png | Orator Addressing his Audience | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/orator/) | Public domain |
+| obi/knapwurst-reading.png | Knapwurst Resumed Reading | [Old Book Illustrations](https://www.oldbookillustrations.com/illustrations/knapwurst-reading/) | Public domain |
