@@ -21,7 +21,7 @@ bodyId: article
 {%- else %}
 <h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub tagline">{{ sub }}</p>{% endif %}
-<p class="meta entry-meta"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if updated %} · Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateLong | safe }}</time>{% endif %} <span class="rt">· {{ content | readingTime }} min read</span>{% if tags and tags.length %} · Archived in {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %}{% endif %}</p>
+<p class="meta entry-meta"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if updated %} · Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateLong | safe }}</time>{% endif %}{% if type != "note" %} <span class="rt">· {{ content | readingTime }} min read</span>{% endif %}{% if tags and tags.length %} · Archived in {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %}{% endif %}</p>
 {%- if tocItems.length %}
 <div class="toc-inline"><h3>In this entry</h3>{% include "partials/toc-list.njk" %}</div>
 {%- endif %}

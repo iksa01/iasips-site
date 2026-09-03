@@ -1,8 +1,16 @@
-{#- One journal-index entry, v4 shape: h3 title, h4 date, blurb, meta. Expects: e -#}
+{#- One journal-index entry, v4 shape: h3 title, h4 date, blurb, meta. Expects: e.
+    Three kinds (2026-09-03): essays show their opening and "Read on"; quotes show the panel under their title;
+    notes show in full — a thought is its own post, as on raamdev.com. -#}
 {%- if e.data.type == "quote" %}
 {%- set qhtml = e.templateContent %}
+<h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
 {%- include "partials/quote-panel.njk" %}
 <h4><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time></h4>
+<p class="meta">{% if e.data.tags and e.data.tags.length %}Archived in {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %} · {% endif %}<a href="{{ e.url }}">Permanent link &rarr;</a></p>
+{%- elif e.data.type == "note" %}
+<h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
+<h4><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time></h4>
+<div class="note-body">{{ e.templateContent | safe }}</div>
 <p class="meta">{% if e.data.tags and e.data.tags.length %}Archived in {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %} · {% endif %}<a href="{{ e.url }}">Permanent link &rarr;</a></p>
 {%- else %}
 <h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>

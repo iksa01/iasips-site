@@ -56,8 +56,8 @@ decline and report.
 - Front matter keys are fixed: title, sub (one-line tagline; doubles as
   the index summary), date (YYYY-MM-DD), tags, permalink, dropcap, toc
   (true = table of contents from ## and ### heads), updated (YYYY-MM-DD,
-  optional; shown as "Updated …"), type (only permitted
-  value: "quote"; omit for ordinary posts). Introducing
+  optional; shown as "Updated …"), type (permitted values: "quote",
+  "note"; omit for ordinary posts). Introducing
   any new key or value is a design change.
 - Quote entries (type: quote): the quote as plain paragraphs, then
   `<cite>Author</cite>` on its own line, then optionally `---` followed

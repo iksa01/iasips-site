@@ -327,6 +327,9 @@ div#content-pri .toc-inline { display: none; margin: 0 0 30px 0; padding: 10px 0
 div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; }
 div#content-pri .toc-inline ul li { font-size: 14px; padding: 2px 0; border: 0; }
 div#content-pri .toc-inline ul ul { margin-left: 15px; }
+/* a note entry on the journal index shows in full (2026-09-03; raamdev.com's asides) — body text at index size */
+.journal#multiple div#content-pri .note-body p { font-size: 15px; line-height: 24px; margin: 0 0 12px 0; }
+.journal#multiple div#content-pri .note-body > p:last-child { margin-bottom: 4px; }
 /* older / newer (v4 p.paginate) */
 div#content-pri p.paginate { margin: 0; padding: 10px 0; font-size: 12px; font-weight: normal; font-style: normal; text-transform: uppercase;
     letter-spacing: 1px; color: #333; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; display: none; justify-content: space-between; gap: 20px; }

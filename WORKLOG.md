@@ -471,3 +471,22 @@ pictures from Old Book Illustrations" — the link-back the site asks for.
 Kalyan signed in with `gh auth login` (account iksa01). Created the private
 repo github.com/iksa01/iasips-site and pushed main, 28 commits. `git push`
 after every round from now on. Nothing is live.
+
+## 2026-09-03 (n) — journal index: v4 sidebar, titled quotes, the note kind
+
+Kalyan compared colly.com/v4/journal/ (sidebar: Categories, "Mr.
+Collison's Favourites") and raamdev.com (quotes and one-line asides as
+posts of their own, in the stream with the essays). Ours had an empty
+journal sidebar and untitled quote entries. Done, design change:
+- Journal sidebar: home link, Categories (category pages), Favourites from
+  site.json `favourites` [{href,title}] under `favouritesHeading` (draft
+  "Kalyan’s Favourites"); hidden while the list is empty — his picks.
+- Quote entries carry an h3 title on the index (specimen: "Without effort").
+- New entry kind `type: note`: a thought of a paragraph or two shown in
+  full on the index with "Permanent link →", an ordinary page at its
+  permalink, no reading time. Specimen: "Heart and soul" (Article 32).
+  AGENTS §4 type values: quote, note. DESIGN §4/§8.
+- Colophon: the Old Book Illustrations mention removed on his word; the
+  credit stays in images/engravings/CREDITS.md.
+Licence line (colophon line 1) is still his call: "All rights reserved"
+or a Creative Commons line.

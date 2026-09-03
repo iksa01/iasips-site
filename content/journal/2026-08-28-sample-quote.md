@@ -1,5 +1,5 @@
 ---
-title: "TODO: sample quote entry"
+title: "Without effort"
 date: 2026-08-28
 tags: [Sample]
 type: quote

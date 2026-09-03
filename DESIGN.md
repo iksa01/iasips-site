@@ -147,6 +147,16 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
   - Journal (/journal/): v4 "multiple" shape per entry — h3 title link,
     h4 date, p.blurb (first paragraph), p.meta "Archived in … · Read on,
     there is more →" on ONE line (v4 broke it over two; Kalyan 2026-09-03).
+    Sidebar (v4's, restored 2026-09-03): home link, "Categories" (the
+    category pages), and a favourites list from site.json `favourites`
+    under `favouritesHeading` (v4: "Mr. Collison's Favourites"), shown
+    only when the list has entries.
+    Three entry kinds sit in the one stream as equals (raamdev.com,
+    Kalyan 2026-09-03: "a quote… is a post of its own"): an ESSAY shows
+    its opening and "Read on"; a QUOTE (type: quote) shows its h3 title
+    over the §8 panel; a NOTE (type: note) — a thought of a paragraph or
+    two — shows IN FULL at 15px/24px with "Permanent link →", no reading
+    time.
   - Archive (/archive/): 18px year headings, then title + 11px italic
     date rows with dashed rules.
   - Home (/): masthead, cards, external references, colophon. Each home
@@ -292,8 +302,11 @@ modern elements drawn in v4's vocabulary)
 - Body = quote paragraph(s), then `<cite>Name</cite>`, then optionally
   `---` and commentary (permalink only).
 - Panel: 3px red left rule, 24px/32px Times text, "— NAME" 12px spaced
-  caps set right; the journal index shows the panel with h4 date and p.meta; the
-  permalink adds p.meta and, after a dashed hr, the commentary.
+  caps set right; the journal index shows the h3 title, the panel, h4 date
+  and p.meta; the permalink adds p.meta and, after a dashed hr, the
+  commentary. Every quote entry has a title (2026-09-03).
+- Note entries (type: note, 2026-09-03): a short thought, shown whole on
+  the index (§4) and as an ordinary entry at its permalink.
 
 ## 9. Images — see §7. loading="lazy" is added by the build.
 

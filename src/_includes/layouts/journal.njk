@@ -12,5 +12,21 @@ bodyId: multiple
 {%- include "partials/index-entry.njk" %}
 {%- endfor %}
 </div>
-<div id="content-sec"></div>
+<div id="content-sec">
+<p class="home-link"><a href="/">Home</a></p>
+<h3>Categories</h3>
+<ul>
+{%- for t in collections.journal | tagList %}
+<li><a href="/journal/category/{{ t | slugify }}/">{{ t }}</a></li>
+{%- endfor %}
+</ul>
+{%- if site.favourites and site.favourites.length %}
+<h3>{{ site.favouritesHeading }}</h3>
+<ul>
+{%- for f in site.favourites %}
+<li><a href="{{ f.href }}">{{ f.title }}</a></li>
+{%- endfor %}
+</ul>
+{%- endif %}
+</div>
 </div>
