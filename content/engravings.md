@@ -16,6 +16,8 @@ eleventyExcludeFromCollections: true
 - **X** — a spark transmitter, 1906.
 - **RSS** — a post rider blowing his horn, a 1683 woodcut.
 
+**Made from photographs** (last row but one): the Lepakshi Nandi and the Charminar, converted from CC BY-SA photographs on Commons. Usable, with the photographer credited; weaker than the period engravings.
+
 ## All of them, in card frames
 
 <ul class="subnav">
@@ -35,6 +37,10 @@ eleventyExcludeFromCollections: true
 <li class="card"><a href="#"><span class="strap">Substack</span><span class="label">Inkstand</span><span class="engraving"><img src="/images/engravings/desk/inkstand.png" alt="" width="200" height="160"></span></a></li>
 <li class="card"><a href="#"><span class="strap">Instagram</span><span class="label">Kodak camera</span><span class="engraving"><img src="/images/engravings/desk/camera-kodak.png" alt="" width="200" height="160"></span></a></li>
 <li class="card"><a href="#"><span class="strap">Instagram</span><span class="label">Loman camera</span><span class="engraving"><img src="/images/engravings/desk/camera-loman.png" alt="" width="200" height="160"></span></a></li>
+</ul>
+<ul class="subnav">
+<li class="card"><a href="#"><span class="strap">From a photograph</span><span class="label">Lepakshi Nandi</span><span class="engraving"><img src="/images/engravings/places/lepakshi-nandi-photo.png" alt="" width="200" height="160"></span></a></li>
+<li class="card"><a href="#"><span class="strap">From a photograph</span><span class="label">Charminar</span><span class="engraving"><img src="/images/engravings/places/charminar-photo.png" alt="" width="200" height="160"></span></a></li>
 </ul>
 <ul class="subnav">
 <li class="card"><a href="#"><span class="strap">X</span><span class="label">Spark transmitter</span><span class="engraving"><img src="/images/engravings/desk/telegraph.png" alt="" width="200" height="160"></span></a></li>
