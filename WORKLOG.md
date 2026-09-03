@@ -457,3 +457,11 @@ electric pen; Instagram keeps the Meyers camera, RSS the 1683 post rider.
 Five alternates on /engravings/. CREDITS.md has each page link. The
 places/ and desk/ tiles from round 3 stay on disk as a pool; the Gosse
 birds likewise. Awaiting Kalyan's verdict — "we will finalise it".
+
+## 2026-09-03 (l) — engravings FINAL
+
+Kalyan: "Yes, I think we can go ahead." The Old Book Illustrations set is
+final. /engravings/ working page deleted; places/ (cities, photo
+conversions) deleted; desk/ keeps only camera-kodak and post-rider;
+gosse/ and samples/ stay as pools. Colophon line 2 now ends "Card
+pictures from Old Book Illustrations" — the link-back the site asks for.

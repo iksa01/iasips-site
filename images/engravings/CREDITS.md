@@ -49,7 +49,7 @@ with the /engravings/ page. Three of those were CC BY; the Gosse set is not.
 `PLACEHOLDER-colly-*.png` are Simon Collison's own artwork, copied so the
 slots could be judged. Not licensed for this site — must be replaced.
 
-## Places and desk sets (2026-09-03)
+## Places and desk sets (2026-09-03) — REMOVED 2026-09-03 except desk/camera-kodak.png and desk/post-rider.png
 
 Kalyan's cities (Hyderabad, Anantapur, Bengaluru, Kolkata, Delhi) for the four
 home cards and the writing desk for the external cards. All from Wikimedia
@@ -77,7 +77,7 @@ Fitted to Colly's geometry: ≤186×92, bottom-anchored in a 200×160 tile.
 | desk/telegraph.png | Ducretet spark transmitter | [Commons](https://commons.wikimedia.org/wiki/File%3ADucretet-Popov_spark_gap_transmitter.png) | Public domain | 1906 · Unknown.  The engraving is signed "E. Ducretet, Paris", indi |
 | desk/post-rider.png | Post rider blowing his horn, 1683 woodcut | [Commons](https://commons.wikimedia.org/wiki/File%3ADE_Ausschnitt_14_667922X_001.jpg) | Public domain | 1683 · Unknown authorUnknown author |
 
-## From photographs (2026-09-03, Kalyan: "can you create similar images of Charminar and Nandi?")
+## From photographs (2026-09-03) — REMOVED the same day ("absolutely bad"); rows kept for the record
 
 Made with scratchpad eng/engrave.py: sky and foliage masked by colour, tone
 turned into hatching, edges into contour lines, then the same shrink. They
@@ -88,7 +88,7 @@ are derived works of the photographs below, so they carry those licences.
 | places/lepakshi-nandi-photo.png | The Nandi at Lepakshi, from the side | [Commons](https://commons.wikimedia.org/wiki/File:Lepakshi_nandi_18.JPG) | CC BY-SA 4.0 (credit required; derivative must stay CC BY-SA) | రహ్మానుద్దీన్ |
 | places/charminar-photo.png | The Charminar | [Commons](https://commons.wikimedia.org/wiki/File:Charminar_Kaman_Rd,Hyderabad,_Telangana_22.jpg) | CC BY-SA 4.0 (credit required; derivative must stay CC BY-SA) | Wasiul Bahar |
 
-## Old Book Illustrations set (2026-09-03) — the one in use
+## Old Book Illustrations set (2026-09-03) — FINAL, Kalyan: "we can go ahead"
 
 Kalyan (2026-09-03): the city and photo experiments were "absolutely bad"; use a
 ready-made source on the site's themes. Old Book Illustrations

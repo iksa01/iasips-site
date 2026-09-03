@@ -104,9 +104,11 @@ Settled and not to be relitigated:
 
 - The shell is Simon Collison's v4, transcribed from `reference/colly-v4/`.
   A reinterpretation was tried and rejected ("not even close by 1000 miles").
-- **Card engravings chosen**: Alexandrine (About), Coly (Journal), Emu
-  (Archive), Falcon beak (Contact), from Gosse's *Natural History*, public
-  domain. The eight external cards use the rest of that pool.
+- **Card engravings FINAL (2026-09-03)**: Old Book Illustrations tailpieces —
+  lamp (About), stationery (Journal), books and candle (Archive), man reading
+  his mail (Contact), wreath and pen (Substack), Meyers camera (Instagram),
+  Edison's electric pen (X), 1683 post rider (RSS). CREDITS.md has sources.
+  The Gosse birds stay in gosse/ as a pool.
 - **Callouts** carry one red in four weights: grey (note), pale rose (tip),
   rose (key), red (warning) — "set D", chosen 2026-09-03. One accent only.
 - **Blockquotes** are Colly's, plus a hanging red quotation mark in the
