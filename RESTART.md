@@ -226,9 +226,11 @@ publishing** — the URL is permanent.
     git status               # what is uncommitted
     git diff                 # what changed
 
-All commits are local, all on `main` (the 2026-09-02/03 branch was
-merged on Kalyan's word on 2026-09-03: "whatever you're showing me right
-now is the final thing"). Nothing is on GitHub; Kalyan will say when.
+Everything is on GitHub as well, in a private repository:
+<https://github.com/iksa01/iasips-site> (created 2026-09-03, account
+iksa01). After each round of saves here, `git push` sends them up; GitHub
+keeps every version. Not yet live — hosting from GitHub Pages and the two
+DNS records at the registrar come when Kalyan says.
 
 ## 8. If you want a backup right now
 

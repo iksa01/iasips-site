@@ -465,3 +465,9 @@ final. /engravings/ working page deleted; places/ (cities, photo
 conversions) deleted; desk/ keeps only camera-kodak and post-rider;
 gosse/ and samples/ stay as pools. Colophon line 2 now ends "Card
 pictures from Old Book Illustrations" — the link-back the site asks for.
+
+## 2026-09-03 (m) — first push
+
+Kalyan signed in with `gh auth login` (account iksa01). Created the private
+repo github.com/iksa01/iasips-site and pushed main, 28 commits. `git push`
+after every round from now on. Nothing is live.
