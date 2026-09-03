@@ -166,8 +166,9 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
     card carries v4's COPY under its engraving (missed on 08-30; Kalyan
     spotted it 2026-09-03): the about and contact cards a drop-cap lead
     (`.fl`), a sentence or two and a red "read on →" (`a.dest`); the
-    journal card a red ¶ (`.fs`; v4 used §, Kalyan 2026-09-03: "something
-    else") + the newest entry's title, its opening
+    journal card a small red ¶ run in before the newest entry's title
+    (`.fs`, 17px inline; v4 floated a 48px §, Kalyan 2026-09-03: "something
+    else… too big") + its opening
     (150 chars) and "More →"; the archive card the five latest titles as
     `a.arch` rows, numbered from the oldest entry = 1 (v4 used entry ids).
     Copy is 13px/18px #333, 12px below the engraving. The two prose blurbs
