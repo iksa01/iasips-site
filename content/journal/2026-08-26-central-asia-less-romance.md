@@ -7,7 +7,7 @@ tags: [Press, World]
 Raja Mohan's column on the eve of the Prime Minister's Uzbekistan visit makes one argument in four moves: Central Asia has become an actor in its own right, the great-power map there has diversified, the region is turning towards the Middle East, and the Afghan question has shrunk. His conclusion is a call for modesty.
 
 ::: clipping The Indian Express, Delhi, 26 August 2026 · Raja Mandala
-![Our Central Asia strategy needs less romance, more realism](/images/press/2026-08-26-indian-express-central-asia.jpg "The headline and C. R. Sasikumar's illustration, from the e-paper")
+![Our Central Asia strategy needs less romance, more realism](/images/press/2026-08-26-indian-express-central-asia.jpg "The column as printed, with C. R. Sasikumar's illustration, from the e-paper")
 
 > India cannot match China's infrastructure spending, Russia's geographic advantages, Europe's financial resources or Türkiye's direct access across the Caspian. Nor does it need to. Sustained political attention should be matched by a practical economic agenda focused on areas where India can contribute.
 

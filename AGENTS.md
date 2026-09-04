@@ -74,7 +74,7 @@ decline and report.
   a code block must never scroll sideways.
 - Press cuttings: `::: clipping The Paper, date` around the clipping picture
   and a `>` quoted passage; the analysis follows after the closing `:::`.
-  Quote a passage, never the whole article. Prepare the picture first:
+  Quote a passage in text; the picture may be the whole page. Prepare it first:
   `python3 tools/prepare-image.py images/press/<file>.jpg`.
 - Planning grids: `::: plan Title` around a bulleted list whose items begin
   with a bold label — for answer skeletons and structures. Never use a code

@@ -328,8 +328,10 @@ img. No client script; no npm package — PIL does the work at prepare time.
 category): a block with 1px dashed #BBB edges on #FFFDFB, the source in
 12px spaced caps #6c6c6c, then the picture (1px #DDD border, no shadow)
 and the quoted passage at 15px/24px with no blockquote rule. The analysis
-follows OUTSIDE the block in ordinary paragraphs. Quote a passage, never
-the whole piece: the words and the picture are the paper's.
+follows OUTSIDE the block in ordinary paragraphs. The cutting may be the
+whole page — Kalyan's decision, 2026-09-04, after the copyright concern was
+put to him: "the full image will be shown but what we add below that is
+more important." The quoted passage and the analysis carry the post.
 
 ## 10. Motion and JavaScript
 

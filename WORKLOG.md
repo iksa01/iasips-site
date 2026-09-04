@@ -524,3 +524,10 @@ romance/ — analysis is a stand-in, says so at the foot. New subject tag
 World. Category Press now exists.
 Workflow for him: drop the file in images/press, run the prepare script,
 write the post with the block, push.
+
+## 2026-09-04 — the full page
+
+Kalyan: "the full image will be shown but what we add below that is more
+important." The copyright concern was put to him on 09-03; his decision.
+The Press specimen now shows the whole Indian Express page (1221×1180,
+prepared: jpg 1221w + webp + avif). DESIGN §7c and AGENTS §4 updated.
