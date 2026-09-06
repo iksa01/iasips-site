@@ -543,3 +543,13 @@ npm ci, eleventy, upload _site, deploy-pages). Pages enabled with
 build_type=workflow; cname iasips.in set via the API. DNS records handed
 to Kalyan; HTTPS enforcement waits for the certificate. Nothing about the
 site's build changed — the same `_site/` goes up.
+
+## 2026-09-06 — HANDBOOK.md
+
+Kalyan: "how do I tell future terminal sessions this? how will they know
+the blog capabilities? what is a post, quote, what is accepted?" Written
+as one file, HANDBOOK.md: the site in five lines, the three entry kinds
+with exact front matter, the five categories, every block, pictures, what
+is not accepted, the publishing routine, the facts only he supplies.
+CLAUDE.md (auto-loaded) now opens with the live address and points to the
+handbook first; PROMPT.txt and RESTART.md's first message name it too.

@@ -1,4 +1,4 @@
-Read RESTART.md, WORKLOG.md, DESIGN.md and AGENTS.md in this repo before
+Read HANDBOOK.md, RESTART.md, WORKLOG.md, DESIGN.md and AGENTS.md in this repo before
 doing anything.
 
 Context in one line: this is my personal site — Simon Collison's Colly v4

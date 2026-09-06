@@ -21,8 +21,8 @@ Stop it with Ctrl+C.
 **Step 3 — paste this as your first message** (it is saved in `PROMPT.txt`,
 so you can also just say: *read PROMPT.txt and follow it*):
 
-> Read RESTART.md, WORKLOG.md, DESIGN.md and AGENTS.md in this repo before
-> doing anything.
+> Read HANDBOOK.md, RESTART.md, WORKLOG.md, DESIGN.md and AGENTS.md in this
+> repo before doing anything.
 >
 > Context in one line: this is my personal site — Simon Collison's Colly v4
 > design (colly.com/v4), transcribed whole, built with Eleventy 3, zero
@@ -89,6 +89,7 @@ the memory:
 
 | file | what it holds |
 |---|---|
+| `HANDBOOK.md` | what the blog accepts: entry kinds, categories, blocks, pictures, the publishing routine |
 | `RESTART.md` | this — how to run, resume, write |
 | `WORKLOG.md` | the round-by-round history and every lesson learned |
 | `DESIGN.md` | the visual law, with an appendix of every deliberate departure |
