@@ -17,8 +17,16 @@ change only when his instruction contains "design change" (AGENTS.md §9).
 
 ## Where we are
 
-Read `RESTART.md` for how to run and resume this project, and `WORKLOG.md` first — it holds the round-by-round history and the open
-offers. Then DESIGN.md (§7b is the 2026 body), then AGENTS.md.
+The site is LIVE at https://iasips.in, published by GitHub Pages from the
+public repository github.com/iksa01/iasips-site on every push to main.
+Commit + `git push` = publish.
+
+Read **HANDBOOK.md** before writing or editing any post — it is the
+complete list of what the blog accepts: the three entry kinds (essay,
+note, quote), the five categories, every block, pictures, the publishing
+routine, and what is not allowed. Then `RESTART.md` (how to run and
+resume), `WORKLOG.md` (the round-by-round history and why), DESIGN.md
+(§7b is the 2026 body), AGENTS.md (the rules).
 
 ## Build
 
