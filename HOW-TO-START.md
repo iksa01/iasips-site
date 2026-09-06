@@ -36,3 +36,23 @@
     RULES CLAUDE FOLLOWS: only your words get published; blanks become
     TODO; no scripts, no embeds, no renaming a published post.
     The full list of what the blog accepts is HANDBOOK.md.
+
+## On a Windows machine
+
+One-time: install Git, Node 24, Python 3, GitHub CLI (`gh`) and Claude
+Code; `gh auth login`; `gh repo clone iksa01/iasips-site`; inside the
+folder run `npm ci` once (installs exactly what the lockfile records — not
+the forbidden `npm install`); `pip install pillow` for pictures.
+
+Then the same three lines, with your folder path:
+
+    cd C:\path\to\iasips-site
+    claude
+    Read PROMPT.txt and follow it.
+
+Differences: preview with `npx @11ty/eleventy --serve` (start.sh is a Mac
+script); `python` instead of `python3`. Or install WSL and work inside it
+with no differences at all.
+
+Two machines: begin every session with `git pull`, end it with `git push`,
+so the copies never drift. Claude does both when asked.
