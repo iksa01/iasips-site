@@ -269,7 +269,8 @@ The site answers at <https://iksa01.github.io/iasips-site/> (GitHub's
 address) and at <https://iasips.in/> once the registrar's DNS points there:
 four A records for the apex → 185.199.108.153, 185.199.109.153,
 185.199.110.153, 185.199.111.153, and a CNAME `www` → `iksa01.github.io`.
-After DNS resolves, enforce HTTPS: `gh api -X PUT repos/iksa01/iasips-site/pages -F https_enforced=true`.
+HTTPS is enforced (certificate issued 2026-09-06; if GitHub ever stalls on a
+certificate, re-save the domain: PUT `cname=""` then `cname=iasips.in`).
 
 ## 8. If you want a backup right now
 

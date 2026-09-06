@@ -553,3 +553,12 @@ with exact front matter, the five categories, every block, pictures, what
 is not accepted, the publishing routine, the facts only he supplies.
 CLAUDE.md (auto-loaded) now opens with the live address and points to the
 handbook first; PROMPT.txt and RESTART.md's first message name it too.
+
+## 2026-09-06 — HTTPS
+
+DNS moved to GitHub at Cloudflare (five records, grey cloud). GitHub did
+not begin the certificate on its own for twenty minutes; re-saving the
+custom domain through the API (cname "" then cname iasips.in) triggered
+it at once — "approved" within fifteen seconds. https_enforced set.
+https://iasips.in 200; www → apex 301. The old "kalyan - UPSCVerse" page
+that the domain used to serve is gone.
