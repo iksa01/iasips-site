@@ -257,11 +257,18 @@ publishing** — the URL is permanent.
     git status               # what is uncommitted
     git diff                 # what changed
 
-Everything is on GitHub as well, in a private repository:
-<https://github.com/iksa01/iasips-site> (created 2026-09-03, account
-iksa01). After each round of saves here, `git push` sends them up; GitHub
-keeps every version. Not yet live — hosting from GitHub Pages and the two
-DNS records at the registrar come when Kalyan says.
+Everything is on GitHub, in a PUBLIC repository (made public 2026-09-06 on
+Kalyan's "go"): <https://github.com/iksa01/iasips-site>, account iksa01.
+GitHub Pages builds and publishes the site on every push to `main`
+(.github/workflows/pages.yml, Eleventy on Node 24 from the frozen
+lockfile). So: commit, `git push`, and about a minute later it is live.
+Check a build with `gh run list --workflow=pages.yml`.
+
+The site answers at <https://iksa01.github.io/iasips-site/> (GitHub's
+address) and at <https://iasips.in/> once the registrar's DNS points there:
+four A records for the apex → 185.199.108.153, 185.199.109.153,
+185.199.110.153, 185.199.111.153, and a CNAME `www` → `iksa01.github.io`.
+After DNS resolves, enforce HTTPS: `gh api -X PUT repos/iksa01/iasips-site/pages -F https_enforced=true`.
 
 ## 8. If you want a backup right now
 

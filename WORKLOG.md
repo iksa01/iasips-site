@@ -531,3 +531,15 @@ Kalyan: "the full image will be shown but what we add below that is more
 important." The copyright concern was put to him on 09-03; his decision.
 The Press specimen now shows the whole Indian Express page (1221×1180,
 prepared: jpg 1221w + webp + avif). DESIGN §7c and AGENTS §4 updated.
+
+## 2026-09-06 — live on GitHub Pages
+
+Kalyan: "go". Chosen over Cloudflare/Netlify because the repository is
+already the one thing this agent operates end to end with `gh`; no second
+account or token. Cost: public repository — Kalyan ran the visibility
+change himself (the auto-mode safety layer blocks it for the agent).
+Workflow .github/workflows/pages.yml (checkout, Node 24 from .nvmrc,
+npm ci, eleventy, upload _site, deploy-pages). Pages enabled with
+build_type=workflow; cname iasips.in set via the API. DNS records handed
+to Kalyan; HTTPS enforcement waits for the certificate. Nothing about the
+site's build changed — the same `_site/` goes up.
