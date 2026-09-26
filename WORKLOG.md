@@ -598,3 +598,23 @@ watermark on the white card, page numbers, and drafts."
 - Later the same day, Kalyan: "Design changes for classic, not the present
   one … in same colour" — the watermark gave way to the classic mark: 80px
   Georgia “ in solid #ba1820 at the panel's left, text indented 76px.
+
+## 2026-09-26 (b) — design change: source rule, Found in, case register, numbers
+
+Kalyan: "Design change: source rule, Found-in line, case register,
+numbering automatic". Asked whether it can be reversed: yes — each is its
+own commit, so any one can be reverted alone.
+- Source rule: CLAUDE.md, HANDBOOK §7, HOW-TO-START — before a publish,
+  tell him source, category, address.
+- `found:` front matter → "Found in …" on the permalink only.
+- Case register: src/_data/cases.json (13 cases, holdings taken only from
+  the journal's own text; Puttaswamy's holding is a TODO), `::: casetable`,
+  sidebar "Cases in this entry", /cases/ with "Discussed in" links.
+- Quote numbers: one count, oldest entry first, top to bottom; a quote
+  entry counts 1 plus its `::: quote` blocks; computed at eleventy.before
+  from the files (gray-matter), drafts and future entries excluded in
+  build mode; a transform fills the placeholders and lifts an in-body
+  quote's cite under the panel. Tested with an essay dated between two
+  quotes: its two quotes took 2 and 3 and the later ones moved to 4–6.
+- Lesson: the --serve process keeps an old config after .eleventy.js
+  gains a container; restart it (twice today it served stale output).

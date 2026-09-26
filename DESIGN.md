@@ -321,6 +321,12 @@ modern elements drawn in v4's vocabulary)
 - Note entries (type: note, 2026-09-03): a short thought, shown whole on
   the index (§4) and as an ordinary entry at its permalink.
 
+- Quote numbers (design change 2026-09-26): span.qno, "No. N", 11px
+  spaced caps #a94f54, 7px from the top and 16px from the right of the
+  panel; panel top padding 28px, mark top 22px. In an essay, `::: quote`
+  gives the same panel and name line (p.quote-who is not paragraph-
+  numbered).
+
 ## 9. Images — see §7. loading="lazy" is added by the build.
 
 Pictures go through `tools/prepare-image.py` (2026-09-03): fitted to

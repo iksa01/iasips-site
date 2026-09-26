@@ -1,6 +1,6 @@
-{#- Quote entry block (DESIGN.md §8). Expects: qhtml. The card holds the words; the name sits under it. -#}
+{#- Quote entry block (DESIGN.md §8). Expects: qhtml, qsrc (the entry's inputPath, for its number). The card holds the words; the name sits under it. -#}
 {%- set parts = qhtml | quoteParts %}
-<blockquote class="quote-panel">{{ parts.quote | safe }}</blockquote>
+<blockquote class="quote-panel"><span class="qno" data-src="{{ qsrc }}"></span>{{ parts.quote | safe }}</blockquote>
 {%- if parts.who %}
 <p class="quote-who">{{ parts.who | safe }}</p>
 {%- endif %}
