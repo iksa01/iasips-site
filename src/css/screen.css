@@ -275,9 +275,6 @@ div#content-pri p.quote-who { margin: 16px 0 12px 0; padding: 0 16px 0 0; font-s
 div#content-pri p.quote-who cite { display: inline; margin: 0; font-size: inherit; font-style: normal; }
 div#content-pri p.quote-who cite em { font-style: italic; }
 div#content-pri p.quote-who::before { content: "— "; }
-/* "Found in …" — where Kalyan came across it (`found:` front matter; permalink only; design change 2026-09-26) */
-div#content-pri p.found { margin: 10px 0 0 0; font-size: 12px; line-height: 18px; font-style: italic; color: #6c6c6c; }
-div#content-pri p.found a:link, div#content-pri p.found a:visited { color: #6c6c6c; }
 
 /* journal pages: older / newer entries and the page count (design change 2026-09-26) */
 div#content-pri p.pages { display: flex; justify-content: space-between; gap: 10px; margin: 10px 0 0 0; padding: 10px 0; font-size: 12px;

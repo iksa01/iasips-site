@@ -267,7 +267,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("citing", (posts, slug) =>
     posts.filter((p) => CASE[slug].match.some((m) => String(p.templateContent || "").replace(/<[^>]+>/g, " ").includes(m))));
   eleventyConfig.addGlobalData("casesByYear", CASES);
-  // `found:` front matter (design change 2026-09-26): one line of markdown.
+  // One line of markdown, e.g. a case's holding on /cases/.
   eleventyConfig.addFilter("mdInline", (s) => md.renderInline(String(s || "")));
 
   // Nav-card versals (DESIGN.md §5): wrap the initial capital of each word in

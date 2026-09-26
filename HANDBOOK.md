@@ -149,7 +149,7 @@ text and put the analysis outside the clipping block.
 - Raw HTML beyond the four tags in §4; `<style>`, `<script>`, `<iframe>`,
   embeds of any kind, inline styles.
 - New front-matter keys or values. The keys are: title, sub, date, updated,
-  tags, type (quote | note), dropcap, toc, permalink, draft, found.
+  tags, type (quote | note), dropcap, toc, permalink, draft.
 - Renaming or deleting a published file; changing a date in a filename.
 - Invented facts, quotes, biography. A gap is a `TODO:` line.
 - Emoji. Sans-serif. Any colour beyond the palette. Client-side anything.
@@ -158,10 +158,6 @@ text and put the analysis outside the clipping block.
   instruction.
 
 ## 6a. Drafts, scheduled entries, journal pages (design change 2026-09-26)
-
-- **Found in**: `found: "*The Hindu*, 3 October 2026, p. 8"` — where Kalyan
-  came across it (markdown allowed, one line). Printed small and italic
-  on the entry's own page only, never on the index. Optional; any kind.
 
 - **Draft**: add `draft: true` to the front matter. The entry shows on the
   local preview (`./start.sh`) but never on the live site, the feed, the
