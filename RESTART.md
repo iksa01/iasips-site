@@ -103,7 +103,7 @@ change when your instruction contains the words **"design change"**.
 
 Settled and not to be relitigated:
 
-- The shell is Simon Collison's v4, transcribed from `reference/colly-v4/`.
+- The shell is Simon Collison's v4, transcribed from `~/Sites/colly-v4-reference/` (private, on Kalyan's Mac only).
   A reinterpretation was tried and rejected ("not even close by 1000 miles").
 - **Card engravings FINAL (2026-09-03)**: Old Book Illustrations tailpieces —
   lamp (About), stationery (Journal), books and candle (Archive), man reading
@@ -249,7 +249,7 @@ publishing** — the URL is permanent.
 - Never `npm install` — the lockfile is frozen.
 - Never edit `src/css/`, `src/_includes/`, `.eleventy.js` without saying
   "design change" (that rule is for the agent, not for you).
-- Never delete `reference/colly-v4/` — it is what every number was measured
+- Never delete `~/Sites/colly-v4-reference/` (private, on Kalyan's Mac only) — it is what every number was measured
   against.
 
 ## 7. Git

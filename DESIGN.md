@@ -7,14 +7,14 @@ design change edits this file in the same PR as the implementation.
 Character in one line: Simon Collison's v4 (colly.com/v4) — graph-paper
 field, white translucent card panels with engravings, condensed red
 wordmark, Times text, dashed hairlines, a white content panel — plus one
-addition of ours, quote entries. When in doubt, open reference/colly-v4/
+addition of ours, quote entries. When in doubt, open ~/Sites/colly-v4-reference/
 and measure; do not reason from taste.
 
 HISTORY. 2026-08-30 v1 of this file reinterpreted v4 (no fills, no radius,
 no shadows, no engravings, Georgia, bordered boxes). Kalyan's side-by-side
 verdict: "not even close". v2 (this file) adopts v4 whole: the stylesheet
-is a transcription of reference/colly-v4/screen.css with v4's own pixel
-values (reference/colly-v4/MEASUREMENTS.md). Departures are listed in §14.
+is a transcription of ~/Sites/colly-v4-reference/screen.css with v4's own pixel
+values (~/Sites/colly-v4-reference/MEASUREMENTS.md). Departures are listed in §14.
 
 ## 1. Type
 

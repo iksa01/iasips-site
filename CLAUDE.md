@@ -6,7 +6,7 @@ whole — Kalyan's verdict on 2026-08-30 was that a reinterpretation was
 govern everything:
 
 - **DESIGN.md** — the visual spec. Every CSS value traces to a measurement
-  in `reference/colly-v4/MEASUREMENTS.md`. Nothing is invented.
+  in `~/Sites/colly-v4-reference/MEASUREMENTS.md`. Nothing is invented.
 - **AGENTS.md** — what an agent may touch (content/**/*.md, three JSON
   data files, drafts/**) and the git protocol. Everything else is frozen.
 
@@ -54,12 +54,12 @@ Node 24 (`.nvmrc`). Never `npm install`; the lockfile is frozen.
 | pages | `content/{index,about,journal,archive,external,contact}.md` |
 | journal entries | `content/journal/<slug>.md` → `/journal/<slug>/` |
 | layouts & partials | `src/_includes/` |
-| the stylesheet | `src/css/screen.css` (transcribed from `reference/colly-v4/screen.css`) |
+| the stylesheet | `src/css/screen.css` (transcribed from `~/Sites/colly-v4-reference/screen.css`) |
 | wordmark font | `src/fonts/LeagueGothic-Regular.woff2` (OFL) |
 | code font | `src/fonts/VT323-Regular.woff2` (OFL, 8-bit terminal face) |
 | card engravings | `images/engravings/gosse/` — public-domain Gosse cuts (CREDITS.md) |
 | markdown config (typographer, footnotes, figures, asterism) | `.eleventy.js` |
-| the reference | `reference/colly-v4/` (snapshot of colly.com/v4, 2026-08-30) |
+| the reference | `~/Sites/colly-v4-reference/` (private, on Kalyan's Mac only) (snapshot of colly.com/v4, 2026-08-30) |
 
 ## Every "TODO:" in the tree is a fact only Kalyan can supply
 
