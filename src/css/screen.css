@@ -119,9 +119,8 @@ div#content-pri ul li:first-child { border-top: 1px dashed #CCC; }
 .archive div#content-pri ul li:first-child { border-top: 0; }
 div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #6c6c6c; }
 div#content-pri p { font-size: 15px; line-height: 24px; color: #333; margin: 0 0 15px 0; text-wrap: pretty; }
-/* Journal-entry paragraphs (#post only — not the About/Contact pages): justified, hyphenated (algebrica.org, 2026-09-03).
-   The gutter paragraph numbers from the same date were removed (design change 2026-09-26, Kalyan). */
-div#content-pri #post.entry > p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+/* Journal-entry paragraphs set ragged right, as v4. Justification, hyphenation and gutter numbers (algebrica.org,
+   2026-09-03) were removed by design change 2026-09-26 (Kalyan). */
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 div#content-pri p a:link { text-decoration: underline; color: #ba1820; }
 div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: none; color: #ba1820; }
@@ -186,7 +185,7 @@ div#content-pri p.sub { clear: both; margin: 0 0 44px 0; padding: 0; font-weight
 div#content-pri p.sub span { margin: 0; padding: 0; font-size: 10px; }
 div#content-pri p.sub.tagline { margin-bottom: 12px; }                         /* front-matter tagline above the meta line (ours) */
 div#content-pri p.meta.entry-meta a:link, div#content-pri p.meta.entry-meta a:visited { color: #ba1820; text-decoration: underline; }
-div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 29px; margin-bottom: 20px; }     /* v4 p.intro */
+div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 26px; margin-bottom: 20px; }     /* v4 p.intro */
 div#content-pri .entry.dropcap > p:first-of-type::first-letter { float: left; margin: 0 3px 0 0; font-size: 57px; line-height: 92%; }
 div#content-pri p.meta { margin: 0 0 45px 0; padding: 6px 0; font-size: 13px; font-style: italic; color: #666; line-height: 19px;
                          border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
@@ -280,8 +279,8 @@ div#content-pri p.pages span { flex: 1; } div#content-pri p.pages span.count { t
 /* 8b. 2026 body elements (ours, in the v4 vocabulary) --------------- */
 /* callouts: the card treatment applied to a note. Muted ink hues only —
    they must still read as printed paper, never as a screen UI. */
-div#content-pri aside.callout { margin: 6px 0 18px 0; padding: 12px 15px 4px 15px; background: #FDFBFA;
-    border: 1px solid #DDD; border-left: 3px solid #6b6b6b; box-shadow: 1px 1px 7px rgba(153,153,153,.2); }
+div#content-pri aside.callout { margin: 6px 0 18px 0; padding: 4px 0 1px 15px; background: none;
+    border: 0; border-left: 3px solid #6b6b6b; box-shadow: none; }   /* plain: rule and title only, no fill or shadow (design change 2026-09-26) */
 div#content-pri aside.callout p { font-size: 14px; line-height: 20px; margin: 0 0 8px 0; }
 div#content-pri aside.callout p.callout-title { margin: 0 0 5px 0; font-size: 12px; font-style: normal;
     text-transform: uppercase; letter-spacing: 1px; color: #6b6b6b; }
@@ -293,16 +292,16 @@ div#content-pri aside.callout li:last-child { border-bottom: 0; }
    getting stronger as the box gets more important. Replaces the four inks
    of 2026-08-30, which sat oddly on a cream-and-red page. */
 /* note — grey: context, definition, "where this sits" */
-div#content-pri aside.callout-note { border-left-color: #CCC; background: #FBFAF9; }
+div#content-pri aside.callout-note { border-left-color: #CCC; }
 div#content-pri aside.callout-note p.callout-title { color: #6c6c6c; }
 /* tip — pale rose: method, how to write it */
-div#content-pri aside.callout-tip { border-left-color: #e3b3b5; background: #FDFAFA; }
+div#content-pri aside.callout-tip { border-left-color: #e3b3b5; }
 div#content-pri aside.callout-tip p.callout-title { color: #a94f54; }
 /* key — rose: the thing to remember */
-div#content-pri aside.callout-key { border-left-color: #d0656a; background: #FDF8F8; }
+div#content-pri aside.callout-key { border-left-color: #d0656a; }
 div#content-pri aside.callout-key p.callout-title { color: #ba1820; }
 /* warning — the house red: the mistake, the caution */
-div#content-pri aside.callout-warning { border-left-color: #ba1820; background: #FDF6F6; }
+div#content-pri aside.callout-warning { border-left-color: #ba1820; }
 div#content-pri aside.callout-warning p.callout-title { color: #ba1820; }
 
 /* press cutting (::: clipping Source) — a cut-out from the paper: dashed edges, the source in spaced caps,
@@ -351,7 +350,7 @@ div#content-sec ul.toc ul li { padding: 2px 0; font-size: 11px; font-style: ital
 div#content-sec ul.toc ul li a:link, div#content-sec ul.toc ul li a:visited { color: #6c6c6c; }
 div#content-sec ul.toc ul li a:hover { color: #ba1820; text-decoration: none; }
 div#content-pri .toc-inline { display: none; margin: 0 0 30px 0; padding: 10px 0; border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
-div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #666; }
 div#content-pri .toc-inline ul li { font-size: 14px; padding: 2px 0; border: 0; }
 div#content-pri .toc-inline ul ul { margin-left: 15px; }
 /* a note entry on the journal index shows in full (2026-09-03; raamdev.com's asides) — body text at index size */

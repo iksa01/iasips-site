@@ -300,6 +300,11 @@ module.exports = function (eleventyConfig) {
   });
 
   // Journal index blurb (v4 p.blurb): the entry's first paragraph.
+  // On the journal index and category pages an entry is shown without its footnotes: send each [n]
+  // marker to the note on the entry's own page, drop the marker's id and any footnote list (design change 2026-09-26).
+  eleventyConfig.addFilter("listingRefs", (html, url) => String(html || "")
+    .replace(/<ol id="footnotes">[\s\S]*?<\/ol>\s*/g, "")
+    .replace(/<a href="#(fn[^"]*)" id="fnref[^"]*">/g, `<a href="${url}#$1">`));
   eleventyConfig.addFilter("firstParagraph", (html) => {
     const m = /<p>([\s\S]*?)<\/p>/.exec(html || "");
     return m ? m[1] : "";
