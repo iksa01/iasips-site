@@ -162,6 +162,11 @@ text and put the analysis outside the clipping block.
 
 ## 7. The publishing routine
 
+**First, tell Kalyan the source** (Kalyan, 2026-09-26): before the push,
+one line — source (who; book / film / show / paper / talk; date, page),
+category, address. Then publish. If the source is unknown, ask; never
+guess an attribution.
+
     # 1. write or edit the file in content/journal/ (and prepare any picture)
     npx @11ty/eleventy                 # must exit 0; fix anything it reports
     git add -A && git commit -m "…"    # one line: what changed, which files

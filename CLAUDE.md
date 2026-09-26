@@ -28,6 +28,16 @@ routine, and what is not allowed. Then `RESTART.md` (how to run and
 resume), `WORKLOG.md` (the round-by-round history and why), DESIGN.md
 (§7b is the 2026 body), AGENTS.md (the rules).
 
+## Before publishing any post: say the source (Kalyan, 2026-09-26)
+
+Before every push that publishes or changes a post, tell Kalyan in plain
+words: the **source** (who said or wrote it; the book, film, show, paper
+or talk; date and page if known), the **category** it is filed under, and
+its **address**. He asked for this "so that I will remember". Never guess
+an attribution: an unknown source is asked for or written as `TODO:`.
+A long passage is not a quote — it goes in a plain `>` blockquote, not
+the numbered rose panel. HANDBOOK §7 has the routine.
+
 ## Build
 
     npx @11ty/eleventy            # → _site/, must exit 0 before any commit

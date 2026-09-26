@@ -25,7 +25,8 @@
                                     "publish the draft"
       "Schedule for 1 October:"     + the post: goes live that morning
 
-    Claude files it, builds, checks, and pushes. Live in about a minute.
+    Claude files it, builds, checks, tells you the SOURCE, category and
+    address so you remember it, then pushes. Live in about a minute.
 
     TO SEE IT BEFORE IT GOES LIVE (optional):
       second Terminal:  cd ~/Sites/kalyan-site && ./start.sh
