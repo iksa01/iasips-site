@@ -132,7 +132,11 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
                  On an entry (2026-09-03): p.home-link → p.paginate
                  "← OLDER / NEWER →" in 12px spaced caps between dashed
                  rules (v4's Prev/№/Next badge, in type) → h3 "In this
-                 entry" + the TOC. Nothing else. Under 989px, where the
+                 entry" + the TOC. Nothing else — the case lists tried on
+                 2026-09-26 were taken out the same day to keep v4's quiet
+                 sidebar; /cases/ is reached from case names in tables.
+                 The journal sidebar: home link, categories, favourites.
+                 Under 989px, where the
                  sidebar hides, the TOC moves inline under the meta line and
                  v4's p.paginate returns at the post foot.
   h2.ext-dests   "EXTERNAL REFERENCES { VIEW ALL }" — League Gothic 28px,
@@ -261,9 +265,11 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 rebuilding Colly in 2026"; the shell stays v4, the post body gains
 modern elements drawn in v4's vocabulary)
 
-- Callouts (`::: note|tip|key|warning Title`): the card treatment on a note —
-  1px #DDD border, shadow, a 3px left rule, 12px spaced-caps title in the
-  rule's colour, 14px/20px text, and a barely-tinted fill. Four muted ink
+- Callouts (`::: note|tip|key|warning Title`): plain since 2026-09-26
+  (design change, "plainer boxes", to sit closer to v4's hairlines) — a
+  3px left rule, 15px in, 12px spaced-caps title in the rule's colour,
+  14px/20px text; no border box, no shadow, no fill. (Was: the card
+  treatment — 1px #DDD border, shadow, tinted fill.) Four muted ink
   hues, added 2026-08-30 on Kalyan's ask for "better colours"; they are the
   ONLY exception to §2's one-accent rule and exist nowhere else:
     note    grey      rule #CCC,    title #6c6c6c on #FBFAF9 — context
@@ -385,7 +391,7 @@ package-lock.json, .nvmrc, reference/**, this file.
 | paper-tile.jpg texture | flat #F3EFEB | Colly's texture asset |
 | deranged.png + underline-flourish.png ornaments | omitted; 60px colophon gap | Colly's artwork |
 | contact form, comments | none | no JS, no services |
-| journal pagination | single page | small site |
+| journal pagination | 20 a page, ← Newer · Page N of M · Older → at the foot | design change 2026-09-26 |
 | — | quote entries (§8) | Kalyan's addition |
 | — | dashed table rules, in-body h2/h3 sizes | v4 has no tables / in-body heads |
 | pre only, Courier | Prism colours at build time; VT323 8-bit face; inline code on #EEE | posts carry code; Kalyan's ask |
@@ -400,10 +406,20 @@ package-lock.json, .nvmrc, reference/**, this file.
 | v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
 | post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |
-| ragged-right paragraphs | justified, hyphenated; `updated` line (gutter numbers removed 2026-09-26) | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
+| ragged-right paragraphs | ragged right again (justified 09-03 → 09-26); `updated` line kept | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
 | sidebar aside ("Superfluous Aside") with categories, read time | one meta line under the title; sidebar = journal link, Older/Newer, TOC | Kalyan 2026-09-03: "we are complicating the sidebar… push it below the title" |
 | four callout inks (ours, 08-30) | one hue in four weights (§7b) | Kalyan 2026-09-03: "I like set D" |
 | cite under the quote, left | cite right-aligned on blockquotes and the quote panel | Kalyan 2026-09-03: "push the name to the right" |
 | h2 page titles, no h1 | h1 page titles, styled as before; h1 wordmark on the home page | one h1 per page, 2026 |
 | category pages, hCard | category pages; Open Graph, JSON-LD, sitemap lastmod, image dimensions, font preload | Kalyan 2026-09-03: "lightning-fast, SEO- and GEO-friendly" |
 | #999 text, outlines off, `media="screen"`, div soup | #6c6c6c text, focus ring, all-media stylesheet, landmarks, time, description/canonical/prev/next | 2026 practices, Kalyan 2026-09-03 |
+
+## 15. Build checks (design change 2026-09-26)
+
+- Every heading carries an id (Eleventy's IdAttributePlugin), so any
+  section can be linked to.
+- Link check after every build: each internal link, picture and
+  #fragment must resolve. The live build fails on a broken one; the local
+  preview warns. Outside links are not checked.
+- Lede line-height corrected to v4's 26px (had drifted to 29px,
+  undocumented); the narrow-screen TOC head set normal weight.

@@ -4,6 +4,7 @@ const markdownIt = require("markdown-it");
 const markdownItFootnote = require("markdown-it-footnote");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownItContainer = require("markdown-it-container");
+const { IdAttributePlugin } = require("@11ty/eleventy");
 const prismHighlight = require("@11ty/eleventy-plugin-syntaxhighlight/src/markdownSyntaxHighlightOptions")({ preAttributes: { tabindex: 0 } });
 
 module.exports = function (eleventyConfig) {
@@ -204,6 +205,41 @@ module.exports = function (eleventyConfig) {
 
   /* ---------- Plugins / passthrough ---------- */
   eleventyConfig.addPlugin(pluginRss);
+  // Every heading gets an id, so any section can be linked to (built into Eleventy 3; design change 2026-09-26).
+  // Ids the markdown already set are kept.
+  eleventyConfig.addPlugin(IdAttributePlugin);
+
+  /* ---------- Link check (design change 2026-09-26) ----------
+     After every build, each link and picture inside the site (/…, #…, https://iasips.in/…) must
+     point at a page or file that exists, and a #fragment at an id on that page. A live build
+     (the one GitHub runs) stops with the list of broken links, so a broken site is never
+     published; the local preview only warns. Outside links are not checked. */
+  eleventyConfig.on("eleventy.after", ({ results, runMode, dir }) => {
+    const fs = require("fs"), path = require("path");
+    const outDir = (dir && dir.output) || "_site";
+    const pages = new Map();
+    for (const r of results) if (r.url && /\.html$/.test(r.outputPath || ""))
+      pages.set(r.url, new Set([...r.content.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1])));
+    const exists = (p) => pages.has(p) || fs.existsSync(path.join(outDir, decodeURI(p)))
+      || fs.existsSync(path.join(outDir, decodeURI(p), "index.html"));
+    const broken = [];
+    for (const r of results) {
+      if (!/\.html$/.test(r.outputPath || "")) continue;
+      for (const [, raw] of r.content.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
+        let link = raw.replace(/&amp;/g, "&").replace(/^https:\/\/iasips\.in(?=\/|$)/, "") || "/";
+        if (!(link.startsWith("/") || link.startsWith("#")) || link.startsWith("//")) continue;
+        const [p, frag] = link.split("#");
+        const target = p || r.url;
+        if (!exists(target)) { broken.push(`${r.url} → ${raw} (no such page)`); continue; }
+        if (frag && pages.has(target) && !pages.get(target).has(decodeURIComponent(frag)))
+          broken.push(`${r.url} → ${raw} (no #${frag} on that page)`);
+      }
+    }
+    if (!broken.length) return;
+    const msg = `Link check: ${broken.length} broken link(s):\n  ` + broken.join("\n  ");
+    if (runMode === "build") throw new Error(msg);
+    console.warn(msg);
+  });
   eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/fonts": "fonts", "images": "images" });
   eleventyConfig.setServerOptions({ showAllHosts: false });
 

@@ -636,3 +636,22 @@ crept in"); footnote text "almost mixing with the background".
   repository; notes now point there. It remains in git history; purging
   history was offered, not done. The live site loads nothing from
   colly.com — only the footer credit links to it.
+
+## 2026-09-26 (d) — design change: back towards Colly, plus build checks
+
+Two read-only reports first: an Eleventy review (one real bug — a note's
+[1] on the index pointed at #fn1, absent there) and a fidelity audit
+against ~/Sites/colly-v4-reference (about 80% overall, about 60% on a long
+essay: justification, filled callouts and a busy sidebar made an essay read
+like a textbook in a Colly frame; lede 29px was undocumented drift). Kalyan:
+"Design change: ragged-right text, plainer boxes, fix the slips, quiet
+sidebar, fix footnote link, link checking, linkable headings."
+- Ragged right; callouts reduced to rule + title; lede 26px; toc-inline h3
+  normal weight; "Cases in this entry" and the journal "Case index" link
+  removed (the /cases/ page stays, linked from case tables).
+- listingRefs filter: on listings a footnote marker links to the entry's
+  own page, its id and any footnote list dropped.
+- IdAttributePlugin; eleventy.after link check (fails a build-mode run).
+  Proven with a test post: 6 broken links reported, build exit 1.
+- Not taken: "More on this subject" (adds furniture), JSON feed,
+  eleventy-img (needs sharp), Eleventy 4 (alpha).

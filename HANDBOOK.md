@@ -172,6 +172,12 @@ text and put the analysis outside the clipping block.
   /journal/page/2/, … with "← Newer · Page 1 of N · Older →" at the foot.
   Category pages are not split.
 
+## 6b. Checks the build makes (design change 2026-09-26)
+
+- Every heading has an id: link to a section as `/journal/<slug>/#<heading-words>`.
+- A broken link inside the site (a missing page, file or #section) stops
+  the build with a list of what is broken — fix it, then publish.
+
 ## 7. The publishing routine
 
 **First, tell Kalyan the source** (Kalyan, 2026-09-26): before the push,
