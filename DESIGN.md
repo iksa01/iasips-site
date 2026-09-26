@@ -32,12 +32,9 @@ These are the only two webfonts. Never a sans-serif for text.
   Borrowed from algebrica.org on Kalyan's ask, 2026-09-03 — the even block
   is what makes that site read as a book. Lists, callouts, tables stay
   ragged.
-- Paragraph numbers (algebrica.org, 2026-09-03): every direct paragraph of
-  a JOURNAL ENTRY (#post; not the About or Contact pages) carries its
-  ordinal in the left gutter — 11px tabular #999,
-  right-aligned 12px clear of the text, at the paragraph's first baseline.
-  The lede counts as 1. Callout, blockquote and list paragraphs are not
-  numbered. Hidden on the phone tier, where there is no gutter.
+- Paragraph numbers: added 2026-09-03 (algebrica.org), REMOVED by design
+  change 2026-09-26 on Kalyan's word. Entry paragraphs stay justified and
+  hyphenated; the gutter is empty, as in v4.
 - body 13px / 22px; paragraphs 15px/24px with 15px between them (v4 set
   22px; raised 2026-08-30 on Kalyan's ask — the measure is 516px and needed
   the air). Prose list rows 15px/23px with 9px beneath. Table cells 14px/20px.
@@ -61,7 +58,8 @@ These are the only two webfonts. Never a sans-serif for text.
   spaced caps.
 - spaced caps = uppercase, letter-spacing 1px, 12px: nav labels, sidebar
   h3, footnote heading, quote author line.
-- footnotes 11px / 125% #666; backlink 9px.
+- footnotes 11px / 125% #333 (v4 #666; darkened by design change
+  2026-09-26: "almost mixing with the background"); backlink 9px.
 - Curly quotes, real ellipsis, en dashes — markdown-it typographer, frozen.
 
 ## 2. Color (all v4)
@@ -297,7 +295,7 @@ modern elements drawn in v4's vocabulary)
 - Touch canvases (≤989px): TOC rows 7px padding, Older/Newer 8px, footnote
   markers and backlinks padded to a fingertip (2026-09-03).
 - Print: nav, cards, sidebar and pagination hidden; white ground; external
-  link URLs printed after the link text. Paragraph numbers print.
+  link URLs printed after the link text.
 - Front matter `updated: YYYY-MM-DD` (2026-09-03): shown as "Updated …" in
   the meta line; feeds dateModified, article:modified_time and the
   sitemap's lastmod. Optional.
@@ -402,7 +400,7 @@ package-lock.json, .nvmrc, reference/**, this file.
 | v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
 | post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |
-| ragged-right paragraphs | justified, hyphenated, numbered in the gutter; `updated` line | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
+| ragged-right paragraphs | justified, hyphenated; `updated` line (gutter numbers removed 2026-09-26) | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
 | sidebar aside ("Superfluous Aside") with categories, read time | one meta line under the title; sidebar = journal link, Older/Newer, TOC | Kalyan 2026-09-03: "we are complicating the sidebar… push it below the title" |
 | four callout inks (ours, 08-30) | one hue in four weights (§7b) | Kalyan 2026-09-03: "I like set D" |
 | cite under the quote, left | cite right-aligned on blockquotes and the quote panel | Kalyan 2026-09-03: "push the name to the right" |

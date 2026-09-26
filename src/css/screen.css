@@ -119,13 +119,9 @@ div#content-pri ul li:first-child { border-top: 1px dashed #CCC; }
 .archive div#content-pri ul li:first-child { border-top: 0; }
 div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #6c6c6c; }
 div#content-pri p { font-size: 15px; line-height: 24px; color: #333; margin: 0 0 15px 0; text-wrap: pretty; }
-/* Journal-entry paragraphs (#post only — not the About/Contact pages): justified, hyphenated, numbered in the gutter (algebrica.org, 2026-09-03) */
+/* Journal-entry paragraphs (#post only — not the About/Contact pages): justified, hyphenated (algebrica.org, 2026-09-03).
+   The gutter paragraph numbers from the same date were removed (design change 2026-09-26, Kalyan). */
 div#content-pri #post.entry > p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-div#content-pri #post.entry { counter-reset: para; }
-div#content-pri #post.entry > p { position: relative; counter-increment: para; }
-div#content-pri #post.entry > p::before { content: counter(para) "."; position: absolute; right: 100%; margin-right: 12px; top: 0;
-    width: 3em; text-align: right; font-size: 11px; line-height: 24px; color: #999; font-style: normal; font-variant-numeric: tabular-nums; }
-div#content-pri #post.entry > p:first-of-type::before { line-height: 29px; }
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 div#content-pri p a:link { text-decoration: underline; color: #ba1820; }
 div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: none; color: #ba1820; }
@@ -203,15 +199,15 @@ div#content-pri blockquote { position: relative; margin: 0; padding: 0 0 0 15px;
 div#content-pri blockquote p { font-size: 16px; color: #666; margin-bottom: 7px; line-height: 150%; }
 div#content-pri blockquote cite { margin: 0; padding: 7px 0 0 0; color: #666; text-align: right; }   /* the name sits right (Kalyan, 2026-09-03) */
 div#content-pri #post { padding-bottom: 80px; }
-div#content-pri sup.footnote-ref { font-size: 10px; line-height: 0; color: #666; scroll-margin-top: 33vh; }  /* the "↑" lands the sentence, not the marker (ours; v4: jQuery scrollTo) */
-div#content-pri sup.footnote-ref a:link, div#content-pri sup.footnote-ref a:visited { color: #666; text-decoration: none; }
+div#content-pri sup.footnote-ref { font-size: 10px; line-height: 0; color: #333; scroll-margin-top: 33vh; }  /* the "↑" lands the sentence, not the marker (ours; v4: jQuery scrollTo) */
+div#content-pri sup.footnote-ref a:link, div#content-pri sup.footnote-ref a:visited { color: #333; text-decoration: none; }
 div#content-pri ol#footnotes::before { content: "Footnotes"; display: block; padding: 10px 0; margin: 60px 0 0 0; font-size: 12px;
-    font-weight: normal; font-style: normal; text-transform: uppercase; letter-spacing: 1px; line-height: 120%; color: #666;
+    font-weight: normal; font-style: normal; text-transform: uppercase; letter-spacing: 1px; line-height: 120%; color: #333;
     border-top: 1px solid #DDD; }                                                                       /* v4 p#footnote */
 .journal div#content-pri ol#footnotes::before { margin: 30px 0 0 0; }
-div#content-pri ol#footnotes { padding: 0 0 10px 0; color: #666; font-size: 11px; margin: 0; line-height: 125%; border-bottom: 1px solid #DDD; list-style: decimal outside; }
+div#content-pri ol#footnotes { padding: 0 0 10px 0; color: #333;   /* #666 → #333, design change 2026-09-26 */ font-size: 11px; margin: 0; line-height: 125%; border-bottom: 1px solid #DDD; list-style: decimal outside; }
 div#content-pri ol#footnotes li { font-size: 11px; border: 0; padding: 0; width: auto; scroll-margin-top: 30px; }
-div#content-pri ol#footnotes li > p { display: inline; margin: 0; font-size: 11px; color: #666; }
+div#content-pri ol#footnotes li > p { display: inline; margin: 0; font-size: 11px; color: #333; }
 div#content-pri ol#footnotes a.scrollto { margin-top: -2px; padding: 0 3px 0 2px; font-size: 9px; text-decoration: none; }
 
 div#content-sec p { margin: 4px 0 0 25px; padding: 10px 0 9px 0; font-size: 14px; font-style: italic; color: #666; text-align: right;
@@ -267,8 +263,7 @@ div#content-pri blockquote.quote-panel::after { content: ""; position: absolute;
     background: #FDF8F8; border-right: 1px dashed #d0656a; border-bottom: 1px dashed #d0656a; transform: rotate(45deg); }
 div#content-pri blockquote.quote-panel p { position: relative; font-size: 22px; line-height: 30px; font-style: italic; color: #333; margin: 0 0 8px 0; }
 div#content-pri blockquote.quote-panel p:last-child { margin-bottom: 0; }
-div#content-pri #post.entry > p.quote-who { counter-increment: none; text-align: right; hyphens: manual; margin: 16px 0 18px 0; font-size: 12px; line-height: 19px; }
-div#content-pri #post.entry > p.quote-who::before { content: "— "; position: static; margin: 0; font-size: inherit; line-height: inherit; color: inherit; }
+div#content-pri #post.entry > p.quote-who { text-align: right; hyphens: manual; margin: 16px 0 18px 0; font-size: 12px; line-height: 19px; }
 div#content-pri blockquote.quote-panel em { font-style: normal; }
 div#content-pri p.quote-who { margin: 16px 0 12px 0; padding: 0 16px 0 0; font-size: 12px; line-height: 19px; text-transform: uppercase;
     letter-spacing: 1px; color: #333; text-align: right; }
@@ -423,7 +418,6 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
   div#content-pri #post img { width: auto; max-width: 100%; height: auto; }
-  div#content-pri #post.entry > p::before { content: none; }         /* no gutter for the numbers on a phone */
   div#siteinfo p { font-size: 12px; }
 }
 
