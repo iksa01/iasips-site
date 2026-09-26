@@ -221,6 +221,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateISO", (date) => new Date(date).toISOString().slice(0, 10));
   eleventyConfig.addFilter("year", (date) => new Date(date).getUTCFullYear());
   eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
+  // `found:` front matter (design change 2026-09-26): one line of markdown.
+  eleventyConfig.addFilter("mdInline", (s) => md.renderInline(String(s || "")));
 
   // Nav-card versals (DESIGN.md §5): wrap the initial capital of each word in
   // its own span. `kern` is an optional {wordIndex: className} map, e.g.

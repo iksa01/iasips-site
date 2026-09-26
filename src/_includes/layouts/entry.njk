@@ -13,6 +13,9 @@ bodyId: article
 <div id="post">
 {%- include "partials/quote-panel.njk" %}
 <p class="meta"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if tags and tags.length %} <br>Archived in {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %}{% endif %}</p>
+{%- if found %}
+<p class="found">Found in {{ found | mdInline | safe }}</p>
+{%- endif %}
 {%- if parts.commentary | trim %}
 <hr>
 <div class="commentary">{{ parts.commentary | safe }}</div>
@@ -28,6 +31,9 @@ bodyId: article
 <article id="post" class="entry{% if dropcap %} dropcap{% endif %}">
 {{ content | safe }}
 </article>
+{%- if found %}
+<p class="found">Found in {{ found | mdInline | safe }}</p>
+{%- endif %}
 {%- endif %}
 {%- if older or newer %}
 <p class="paginate"><span>{% if older %}<a href="{{ older.url }}">&larr; Older: {{ older.data.title | truncate(40) }}</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}">Newer: {{ newer.data.title | truncate(40) }} &rarr;</a>{% endif %}</span></p>
