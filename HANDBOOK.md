@@ -108,8 +108,8 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | `::: plan Title` + bulleted list, items starting `**Label**` | a printed planning grid (answer skeleton). Never a code fence for this. |
 | `::: cases` + bulleted list, items starting `**Term**` | term-and-gloss list with spaced-caps sideheads |
 | `::: clipping The Paper, date` + image + `>` passage + link | a press cutting in a dashed frame; analysis goes after the closing `:::` |
-| `> quoted text` then `<cite>Name</cite>` | blockquote, name set right — also the home for a **long passage** (not a quote; not numbered) |
-| `::: quote` + a short line + `<cite>Name</cite>` + `:::` | a short quote inside an essay or note: the rose panel, numbered in the site-wide count, name under it |
+| `> quoted text` then `<cite>Name</cite>` | blockquote, name set right — also the home for a **long passage** (not a quote) |
+| `::: quote` + a short line + `<cite>Name</cite>` + `:::` | a short quote inside an essay or note: the rose panel, name under it |
 | `::: casetable slug slug +slug` then `:::` | a Case / Year / What it held table built from the case register; `+` sets a row in bold |
 | `| a | b |` table | ledger-ruled table inside the column |
 | ```` ```js/2-3 title="file.js" ```` | code with Prism colours, highlighted lines, filename tab. Code only. |
@@ -121,16 +121,6 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | `<kbd>Ctrl</kbd>`, `<abbr title="…">UPSC</abbr>`, `<sup>`, `<cite>` | the only raw HTML allowed |
 
 House typography is automatic: curly quotes, real ellipsis, en dashes.
-
-## 4b. Quote numbers (design change 2026-09-26)
-
-Every quote — each quote entry, and each `::: quote` inside an essay or
-note — carries "No. N" at the top right of its panel. One running count
-for the whole site: entries oldest first, and top to bottom within an
-entry. Nothing is typed; the build counts. Consequence Kalyan accepted
-("numbering automatic"): adding or removing a quote in an OLDER entry
-shifts every later number by one. Long passages (`>`) are not counted.
-Drafts and future entries join the count only when they go live.
 
 ## 4a. The case register (design change 2026-09-26)
 

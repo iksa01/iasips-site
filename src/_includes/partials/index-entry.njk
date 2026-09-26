@@ -2,7 +2,7 @@
     Three kinds (2026-09-03): essays show their opening and "Read on"; quotes show the panel under their title;
     notes show in full — a thought is its own post, as on raamdev.com. -#}
 {%- if e.data.type == "quote" %}
-{%- set qhtml = e.templateContent %}{% set qsrc = e.inputPath %}
+{%- set qhtml = e.templateContent %}
 {%- include "partials/quote-panel.njk" %}
 <p class="meta quiet"><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time>{% if e.data.tags and e.data.tags.length %} · {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %} · <a href="{{ e.url }}">Permanent link &rarr;</a></p>
 {%- elif e.data.type == "note" %}

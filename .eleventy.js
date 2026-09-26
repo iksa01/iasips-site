@@ -157,15 +157,13 @@ module.exports = function (eleventyConfig) {
     },
   });
 
-  // ::: quote  — a short quote inside an essay or note (design change 2026-09-26): the rose panel,
-  // numbered in the site-wide count; `<cite>Name</cite>` as its last line moves under the panel.
+  // ::: quote  — a short quote inside an essay or note (design change 2026-09-26): the rose panel; `<cite>Name</cite>` as its last line moves under the panel.
   // A long passage is not a quote: it stays a plain `>` blockquote, unnumbered.
   md.use(markdownItContainer, "quote", {
     validate: (params) => params.trim() === "quote",
-    render(tokens, i, options, env) {
+    render(tokens, i) {
       if (tokens[i].nesting !== 1) return "</blockquote>\n";
-      const src = (env && env.page && env.page.inputPath) || "";
-      return `<blockquote class="quote-panel"><span class="qno" data-src="${esc(src)}"></span>\n`;
+      return '<blockquote class="quote-panel">\n';
     },
   });
 
@@ -233,41 +231,13 @@ module.exports = function (eleventyConfig) {
       .replace(/;}/g, "}")
       .trim());
 
-  /* ---------- Quote numbers (design change 2026-09-26) ----------
-     One running count across the site: entries oldest first (then by file
-     name), and within an entry top to bottom. A quote entry counts 1, plus
-     any `::: quote` blocks in it. Drafts and future entries are left out of
-     the live count, as they are left out of the site. Each quote carries a
-     placeholder <span class="qno" data-src="inputPath">; the transform below
-     numbers them. Numbers follow the order: add or remove a quote in an
-     older entry and every later number moves by one. */
-  let quoteStart = {};
-  eleventyConfig.on("eleventy.before", ({ runMode }) => {
-    const fs = require("fs"), path = require("path"), matter = require("gray-matter");
-    const dir = path.join(__dirname, "content", "journal");
-    const building = (runMode || process.env.ELEVENTY_RUN_MODE) === "build";
-    const now = new Date();
-    const items = fs.readdirSync(dir).filter((f) => f.endsWith(".md")).map((f) => {
-      const { data, content } = matter(fs.readFileSync(path.join(dir, f), "utf8"));
-      const date = data.date ? new Date(data.date) : new Date(f.slice(0, 10));
-      const count = (data.type === "quote" ? 1 : 0) + (content.match(/^:::[ \t]*quote[ \t]*$/gm) || []).length;
-      return { key: `./content/journal/${f}`, f, date, count, skip: building && (data.draft || date > now) };
-    }).filter((x) => !x.skip && x.count).sort((a, b) => a.date - b.date || a.f.localeCompare(b.f));
-    let n = 1;
-    quoteStart = {};
-    for (const x of items) { quoteStart[x.key] = n; n += x.count; }
-  });
   eleventyConfig.addTransform("quotes", function (html) {
     const out = this.page.outputPath || "";
     if (!out.endsWith(".html")) return html;
     // a `::: quote` ends with <p><cite>…</cite></p>: lift it out to sit under the panel, as a quote entry's does
-    html = html.replace(/(<blockquote class="quote-panel"><span class="qno"[^>]*><\/span>(?:(?!<\/blockquote>)[\s\S])*?)<p><cite>((?:(?!<\/blockquote>)[\s\S])*?)<\/cite><\/p>\s*<\/blockquote>/g,
+    html = html.replace(/(<blockquote class="quote-panel">(?:(?!<\/blockquote>)[\s\S])*?)<p><cite>((?:(?!<\/blockquote>)[\s\S])*?)<\/cite><\/p>\s*<\/blockquote>/g,
       '$1</blockquote>\n<p class="quote-who"><cite>$2</cite></p>');
-    const seen = {};
-    return html.replace(/<span class="qno" data-src="([^"]*)"><\/span>/g, (m, src) => {
-      const k = seen[src] = (seen[src] ?? -1) + 1;
-      return src in quoteStart ? `<span class="qno">No. ${quoteStart[src] + k}</span>` : "";
-    });
+    return html;
   });
 
   /* ---------- Collections ---------- */

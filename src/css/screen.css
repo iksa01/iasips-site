@@ -259,17 +259,14 @@ div#siteinfo a:link, div#siteinfo a:visited { text-decoration: underline; color:
 /* Design change 2026-09-26 (Kalyan): the 8BIT (2013) quote post, adapted — the rose panel (the key-callout
    tint, the red rule, a dashed rose foot), a classic quotation mark in solid house red in the left margin of the
    panel, and a speech-bubble notch pointing down to the name, which sits right, under the panel. */
-div#content-pri blockquote.quote-panel { position: relative; margin: 14px 0 0 0; padding: 28px 26px 20px 76px; background: #FDF8F8;
+div#content-pri blockquote.quote-panel { position: relative; margin: 14px 0 0 0; padding: 22px 26px 20px 76px; background: #FDF8F8;
     border-left: 3px solid #ba1820; border-bottom: 1px dashed #d0656a; }
-div#content-pri blockquote.quote-panel::before { content: "\201C"; position: absolute; left: 18px; top: 22px; pointer-events: none;
+div#content-pri blockquote.quote-panel::before { content: "\201C"; position: absolute; left: 18px; top: 16px; pointer-events: none;
     font-family: Georgia, "Times New Roman", serif; font-size: 80px; line-height: .9; color: #ba1820; }
 div#content-pri blockquote.quote-panel::after { content: ""; position: absolute; right: 38px; bottom: -9px; width: 16px; height: 16px;
     background: #FDF8F8; border-right: 1px dashed #d0656a; border-bottom: 1px dashed #d0656a; transform: rotate(45deg); }
 div#content-pri blockquote.quote-panel p { position: relative; font-size: 22px; line-height: 30px; font-style: italic; color: #333; margin: 0 0 8px 0; }
 div#content-pri blockquote.quote-panel p:last-child { margin-bottom: 0; }
-/* the running number, top right (design change 2026-09-26) */
-div#content-pri blockquote.quote-panel span.qno { position: absolute; right: 16px; top: 7px; font-size: 11px; line-height: 16px; font-style: normal;
-    text-transform: uppercase; letter-spacing: 1px; color: #a94f54; }
 div#content-pri #post.entry > p.quote-who { counter-increment: none; text-align: right; hyphens: manual; margin: 16px 0 18px 0; font-size: 12px; line-height: 19px; }
 div#content-pri #post.entry > p.quote-who::before { content: "— "; position: static; margin: 0; font-size: inherit; line-height: inherit; color: inherit; }
 div#content-pri blockquote.quote-panel em { font-style: normal; }
