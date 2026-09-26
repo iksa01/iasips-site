@@ -214,13 +214,16 @@ module.exports = function (eleventyConfig) {
      point at a page or file that exists, and a #fragment at an id on that page. A live build
      (the one GitHub runs) stops with the list of broken links, so a broken site is never
      published; the local preview only warns. Outside links are not checked. */
-  eleventyConfig.on("eleventy.after", ({ results, runMode, dir }) => {
+  eleventyConfig.on("eleventy.after", ({ results, runMode }) => {
     const fs = require("fs"), path = require("path");
-    const outDir = (dir && dir.output) || "_site";
+    // the folder this build actually wrote to, taken from the home page's output path (works with --output)
+    const home = results.find((r) => r.url === "/");
+    const outDir = home ? path.dirname(path.resolve(home.outputPath)) : "_site";
+    const urls = new Set(results.map((r) => r.url));
     const pages = new Map();
     for (const r of results) if (r.url && /\.html$/.test(r.outputPath || ""))
       pages.set(r.url, new Set([...r.content.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1])));
-    const exists = (p) => pages.has(p) || fs.existsSync(path.join(outDir, decodeURI(p)))
+    const exists = (p) => urls.has(p) || fs.existsSync(path.join(outDir, decodeURI(p)))
       || fs.existsSync(path.join(outDir, decodeURI(p), "index.html"));
     const broken = [];
     for (const r of results) {
