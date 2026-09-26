@@ -56,8 +56,8 @@ A **Listening** entry (a talk or podcast) is a note whose first line is the
 link: `Watch: [Title](https://…) — channel, 42 min.` No embedded players.
 
 ### Quote — a line worth keeping
-The index shows the red-ruled panel with the name set right and the quiet
-line beneath; no title is printed (the title names the page for the head,
+The index shows the quote on a pale-rose panel (a solid red “ at its left, a small notch pointing down to the name, which sits right under
+the panel; design change 2026-09-26) and the quiet line beneath; no title is printed (the title names the page for the head,
 the feed and the archive). Optional commentary after `---` shows only on
 the entry's own page. A **Books** entry is a quote with commentary.
 
@@ -137,13 +137,28 @@ text and put the analysis outside the clipping block.
 - Raw HTML beyond the four tags in §4; `<style>`, `<script>`, `<iframe>`,
   embeds of any kind, inline styles.
 - New front-matter keys or values. The keys are: title, sub, date, updated,
-  tags, type (quote | note), dropcap, toc, permalink.
+  tags, type (quote | note), dropcap, toc, permalink, draft.
 - Renaming or deleting a published file; changing a date in a filename.
 - Invented facts, quotes, biography. A gap is a `TODO:` line.
 - Emoji. Sans-serif. Any colour beyond the palette. Client-side anything.
 - `npm install`. Edits to `src/css/`, `src/_includes/`, `.eleventy.js`,
   `src/_data/site.json` or this file without "design change" in Kalyan's
   instruction.
+
+## 6a. Drafts, scheduled entries, journal pages (design change 2026-09-26)
+
+- **Draft**: add `draft: true` to the front matter. The entry shows on the
+  local preview (`./start.sh`) but never on the live site, the feed, the
+  sitemap or a category page. To publish, delete the line and push.
+  Kalyan says "Draft quote: …" / "publish the draft".
+- **Scheduled**: give the entry a future `date:`. It is held back until
+  that day; the Pages workflow rebuilds every morning at 06:05 IST, so it
+  goes live then with no push needed. The file is still pushed now.
+  (GitHub pauses scheduled runs after 60 days with no pushes; any push
+  wakes them.)
+- **Journal pages**: 20 entries a page, newest first — /journal/,
+  /journal/page/2/, … with "← Newer · Page 1 of N · Older →" at the foot.
+  Category pages are not split.
 
 ## 7. The publishing routine
 

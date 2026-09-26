@@ -178,6 +178,30 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/fonts": "fonts", "images": "images" });
   eleventyConfig.setServerOptions({ showAllHosts: false });
 
+  /* ---------- Drafts and scheduled entries (design change 2026-09-26) ----------
+     `draft: true` keeps an entry off the live site; a date in the future holds
+     it back until that day (the Pages workflow rebuilds every morning). Both
+     still show on the local preview (npx @11ty/eleventy --serve). */
+  eleventyConfig.addPreprocessor("drafts", "md", (data) => {
+    if (process.env.ELEVENTY_RUN_MODE !== "build") return;
+    if (data.draft) return false;
+    if (data.page && data.page.inputPath.includes("/journal/") && data.date && new Date(data.date) > new Date()) return false;
+  });
+
+  /* ---------- The stylesheet, inlined (design change 2026-09-26) ----------
+     Each page carries screen.css in its own <style>, minified, so it arrives
+     in one piece: no second request, no wait on GitHub's 10-minute cache.
+     src/css/screen.css stays the one source; /css/screen.css is still copied. */
+  const cssPath = require("path").join(__dirname, "src", "css", "screen.css");
+  eleventyConfig.addWatchTarget("src/css/");
+  eleventyConfig.addShortcode("inlineCss", () =>
+    require("fs").readFileSync(cssPath, "utf8")
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+      .replace(/\s+/g, " ")
+      .replace(/\s*([{};,>])\s*/g, "$1")
+      .replace(/;}/g, "}")
+      .trim());
+
   /* ---------- Collections ---------- */
   eleventyConfig.addCollection("journal", (api) =>
     api.getFilteredByGlob("content/journal/**/*.md").sort((a, b) => b.date - a.date));
@@ -235,10 +259,16 @@ module.exports = function (eleventyConfig) {
 
   // Quote entries (DESIGN.md §8): everything before the first <hr> is the
   // quote; anything after it is permalink-only commentary.
+  // The closing <p><cite>…</cite></p> is lifted out as `who`, so the name can
+  // sit under the card (design change 2026-09-26).
   eleventyConfig.addFilter("quoteParts", (html) => {
     const m = /<hr[^>]*>/.exec(html || "");
-    if (!m) return { quote: html || "", commentary: "" };
-    return { quote: html.slice(0, m.index), commentary: html.slice(m.index + m[0].length) };
+    let quote = m ? html.slice(0, m.index) : (html || "");
+    const commentary = m ? html.slice(m.index + m[0].length) : "";
+    let who = "";
+    const c = /<p>\s*(<cite>[\s\S]*?<\/cite>)\s*<\/p>\s*$/.exec(quote);
+    if (c) { who = c[1]; quote = quote.slice(0, c.index); }
+    return { quote, who, commentary };
   });
 
   // About page: lift ol#footnotes out of the body so it can follow the

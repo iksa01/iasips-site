@@ -21,6 +21,10 @@
       "Listening post:"             + the link to the talk or podcast + notes
       "Book excerpt:"               + the passage, the book, and your comment
       "New essay:"                  + title and text
+      "Draft quote:" (or any kind)  + the text: saved, NOT live; later say
+                                    "publish the draft"
+      "Schedule for 1 October:"     + the post: goes live that morning
+
     Claude files it, builds, checks, and pushes. Live in about a minute.
 
     TO SEE IT BEFORE IT GOES LIVE (optional):

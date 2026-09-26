@@ -562,3 +562,39 @@ custom domain through the API (cname "" then cname iasips.in) triggered
 it at once — "approved" within fifteen seconds. https_enforced set.
 https://iasips.in 200; www → apex 301. The old "kalyan - UPSCVerse" page
 that the domain used to serve is gone.
+
+## 2026-09-26 — design change: the quote card, journal pages, drafts
+
+Kalyan brought 8BIT's quote posts (web.archive.org, 8bit.io, 30 April
+2013: a charcoal panel, white italic Georgia, a dotted quotation mark, a
+notched edge) and asked for the idea adapted, not the look copied:
+"it should not be destroyed". Shown in turn: three mockups (card, rose
+panel, quiet), the card on the real pages with a rose-petal gradient
+mark ("No, I don't like it"), then twelve marks on card and rose panel.
+Kept: classic, watermark, ornament. Chosen, in his words: "Design change:
+watermark on the white card, page numbers, and drafts."
+- Quote card: DESIGN §8. The name moved out of the blockquote into
+  p.quote-who (quoteParts returns `who`); the old v4 `cite` rule
+  (display:block, margin-top −13px) had to be cancelled there.
+- Journal pages: content/journal.md paginates collections.journal, 20 a
+  page, /journal/page/N/; it needed templateEngineOverride: njk because
+  markdownTemplateEngine is false.
+- Drafts and scheduling: an addPreprocessor in .eleventy.js drops
+  `draft: true` and future-dated journal entries in build mode only; the
+  Pages workflow gained a daily cron (00:35 UTC). Tested with a draft, a
+  future entry and 5-a-page: both absent from build, feed, sitemap and
+  category pages, present under --serve; pages 1–3 linked.
+- Same day, Kalyan: "I will go with the other color because it suits the
+  theme" — the card became the rose panel (key-callout tint #FDF8F8, red
+  rule, dashed rose foot and notch), watermark kept.
+- Eleventy review, then approved ("Page not found and faster page loading
+  can also be done"): content/404.md → /404.html (GitHub Pages serves it
+  for any unknown address; excluded from collections and the sitemap;
+  wording is functional, Kalyan may replace it). Faster loading: the
+  `inlineCss` shortcode puts screen.css, comments and whitespace stripped
+  (35 KB → 26.6 KB), into each page's <style>; one request instead of two,
+  and no refetch when GitHub's 10-minute cache expires. src/css/screen.css
+  stays the one source; /css/screen.css is still copied out.
+- Later the same day, Kalyan: "Design changes for classic, not the present
+  one … in same colour" — the watermark gave way to the classic mark: 80px
+  Georgia “ in solid #ba1820 at the panel's left, text indented 76px.

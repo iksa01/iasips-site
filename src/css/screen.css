@@ -256,12 +256,29 @@ div#siteinfo p span { font-family: Courier, monospace; color: #fca0a5; }
 div#siteinfo a:link, div#siteinfo a:visited { text-decoration: underline; color: #8a7c7c; }   /* v4 #beb2b2 measured 1.9:1 */
 
 /* 8. Quote entries (ours — DESIGN.md §8, in the v4 palette) ------------- */
-div#content-pri blockquote.quote-panel { margin: 0 0 10px 0; padding: 4px 0 4px 15px; border-left: 3px solid #ba1820; }
-div#content-pri blockquote.quote-panel p { font-size: 24px; line-height: 32px; color: #333; margin: 0 0 8px 0; }
-div#content-pri blockquote.quote-panel cite { display: block; margin: 0; padding: 4px 0 0 0; font-size: 12px; font-style: normal;
-                                             text-transform: uppercase; letter-spacing: 1px; color: #333; text-align: right; }
-div#content-pri blockquote.quote-panel cite::before { content: "— "; }
-div#content-pri blockquote.quote-panel p:has(> cite:only-child) { font-size: 12px; line-height: 19px; margin: 0; }
+/* Design change 2026-09-26 (Kalyan): the 8BIT (2013) quote post, adapted — the rose panel (the key-callout
+   tint, the red rule, a dashed rose foot), a classic quotation mark in solid house red in the left margin of the
+   panel, and a speech-bubble notch pointing down to the name, which sits right, under the panel. */
+div#content-pri blockquote.quote-panel { position: relative; margin: 14px 0 0 0; padding: 22px 26px 20px 76px; background: #FDF8F8;
+    border-left: 3px solid #ba1820; border-bottom: 1px dashed #d0656a; }
+div#content-pri blockquote.quote-panel::before { content: "\201C"; position: absolute; left: 18px; top: 16px; pointer-events: none;
+    font-family: Georgia, "Times New Roman", serif; font-size: 80px; line-height: .9; color: #ba1820; }
+div#content-pri blockquote.quote-panel::after { content: ""; position: absolute; right: 38px; bottom: -9px; width: 16px; height: 16px;
+    background: #FDF8F8; border-right: 1px dashed #d0656a; border-bottom: 1px dashed #d0656a; transform: rotate(45deg); }
+div#content-pri blockquote.quote-panel p { position: relative; font-size: 22px; line-height: 30px; font-style: italic; color: #333; margin: 0 0 8px 0; }
+div#content-pri blockquote.quote-panel p:last-child { margin-bottom: 0; }
+div#content-pri blockquote.quote-panel em { font-style: normal; }
+div#content-pri p.quote-who { margin: 16px 0 12px 0; padding: 0 16px 0 0; font-size: 12px; line-height: 19px; text-transform: uppercase;
+    letter-spacing: 1px; color: #333; text-align: right; }
+div#content-pri p.quote-who cite { display: inline; margin: 0; font-size: inherit; font-style: normal; }
+div#content-pri p.quote-who cite em { font-style: italic; }
+div#content-pri p.quote-who::before { content: "— "; }
+
+/* journal pages: older / newer entries and the page count (design change 2026-09-26) */
+div#content-pri p.pages { display: flex; justify-content: space-between; gap: 10px; margin: 10px 0 0 0; padding: 10px 0; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 1px; color: #6c6c6c; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; }
+div#content-pri p.pages a { text-decoration: none; }
+div#content-pri p.pages span { flex: 1; } div#content-pri p.pages span.count { text-align: center; } div#content-pri p.pages span:last-child { text-align: right; }
 
 /* 8b. 2026 body elements (ours, in the v4 vocabulary) --------------- */
 /* callouts: the card treatment applied to a note. Muted ink hues only —
@@ -350,7 +367,6 @@ div#content-pri .toc-inline ul ul { margin-left: 15px; }
     font-size: 12px; line-height: 18px; font-style: italic; color: #6c6c6c; }
 .journal#multiple div#content-pri p.meta.quiet a:link, .journal#multiple div#content-pri p.meta.quiet a:visited { color: #6c6c6c; text-decoration: none; }
 .journal#multiple div#content-pri p.meta.quiet a:hover { color: #ba1820; }
-.journal#multiple div#content-pri blockquote.quote-panel { margin-top: 10px; }
 /* older / newer (v4 p.paginate) */
 div#content-pri p.paginate { margin: 0; padding: 10px 0; font-size: 12px; font-weight: normal; font-style: normal; text-transform: uppercase;
     letter-spacing: 1px; color: #333; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; display: none; justify-content: space-between; gap: 20px; }

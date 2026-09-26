@@ -306,8 +306,15 @@ modern elements drawn in v4's vocabulary)
 
 - Body = quote paragraph(s), then `<cite>Name</cite>`, then optionally
   `---` and commentary (permalink only).
-- Panel: 3px red left rule, 24px/32px Times text, "— NAME" 12px spaced
-  caps set right; the journal index shows the panel and the quiet meta
+- Rose panel (design change 2026-09-26, Kalyan, from 8BIT's 2013 quote
+  posts): the key-callout tint #FDF8F8, the 3px red rule, a 1px dashed
+  #d0656a foot — with a classic 80px Georgia “ in solid house red, hanging in the
+  panel's left margin (text indented 76px); text 22px/30px Times italic; a 16px speech-bubble notch at
+  the foot, 38px from the right, pointing down to "— NAME" in 12px spaced
+  caps set right under the card (p.quote-who, lifted out by the
+  quoteParts filter). Shortlisted and rejected: dots, engraved, outline,
+  seal, wordmark, pixel, rose-petal gradient, the 12% watermark and the white card (built
+  first, then changed the same day: "the other color… suits the theme"). The journal index shows the panel and the quiet meta
   line (§4); the permalink adds p.meta and, after a dashed hr, the
   commentary. `title` in front matter names the page (head, feed,
   archive) but is not printed on the index or the panel.
