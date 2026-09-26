@@ -414,6 +414,13 @@ package-lock.json, .nvmrc, reference/**, this file.
 | category pages, hCard | category pages; Open Graph, JSON-LD, sitemap lastmod, image dimensions, font preload | Kalyan 2026-09-03: "lightning-fast, SEO- and GEO-friendly" |
 | #999 text, outlines off, `media="screen"`, div soup | #6c6c6c text, focus ring, all-media stylesheet, landmarks, time, description/canonical/prev/next | 2026 practices, Kalyan 2026-09-03 |
 
+## 14a. Quiet case links, darker sideheads (design change 2026-09-26)
+
+- `::: casetable` case names: the table's ink, no underline, #ba1820 on
+  hover. They are the way into /cases/, so they stay links.
+- `::: cases` sidehead labels #6c6c6c → #333 (Kalyan: "a bit dark").
+  `::: plan` labels keep #6c6c6c.
+
 ## 15. Build checks (design change 2026-09-26)
 
 - Every heading carries an id (Eleventy's IdAttributePlugin), so any
