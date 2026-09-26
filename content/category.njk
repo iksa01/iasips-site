@@ -1,9 +1,8 @@
 ---
 pagination:
-  data: collections
+  data: collections.liveTags
   size: 1
   alias: tag
-  filter: ["all", "journal"]
 layout: layouts/journal.njk
 permalink: "/journal/category/{{ tag | slugify }}/"
 eleventyExcludeFromCollections: true

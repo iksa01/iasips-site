@@ -430,3 +430,22 @@ package-lock.json, .nvmrc, reference/**, this file.
   preview warns. Outside links are not checked.
 - Lede line-height corrected to v4's 26px (had drifted to 29px,
   undocumented); the narrow-screen TOC head set normal weight.
+
+## 16. Portrait and cards (design change 2026-09-26)
+
+- About portrait: crop A of Kalyan at the microphone (black and white),
+  170px wide in v4's frame (#FFFAFA 7px mat, #eee edge, card shadow,
+  rotated −2°), 26px in so the tilt stays inside the sidebar; <picture>
+  with AVIF/WebP. Earlier photo rejected for privacy: students' faces.
+- Cards (HANDBOOK §4c): video — the home-page card (#fff, #DDD, 5px, card
+  shadow) holding the still, a 54px #ba1820 play disc at 92%, "WATCH ON
+  YOUTUBE" 11px spaced caps red, title 17px, meta 12px italic #6c6c6c.
+  Post — the press cutting (1px dashed #BBB on #FFFDFB), source 11px
+  spaced caps #6c6c6c, title 18px, words 16px/24px, "View on X →" 12px
+  italic right. Book — dashed ledger rules; a 96px cover (photo, or
+  typeset in #7a1a1f with paper-coloured type) beside title 19px, author
+  spaced caps, publisher and "Read in" 13px italic #6c6c6c.
+- Card p rules carry #content-wrap: the index's note-body p rule outranked
+  them (found in the preview).
+- Category pages come from collections.liveTags, so a tag carried only by
+  drafts makes no page.

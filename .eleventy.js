@@ -250,6 +250,82 @@ module.exports = function (eleventyConfig) {
      `draft: true` keeps an entry off the live site; a date in the future holds
      it back until that day (the Pages workflow rebuilds every morning). Both
      still show on the local preview (npx @11ty/eleventy --serve). */
+  /* ---------- Cards for outside material (design change 2026-09-26) ----------
+     A talk, a post on X or Instagram, or a book, shown with files from this site only — no embed,
+     no script, nothing loaded from YouTube, X or Meta until a reader clicks. Written as blocks:
+       ::: video <url>          title: / channel: / length: / still: /images/…jpg
+       ::: post                 source: / title: / link: <url> / picture: /images/… / alt:  then the words
+       ::: book                 title: / author: / published: / read: / cover: /images/…jpg
+     Each block becomes one piece of HTML before the markdown is read (HANDBOOK §4c). */
+  const cardPicture = (src, alt, cls) => {
+    const d = manifest[src] || {};
+    const size = d.w ? ` width="${d.w}" height="${d.h}"` : "";
+    const img = `<img src="${esc(src)}" alt="${esc(alt || "")}"${size} loading="lazy" decoding="async"${cls ? ` class="${cls}"` : ""}>`;
+    if (!d.w || !/\.jpe?g$/i.test(src)) return img;
+    const base = src.replace(/\.jpe?g$/i, "");
+    return `<picture><source type="image/avif" srcset="${esc(base)}.avif"><source type="image/webp" srcset="${esc(base)}.webp">${img}</picture>`;
+  };
+  const hostLabel = (url) => {
+    const h = (() => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+    if (/^(x|twitter)\.com$/.test(h)) return "X";
+    if (/instagram\.com$/.test(h)) return "Instagram";
+    if (/(youtube\.com|youtu\.be)$/.test(h)) return "YouTube";
+    if (/facebook\.com$/.test(h)) return "Facebook";
+    if (/linkedin\.com$/.test(h)) return "LinkedIn";
+    if (/vimeo\.com$/.test(h)) return "Vimeo";
+    return "";
+  };
+  const CARD_KEYS = { video: ["title", "channel", "length", "still"], post: ["source", "title", "link", "picture", "alt"],
+                      book: ["title", "author", "published", "read", "cover"] };
+  const buildCard = (kind, arg, inner, where) => {
+    const f = {}, body = [];
+    let head = true;
+    for (const line of inner.split("\n")) {
+      const m = head && /^([a-z]+):\s*(.*)$/.exec(line.trim());
+      if (m && CARD_KEYS[kind].includes(m[1])) { f[m[1]] = m[2].trim(); continue; }
+      if (line.trim()) head = false;
+      body.push(line);
+    }
+    const text = body.join("\n").trim().split(/\n\s*\n/).filter(Boolean)
+      .map((p) => `<p class="cp-text">${md.renderInline(p.trim())}</p>`).join("\n");
+    const need = (k, v) => { if (!v) throw new Error(`${where}: "::: ${kind}" needs ${k}`); };
+    if (kind === "video") {
+      need("a link after '::: video'", arg); need("title:", f.title);
+      const label = hostLabel(arg);
+      return [`<a class="card-video" href="${esc(arg)}">`,
+        f.still ? `<span class="cv-still">${cardPicture(f.still, "")}<span class="cv-play"></span></span>` : "",
+        `<span class="cv-source">Watch${label ? " on " + label : ""}</span>`,
+        `<span class="cv-title">${esc(f.title)}</span>`,
+        (f.channel || f.length) ? `<span class="cv-meta">${esc([f.channel, f.length].filter(Boolean).join(" · "))}</span>` : "",
+        `</a>`].filter(Boolean).join("\n");
+    }
+    if (kind === "post") {
+      need("link:", f.link);
+      const label = hostLabel(f.link);
+      return [`<div class="card-post">`,
+        f.source ? `<p class="cp-source">${esc(f.source)}</p>` : "",
+        f.title ? `<p class="cp-title">${md.renderInline(f.title)}</p>` : "",
+        f.picture ? cardPicture(f.picture, f.alt || "") : "",
+        text,
+        `<p class="cp-link"><a href="${esc(f.link)}">View ${label ? "on " + label : "the original"} →</a></p>`,
+        `</div>`].filter(Boolean).join("\n");
+    }
+    need("title:", f.title);
+    const short = f.title.split(":")[0];
+    return [`<div class="card-book">`,
+      f.cover ? `<div class="cb-cover cb-cover-img">${cardPicture(f.cover, `Cover of ${f.title}`)}</div>`
+              : `<div class="cb-cover"><span class="cb-cover-title">${esc(short)}</span><span class="cb-cover-author">${esc(f.author || "")}</span></div>`,
+      `<div class="cb-details">`,
+      `<p class="cb-title">${md.renderInline(f.title)}</p>`,
+      f.author ? `<p class="cb-author">${esc(f.author)}</p>` : "",
+      f.published ? `<p class="cb-pub">${md.renderInline(f.published)}</p>` : "",
+      f.read ? `<p class="cb-read">Read in ${md.renderInline(f.read)}</p>` : "",
+      `</div>`, `</div>`].filter(Boolean).join("\n");
+  };
+  eleventyConfig.addPreprocessor("cards", "md", (data, content) =>
+    content.replace(/^:::[ \t]*(video|post|book)(?:[ \t]+(\S+))?[ \t]*\n([\s\S]*?)^:::[ \t]*$/gm,
+      (m, kind, arg, inner) => "\n" + buildCard(kind, arg || "", inner, data.page.inputPath) + "\n"));
+
   eleventyConfig.addPreprocessor("drafts", "md", (data) => {
     if (process.env.ELEVENTY_RUN_MODE !== "build") return;
     if (data.draft) return false;
@@ -280,6 +356,13 @@ module.exports = function (eleventyConfig) {
   });
 
   /* ---------- Collections ---------- */
+  // The categories that have at least one live entry — one category page each. Paginating over every
+  // tag collection made pages for tags only drafts carried (design change 2026-09-26).
+  eleventyConfig.addCollection("liveTags", (api) => {
+    const s = new Set();
+    for (const it of api.getFilteredByGlob("content/journal/**/*.md")) for (const t of it.data.tags || []) s.add(t);
+    return [...s].sort((a, b) => a.localeCompare(b));
+  });
   eleventyConfig.addCollection("journal", (api) =>
     api.getFilteredByGlob("content/journal/**/*.md").sort((a, b) => b.date - a.date));
 

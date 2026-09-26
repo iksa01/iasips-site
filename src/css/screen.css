@@ -434,3 +434,40 @@ div#content-pri div.case:target h3 { color: #ba1820; }
    (design change 2026-09-26, "quiet case links"). */
 div#content-pri table.casetable a:link, div#content-pri table.casetable a:visited { color: inherit; text-decoration: none; }
 div#content-pri table.casetable a:hover, div#content-pri table.casetable a:focus-visible { color: #ba1820; }
+
+/* Cards for outside material (design change 2026-09-26; built by the `cards` preprocessor, HANDBOOK §4c).
+   Nothing is loaded from YouTube, X or Meta: the still, the words and any picture are this site's files.
+   p rules carry #content-wrap so they outrank the journal index's note-body paragraph rule. */
+/* video — the still in the home-page card, a red play mark, source in spaced caps, title, quiet meta */
+div#content-pri a.card-video { display: block; margin: 8px 0 26px; padding: 8px 8px 12px; background: #fff; border: 1px solid #DDD;
+    border-radius: 5px; box-shadow: 1px 1px 7px rgba(153,153,153,.2); text-decoration: none; color: #333; }
+div#content-pri a.card-video span { display: block; }
+div#content-pri a.card-video .cv-still { position: relative; }
+div#content-pri a.card-video img { display: block; width: 100%; height: auto; margin: 0; padding: 0; border: 0; box-shadow: none; }
+div#content-pri a.card-video .cv-play { position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; margin: -27px 0 0 -27px;
+    border-radius: 50%; background: rgba(186,24,32,.92); }
+div#content-pri a.card-video .cv-play::after { content: ""; position: absolute; left: 21px; top: 16px; border-left: 17px solid #fff;
+    border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+div#content-pri a.card-video .cv-source { margin: 10px 4px 2px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #ba1820; }
+div#content-pri a.card-video .cv-title { margin: 0 4px; font-size: 17px; line-height: 23px; }
+div#content-pri a.card-video .cv-meta { margin: 2px 4px 0; font-size: 12px; font-style: italic; color: #6c6c6c; }
+div#content-pri a.card-video:hover .cv-title { color: #ba1820; }
+/* post (X, Instagram, …) — the press-cutting frame: dashed edge, source in spaced caps, a title, the words, a quiet link */
+div#content-pri .card-post { margin: 8px 0 26px; padding: 12px 15px 6px; border: 1px dashed #BBB; background: #FFFDFB; }
+#content-wrap div#content-pri .card-post p.cp-source { margin: 0 0 8px; font-size: 11px; line-height: 16px; text-transform: uppercase; letter-spacing: 1px; color: #6c6c6c; }
+#content-wrap div#content-pri .card-post p.cp-title { margin: 0 0 6px; font-size: 18px; line-height: 24px; color: #333; }
+#content-wrap div#content-pri .card-post p.cp-text { font-size: 16px; line-height: 24px; margin: 0 0 8px; }
+div#content-pri .card-post img { display: block; width: 100%; height: auto; margin: 0 0 10px; padding: 0; border: 1px solid #DDD; box-shadow: none; }
+#content-wrap div#content-pri .card-post p.cp-link { margin: 0 0 6px; text-align: right; font-size: 12px; font-style: italic; }
+/* book — the cover (a photograph, or a typeset cover in the house red) beside a ledger of details */
+div#content-pri .card-book { display: flex; gap: 18px; margin: 8px 0 26px; padding: 14px 0; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }
+div#content-pri .card-book .cb-cover { flex: 0 0 96px; min-height: 140px; padding: 12px 8px; box-sizing: border-box; background: #7a1a1f; color: #F3EFEB;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.25); display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
+div#content-pri .card-book .cb-cover-img { padding: 0; background: none; min-height: 0; }
+div#content-pri .card-book .cb-cover-img img { display: block; width: 96px; height: auto; margin: 0; padding: 0; border: 0; box-shadow: none; }
+div#content-pri .card-book .cb-cover-title { font-size: 13px; line-height: 16px; }
+div#content-pri .card-book .cb-cover-author { font-size: 9px; line-height: 13px; text-transform: uppercase; letter-spacing: 1px; }
+#content-wrap div#content-pri .card-book p { margin: 0 0 4px; }
+#content-wrap div#content-pri .card-book p.cb-title { font-size: 19px; line-height: 24px; margin-bottom: 6px; }
+#content-wrap div#content-pri .card-book p.cb-author { font-size: 12px; line-height: 18px; text-transform: uppercase; letter-spacing: 1px; }
+#content-wrap div#content-pri .card-book p.cb-pub, #content-wrap div#content-pri .card-book p.cb-read { font-size: 13px; line-height: 19px; font-style: italic; color: #6c6c6c; }

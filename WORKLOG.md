@@ -655,3 +655,23 @@ sidebar, fix footnote link, link checking, linkable headings."
   Proven with a test post: 6 broken links reported, build exit 1.
 - Not taken: "More on this subject" (adds furniture), JSON feed,
   eleventy-img (needs sharp), Eleventy 4 (alpha).
+
+## 2026-09-26 (e) — design change: portrait, cards; three drafts
+
+Kalyan: "Design change: portrait crop A, and the video, post and book
+cards." He chose cards over real embeds ("I don't want any scripts"), and
+asked that Instagram get a title like X's.
+- Portrait: first photo (students in the background) cropped, then set
+  aside for a podcast still; crop A chosen. The La Excellence badge left
+  out of the crop.
+- Cards as a `cards` preprocessor turning ::: video / post / book into
+  HTML (no raw HTML in content). Tested: all three kinds, a picture in a
+  post, a missing link (the build stops and names the file).
+- Found and fixed: tag collections made category pages for draft-only
+  tags (an empty "Archived in Listening"); now collections.liveTags.
+- Link check fixed earlier today to read the folder the build wrote.
+- Drafts filed (draft: true), waiting on Kalyan's words: the Mana La
+  Excellence podcast (youtu.be/FEXI_LYunpc, 1 hr 14 min, Listening);
+  Ramachandra Guha's X post of 26 Sept 2026 on his new book (Books,
+  History); The Better India's Instagram post DdnN5K7I5yU (Notes, Society —
+  caption, title and comment all needed; its picture is theirs, not used).

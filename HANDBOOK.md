@@ -52,8 +52,8 @@ one quiet line beneath: date · category · permanent link. No reading time.
     ---
     The Fundamental Duties were ten when…
 
-A **Listening** entry (a talk or podcast) is a note whose first line is the
-link: `Watch: [Title](https://…) — channel, 42 min.` No embedded players.
+A **Listening** entry (a talk or podcast) is a note that opens with a
+`::: video` card (§4c), then Kalyan's notes. No embedded players.
 
 ### Quote — a line worth keeping
 The index shows the quote on a pale-rose panel (a solid red “ at its left, a small notch pointing down to the name, which sits right under
@@ -121,6 +121,46 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | `<kbd>Ctrl</kbd>`, `<abbr title="…">UPSC</abbr>`, `<sup>`, `<cite>` | the only raw HTML allowed |
 
 House typography is automatic: curly quotes, real ellipsis, en dashes.
+
+## 4c. Cards for outside material (design change 2026-09-26)
+
+No embeds and no scripts, still: a talk, a post or a book appears as a card
+built from this site's own files, and the outside service is reached only
+when a reader clicks. Kalyan sends the link; the agent fills the card.
+
+    ::: video https://youtu.be/ID
+    title: The video's title
+    channel: Channel name
+    length: 1 hr 14 min
+    still: /images/listening/YYYY-MM-DD-slug.jpg
+    :::
+
+The still: `curl -o images/listening/…jpg https://img.youtube.com/vi/ID/maxresdefault.jpg`
+then `python3 tools/prepare-image.py` on it. Title and channel from
+`https://www.youtube.com/oembed?url=…&format=json`.
+
+    ::: post
+    source: X · Ramachandra Guha · @Ram_Guha · 26 September 2026
+    title: A short title for the card
+    link: https://x.com/…            (X, Instagram, Facebook, LinkedIn — the link label follows the site)
+    picture: /images/…jpg            (optional — only Kalyan's own picture, or one he has permission for)
+    alt: what the picture shows
+    The post's words, copied (markdown allowed; blank line = new paragraph).
+    :::
+
+X text: `https://cdn.syndication.twimg.com/tweet-result?id=<id>&token=a`.
+Instagram does not show a caption to logged-out readers: ask Kalyan to
+paste it. Never copy another account's picture.
+
+    ::: book
+    title: Title: Subtitle
+    author: Author
+    published: Publisher, year
+    read: September 2026             (optional)
+    cover: /images/books/…jpg        (optional — Kalyan's own photo of the cover; else a typeset cover)
+    :::
+
+A book review is an essay in Books that opens with `::: book`.
 
 ## 4a. The case register (design change 2026-09-26)
 
