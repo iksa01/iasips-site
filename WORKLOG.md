@@ -618,3 +618,8 @@ own commit, so any one can be reverted alone.
   quotes: its two quotes took 2 and 3 and the later ones moved to 4–6.
 - Lesson: the --serve process keeps an old config after .eleventy.js
   gains a container; restart it (twice today it served stale output).
+- Same day, after seeing it built: Kalyan dropped the quote numbers ("we
+  can avoid the numbers … everything else will be the same") and the
+  "Found in" line (a source can go in a quote's commentary). Both removed
+  as their own commits; `::: quote`, the case register and the source rule
+  stay.
