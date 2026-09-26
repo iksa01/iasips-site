@@ -6,6 +6,7 @@ bodyId: article
 {%- set older = collections.journal | getNextCollectionItem %}
 {%- set newer = collections.journal | getPreviousCollectionItem %}
 {%- set tocItems = content | toc if toc else [] %}
+{%- set caseList = content | casesIn %}
 <div id="content-wrap">
 <div id="content-pri">
 {%- if type == "quote" %}
@@ -47,6 +48,15 @@ bodyId: article
 {%- if tocItems.length %}
 <h3>In this entry</h3>
 {% include "partials/toc-list.njk" %}
+{%- endif %}
+{%- if caseList.length %}
+{#- the case register (design change 2026-09-26) -#}
+<h3>Cases in this entry</h3>
+<ul>
+{%- for c in caseList %}
+<li><a href="/cases/#{{ c.slug }}">{{ c.name }}, {{ c.year }}</a></li>
+{%- endfor %}
+</ul>
 {%- endif %}
 </div>
 </div>

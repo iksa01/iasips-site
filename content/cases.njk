@@ -1,0 +1,19 @@
+---
+title: "Case index"
+layout: layouts/page.njk
+bodyClass: cases
+permalink: /cases/
+---
+{#- The case register (design change 2026-09-26): every case in src/_data/cases.json, in date order,
+    with its holding and every journal entry that mentions it. Nothing here is typed by hand. -#}
+<p>Every case the journal cites, oldest first, with what it held and the entries that discuss it.</p>
+{%- for c in casesByYear %}
+{%- set posts = collections.journal | citing(c.slug) %}
+<div class="case" id="{{ c.slug }}">
+<h3>{{ c.name }}, {{ c.year }}</h3>
+<p>{{ c.held | mdInline | safe }}</p>
+{%- if posts.length %}
+<p class="case-cited">Discussed in {% for p in posts %}<a href="{{ p.url }}">{{ p.data.title }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+{%- endif %}
+</div>
+{%- endfor %}

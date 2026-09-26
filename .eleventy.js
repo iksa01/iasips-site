@@ -138,6 +138,25 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  // The case register (design change 2026-09-26): src/_data/cases.json holds each case once —
+  // name, year, a short holding for tables, the full holding for /cases/. `::: casetable a b +c`
+  // prints a Case | Year | What it held table from it; `+slug` sets that row in bold.
+  const CASES = require("./src/_data/cases.json").slice().sort((a, b) => a.year - b.year);
+  const CASE = Object.fromEntries(CASES.map((c) => [c.slug, c]));
+  md.use(markdownItContainer, "casetable", {
+    render(tokens, i) {
+      const tk = tokens[i];
+      if (tk.nesting !== 1) return "";
+      const rows = tk.info.trim().split(/\s+/).slice(1).map((s) => {
+        const bold = s.startsWith("+"), c = CASE[s.replace(/^\+/, "")];
+        if (!c) throw new Error(`casetable: "${s}" is not in src/_data/cases.json`);
+        const cell = (x) => (bold ? `<strong>${x}</strong>` : x);
+        return `<tr><td>${cell(`<a href="/cases/#${c.slug}">${esc(c.name)}</a>`)}</td><td>${cell(c.year)}</td><td>${cell(md.renderInline(c.short))}</td></tr>`;
+      });
+      return `<table class="casetable"><thead><tr><th>Case</th><th>Year</th><th>What it held</th></tr></thead><tbody>\n${rows.join("\n")}\n</tbody></table>\n`;
+    },
+  });
+
   md.use(markdownItContainer, "details", {
     render(tokens, i) {
       const tk = tokens[i];
@@ -221,6 +240,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateISO", (date) => new Date(date).toISOString().slice(0, 10));
   eleventyConfig.addFilter("year", (date) => new Date(date).getUTCFullYear());
   eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
+  // Cases a piece of HTML mentions, in date order, matched by the register's `match` names.
+  eleventyConfig.addFilter("casesIn", (html) => {
+    const text = String(html || "").replace(/<[^>]+>/g, " ");
+    return CASES.filter((c) => c.match.some((m) => text.includes(m)));
+  });
+  eleventyConfig.addFilter("citing", (posts, slug) =>
+    posts.filter((p) => CASE[slug].match.some((m) => String(p.templateContent || "").replace(/<[^>]+>/g, " ").includes(m))));
+  eleventyConfig.addGlobalData("casesByYear", CASES);
   // `found:` front matter (design change 2026-09-26): one line of markdown.
   eleventyConfig.addFilter("mdInline", (s) => md.renderInline(String(s || "")));
 

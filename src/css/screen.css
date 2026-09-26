@@ -427,3 +427,11 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   div#content-pri #post.entry > p::before { content: none; }         /* no gutter for the numbers on a phone */
   div#siteinfo p { font-size: 12px; }
 }
+
+/* The case index (/cases/, design change 2026-09-26): one entry per case, a dashed rule between,
+   the holding at body size, the citing entries in the quiet italic of the meta line */
+div#content-pri div.case { padding: 12px 0 6px 0; border-top: 1px dashed #DDD; scroll-margin-top: 30px; }
+div#content-pri div.case h3 { margin: 0 0 4px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: normal; color: #000; }
+div#content-pri div.case p { margin: 0 0 6px 0; }
+div#content-pri div.case p.case-cited { font-size: 12px; line-height: 18px; font-style: italic; color: #6c6c6c; }
+div#content-pri div.case:target h3 { color: #ba1820; }

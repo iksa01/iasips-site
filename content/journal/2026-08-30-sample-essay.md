@@ -29,17 +29,8 @@ Golaknath was a fortress, and fortresses invite siege. Parliament replied with t
 
 Thirteen judges, the largest bench ever assembled in India, heard the matter for sixty-eight days. The majority was 7:6 — and the "majority" agreed on a proposition rather than on an opinion.
 
-| Case | Year | What it held |
-|---|---|---|
-| Shankari Prasad | 1951 | Amendment is not "law" under Art. 13 |
-| Sajjan Singh | 1965 | Same, with two dissenting doubts |
-| Golaknath | 1967 | Amendment *is* law; FRs unamendable |
-| **Kesavananda Bharati** | **1973** | **Parliament may amend any part, but not the basic structure** |
-| Indira Nehru Gandhi | 1975 | Free and fair elections is basic structure |
-| Minerva Mills | 1980 | Limited amending power; FR–DPSP balance |
-| Waman Rao | 1981 | Doctrine applies to laws after 24 April 1973 |
-| S. R. Bommai | 1994 | Federalism and secularism are basic structure |
-| I. R. Coelho | 2007 | Post-1973 Ninth Schedule laws face review |
+::: casetable shankari-prasad sajjan-singh golaknath +kesavananda-bharati indira-nehru-gandhi minerva-mills waman-rao sr-bommai ir-coelho
+:::
 
 The doctrine's defence is not textual — the words "basic structure" appear nowhere in the Constitution. It is structural: a power to amend cannot include a power to abrogate, because a body created by the Constitution cannot use a power granted by that Constitution to destroy it.
 

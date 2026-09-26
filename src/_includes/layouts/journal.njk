@@ -24,6 +24,10 @@ bodyId: multiple
 <li><a href="/journal/category/{{ t | slugify }}/">{{ t }}</a></li>
 {%- endfor %}
 </ul>
+<h3>Reference</h3>
+<ul>
+<li><a href="/cases/">Case index</a></li>
+</ul>
 {%- if site.favourites and site.favourites.length %}
 <h3>{{ site.favouritesHeading }}</h3>
 <ul>

@@ -108,7 +108,8 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | `::: plan Title` + bulleted list, items starting `**Label**` | a printed planning grid (answer skeleton). Never a code fence for this. |
 | `::: cases` + bulleted list, items starting `**Term**` | term-and-gloss list with spaced-caps sideheads |
 | `::: clipping The Paper, date` + image + `>` passage + link | a press cutting in a dashed frame; analysis goes after the closing `:::` |
-| `> quoted text` then `<cite>Name</cite>` | blockquote, name set right |
+| `> quoted text` then `<cite>Name</cite>` | blockquote, name set right — also the home for a **long passage** (not a quote; not numbered) |
+| `::: casetable slug slug +slug` then `:::` | a Case / Year / What it held table built from the case register; `+` sets a row in bold |
 | `| a | b |` table | ledger-ruled table inside the column |
 | ```` ```js/2-3 title="file.js" ```` | code with Prism colours, highlighted lines, filename tab. Code only. |
 | `---` | hairline rule |
@@ -119,6 +120,16 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | `<kbd>Ctrl</kbd>`, `<abbr title="…">UPSC</abbr>`, `<sup>`, `<cite>` | the only raw HTML allowed |
 
 House typography is automatic: curly quotes, real ellipsis, en dashes.
+
+## 4a. The case register (design change 2026-09-26)
+
+Every court case lives once in `src/_data/cases.json`: slug, name, year,
+`match` (the words that identify it in text), `short` (for tables) and
+`held` (for the index). From it the build makes: case tables
+(`::: casetable`), a "Cases in this entry" list in each entry's sidebar,
+and the Case index at /cases/ — every case, its holding, and the entries
+that mention it. A new case cited in a post: add it to the register first,
+from Kalyan's own words; a holding not yet supplied is a `TODO:`.
 
 ## 5. Pictures
 
