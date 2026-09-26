@@ -623,3 +623,16 @@ own commit, so any one can be reverted alone.
   "Found in" line (a source can go in a quote's commentary). Both removed
   as their own commits; `::: quote`, the case register and the source rule
   stay.
+
+## 2026-09-26 (c) — design change: no paragraph numbers, darker footnotes, reference off GitHub
+
+Kalyan: paragraph numbers were not wanted ("maybe the old design has
+crept in"); footnote text "almost mixing with the background".
+- Gutter paragraph numbers (algebrica, 09-03) removed; justification kept.
+- Footnotes, their markers and the "Footnotes" head #666 → #333.
+- reference/colly-v4/ (27 files: Collison's pages, stylesheet, logo, paper
+  tile, animals) was public on GitHub though never on the site. Copied to
+  ~/Sites/colly-v4-reference/ (verified identical) and removed from the
+  repository; notes now point there. It remains in git history; purging
+  history was offered, not done. The live site loads nothing from
+  colly.com — only the footer credit links to it.
