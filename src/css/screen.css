@@ -218,6 +218,8 @@ div#content-sec ul li:first-child { border-top: 1px dashed #CCC; }
 div#content-sec p a:link, div#content-sec ul li a:link { text-decoration: none; color: #ba1820; }
 div#content-sec p a:visited, div#content-sec ul li a:visited { text-decoration: none; color: #d0656a; }
 div#content-sec p a:hover, div#content-sec ul li a:hover { text-decoration: underline; color: #666; }
+div#content-sec p.portrait { margin: 20px 0 30px 0; }   /* the About portrait (design change 2026-09-26): 170px so the tilted frame stays inside the sidebar */
+div#content-sec p.portrait img { display: block; margin: 0 0 0 26px; }
 div#content-sec img { background: #FFFAFA; margin: 0 0 0 30px; padding: 7px; border: 1px solid #eee;
                       box-shadow: 1px 1px 7px rgba(153,153,153,.2); transform: rotate(-2deg); }
 div#content-sec p.home-link { text-align: left; margin: 0 0 40px 25px; padding: 0; border: 0; font-style: normal; font-size: 12px;
