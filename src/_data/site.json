@@ -1,7 +1,7 @@
 {
   "url": "https://iasips.in",
-  "title": "TODO: site title",
-  "description": "TODO: one sentence describing the site, for search results and link previews",
+  "title": "Kalyan Inampudi",
+  "description": "The journal of Kalyan Inampudi, UPSC mentor and edutainer from Hyderabad: quotes, books, press, talks and notes.",
   "ogImage": "",
   "favouritesHeading": "Kalyan’s Favourites",
   "favourites": [],
@@ -83,7 +83,7 @@
     ]
   ],
   "colophon": [
-    "Copyright © Kalyan 2026. TODO: licence line. Grab the <a href=\"/feed.xml\">RSS feed</a>.",
+    "Copyright © Kalyan Inampudi 2026. All rights reserved. Grab the <a href=\"/feed.xml\">RSS feed</a>.",
     "Designed after <a href=\"https://colly.com/\">Mr. Simon Collison</a>. This is his brainchild. Built in Hyderabad, scaffolded by <a href=\"https://www.11ty.dev/\">Eleventy</a>."
   ]
 }
