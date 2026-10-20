@@ -675,3 +675,29 @@ asked that Instagram get a title like X's.
   Ramachandra Guha's X post of 26 Sept 2026 on his new book (Books,
   History); The Better India's Instagram post DdnN5K7I5yU (Notes, Society —
   caption, title and comment all needed; its picture is theirs, not used).
+
+## 2026-10-20 — design change: pictures, quotes, lists; stand-ins deleted
+
+Kalyan, on the live clipping post: "its not like professional look". Two
+mock-ups were put to him on the Central Asia post (B: v4's framed print;
+C: wide, frameless). He chose B ("like colly"), dropped C, and asked for
+one specimen post in lorem ipsum in place of the twelve stand-ins.
+- Pictures: figure.pic, v4's frame (7px #FFFAFA, #DDD, shadow) at the
+  column's width; upright pictures 62%; caption "Words | Credit" →
+  italic words, spaced-caps credit. `::: wide` was built and removed.
+- Clipping: no dashed frame; the picture is a figure linked to its full
+  file, the source its credit; the passage a plain blockquote.
+- Quotes: "the author will be outside the quote" — a closing <cite> is
+  lifted out of both a rose panel (.quote-who) and a plain blockquote
+  (.quote-by), whether it is its own paragraph or the last line.
+- Lists: checked against v4's screen.css (lines 109–114): ruled rows,
+  dashed #DDD under each, dashed #CCC over a ul's first row only; numbers
+  and en-dash bullets hang in the margin (inside on a phone).
+- Deleted: the twelve stand-in entries and the Indian Express page image
+  (the paper's; it served only the stand-in). The case register stays —
+  its holdings are stand-in text, still Kalyan's to replace.
+- content/journal/2026-10-20-design-specimen.md (draft) with a drawn
+  lorem-ipsum newspaper page in images/specimen/ (no real paper's work).
+- With no live entry the journal index made no page and the link check
+  failed (8 links to /journal/): journal.md now has
+  generatePageOnEmptyData.

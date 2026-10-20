@@ -50,9 +50,7 @@ Serves on <http://localhost:8080/>. Pages:
 |---|---|
 | `/` | home: masthead, four cards, external references, colophon |
 | `/journal/` | the journal index — the page you called "beautiful" |
-| `/journal/sample-essay/` | the specimen: callouts, tables, plan grid, TOC, footnotes |
-| `/journal/sample-note/` | the notes specimen: a one-page structured note |
-| `/journal/sample-quote/` | a quote entry |
+| `/journal/design-specimen/` | every element in lorem ipsum — a draft, so only on the local preview |
 | `/about/` `/archive/` `/external/` `/contact/` | the rest |
 
 Stop the server with Ctrl+C.
@@ -143,9 +141,8 @@ Settled and not to be relitigated:
    2026-09-03 for your eye (WORKLOG 2026-09-03 e) — say the word to change
    any of them.
 2. ~~Colly's animals~~ — deleted 2026-09-03 on your word.
-3. **The sample journal entries** are specimens, not your writing. The essay
-   is a UPSC piece on the Basic Structure Doctrine used to exercise every
-   element; the quote and note entries are public-domain stand-ins.
+3. ~~The sample journal entries~~ — the twelve stand-ins deleted 2026-10-20;
+   the lorem-ipsum design specimen (a draft) replaces them.
 4. ~~Working pages~~ `/engravings/` and `/modern/` — deleted 2026-09-03.
 5. Open offers: inline the CSS at build time; Press Start 2P instead of
    VT323 for code; image pipeline (AVIF/WebP/srcset at build time); the

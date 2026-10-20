@@ -45,6 +45,7 @@ module.exports = function (eleventyConfig) {
           t[i + 1].type === "inline" && t[i + 1].children &&
           t[i + 1].children.length === 1 && t[i + 1].children[0].type === "image") {
         t[i].tag = "figure";
+        t[i].attrSet("class", "pic");
         t[i + 2].tag = "figure";
       }
     }
@@ -66,13 +67,20 @@ module.exports = function (eleventyConfig) {
     const src = token.attrGet("src") || "";
     const dims = manifest[src];
     if (dims) { token.attrSet("width", String(dims.w)); token.attrSet("height", String(dims.h)); }
+    if (dims && dims.h > dims.w) token.attrSet("class", "upright");   // an upright picture is set narrower (design change 2026-10-20)
     let img = defaultImage(tokens, idx, options, env, self);
     token.attrs = saved;
     if (dims && /\.jpe?g$/i.test(src)) {
       const base = src.replace(/\.jpe?g$/i, "");
       img = `<picture><source type="image/avif" srcset="${base}.avif"><source type="image/webp" srcset="${base}.webp">${img}</picture>`;
     }
-    return title ? `${img}<figcaption>${md.utils.escapeHtml(title)}</figcaption>` : img;
+    // Caption "Words | Credit" (design change 2026-10-20): the words in italic, the credit in spaced caps beside them.
+    // Inside a clipping the credit defaults to the clipping's source, and the picture links to its own full-size file.
+    if (env.clipping) img = `<a href="${md.utils.escapeHtml(src)}">${img}</a>`;
+    const [cap = "", credit = env.clipping ? env.clipping.source : ""] = (title || "").split(/\s+\|\s+/);
+    if (!cap && !credit) return img;
+    return `${img}<figcaption>${cap ? `<span class="cap">${md.utils.escapeHtml(cap)}</span>` : ""}` +
+      `${credit ? `<span class="credit">${md.utils.escapeHtml(credit)}</span>` : ""}</figcaption>`;
   };
   // Fenced code (DESIGN.md §7): Prism classes at build time, no client JS.
   // Fence info: ```js/2-3 title="file.js"``` → language, highlighted lines, filename tab.
@@ -106,15 +114,22 @@ module.exports = function (eleventyConfig) {
       },
     });
   }
-  // ::: clipping Source line  — a press cutting: the picture and the quoted passage inside, the source in
-  // spaced caps above; the analysis follows outside the block (DESIGN.md §7c, 2026-09-03).
+  // ::: clipping Source line  — a press cutting: the picture and the quoted passage inside; the analysis follows
+  // outside the block (DESIGN.md §7c, 2026-09-03). Design change 2026-10-20: no dashed frame; the source becomes
+  // the picture's credit, and stands as a line above only when the clipping has no picture.
   md.use(markdownItContainer, "clipping", {
-    render(tokens, i) {
+    render(tokens, i, options, env) {
       const tk = tokens[i];
       if (tk.nesting === 1) {
         const source = tk.info.trim().slice("clipping".length).trim();
-        return `<div class="clipping">${source ? `<p class="clipping-source">${esc(source)}</p>` : ""}\n`;
+        let hasPicture = false;
+        for (let j = i + 1; j < tokens.length && tokens[j].type !== "container_clipping_close"; j++) {
+          if (tokens[j].children && tokens[j].children.some((c) => c.type === "image")) hasPicture = true;
+        }
+        env.clipping = { source };
+        return `<div class="clipping">${source && !hasPicture ? `<p class="clipping-source">${esc(source)}</p>` : ""}\n`;
       }
+      env.clipping = null;
       return "</div>\n";
     },
   });
@@ -349,9 +364,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("quotes", function (html) {
     const out = this.page.outputPath || "";
     if (!out.endsWith(".html")) return html;
-    // a `::: quote` ends with <p><cite>…</cite></p>: lift it out to sit under the panel, as a quote entry's does
-    html = html.replace(/(<blockquote class="quote-panel">(?:(?!<\/blockquote>)[\s\S])*?)<p><cite>((?:(?!<\/blockquote>)[\s\S])*?)<\/cite><\/p>\s*<\/blockquote>/g,
-      '$1</blockquote>\n<p class="quote-who"><cite>$2</cite></p>');
+    // A quote ending in <cite>…</cite> (its own paragraph, or the last line of the last one): lift the name out
+    // so it sits under the quote, never inside it (design change 2026-10-20, Kalyan: "the author will be outside
+    // the quote"). The rose panel's name is .quote-who; a plain blockquote's is .quote-by, set right.
+    html = html.replace(/<blockquote( class="quote-panel")?>((?:(?!<\/?blockquote)[\s\S])*?)(<p>\s*|\s*(?:<br>\s*)?)<cite>((?:(?!<\/blockquote>)[\s\S])*?)<\/cite>\s*<\/p>\s*<\/blockquote>/g,
+      (m, panel, body, before, name) => {
+        const closeP = before.startsWith("<p>") ? "" : "</p>";
+        return `<blockquote${panel || ""}>${body}${closeP}</blockquote>\n<p class="${panel ? "quote-who" : "quote-by"}"><cite>${name}</cite></p>`;
+      });
     return html;
   });
 

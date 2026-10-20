@@ -107,8 +107,8 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | `::: details Summary` … `:::` | a fold-away, click to open |
 | `::: plan Title` + bulleted list, items starting `**Label**` | a printed planning grid (answer skeleton). Never a code fence for this. |
 | `::: cases` + bulleted list, items starting `**Term**` | term-and-gloss list with spaced-caps sideheads |
-| `::: clipping The Paper, date` + image + `>` passage + link | a press cutting in a dashed frame; analysis goes after the closing `:::` |
-| `> quoted text` then `<cite>Name</cite>` | blockquote, name set right — also the home for a **long passage** (not a quote) |
+| `::: clipping The Paper, date` + image + `>` passage + link | a press cutting: framed picture linked to its full page, the paper as its credit; analysis goes after the closing `:::` |
+| `> quoted text` then `<cite>Name</cite>` | blockquote, the name set right UNDER it — also the home for a **long passage** (not a quote) |
 | `::: quote` + a short line + `<cite>Name</cite>` + `:::` | a short quote inside an essay or note: the rose panel, name under it |
 | `::: casetable slug slug +slug` then `:::` | a Case / Year / What it held table built from the case register; `+` sets a row in bold |
 | `| a | b |` table | ledger-ruled table inside the column |
@@ -117,7 +117,7 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | `***` | ⁂ asterism |
 | `[^1]` and `[^1]: note` | footnote with ↑ backlink |
 | `[words](/journal/slug/)` | a link to another entry; `/journal/category/press/` to a category |
-| `![alt](/images/folder/file.jpg "Caption")` | a picture with caption (see §5) |
+| `![alt](/images/folder/file.jpg "Caption \| Credit")` | a framed picture, caption in italic, credit in small caps beside it (see §5) |
 | `<kbd>Ctrl</kbd>`, `<abbr title="…">UPSC</abbr>`, `<sup>`, `<cite>` | the only raw HTML allowed |
 
 House typography is automatic: curly quotes, real ellipsis, en dashes.
@@ -177,8 +177,16 @@ from Kalyan's own words; a holding not yet supplied is a `TODO:`.
 1. Put the file in `images/<folder>/` (press, photos, …), named by date and subject.
 2. Run once: `python3 tools/prepare-image.py images/press/2026-08-26-clip.jpg`
    — fits it to 1400px, writes .webp and .avif beside it, records its size.
-3. Reference it as `![alt](/images/press/2026-08-26-clip.jpg "Caption")`.
-   The build serves AVIF/WebP with a JPEG fallback and reserves the space.
+3. Reference it as `![alt](/images/press/2026-08-26-clip.jpg "Caption | Credit")`.
+   The words before ` | ` are the caption, after it the credit (photographer,
+   place and date, the paper); either may be left out. The build serves
+   AVIF/WebP with a JPEG fallback, reserves the space, sets v4's frame, and
+   sets an upright picture narrower. One picture style only (Kalyan,
+   2026-10-20: no frameless wide pictures).
+
+A press cutting: prepare two files, a readable crop (headline, picture,
+the passage) and the whole page; show the crop inside `::: clipping` and
+end the block with `[See the full page →](/images/press/…-full.jpg)`.
 
 No hotlinking; no width or alignment hacks in content. A newspaper page
 may be shown whole (Kalyan's decision, 2026-09-04); quote a passage in
@@ -232,9 +240,10 @@ guess an attribution.
     gh run list --workflow=pages.yml --limit 1   # "completed success"
     curl -s -o /dev/null -w "%{http_code}\n" https://iasips.in/journal/<slug>/
 
-Specimens: the entries dated July–September 2026 are stand-ins written to
-exercise the design (WORKLOG lists them). Delete them when real entries
-exist; Kalyan says when.
+Specimen: `content/journal/2026-10-20-design-specimen.md` (a draft, so
+never live) shows every element in lorem ipsum. Check a design change
+against it on the local preview. The twelve stand-in entries of
+July–September 2026 were deleted on Kalyan's word, 2026-10-20.
 
 ## 8. Facts only Kalyan supplies
 

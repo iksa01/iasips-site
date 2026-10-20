@@ -215,8 +215,14 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
 
 - hr: 1px dashed #ccc, 35px above/below (markdown `---`); `***` = "⁂".
 - Two list registers (split 2026-08-30):
-  **Prose lists**, inside an entry — hanging en-dash marker in #999, 3px
-  padding, NO rules. A bulleted argument must not read as a table.
+  **Prose lists**, inside an entry — since 2026-10-20 (design change,
+  Kalyan: "even under numbered bullets and listed bullets he uses these
+  dashes") v4's rows: 5px padding, 1px dashed #DDD below each row, dashed
+  #CCC above a bulleted list's first row (v4 gives an ol no top rule).
+  Markers hang in the margin as v4's ol numbers do: en dash #999 for
+  bullets, CSS-counter numbers #999 for ol (so `3.` start numbers are not
+  honoured). Phone tier: the markers come inside, the 18px gutter being
+  too narrow.
   **Ledger lists** — the archive, the about-page data lists, the sidebar:
   v4's rows, 15px, 5px padding, dashed #DDD below, dashed #CCC above the
   first; `span` inside a row is 11px italic #999.
@@ -258,8 +264,12 @@ Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
   Prism classes (ours) in the palette only: keywords/tags red, strings
   #d24b21, comments #999 italic, numbers #666, names #000. Inline code
   12px Courier on #EEE. No client script.
-- Images: 7px #FFFAFA padding, 1px #ddd border, shadow; caption = the
-  markdown image title, 12px #666 (v4 cite).
+- Images: 7px #FFFAFA padding, 1px #ddd border, shadow (v4's frame, kept
+  2026-10-20: Kalyan chose it over a frameless wide picture). A picture
+  alone in a paragraph is `figure.pic`, the column's full width; an upright
+  one (taller than wide, from manifest.json) is set at 62%. Caption = the
+  markdown image title, "Words | Credit": the words 13px italic #555, the
+  credit 11px spaced caps #888 to the right (under it on a phone).
 
 ## 7b. The 2026 body (ours — Kalyan, 2026-08-30: "imagine we are
 rebuilding Colly in 2026"; the shell stays v4, the post body gains
@@ -325,6 +335,11 @@ modern elements drawn in v4's vocabulary)
 - Note entries (type: note, 2026-09-03): a short thought, shown whole on
   the index (§4) and as an ordinary entry at its permalink.
 
+- A quote's name always sits outside the quote (design change 2026-10-20,
+  Kalyan: "the author will be outside the quote"): a closing `<cite>` —
+  its own paragraph or the last line — is lifted out by the "quotes"
+  transform: under a rose panel as p.quote-who, under a plain blockquote
+  as p.quote-by (12px italic #666, set right, "— " before it).
 - `::: quote` (design change 2026-09-26) gives the same panel and name
   line inside an essay (p.quote-who is not paragraph-numbered). Quote
   numbers were built the same day and removed on Kalyan's word.
@@ -340,13 +355,14 @@ space before the file arrives. An unprepared image still works, as a plain
 img. No client script; no npm package — PIL does the work at prepare time.
 
 §7c. Press cutting (`::: clipping Source line`, 2026-09-03, for the Press
-category): a block with 1px dashed #BBB edges on #FFFDFB, the source in
-12px spaced caps #6c6c6c, then the picture (1px #DDD border, no shadow)
-and the quoted passage at 15px/24px with no blockquote rule. The analysis
-follows OUTSIDE the block in ordinary paragraphs. The cutting may be the
-whole page — Kalyan's decision, 2026-09-04, after the copyright concern was
-put to him: "the full image will be shown but what we add below that is
-more important." The quoted passage and the analysis carry the post.
+category). Redone 2026-10-20 (Kalyan: the whole page squeezed into the
+column with a dashed frame was "not like professional look"): no frame;
+the picture is an ordinary framed figure, linked to its own full-size file,
+with the source line as its credit; the quoted passage a plain blockquote;
+a "See the full page →" link may follow. Show a readable crop (headline,
+illustration, the passage) and link the whole page. The source line stands
+above in 12px spaced caps only when the clipping has no picture. The
+analysis follows OUTSIDE the block in ordinary paragraphs.
 
 ## 10. Motion and JavaScript
 
@@ -403,7 +419,7 @@ package-lock.json, .nvmrc, reference/**, this file.
 | ≤509px: fixed 306px canvas | fluid phone tier, 10px paper each side | Kalyan 2026-09-02, the paper "eating up a lot of space" |
 | jQuery scrollTo for footnotes | `scroll-margin-top` on markers and notes | no script |
 | answer skeleton set as a code block | `::: plan` printed grid | Kalyan: "the worst of all the designs" — it was never code |
-| v4 dashed rows for every list | prose lists get hanging en-dashes, no rules | a bulleted argument is not a table |
+| v4 dashed rows for every list | the same since 2026-10-20 (hanging en-dashes kept as bullets); 2026-08-30 to 2026-10-20 prose lists had no rules | Kalyan 2026-10-20: lists should carry v4's dashes |
 | — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
 | post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |
 | ragged-right paragraphs | ragged right again (justified 09-03 → 09-26); `updated` line kept | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |

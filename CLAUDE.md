@@ -64,6 +64,5 @@ Node 24 (`.nvmrc`). Never `npm install`; the lockfile is frozen.
 ## Every "TODO:" in the tree is a fact only Kalyan can supply
 
 Masthead lines, straps, page taglines, the about text, external
-destinations, colophon lines, `site.url`, the portrait image, and the
-three sample journal entries (public-domain stand-ins, delete when real
-entries exist). Never replace a TODO with a plausible guess.
+destinations, colophon lines, `site.url`, the portrait image. The stand-in entries were
+deleted 2026-10-20; the design specimen is a lorem-ipsum draft. Never replace a TODO with a plausible guess.

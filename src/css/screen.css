@@ -156,17 +156,21 @@ div#content-pri .sidehead-list li::before { content: none; }
 div#content-pri .sidehead-list li > strong:first-child { display: block; margin-bottom: 2px;
     font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #333; }   /* #6c6c6c → #333, design change 2026-09-26 */
 
-/* Prose lists inside an entry: hanging markers, no rules. The dashed-rule
-   rows stay for ledger lists (archive, books, the sidebar). */
-div#content-pri .entry > ul, div#content-pri .commentary > ul { list-style: none; margin: 0 0 15px 0; padding: 0 0 0 16px; }
-div#content-pri .entry > ul > li, div#content-pri .commentary > ul > li {
-    position: relative; width: auto; padding: 0 0 9px 0; border: 0; line-height: 23px; }
+/* Prose lists inside an entry: v4's ruled rows (design change 2026-10-20, Kalyan: "even under numbered
+   bullets and listed bullets he uses these dashes"), checked against v4's screen.css: each row 5px above and
+   below with a 1px dashed #DDD rule under it, a dashed #CCC rule over a bulleted list's first row only, the
+   rules running the text's width. v4's numbers hang in the margin; our bullets (an en dash) hang with them. */
+div#content-pri .entry > ul, div#content-pri .commentary > ul,
+div#content-pri .entry > ol, div#content-pri .commentary > ol { list-style: none; margin: 0 0 15px 0; padding: 0; counter-reset: li; }
+div#content-pri .entry > ul > li, div#content-pri .commentary > ul > li,
+div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li {
+    position: relative; width: auto; padding: 5px 0; border-bottom: 1px dashed #DDD; line-height: 23px; }
+div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li { counter-increment: li; }
+div#content-pri .entry > ul > li:first-child, div#content-pri .commentary > ul > li:first-child { border-top: 1px dashed #CCC; }
 div#content-pri .entry > ul > li::before, div#content-pri .commentary > ul > li::before {
     content: "\2013"; position: absolute; left: -16px; color: #999; }
-div#content-pri .entry > ol, div#content-pri .commentary > ol { margin: 0 0 15px 0; padding: 0 0 0 22px; list-style: decimal outside; }
-div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li {
-    width: auto; padding: 0 0 9px 0; border: 0; line-height: 23px; }
-div#content-pri .entry > ol > li::marker { color: #999; }
+div#content-pri .entry > ol > li::before, div#content-pri .commentary > ol > li::before {
+    content: counter(li) "."; position: absolute; right: 100%; margin-right: 7px; color: #999; font-variant-numeric: tabular-nums; }
 div#content-pri .entry > ul ul, div#content-pri .entry > ol ul { margin: 4px 0 4px 0; }
 
 /* Tables sit inside the measure with v4's ledger rules (2026-09-02; the
@@ -271,6 +275,10 @@ div#content-pri p.quote-who { margin: 16px 0 12px 0; padding: 0 16px 0 0; font-s
 div#content-pri p.quote-who cite { display: inline; margin: 0; font-size: inherit; font-style: normal; }
 div#content-pri p.quote-who cite em { font-style: italic; }
 div#content-pri p.quote-who::before { content: "— "; }
+/* a plain blockquote's name, lifted out under the quote and set right (design change 2026-10-20) */
+div#content-pri p.quote-by { margin: -4px 0 20px 0; font-size: 12px; line-height: 19px; font-style: italic; color: #666; text-align: right; }
+div#content-pri p.quote-by cite { display: inline; margin: 0; font-size: inherit; }
+div#content-pri p.quote-by::before { content: "— "; font-style: normal; }
 
 /* journal pages: older / newer entries and the page count (design change 2026-09-26) */
 div#content-pri p.pages { display: flex; justify-content: space-between; gap: 10px; margin: 10px 0 0 0; padding: 10px 0; font-size: 12px;
@@ -306,17 +314,22 @@ div#content-pri aside.callout-key p.callout-title { color: #ba1820; }
 div#content-pri aside.callout-warning { border-left-color: #ba1820; }
 div#content-pri aside.callout-warning p.callout-title { color: #ba1820; }
 
-/* press cutting (::: clipping Source) — a cut-out from the paper: dashed edges, the source in spaced caps,
-   the quoted passage at reading size with no blockquote rule; the analysis runs on outside the block */
-div#content-pri .clipping { margin: 6px 0 22px 0; padding: 12px 15px 4px 15px; border: 1px dashed #BBB; background: #FFFDFB; }
+/* pictures (design change 2026-10-20, Kalyan: "B like colly"): v4's frame — 7px mat, hairline, soft shadow —
+   the full width of the column; caption in italic, the credit in spaced caps beside it */
+div#content-pri figure.pic { margin: 26px 0 28px; }
+div#content-pri figure.pic img { display: block; width: 100%; height: auto; margin: 0; padding: 7px; background: #FFFAFA;
+    border: 1px solid #DDD; box-shadow: 1px 1px 7px rgba(153,153,153,.2); }                     /* v4's own image frame */
+div#content-pri figure.pic figcaption { display: flex; justify-content: space-between; gap: 18px; margin-top: 9px;
+    font-size: 13px; line-height: 19px; color: #555; }
+div#content-pri figure.pic .cap { font-style: italic; }
+div#content-pri figure.pic .credit { flex: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #888; }
+div#content-pri figure.pic:has(img.upright) { width: 62%; }                   /* an upright picture is not set a column wide */
+/* press cutting (::: clipping Source) — design change 2026-10-20: no dashed frame; the cutting is a picture like
+   any other (linked to its full page), its source the credit; the quoted passage a plain blockquote; the analysis
+   runs on outside the block */
+div#content-pri .clipping { margin: 6px 0 22px 0; }
 div#content-pri .clipping p.clipping-source { margin: 0 0 10px 0; font-size: 12px; font-style: normal; text-transform: uppercase;
     letter-spacing: 1px; color: #6c6c6c; }
-div#content-pri .clipping figure { margin: 0 0 12px 0; }
-div#content-pri .clipping img { margin: 0; padding: 0; border: 1px solid #DDD; box-shadow: none; width: 100%; height: auto; }
-div#content-pri .clipping figcaption { margin: 4px 0 0 0; }
-div#content-pri .clipping blockquote { padding: 0; border: 0; }
-div#content-pri .clipping blockquote p { font-size: 15px; line-height: 24px; color: #333; }
-div#content-pri .clipping blockquote cite { text-align: left; }
 div#content-pri .clipping > p { font-size: 14px; line-height: 20px; }
 div#content-pri picture { display: block; }
 /* collapsibles */
@@ -403,6 +416,7 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
   div#content-pri #post img { width: 380px; height: auto; }
+  div#content-pri #post figure.pic img { width: 100%; }
   div#siteinfo p { font-size: 14px; }
 }
 @media (max-width: 509px) {
@@ -419,6 +433,13 @@ div#content-pri p.meta span.rt { color: #6c6c6c; }
   div#content-pri .plan li { padding-left: 0; }
   div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
   div#content-pri #post img { width: auto; max-width: 100%; height: auto; }
+  div#content-pri #post figure.pic img { width: 100%; }
+  div#content-pri figure.pic figcaption { display: block; }
+  div#content-pri .entry > ul > li, div#content-pri .commentary > ul > li { padding-left: 16px; }
+  div#content-pri .entry > ul > li::before, div#content-pri .commentary > ul > li::before { left: 0; }
+  div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li { padding-left: 22px; }
+  div#content-pri .entry > ol > li::before, div#content-pri .commentary > ol > li::before { right: auto; left: 0; margin: 0; }
+  div#content-pri figure.pic .credit { display: block; margin-top: 3px; }
   div#siteinfo p { font-size: 12px; }
 }
 
