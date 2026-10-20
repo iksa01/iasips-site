@@ -34,7 +34,7 @@
     "held": "Independence of the judiciary is part of the basic structure." },
   { "slug": "puttaswamy-aadhaar", "name": "Puttaswamy (Aadhaar)", "year": 2018, "match": ["Puttaswamy"],
     "short": "Money Bill test later doubted",
-    "held": "TODO: what it held. The journal records only that Rojer Mathew, 2019, doubted whether it applied the Money Bill test correctly." },
+    "held": "A five-judge bench upheld the Aadhaar Act, 2016, including its passage as a Money Bill (Justice Chandrachud dissenting), but struck down Section 57, which let private bodies demand Aadhaar, and the mandatory linking of bank accounts and mobile numbers. Rojer Mathew, 2019, later doubted its reading of the Money Bill test." },
   { "slug": "rojer-mathew", "name": "Rojer Mathew", "year": 2019, "match": ["Rojer Mathew"],
     "short": "Money Bill question referred to a larger bench",
     "held": "A five-judge bench doubted whether Puttaswamy (Aadhaar), 2018, had applied the Money Bill test correctly and referred the question to a larger bench." }

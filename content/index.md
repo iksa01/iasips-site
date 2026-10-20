@@ -1,6 +1,5 @@
 ---
-title: "TODO: home page title"
-sub: "TODO: one witty tagline line"
+title: "The considered notes and journal"
 layout: layouts/home.njk
 permalink: /
 ---

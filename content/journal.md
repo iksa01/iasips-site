@@ -1,6 +1,6 @@
 ---
 title: "The Journal"
-sub: "TODO: one witty tagline line (v4 form: “Notes from the field”)"
+sub: "Underlined, dog-eared and kept"
 layout: layouts/journal.njk
 templateEngineOverride: njk
 pagination:

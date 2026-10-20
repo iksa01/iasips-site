@@ -1,6 +1,6 @@
 ---
 title: "The Archive"
-sub: "TODO: one witty tagline line"
+sub: "Everything kept, in order of appearance"
 layout: layouts/archive.njk
 permalink: /archive/
 ---

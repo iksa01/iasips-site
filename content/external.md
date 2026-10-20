@@ -1,8 +1,8 @@
 ---
 title: "External References"
-sub: "TODO: one witty tagline line"
+sub: "The same voice, in other rooms"
 layout: layouts/page.njk
 bodyClass: external
 permalink: /external/
 ---
-TODO: a short paragraph in Kalyan’s voice introducing the destinations listed below. The card rows themselves come from `src/_data/site.json`.
+The journal is the quiet room. Longer letters to aspirants go out on UPSCVerse, my Substack; pictures go to Instagram, and shorter thoughts to X. The RSS feed brings every new entry here straight to your reader.
