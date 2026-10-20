@@ -708,7 +708,7 @@ Kalyan: "what are the todos pending make it progessional and fill them".
 Filled in the site's existing register (straps such as "Prepared with due
 diligence"): home title "The considered notes and journal" (home sub
 dropped, so the meta description falls back to site.description);
-taglines — Journal "Underlined, dog-eared and kept", Archive "Everything
+taglines — Journal "Underlined, dog-eared and kept" (replaced the same day, Kalyan: "dog eared ? really ? professional ?", by "Lines, books and notes worth keeping"), Archive "Everything
 kept, in order of appearance", External "The same voice, in other rooms",
 Contact "Status: reading the mail"; the External paragraph; Contact text
 pointing to X/Instagram @UPSCVerse and Substack replies (no email: an
@@ -717,3 +717,4 @@ cases.json. images/og.jpg (1200×630, the masthead drawn in League Gothic)
 as site.ogImage, and twitter:card summary_large_image when one is set.
 Left as TODO: the three drafts' comments and the Better India caption —
 his opinions, and the drafts are not live.
+Contact, same day: kalyan@iksa.in and Telegram @Kalyanzz, both from Kalyan.

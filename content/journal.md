@@ -1,6 +1,6 @@
 ---
 title: "The Journal"
-sub: "Underlined, dog-eared and kept"
+sub: "Lines, books and notes worth keeping"
 layout: layouts/journal.njk
 templateEngineOverride: njk
 pagination:
