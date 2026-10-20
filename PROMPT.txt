@@ -10,7 +10,7 @@ Rules: do not invent my words — every "TODO:" is a fact only I can supply.
 Never run npm install. Do not change src/css/, src/_includes/ or
 .eleventy.js unless my instruction contains the phrase "design change".
 
-The dev server is already running at http://localhost:8080/ — do not start
-another one.
+For a local preview, check whether http://localhost:8080/ answers; start
+`npx @11ty/eleventy --serve --port 8080` in the background only if it does not.
 
 Tell me where we left off and what is waiting on me.
