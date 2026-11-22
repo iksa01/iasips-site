@@ -35,7 +35,7 @@
     TO CHANGE THE LOOK: put the words "design change" in the instruction.
 
     OTHER ASKS: "Where are we?"  "What is waiting on me?"
-      "Delete the specimens."  "Show me the last build."  "Push."
+      "Show me the last build."  "Push."
       "Frozen." (locks the design)
 
     RULES CLAUDE FOLLOWS: only your words get published; blanks become

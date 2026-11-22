@@ -33,8 +33,8 @@ contrast; link hover #005A7A; the tip box tint #EEF6F9 (the link blue at 7%).
 
 - Georgia, "Times New Roman", Times, serif — a system font, nothing downloaded. Never a
   sans-serif for text. Old-style figures in running text; lining figures in tables.
-- Code: the system monospace (ui-monospace, SF Mono, Menlo, Consolas). VT323 and League
-  Gothic stay in src/fonts/ but are no longer used.
+- Code: the system monospace (ui-monospace, SF Mono, Menlo, Consolas). No font files are
+  shipped (League Gothic and VT323 were removed 2026-11-22; Colly's are at tag colly-v4).
 - Body 20px / 1.65 (phones 18px / 1.6). Paragraphs 1.1em apart. Ragged right.
 - Page title 40px bold #001523 (phones 31px); stream title 30px (phones 25px); in-body h2
   26px, h3 21px, h4 20px italic.
@@ -186,9 +186,11 @@ ready to write in. Publishing is unchanged (HANDBOOK §7).
 
 ## 11. Permanently forbidden
 
-JavaScript on the page; webfonts beyond the two files already in src/fonts/; embeds;
+JavaScript on the page; webfonts; embeds;
 analytics; a sidebar; colours outside §3.
 
 ## 12. Frozen files covered by this spec
 
 src/css/screen.css, src/_includes/**, src/_data/site.json, .eleventy.js, today.sh.
+(The lorem-ipsum design specimen was deleted 2026-11-22 on Kalyan's word; it is in git
+history if a test page is ever wanted again.)

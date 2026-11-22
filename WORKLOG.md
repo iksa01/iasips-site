@@ -906,3 +906,17 @@ between an About ledger item and its note, feed link type application/atom+xml, 
 alt "Kalyan Inampudi at a microphone". Left for later: per-quote descriptions, pruning
 unused engravings/fonts and Colly-era keys in site.json.
 
+## 2026-11-22 (l) — lorem ipsum removed; housekeeping
+
+Kalyan: "remove all the lorem ipsum … You can do the housekeeping."
+- Deleted: the design-specimen draft, images/specimen/, files/specimen/ (and their
+  manifest entries), and the build step that kept them off the live site.
+- Deleted, unused since the redesign: images/engravings/ (68 files, 1.3 MB; credits were in
+  its CREDITS.md), src/fonts/ (League Gothic, VT323, OFL), the versals filter.
+- site.json slimmed to what the site uses: url, title, description, ogImage, amazonTag,
+  affiliateNote, author, language, intro (the home line, was nav[0].home.copy),
+  externals (href + label), colophon. The Colly masthead, nav cards, straps, kern and
+  favourites keys are gone (all at tag colly-v4).
+- Sitemap: lastmod only on journal entries (real dates); 404.html has no canonical.
+- Docs updated (CLAUDE, HANDBOOK, RESTART, HOW-TO-START, DESIGN, AGENTS).
+

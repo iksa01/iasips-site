@@ -258,14 +258,6 @@ module.exports = function (eleventyConfig) {
      point at a page or file that exists, and a #fragment at an id on that page. A live build
      (the one GitHub runs) stops with the list of broken links, so a broken site is never
      published; the local preview only warns. Outside links are not checked. */
-  // The design specimen is a draft: its pictures and PDF stay off the live site (2026-11-22, final audit).
-  eleventyConfig.on("eleventy.after", ({ runMode, results }) => {
-    if (runMode !== "build") return;
-    const fs = require("fs"), path = require("path");
-    const home = results.find((r) => r.url === "/");              // the folder this build wrote to (works with --output)
-    const outDir = home ? path.dirname(path.resolve(home.outputPath)) : "_site";
-    for (const d of ["images/specimen", "files/specimen"]) fs.rmSync(path.join(outDir, d), { recursive: true, force: true });
-  });
   eleventyConfig.on("eleventy.after", ({ results, runMode }) => {
     const fs = require("fs"), path = require("path");
     // the folder this build actually wrote to, taken from the home page's output path (works with --output)
@@ -295,7 +287,7 @@ module.exports = function (eleventyConfig) {
     if (runMode === "build") throw new Error(msg);
     console.warn(msg);
   });
-  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/fonts": "fonts", "images": "images", "files": "files" });
+  eleventyConfig.addPassthroughCopy({ "src/css": "css", "images": "images", "files": "files" });
   eleventyConfig.setServerOptions({ showAllHosts: false });
 
   /* ---------- Drafts and scheduled entries (design change 2026-09-26) ----------
@@ -470,18 +462,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("casesByYear", CASES);
   // One line of markdown, e.g. a case's holding on /cases/.
   eleventyConfig.addFilter("mdInline", (s) => md.renderInline(String(s || "")));
-
-  // Nav-card versals (DESIGN.md §5): wrap the initial capital of each word in
-  // its own span. `kern` is an optional {wordIndex: className} map, e.g.
-  // {"0": "kern-a"} for letters needing optical correction.
-  eleventyConfig.addFilter("versals", (label, kern) => {
-    const k = kern || {};
-    return String(label).split(" ").map((w, i) => {
-      if (!w) return w;
-      const cls = k[i] ? ` class="${k[i]}"` : "";
-      return `<span${cls}>${md.utils.escapeHtml(w[0])}</span>${md.utils.escapeHtml(w.slice(1))}`;
-    }).join(" ");
-  });
 
   // Table of contents from rendered HTML: [{id, text, level, children}] for h2/h3.
   eleventyConfig.addFilter("toc", (html) => {

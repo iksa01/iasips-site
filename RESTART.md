@@ -51,7 +51,6 @@ Serves on <http://localhost:8080/>. Pages:
 |---|---|
 | `/` | home: masthead, four cards, external references, colophon |
 | `/journal/` | the journal index — the page you called "beautiful" |
-| `/journal/design-specimen/` | every element in lorem ipsum — a draft, so only on the local preview |
 | `/about/` `/archive/` `/external/` `/contact/` | the rest |
 
 Stop the server with Ctrl+C.

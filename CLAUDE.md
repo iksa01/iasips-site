@@ -50,15 +50,14 @@ Node 24 (`.nvmrc`). Never `npm install`; the lockfile is frozen.
 
 | thing | file |
 |---|---|
-| masthead lines, nav straps/labels, external cards, colophon | `src/_data/site.json` (frozen — voice content, set once) |
+| title, description, home intro, footer links, colophon, Amazon tag and note | `src/_data/site.json` |
 | books / talks / interviews on the about page | `src/_data/{books,talks,interviews}.json` (append-only) |
 | pages | `content/{index,about,journal,archive,external,contact}.md` |
 | journal entries | `content/journal/<slug>.md` → `/journal/<slug>/` |
 | layouts & partials | `src/_includes/` |
 | the stylesheet | `src/css/screen.css` (DESIGN.md) |
-| fonts | none loaded: Georgia and the system monospace. League Gothic and VT323 stay in `src/fonts/`, unused since 2026-11-22 |
+| fonts | none: Georgia (Charter on About) and the system monospace |
 | start today's post | `./today.sh "The title"` |
-| engravings | `images/engravings/` — unused since 2026-11-22 (CREDITS.md) |
 | markdown config (typographer, footnotes, figures, asterism) | `.eleventy.js` |
 | the old reference | `~/Sites/colly-v4-reference/` (private, on Kalyan's Mac only) — only for restoring the Colly design |
 
@@ -66,4 +65,4 @@ Node 24 (`.nvmrc`). Never `npm install`; the lockfile is frozen.
 
 Masthead lines, straps, page taglines, the about text, external
 destinations, colophon lines, `site.url`, the portrait image. The stand-in entries were
-deleted 2026-10-20; the design specimen is a lorem-ipsum draft. Never replace a TODO with a plausible guess.
+deleted 2026-10-20; the lorem-ipsum specimen was deleted 2026-11-22. Never replace a TODO with a plausible guess.

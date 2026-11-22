@@ -5,88 +5,26 @@
   "ogImage": "/images/og.jpg",
   "amazonTag": "parivarthan-21",
   "affiliateNote": "Links to books on Amazon in this journal are affiliate links: as an Amazon Associate I earn from qualifying purchases.",
-  "favouritesHeading": "Kalyan’s Favourites",
-  "favourites": [],
   "author": "Kalyan Inampudi",
   "language": "en",
-  "masthead": {
-    "strap": "Established Hyderabad 2016",
-    "line": "The considered notes and journal of",
-    "name": "Kalyan"
-  },
-  "nav": [
-    {
-      "href": "/about/",
-      "strap": "Prepared with due diligence",
-      "label": "About Kalyan",
-      "home": {
-        "lead": "Hello",
-        "after": ".",
-        "copy": "I’m Kalyan Inampudi, Chief Mentor at La Excellence IAS in Hyderabad, where I teach Essay and Ethics. This is where I share what my curiosity finds each day.",
-        "more": "Please read on &rarr;"
-      },
-      "engraving": "/images/engravings/obi/lamp.png"
-    },
-    {
-      "href": "/journal/",
-      "strap": "Notes from the reading room",
-      "label": "The Journal",
-      "engraving": "/images/engravings/obi/stationery.png"
-    },
-    {
-      "href": "/archive/",
-      "strap": "Filed and cross-referenced",
-      "label": "The Archive",
-      "engraving": "/images/engravings/obi/book-candle-tailpiece.png"
-    },
-    {
-      "href": "/contact/",
-      "strap": "Kalyan is presently",
-      "label": "Receiving Your Emails",
-      "home": {
-        "lead": "Opinions & queries this way",
-        "after": ".",
-        "copy": "Drop me a line if you wish. I read everything that arrives and reply as promptly as the reading allows.",
-        "more": "&rarr;"
-      },
-      "kern": {
-        "0": "kern-a"
-      },
-      "engraving": "/images/engravings/obi/man-reading-mail.png"
-    }
-  ],
-  "externalsHref": "/external/",
+  "intro": "I’m Kalyan Inampudi, Chief Mentor at La Excellence IAS in Hyderabad, where I teach Essay and Ethics. This is where I share what my curiosity finds each day.",
   "externals": [
-    [
-      {
-        "href": "https://upsc.substack.com",
-        "strap": "Longer letters, now and then",
-        "label": "Substack Letters",
-        "short": "Substack",
-        "engraving": "/images/engravings/obi/quill-pencil.png"
-      },
-      {
-        "href": "https://instagram.com/UPSCVerse",
-        "strap": "Pictures from the field",
-        "label": "Instagram Pictures",
-        "short": "Instagram",
-        "engraving": "/images/engravings/desk/camera-kodak.png"
-      },
-      {
-        "href": "https://x.com/UPSCVerse",
-        "strap": "Shorter thoughts, more often",
-        "label": "Follow Me On X",
-        "short": "X",
-        "engraving": "/images/engravings/obi/edisons-electric-pen.png"
-      },
-      {
-        "href": "/feed.xml",
-        "strap": "Every entry, delivered to you",
-        "label": "RSS Feed",
-        "short": "RSS",
-        "engraving": "/images/engravings/desk/post-rider.png"
-      }
-    ]
+    {
+      "href": "https://upsc.substack.com",
+      "label": "Substack"
+    },
+    {
+      "href": "https://instagram.com/UPSCVerse",
+      "label": "Instagram"
+    },
+    {
+      "href": "https://x.com/UPSCVerse",
+      "label": "X"
+    },
+    {
+      "href": "/feed.xml",
+      "label": "RSS"
+    }
   ],
   "colophon": [
     "© 2026 <a href=\"/about/\">Kalyan Inampudi</a>"

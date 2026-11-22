@@ -12,8 +12,8 @@ You may edit ONLY:
 - drafts/**
 
 Everything else is read-only. Explicitly frozen: src/css/**,
-src/fonts/**, src/_includes/**, src/_data/site.json, .eleventy.js,
-content/*.njk, content/journal/journal.11tydata.js, images/engravings/**,
+src/_includes/**, src/_data/site.json, .eleventy.js,
+content/*.njk, content/journal/journal.11tydata.js,
 package.json, package-lock.json, .nvmrc, reference/**, DESIGN.md,
 AGENTS.md, CLAUDE.md, _redirects, and any CI configuration.
 

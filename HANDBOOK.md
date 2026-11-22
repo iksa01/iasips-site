@@ -269,9 +269,6 @@ guess an attribution.
     gh run list --workflow=pages.yml --limit 1   # "completed success"
     curl -s -o /dev/null -w "%{http_code}\n" https://iasips.in/journal/<slug>/
 
-Specimen: `content/journal/2026-10-20-design-specimen.md` (a draft, so
-never live) shows every element in lorem ipsum. Check a design change
-against it on the local preview. The twelve stand-in entries of
 July–September 2026 were deleted on Kalyan's word, 2026-10-20.
 
 ## 8. Facts only Kalyan supplies

@@ -10,7 +10,9 @@
 {%- set pageDescription = (sub or site.description) | striptags %}
 <meta name="description" content="{{ pageDescription | escape }}">
 <meta name="author" content="{{ site.author }}">
+{%- if page.url != "/404.html" %}
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{%- endif %}
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:type" content="{% if bodyId == "article" %}article{% else %}website{% endif %}">
 <meta property="og:title" content="{{ (title or site.title) | escape }}">

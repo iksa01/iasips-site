@@ -1,7 +1,7 @@
 {#- The footer (2026-11-22, after Jason Santa Maria's v5): one centred line — the copyright, then
     Substack, Instagram, X and RSS from site.externals, divided by bullets — and the rest of the colophon under it. -#}
 <div id="siteinfo">
-<p><span class="foot-copy">{{ site.colophon[0] | safe }}</span><span class="foot-links">{% for row in site.externals %}{% for item in row %}<span class="foot-sep" aria-hidden="true">&bull;</span><a href="{{ item.href }}">{{ item.short or item.label }}</a>{% endfor %}{% endfor %}</span></p>
+<p><span class="foot-copy">{{ site.colophon[0] | safe }}</span><span class="foot-links">{% for item in site.externals %}<span class="foot-sep" aria-hidden="true">&bull;</span><a href="{{ item.href }}">{{ item.label }}</a>{% endfor %}</span></p>
 {%- for p in site.colophon %}{% if not loop.first %}
 <p class="foot-small">{{ p | safe }}</p>
 {%- endif %}{% endfor %}
