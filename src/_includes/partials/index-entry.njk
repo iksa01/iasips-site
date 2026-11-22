@@ -1,8 +1,8 @@
 {#- One entry in the stream (home, journal, category pages): the margin ledger at the left, the words at the right.
     Quotes and notes are shown whole; an essay shows its opening paragraph and a link on. Expects: e. -#}
 <article class="post row">
-{%- set sd = e.date %}{% set stags = e.data.tags %}{% set supdated = "" %}
-{%- if e.data.type == "quote" or e.data.type == "note" %}{% set slink = e.url %}{% set smins = "" %}{% else %}{% set slink = "" %}{% set smins = e.templateContent | readingTime %}{% endif %}
+{%- set sd = e.date %}{% set stags = e.data.tags %}{% set supdated = "" %}{% set slink = e.url %}{% set sagain = again %}
+{%- set smins = "" if (e.data.type == "quote" or e.data.type == "note") else (e.templateContent | readingTime) %}
 {%- include "partials/side.njk" %}
 <div class="main">
 {%- if e.data.type == "quote" %}

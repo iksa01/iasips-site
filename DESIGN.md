@@ -98,11 +98,15 @@ canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from
 Model D of four shown to Kalyan on 2026-11-22 ("d"): all of an entry's details in one
 place. Every entry — in the stream and on its own page — is a two-column row: a 130px
 column at the left, right-aligned, behind a 1px #DDD rule, then 28px, then the words.
-The column holds the day (30px ink), the month and year (12px spaced caps, 18px below),
-the categories, 8px between items, then "N min read" (essays) or "Permalink" (quotes and notes in the stream).
-At 1080px and wider the column hangs in the left margin (row margin −158px) so the text
-keeps the full 680px; narrower, it sits inside the column; at 600px and below it folds into
-one grey line above the entry: "30 Oct 2026 · Quotes · Permalink".
+The column holds the day (30px ink) and the month and year (13px spaced caps, lining
+figures, 18px below) — in the stream the date is itself the permalink — then the
+categories, 8px between items, then "N min read" for essays. A second entry of the same
+day shows a short grey dash in place of the date (still the permalink), like a diary.
+From 760px the column slides into the left margin as far as the window allows, up to its
+full 158px (--hang: min(158px, (100vw − 744px) / 2)), so the text keeps as much of the
+680px as it can; at 600px and below it folds into one grey line above the entry, the date
+always shown: "30 Oct 2026 · Quotes". Rules between entries run the text column's width
+only, matching the header and footer rules.
 
 The stream (seths.blog): a **note** in full under its 30px title; a **quote** in full
 (§7), no title; an **essay**: title, first paragraph, "Continue reading →". Entries are

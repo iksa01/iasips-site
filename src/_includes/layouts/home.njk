@@ -5,7 +5,9 @@ bodyClass: home
 {#- Home (2026-11 design): one line about Kalyan, then the newest entries in full, as on seths.blog. -#}
 {%- set about = site.nav[0].home %}
 {%- if about %}<p class="intro">{{ about.copy | safe }} <a href="/about/">More about me &rarr;</a></p>{% endif %}
-{%- for e in collections.journal | limit(10) %}
+{%- set entries = collections.journal | limit(10) %}
+{%- for e in entries %}
+{%- set again = loop.index0 > 0 and (entries[loop.index0 - 1].date | dateISO) == (e.date | dateISO) %}
 {%- include "partials/index-entry.njk" %}
 {%- endfor %}
 {%- if collections.journal.length > 10 %}

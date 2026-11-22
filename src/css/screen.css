@@ -48,15 +48,13 @@ nav a[aria-current] { text-decoration: underline; text-underline-offset: 6px; te
 main { padding: 48px 0 24px; }
 
 /* ---------- Home ---------- */
-.intro { margin: 0 0 8px; font-size: 22px; line-height: 1.5; font-style: italic; color: var(--muted); }
+.intro { margin: 0 0 4px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); color: var(--text); font-size: 20px; line-height: 1.6; }
 .more-link { margin: 40px 0 0; font-size: 18px; }
 
 /* ---------- Page titles ---------- */
 .page-title { margin: 0 0 8px; color: var(--ink); font-size: 40px; line-height: 1.15; font-weight: bold; letter-spacing: -.015em; text-wrap: balance; }
 .sub { margin: 0 0 28px; color: var(--muted); font-size: 21px; line-height: 1.45; font-style: italic; }
 .ord { font-size: inherit; }
-.categories { margin: -12px 0 8px; font-size: 16px; color: var(--muted); }
-.categories a { margin: 0 2px; }
 
 /* ---------- The margin ledger (Model D, 2026-11-22) ----------
    Every entry, in the stream and on its own page, is a row: a narrow column of details at the
@@ -65,19 +63,30 @@ main { padding: 48px 0 24px; }
    680px; narrower screens keep it inside; phones fold it into one line above. */
 .row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 28px; }
 .side { padding: 6px 18px 0 0; border-right: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.5; text-align: right; }
-.side a { color: var(--muted); }
-.side a:hover { color: var(--link); }
+.side a { color: var(--muted); text-decoration-color: rgba(98, 107, 114, .4); }
+.side a:hover { color: var(--link); text-decoration-color: currentColor; }
 .s-day, .s-item { display: block; }
+a.s-day { text-decoration: none; }
+a.s-day:hover .s-num, a.s-day:hover .s-mon { color: var(--link); }
 .s-num { display: block; color: var(--ink); font-size: 30px; line-height: 1; font-variant-numeric: lining-nums; }
-.s-mon { display: block; margin: 6px 0 18px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.s-mon { display: block; margin: 6px 0 18px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 .s-item + .s-item { margin-top: 8px; }
 .entry-row { margin-bottom: 8px; }
-@media (min-width: 1080px) {
-  .row { margin-left: -158px; }
+/* The column slides out into the margin as far as the window allows, up to its full 158px. */
+:root { --hang: 0px; }
+@media (min-width: 760px) {
+  :root { --hang: min(158px, (100vw - 744px) / 2); }
+  .row { margin-left: calc(-1 * var(--hang)); }
 }
+/* A second entry of the same day: a short dash where the date would be (the dash is still the permalink). */
+.s-again .s-num, .s-again .s-mon { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.s-again a.s-day::before { content: "—"; display: block; color: #c4c4c4; font-size: 22px; line-height: 1; }
+.s-again a.s-day:hover::before { color: var(--link); }
+.entry-row .quote-who:last-child { margin-bottom: 0; }
 
 /* ---------- The stream (home, journal, category pages) ---------- */
-.post { padding: 44px 0 40px; border-bottom: 1px solid var(--rule); }
+.post { position: relative; padding: 44px 0 40px; }
+.post::after { content: ""; position: absolute; right: 0; bottom: 0; left: var(--hang); border-top: 1px solid var(--rule); }
 .post:first-of-type { padding-top: 32px; }
 .post h2 { margin: 0 0 14px; font-size: 30px; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
 .post h2 a { color: var(--ink); text-decoration: none; }
@@ -121,7 +130,8 @@ blockquote.quote-panel { margin: 1.6em 0 14px; padding: 2px 0 2px 24px; border-l
 .main > blockquote.quote-panel, #post > blockquote.quote-panel { margin: 0 0 26px; padding: 0; border: 0; }
 blockquote.quote-panel em { font-style: normal; }
 .quote-who { margin: 0 0 1.6em; color: var(--text); font-size: 18px; text-align: right; text-wrap: balance; }
-.quote-who cite em { font-style: italic; color: var(--muted); }
+.quote-who cite em { font-style: italic; }
+blockquote p, .entry p, .post-body p { text-wrap: pretty; }
 .post .quote-who { margin-bottom: 0; }
 .commentary { margin-top: 8px; }
 
@@ -234,6 +244,8 @@ a.card-video:hover .cv-title { color: var(--link); }
 /* ---------- Entry foot: older / newer ---------- */
 .paginate { display: flex; justify-content: space-between; gap: 20px; margin: 48px 0 0; padding: 20px 0 0; border-top: 1px solid var(--rule); font-size: 17px; line-height: 1.45; }
 .paginate span:last-child { text-align: right; }
+.paginate a { text-decoration: none; }
+.paginate a:hover { text-decoration: underline; }
 .paginate small { display: block; color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 
 /* ---------- Archive ---------- */
@@ -242,8 +254,9 @@ a.card-video:hover .cv-title { color: var(--link); }
 .archive-list .date-heading:first-child { margin-top: 0; }
 .archive-list li { margin: 0 0 6px; }
 .archive-list time { display: inline-block; min-width: 2.2em; color: var(--muted); font-size: 16px; font-variant-numeric: lining-nums tabular-nums; }
-.jump { margin: 0 0 8px; color: var(--muted); font-size: 16px; }
-.jump a { margin: 0 2px; }
+.jump { margin: 0 0 32px; color: var(--muted); font-size: 16px; }
+.jump-label { margin-right: 6px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.jump-gap { display: inline-block; width: 28px; }
 
 /* ---------- About ---------- */
 .biography main { font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif; }
@@ -261,17 +274,21 @@ h6 { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing:
 .case p { margin: 0 0 6px; }
 .case-cited { color: var(--muted); font-size: 16px; font-style: italic; }
 
+/* Capitals take lining figures (old-style ones climb out of the cap line). */
+.s-mon, .archive-list .date-heading, .callout-title, th, .credit, .cv-source, .cp-source, .clipping-source,
+.toc-inline h3, .paginate small, h6, .sidehead-list li > strong:first-child, .jump-label { font-variant-numeric: lining-nums; }
+
 /* ---------- Footer ---------- */
 /* One centred line, after Jason Santa Maria's v5 footer (Kalyan, 2026-11-22): the copyright,
    then the links, divided by bullets; a smaller line under it. */
 footer { margin-top: 56px; padding: 26px 0 56px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.9; text-align: center; }
 footer p { margin: 0; }
-footer b { color: var(--ink); font-weight: bold; }
+footer b { color: inherit; font-weight: normal; }
 footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { color: var(--link); text-decoration: underline; }
 .foot-sep { margin: 0 9px; color: #c4c4c4; }
 .foot-copy, .foot-links { white-space: nowrap; }
-.foot-small { margin-top: 2px; font-size: 13px; font-style: italic; }
+.foot-small { margin-top: 0; }
 
 /* ---------- Phones ---------- */
 @media (max-width: 600px) {
@@ -292,6 +309,9 @@ footer a:hover { color: var(--link); text-decoration: underline; }
   .s-num, .s-mon { color: var(--muted); font-size: 15px; letter-spacing: 0; text-transform: none; margin: 0; }
   .s-item::before { content: " · "; }
   .s-item + .s-item { margin-top: 0; }
+  .s-again .s-num, .s-again .s-mon { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
+  .s-again a.s-day::before { content: none; }
+  .jump-gap { display: block; width: 0; height: 4px; }
   .plan li { grid-template-columns: 1fr; gap: 0; }
   .portrait { float: none; margin: 0 0 20px; }
   .card-book { flex-direction: column; }

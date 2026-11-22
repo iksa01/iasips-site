@@ -778,3 +778,19 @@ copyright + Substack • Instagram • X • RSS (`short` labels added in site.j
 rest of the colophon under it in italic. partials/external.njk removed.
 He also said the two intro lines on the home page "need to change" — waiting on his words.
 
+## 2026-11-22 (d) — Fable's review, all twelve tweaks plus one date per day
+
+Kalyan asked for Fable's opinion; a read-only review returned twelve tweaks and three
+optional ideas. Kalyan: "all lets see how it looks". Done:
+1 the date is the permalink, the word "Permalink" gone; 2 lining figures in every caps
+line; 3 rules between entries confined to the text column (::after, left = --hang);
+4 the ledger rule no longer dangles under a quote's name; 5 the home intro in plain 20px
+text with a rule under it (his words unchanged; new words still awaited); 6 the column
+slides out gradually from 760px instead of jumping at 1080px; 7 ledger links grey with a
+grey underline; 8 footer one weight, one size; 9 archive: "By year 2026  By category
+Quotes" on one line, 32px clear; journal's category line dropped; 10 Older/Newer labels
+not underlined; 11 the quote's name in one colour, text-wrap: pretty on paragraphs;
+12 month 13px. Plus the optional "one date per day": a second entry of the same day shows
+a dash. Not taken: hanging punctuation (Safari only), weekday in the ledger.
+Checked: build and link check pass; screenshots at 1280, 900, 500px; no sideways scroll at 320px.
+

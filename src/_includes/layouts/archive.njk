@@ -4,8 +4,7 @@ bodyClass: archive
 ---
 <h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
-<p class="jump">{% for g in collections.journal | byYear %}<a href="#{{ g.year }}-{{ (g.items[0].date | monthName) | lower }}">{{ g.year }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
-<p class="categories">{% for t in collections.journal | tagList %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+<p class="jump"><span class="jump-label">By year</span> {% for g in collections.journal | byYear %}<a href="#{{ g.year }}-{{ (g.items[0].date | monthName) | lower }}">{{ g.year }}</a>{% if not loop.last %} · {% endif %}{% endfor %}<span class="jump-gap"></span><span class="jump-label">By category</span> {% for t in collections.journal | tagList %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
 <ul class="archive-list">
 {%- for g in collections.journal | byMonth %}
 <li class="date-heading" id="{{ g.year }}-{{ g.month | lower }}">{{ g.month }} {{ g.year }}</li>

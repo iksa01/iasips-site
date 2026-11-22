@@ -5,9 +5,9 @@ bodyId: multiple
 ---
 <h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
-<p class="categories">{% for t in collections.journal | tagList %}<a href="/journal/category/{{ t | slugify }}/"{% if t == tag %} aria-current="page"{% endif %}>{{ t }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
 {%- set entries = (collections[tag] | reverse) if tag else (pageEntries or collections.journal) %}
 {%- for e in entries %}
+{%- set again = loop.index0 > 0 and (entries[loop.index0 - 1].date | dateISO) == (e.date | dateISO) %}
 {%- include "partials/index-entry.njk" %}
 {%- endfor %}
 {%- if pageEntries and pagination.pages.length > 1 %}

@@ -7,7 +7,7 @@ bodyId: article
 {%- set newer = collections.journal | getPreviousCollectionItem %}
 {%- set tocItems = content | toc if toc else [] %}
 <div class="row entry-row">
-{%- set sd = page.date %}{% set stags = tags %}{% set slink = "" %}{% set supdated = updated or "" %}
+{%- set sd = page.date %}{% set stags = tags %}{% set slink = "" %}{% set supdated = updated or "" %}{% set sagain = false %}
 {%- set smins = (content | readingTime) if (type != "quote" and type != "note") else "" %}
 {%- include "partials/side.njk" %}
 <div class="main">
