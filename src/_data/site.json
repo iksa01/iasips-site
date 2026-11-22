@@ -60,30 +60,34 @@
         "href": "https://upsc.substack.com",
         "strap": "Longer letters, now and then",
         "label": "Substack Letters",
+        "short": "Substack",
         "engraving": "/images/engravings/obi/quill-pencil.png"
       },
       {
         "href": "https://instagram.com/UPSCVerse",
         "strap": "Pictures from the field",
         "label": "Instagram Pictures",
+        "short": "Instagram",
         "engraving": "/images/engravings/desk/camera-kodak.png"
       },
       {
         "href": "https://x.com/UPSCVerse",
         "strap": "Shorter thoughts, more often",
         "label": "Follow Me On X",
+        "short": "X",
         "engraving": "/images/engravings/obi/edisons-electric-pen.png"
       },
       {
         "href": "/feed.xml",
         "strap": "Every entry, delivered to you",
         "label": "RSS Feed",
+        "short": "RSS",
         "engraving": "/images/engravings/desk/post-rider.png"
       }
     ]
   ],
   "colophon": [
-    "Copyright © Kalyan Inampudi 2026. All rights reserved. Grab the <a href=\"/feed.xml\">RSS feed</a>.",
-    "Written in Hyderabad. Built with <a href=\"https://www.11ty.dev/\">Eleventy</a>; set in Georgia."
+    "<b>Copyright © 2026</b> <a href=\"/about/\">Kalyan Inampudi</a>",
+    "All rights reserved. Written in Hyderabad; built with <a href=\"https://www.11ty.dev/\">Eleventy</a>."
   ]
 }

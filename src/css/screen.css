@@ -64,13 +64,13 @@ main { padding: 48px 0 24px; }
    at the right. Wide screens hang the column in the left margin so the text keeps the full
    680px; narrower screens keep it inside; phones fold it into one line above. */
 .row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 28px; }
-.side { padding: 6px 16px 0 0; border-right: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.5; text-align: right; }
+.side { padding: 6px 18px 0 0; border-right: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.5; text-align: right; }
 .side a { color: var(--muted); }
 .side a:hover { color: var(--link); }
 .s-day, .s-item { display: block; }
 .s-num { display: block; color: var(--ink); font-size: 30px; line-height: 1; font-variant-numeric: lining-nums; }
-.s-mon { display: block; margin: 4px 0 10px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-.s-item + .s-item { margin-top: 2px; }
+.s-mon { display: block; margin: 6px 0 18px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.s-item + .s-item { margin-top: 8px; }
 .entry-row { margin-bottom: 8px; }
 @media (min-width: 1080px) {
   .row { margin-left: -158px; }
@@ -118,7 +118,7 @@ blockquote p:last-child { margin-bottom: 0; }
 cite { font-style: normal; }
 .quote-by cite::before, .quote-who cite::before { content: "— "; }
 blockquote.quote-panel { margin: 1.6em 0 14px; padding: 2px 0 2px 24px; border-left: 4px solid var(--link); color: var(--ink); font-size: 24px; line-height: 1.5; font-style: italic; }
-.main > blockquote.quote-panel, #post > blockquote.quote-panel { margin-top: 0; padding: 0; border: 0; }
+.main > blockquote.quote-panel, #post > blockquote.quote-panel { margin: 0 0 26px; padding: 0; border: 0; }
 blockquote.quote-panel em { font-style: normal; }
 .quote-who { margin: 0 0 1.6em; color: var(--text); font-size: 18px; text-align: right; text-wrap: balance; }
 .quote-who cite em { font-style: italic; color: var(--muted); }
@@ -262,12 +262,16 @@ h6 { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing:
 .case-cited { color: var(--muted); font-size: 16px; font-style: italic; }
 
 /* ---------- Footer ---------- */
-footer { margin-top: 40px; padding: 28px 0 48px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; line-height: 1.6; }
-.elsewhere { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0 0 16px; padding: 0; list-style: none; font-size: 17px; }
-.elsewhere li { margin: 0; }
-#siteinfo p { margin: 0 0 4px; }
-#siteinfo a { color: var(--muted); }
-#siteinfo a:hover { color: var(--link); }
+/* One centred line, after Jason Santa Maria's v5 footer (Kalyan, 2026-11-22): the copyright,
+   then the links, divided by bullets; a smaller line under it. */
+footer { margin-top: 56px; padding: 26px 0 56px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.9; text-align: center; }
+footer p { margin: 0; }
+footer b { color: var(--ink); font-weight: bold; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--link); text-decoration: underline; }
+.foot-sep { margin: 0 9px; color: #c4c4c4; }
+.foot-copy, .foot-links { white-space: nowrap; }
+.foot-small { margin-top: 2px; font-size: 13px; font-style: italic; }
 
 /* ---------- Phones ---------- */
 @media (max-width: 600px) {
@@ -293,6 +297,8 @@ footer { margin-top: 40px; padding: 28px 0 48px; border-top: 1px solid var(--rul
   .card-book { flex-direction: column; }
   .paginate { flex-direction: column; }
   .paginate span:last-child { text-align: left; }
+  .foot-links { display: block; }
+  .foot-links > .foot-sep:first-child { display: none; }
 }
 
 @media print {

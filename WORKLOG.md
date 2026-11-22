@@ -768,3 +768,13 @@ Baskerville) were shown on a sample sheet. He chose "d and 2".
 - Checked: build exit 0 with link check; screenshots at 1280, 900 and 500px; no page
   scrolls sideways at 320px.
 
+## 2026-11-22 (c) — more air in the ledger, the name lower, a Jason Santa Maria footer
+
+Kalyan: more spacing in the left column, "push the name a little bit further down",
+a centred, more minimal footer after v5.jasonsantamaria.com (one small line: copyright,
+links, bullets, on a dark band there; here on white). Done: month 18px clear of the
+items, items 8px apart; the quote's name 26px below it; footer one centred line,
+copyright + Substack • Instagram • X • RSS (`short` labels added in site.json), the
+rest of the colophon under it in italic. partials/external.njk removed.
+He also said the two intro lines on the home page "need to change" — waiting on his words.
+

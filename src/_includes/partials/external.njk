@@ -1,6 +1,0 @@
-{#- Elsewhere: Substack, Instagram, X, RSS — the same destinations as before, as one line of links. -#}
-<ul class="elsewhere">
-{%- for row in site.externals %}{% for item in row %}
-<li><a href="{{ item.href }}">{{ item.label }}</a></li>
-{%- endfor %}{% endfor %}
-</ul>

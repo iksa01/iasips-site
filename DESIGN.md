@@ -66,8 +66,11 @@ White page (#FFFFFF). Links underlined at 40% of their colour, full colour on ho
     ── 1px rule ──
     main: one column, max 680px, centred, 24px gutters (18px on phones)
     ── 1px rule ──
-    footer: Substack Letters · Instagram Pictures · Follow Me On X · RSS Feed (site.externals)
-            the colophon lines (site.colophon)
+    footer: centred, 14px grey, after Jason Santa Maria's v5 (one line, bullets):
+            **Copyright © 2026** Kalyan Inampudi • Substack • Instagram • X • RSS
+            All rights reserved. Written in Hyderabad; built with Eleventy.   (13px italic)
+            (site.colophon[0], then site.externals' `short` labels, then the other colophon
+            lines; on phones the links drop to their own line)
 
 No sidebar on any page. The current nav item is blue and underlined. The head (description,
 canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from before.
@@ -95,8 +98,8 @@ canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from
 Model D of four shown to Kalyan on 2026-11-22 ("d"): all of an entry's details in one
 place. Every entry — in the stream and on its own page — is a two-column row: a 130px
 column at the left, right-aligned, behind a 1px #DDD rule, then 28px, then the words.
-The column holds the day (30px ink), the month and year (12px spaced caps), the
-categories, then "N min read" (essays) or "Permalink" (quotes and notes in the stream).
+The column holds the day (30px ink), the month and year (12px spaced caps, 18px below),
+the categories, 8px between items, then "N min read" (essays) or "Permalink" (quotes and notes in the stream).
 At 1080px and wider the column hangs in the left margin (row margin −158px) so the text
 keeps the full 680px; narrower, it sits inside the column; at 600px and below it folds into
 one grey line above the entry: "30 Oct 2026 · Quotes · Permalink".
@@ -108,7 +111,7 @@ divided by 1px rules, 44px above and 40px below.
 ## 7. Quotes
 
 - Quote entries: 24px italic ink (phones 21px), no rule of their own (the ledger's rule
-  is beside them); the name under it, RIGHT-aligned, 18px, "— Name, *Source*" with the
+  is beside them); the name 26px under it, RIGHT-aligned, 18px, "— Name, *Source*" with the
   source in grey italic.
 - `::: quote` inside an essay: the same type with a 4px #007CA7 rule at the left; the name
   right-aligned under it.
