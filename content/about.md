@@ -9,7 +9,7 @@ I am Kalyan Inampudi, a UPSC mentor and an edutainer from Hyderabad, a word I to
 
 I believe talent can come from any place; sometimes all it needs is a nudge. I have been reading the newspaper almost every day and sharing articles with aspirants since 2013. If one aspirant uses what I share and reaches their dream, that is the only satisfaction I need. Impact lies in quality and connect, not in numbers.
 
-I studied commerce at Osmania University. I am now pursuing my M.A. in Public Administration and Gandhian Ethics. I also have an online certification in AI from the London School of Economics.
+I studied commerce at Osmania University. I am now pursuing my M.A. in Public Administration and Gandhian Ethics. I also have an online certification in the Ethics of AI from the London School of Economics.
 
 This journal is my personal curiosity, not only about UPSC but about life, the world and India. Books, music, whatever I feel is worth sharing, I will keep sharing here.
 

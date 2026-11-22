@@ -889,4 +889,6 @@ worth sharing, I will keep sharing here."
 - Correction: "Later I was persuaded to pursue my M.A." was a voice-typing slip, taken
   literally; Kalyan is still pursuing it. Now: "I am now pursuing my M.A. in Public
   Administration and Gandhian Ethics."
+- The LSE certificate named, on Kalyan's word: "an online certification in the Ethics of
+  AI from the London School of Economics" (LSE Executive Education, Ethics of AI; no link).
 
