@@ -794,3 +794,11 @@ not underlined; 11 the quote's name in one colour, text-wrap: pretty on paragrap
 a dash. Not taken: hanging punctuation (Safari only), weekday in the ledger.
 Checked: build and link check pass; screenshots at 1280, 900, 500px; no sideways scroll at 320px.
 
+## 2026-11-22 (e) — phone audit
+
+Kalyan asked whether the site is iPhone- and phone-friendly. Measured in Chrome at 320,
+360, 375, 390, 414, 430, 768, 834, 1024 and 1280px on seven pages: no sideways scroll
+anywhere; body 18px on phones, 20px from 601px. Found: menu, ledger, footer and archive
+links 17–19px tall on phones, under WCAG 2.2's 24px target size. Fixed with padding
+(menu links now about 39px tall). Links inside sentences are exempt and unchanged.
+

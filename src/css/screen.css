@@ -296,7 +296,13 @@ footer a:hover { color: var(--link); text-decoration: underline; }
   #page { padding: 0 18px; }
   header { padding-top: 24px; }
   .site-name { font-size: 23px; }
-  nav ul { font-size: 16px; gap: 4px 18px; }
+  nav ul { font-size: 16px; gap: 0 18px; margin-left: -2px; }
+  /* Thumb-sized targets (WCAG 2.2 target size; Apple asks for 44px): links that are not inside a sentence
+     get padding so each is at least 24px high on a phone. */
+  nav a { display: inline-block; padding: 10px 2px; }
+  header { padding-bottom: 8px; }
+  .side a { display: inline-block; padding: 4px 0; }
+  footer a, .jump a, .paginate a { display: inline-block; padding: 4px 0; }
   main { padding-top: 32px; }
   .page-title { font-size: 31px; }
   .sub { font-size: 19px; }
