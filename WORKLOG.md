@@ -752,3 +752,19 @@ design change (the words were "desing changes").
 - Not yet done: images/og.jpg (link preview) still shows the old League Gothic
   masthead; the engravings and two font files stay in the repo, unused.
 
+## 2026-11-22 (b) — margin ledger (Model D) and Charter on About
+
+Kalyan, on the redesign: layout fine, Archive "fantastic", but asked for something more
+creative for quotes ("codes", dictated), all the metadata in one place, the name on the
+right, and perhaps a different face for About. Four quote models (A pull quote, B card,
+C book page, D margin ledger) and four About faces (Georgia, Charter, Iowan Old Style,
+Baskerville) were shown on a sample sheet. He chose "d and 2".
+- partials/side.njk: the ledger column (day, month and year, categories, min read or
+  permalink); used by the stream and by entry pages. The old date line and meta line
+  are gone.
+- Hangs in the margin at ≥1080px, inside the column below that, one line on phones.
+- Quote names right-aligned everywhere (entry quotes, ::: quote, > passages).
+- About page in Charter, Georgia fallback.
+- Checked: build exit 0 with link check; screenshots at 1280, 900 and 500px; no page
+  scrolls sideways at 320px.
+

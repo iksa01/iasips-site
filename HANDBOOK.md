@@ -58,8 +58,8 @@ A **Listening** entry (a talk or podcast) is a note that opens with a
 `::: video` card (§4c), then Kalyan's notes. No embedded players.
 
 ### Quote — a line worth keeping
-The stream shows the quote large and italic with a blue rule at its left, the name under
-it, and the quiet line beneath; no title is printed (the title names the page for the head,
+The stream shows the quote large and italic, the name under it on the right, and the date,
+category and permalink in the margin column at its left (DESIGN §6); no title is printed (the title names the page for the head,
 the feed and the archive). Optional commentary after `---` shows only on
 the entry's own page. A **Books** entry is a quote with commentary.
 

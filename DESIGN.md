@@ -38,7 +38,9 @@ contrast; link hover #005A7A; the tip box tint #EEF6F9 (the link blue at 7%).
 - Body 20px / 1.65 (phones 18px / 1.6). Paragraphs 1.1em apart. Ragged right.
 - Page title 40px bold #001523 (phones 31px); stream title 30px (phones 25px); in-body h2
   26px, h3 21px, h4 20px italic.
-- Sub (tagline) 21px italic grey. Dates 16px italic grey: "30th October 2026".
+- Sub (tagline) 21px italic grey. Entry details live in the margin ledger (§6).
+- The About page is set in Charter (Kalyan, 2026-11-22, option 2 of four), falling back
+  to Bitstream Charter, Sitka Text, Cambria, Georgia. Every other page is Georgia.
 - Small labels (box titles, table heads, "In this entry"): 13–14px bold uppercase, 0.08em.
 
 ## 3. Colour
@@ -78,32 +80,40 @@ canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from
 - **Journal** (`/journal/`, `/journal/page/N/`): title, sub, the categories in one line,
   the stream, 20 a page, "← Newer · Page 1 of N · Older →".
 - **Category** (`/journal/category/<tag>/`): the same, unpaginated.
-- **Entry**: date (and "Updated …"); title; sub; one meta line ("4 min read · Filed under
-  Notes") over a rule; optional contents box; the text; at the foot, older and newer
-  entries by title.
-- **Quote entry**: date, the quote (§7), the name, "Filed under Quotes", any commentary
-  after a short rule. No printed title.
+- **Entry**: the margin ledger (§6) beside the title, sub, optional contents box and the
+  text; at the foot, older and newer entries by title.
+- **Quote entry**: the ledger beside the quote (§7) and the name; any commentary after a
+  short rule. No printed title.
 - **Archive**: years and categories in one line each; months as small grey heads; each
   entry as day-of-month + title.
 - **About**: the portrait (crop A, 170px) floated right beside the opening; Books, Talks,
   Interviews from the JSON files; footnotes last.
 - **Contact, External, Cases, 404**: the plain page — title, sub, text.
 
-## 6. The stream (seths.blog)
+## 6. The margin ledger and the stream
 
-Each entry: date in italic grey; title 30px bold ink link; then
-- a **note** in full;
-- a **quote** in full (§7), no title;
-- an **essay**: its first paragraph and "Continue reading (N min) →".
-Below each, a small grey line: categories · Permalink. Entries are divided by 1px rules
-with 44px above and 40px below.
+Model D of four shown to Kalyan on 2026-11-22 ("d"): all of an entry's details in one
+place. Every entry — in the stream and on its own page — is a two-column row: a 130px
+column at the left, right-aligned, behind a 1px #DDD rule, then 28px, then the words.
+The column holds the day (30px ink), the month and year (12px spaced caps), the
+categories, then "N min read" (essays) or "Permalink" (quotes and notes in the stream).
+At 1080px and wider the column hangs in the left margin (row margin −158px) so the text
+keeps the full 680px; narrower, it sits inside the column; at 600px and below it folds into
+one grey line above the entry: "30 Oct 2026 · Quotes · Permalink".
+
+The stream (seths.blog): a **note** in full under its 30px title; a **quote** in full
+(§7), no title; an **essay**: title, first paragraph, "Continue reading →". Entries are
+divided by 1px rules, 44px above and 40px below.
 
 ## 7. Quotes
 
-- Quote entries and `::: quote`: 25px italic ink (phones 21px), a 4px #007CA7 rule at the
-  left, 26px in; the name under it in 17px grey, "— Name".
+- Quote entries: 24px italic ink (phones 21px), no rule of their own (the ledger's rule
+  is beside them); the name under it, RIGHT-aligned, 18px, "— Name, *Source*" with the
+  source in grey italic.
+- `::: quote` inside an essay: the same type with a 4px #007CA7 rule at the left; the name
+  right-aligned under it.
 - A long passage (`>`): body size, #444, a 3px #DDD rule at the left; its `<cite>` under
-  it, "— Name", 16px grey.
+  it, right-aligned, "— Name", 16px grey.
 
 ## 8. Blocks
 

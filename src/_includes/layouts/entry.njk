@@ -6,7 +6,11 @@ bodyId: article
 {%- set older = collections.journal | getNextCollectionItem %}
 {%- set newer = collections.journal | getPreviousCollectionItem %}
 {%- set tocItems = content | toc if toc else [] %}
-<p class="date"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if updated %} · Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateLong | safe }}</time>{% endif %}</p>
+<div class="row entry-row">
+{%- set sd = page.date %}{% set stags = tags %}{% set slink = "" %}{% set supdated = updated or "" %}
+{%- set smins = (content | readingTime) if (type != "quote" and type != "note") else "" %}
+{%- include "partials/side.njk" %}
+<div class="main">
 {%- if type == "quote" %}
 {%- set qhtml = content %}{% set parts = qhtml | quoteParts %}
 <div id="post">
@@ -16,11 +20,9 @@ bodyId: article
 <div class="entry commentary">{{ parts.commentary | safe }}</div>
 {%- endif %}
 </div>
-{%- if tags and tags.length %}<p class="post-foot">Filed under {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
 {%- else %}
 <h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
-<p class="meta">{% if type != "note" %}{{ content | readingTime }} min read{% if tags and tags.length %} · {% endif %}{% endif %}{% if tags and tags.length %}Filed under {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
 {%- if tocItems.length %}
 <div class="toc-inline"><h3>In this entry</h3>{% include "partials/toc-list.njk" %}</div>
 {%- endif %}
@@ -28,6 +30,8 @@ bodyId: article
 {{ content | safe }}
 </article>
 {%- endif %}
+</div>
+</div>
 {%- if older or newer %}
 <p class="paginate"><span>{% if older %}<a href="{{ older.url }}"><small>&larr; Older</small>{{ older.data.title }}</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}"><small>Newer &rarr;</small>{{ newer.data.title }}</a>{% endif %}</span></p>
 {%- endif %}

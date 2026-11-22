@@ -1,0 +1,10 @@
+{#- The margin ledger (Model D, Kalyan 2026-11-22): every detail of an entry in one narrow column at its left —
+    the day, the month and year, the categories, then the reading time or the permalink.
+    Expects: sd (date), stags, slink (permalink url or ""), smins (minutes or ""), supdated (date or ""). -#}
+<div class="side">
+<time class="s-day" datetime="{{ sd | dateISO }}"><span class="s-num">{{ sd.getUTCDate() }}</span> <span class="s-mon">{{ sd | monthName | truncate(3, true, "") }} {{ sd | year }}</span></time>
+{%- if supdated %}<span class="s-item">Updated <time datetime="{{ supdated | dateISO }}">{{ supdated.getUTCDate() }} {{ supdated | monthName | truncate(3, true, "") }}</time></span>{% endif %}
+{%- if stags and stags.length %}<span class="s-item">{% for t in stags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</span>{% endif %}
+{%- if smins %}<span class="s-item">{{ smins }} min read</span>{% endif %}
+{%- if slink %}<span class="s-item"><a href="{{ slink }}">Permalink</a></span>{% endif %}
+</div>
