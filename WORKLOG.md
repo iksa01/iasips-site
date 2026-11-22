@@ -825,3 +825,21 @@ that are possible and change my bio".
 - Checked: build and link check pass; light and dark screenshots; no sideways scroll at
   any width 320–1280px.
 
+## 2026-11-22 (g) — one-line footer, disclosure on the page, organic dates
+
+Kalyan: the Amazon disclaimer not in the footer; a cleaner footer; remove "Written in
+Hyderabad … built with Eleventy" if optional; X label is fine; asked whether RSS works.
+- Footer is one line: "© 2026 Kalyan Inampudi • Substack • Instagram • X • RSS". Removed:
+  "All rights reserved. Written in Hyderabad; built with Eleventy." and the Amazon line.
+  (Copyright holds without "All rights reserved"; it can come back on his word.)
+- Disclosure: a build transform prints "As an Amazon Associate I earn from qualifying
+  purchases." at the foot of the main column on any page with an Amazon link, only there.
+- RSS: /feed.xml is a valid Atom feed of the newest 20 entries, live (200,
+  application/xml) since the Colly build; unchanged.
+- Dates, on Kalyan's instruction ("add different random dates so that everything will
+  look posted organically"): the eight quotes first published together on 2026-10-20 now
+  carry spread dates. For the record, their real first-publication date is 2026-10-20:
+  theories-to-suit-facts → 10-03, the-last-of-the-human-freedoms → 10-07, just-how-far
+  → 10-11, ideas-are-bulletproof → 10-14, however-improbable → 10-17, enemies-closer →
+  10-22, always → 10-24, a-quiet-room → 10-27. Filenames and addresses unchanged.
+

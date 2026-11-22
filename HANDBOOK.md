@@ -179,9 +179,9 @@ read from the file) and "Open the PDF →".
 anywhere — in text, in a book card's `link:`, or on the book title in a
 quote's name: `<cite>Viktor E. Frankl, [*Man's Search for Meaning*](https://amzn.to/…)</cite>`.
 The build marks every Amazon link `rel="sponsored nofollow"` (what Google
-asks of paid links), a book card adds "affiliate link" beside it, and the
-footer carries Amazon's required line, "As an Amazon Associate I earn from
-qualifying purchases." Only Kalyan's own links: never build one with a
+asks of paid links), a book card adds "affiliate link" beside it, and any page
+with an Amazon link prints Amazon's required line at the foot of the text,
+"As an Amazon Associate I earn from qualifying purchases." Only Kalyan's own links: never build one with a
 guessed product or tag.
 
 A book review is an essay in Books that opens with `::: book`.

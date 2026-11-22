@@ -1,6 +1,6 @@
 ---
 title: "The last of the human freedoms"
-date: 2026-10-20
+date: 2026-10-07
 tags: [Quotes]
 type: quote
 ---

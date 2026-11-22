@@ -393,6 +393,14 @@ module.exports = function (eleventyConfig) {
       .replace(/;}/g, "}")
       .trim());
 
+  // Amazon's required disclosure (Kalyan, 2026-11-22: "add the disclaimer … not in the footer"): printed at the
+  // foot of the text on every page that carries an Amazon link, and nowhere else.
+  eleventyConfig.addTransform("affiliateDisclosure", function (html) {
+    const out = this.page.outputPath || "";
+    if (!out.endsWith(".html") || !html.includes('rel="sponsored nofollow"')) return html;
+    return html.replace("</main>", '<p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>\n</main>');
+  });
+
   eleventyConfig.addTransform("quotes", function (html) {
     const out = this.page.outputPath || "";
     if (!out.endsWith(".html")) return html;

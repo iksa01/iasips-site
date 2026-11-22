@@ -1,6 +1,6 @@
 ---
 title: "Theories to suit facts"
-date: 2026-10-20
+date: 2026-10-03
 tags: [Quotes]
 type: quote
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Enemies closer"
-date: 2026-10-20
+date: 2026-10-22
 tags: [Quotes]
 type: quote
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Ideas are bulletproof"
-date: 2026-10-20
+date: 2026-10-14
 tags: [Quotes]
 type: quote
 ---

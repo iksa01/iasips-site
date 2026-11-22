@@ -1,6 +1,6 @@
 ---
 title: "Just how far"
-date: 2026-10-20
+date: 2026-10-11
 tags: [Quotes]
 type: quote
 ---

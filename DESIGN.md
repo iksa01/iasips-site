@@ -76,10 +76,9 @@ at 92% brightness. Every colour in screen.css is a token so both modes stay in s
     main: one column, max 680px, centred, 24px gutters (18px on phones)
     ── 1px rule ──
     footer: centred, 14px grey, after Jason Santa Maria's v5 (one line, bullets):
-            **Copyright © 2026** Kalyan Inampudi • Substack • Instagram • X • RSS
-            All rights reserved. Written in Hyderabad; built with Eleventy.   (13px italic)
-            (site.colophon[0], then site.externals' `short` labels, then the other colophon
-            lines; on phones the links drop to their own line)
+            © 2026 Kalyan Inampudi • Substack • Instagram • X • RSS
+            (one line only, 2026-11-22: site.colophon[0], then site.externals' `short`
+            labels; on phones the links drop to their own line)
 
 No sidebar on any page. The current nav item is blue and underlined. The head (description,
 canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from before.
@@ -167,8 +166,10 @@ the text. No page scrolls sideways at 320px (checked 2026-11-22 on every page).
   readers who ask for reduced motion.
 - Phones: links outside sentences are at least 24px tall (WCAG 2.2 target size).
 - theme-color for both modes, so the phone's browser bar matches the page.
-- Amazon links carry rel="sponsored nofollow"; the footer's third line is Amazon's
-  required disclosure.
+- Amazon links carry rel="sponsored nofollow". Amazon's required line, "As an Amazon
+  Associate I earn from qualifying purchases.", is printed at the foot of the main column
+  (14px grey italic over a hairline) on every page that carries an Amazon link, and only
+  there — not in the footer (Kalyan, 2026-11-22).
 - PDF card (§8): a 56×72px page icon with a folded corner and a red "PDF" tab, title 20px
   bold, an italic note, "PDF · N pages · size" in spaced caps, "Open the PDF →"; the whole
   card one link, 1px rule border, 6px radius, blue border on hover.

@@ -87,8 +87,6 @@
     ]
   ],
   "colophon": [
-    "<b>Copyright © 2026</b> <a href=\"/about/\">Kalyan Inampudi</a>",
-    "All rights reserved. Written in Hyderabad; built with <a href=\"https://www.11ty.dev/\">Eleventy</a>.",
-    "As an Amazon Associate I earn from qualifying purchases."
+    "© 2026 <a href=\"/about/\">Kalyan Inampudi</a>"
   ]
 }
