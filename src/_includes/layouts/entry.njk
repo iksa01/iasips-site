@@ -14,6 +14,7 @@ bodyId: article
 {%- if type == "quote" %}
 {%- set qhtml = content %}{% set parts = qhtml | quoteParts %}
 <div id="post">
+<h1 class="sr-only">{{ title }}</h1>
 {%- include "partials/quote-panel.njk" %}
 {%- if parts.commentary | trim %}
 <hr>

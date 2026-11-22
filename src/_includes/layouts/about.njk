@@ -6,12 +6,12 @@ bodyClass: biography
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
 {%- set parts = content | splitFootnotes %}
 {#- the portrait (2026-09-26, crop A): Kalyan at the microphone, set beside the opening -#}
-<p class="portrait"><picture><source srcset="/images/portrait.avif" type="image/avif"><source srcset="/images/portrait.webp" type="image/webp"><img src="/images/portrait.jpg" alt="Kalyan" width="170" height="227"></picture></p>
+<p class="portrait"><picture><source srcset="/images/portrait.avif" type="image/avif"><source srcset="/images/portrait.webp" type="image/webp"><img src="/images/portrait.jpg" alt="Kalyan Inampudi at a microphone" width="170" height="227"></picture></p>
 <div class="entry{% if dropcap %} dropcap{% endif %}">
 {{ parts.body | safe }}
 </div>
 {%- if books.length %}
-<h5 id="my-books">Selected Books <span>* denotes co-author</span></h5>
+<h2 class="about-section" id="my-books">Selected Books <span>* denotes co-author</span></h2>
 <ul class="ledger">
 {%- for b in books %}
 <li>{{ b.year }}: {% if b.url %}<a href="{{ b.url }}">{{ b.title }}</a>{% else %}{{ b.title }}{% endif %}{% if b.note %} <span>{{ b.note }}</span>{% endif %}</li>
@@ -19,11 +19,11 @@ bodyClass: biography
 </ul>
 {%- endif %}
 {%- if talks.length %}
-<h5 id="my-presentations">Presentations, workshops, events</h5>
+<h2 class="about-section" id="my-presentations">Presentations, workshops, events</h2>
 {%- set forthcoming = [] %}{% set previous = [] %}
 {%- for t in talks %}{% if t.date >= build.date %}{% set forthcoming = (forthcoming.push(t), forthcoming) %}{% else %}{% set previous = (previous.push(t), previous) %}{% endif %}{% endfor %}
 {%- if forthcoming.length %}
-<h6>Forthcoming</h6>
+<h3 class="about-sub">Forthcoming</h3>
 <ul class="ledger">
 {%- for t in forthcoming %}
 <li>{{ t.date | year }}: {% if t.url %}<a href="{{ t.url }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}{% if t.place %}, {{ t.place }}{% endif %}{% if t.note %} <span>{{ t.note }}</span>{% endif %}</li>
@@ -31,7 +31,7 @@ bodyClass: biography
 </ul>
 {%- endif %}
 {%- if previous.length %}
-<h6>Selected previous</h6>
+<h3 class="about-sub">Selected previous</h3>
 <ul class="ledger">
 {%- for t in previous %}
 <li>{{ t.date | year }}: {% if t.url %}<a href="{{ t.url }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}{% if t.place %}, {{ t.place }}{% endif %}{% if t.links and t.links.length %} <span>({% for l in t.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% if not loop.last %} / {% endif %}{% endfor %})</span>{% endif %}</li>
@@ -40,7 +40,7 @@ bodyClass: biography
 {%- endif %}
 {%- endif %}
 {%- if interviews.length %}
-<h5 id="my-interviews">Selected Interviews</h5>
+<h2 class="about-section" id="my-interviews">Selected Interviews</h2>
 <ul class="ledger">
 {%- for i in interviews %}
 <li>{{ i.date | year }}: {% if i.url %}<a href="{{ i.url }}">{{ i.title }}</a>{% else %}{{ i.title }}{% endif %}{% if i.note %} <span>{{ i.note }}</span>{% endif %}</li>

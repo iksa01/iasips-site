@@ -6,6 +6,7 @@
 {%- include "partials/side.njk" %}
 <div class="main">
 {%- if e.data.type == "quote" %}
+<h2 class="sr-only"><a href="{{ e.url }}">{{ e.data.title }}</a></h2>
 {%- set qhtml = e.templateContent %}
 {%- include "partials/quote-panel.njk" %}
 {%- elif e.data.type == "note" %}

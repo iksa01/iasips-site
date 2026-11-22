@@ -333,11 +333,13 @@ a.card-pdf:hover .cf-open { color: var(--link-hover); text-decoration-color: cur
 .biography main { font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif; }
 .portrait { float: right; margin: 6px 0 16px 28px; }
 .portrait img { display: block; width: 170px; border-radius: 4px; }
-.entry h5, h5 { clear: both; margin: 2em 0 .5em; color: var(--ink); font-size: 24px; font-weight: bold; }
-h5 span { color: var(--muted); font-size: 15px; font-style: italic; font-weight: normal; }
-h6 { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.about-section { clear: both; margin: 2em 0 .5em; color: var(--ink); font-size: 24px; font-weight: bold; }
+.about-section span { color: var(--muted); font-size: 15px; font-style: italic; font-weight: normal; }
+.about-sub { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
 .ledger { padding-left: 1.2em; }
 .ledger span { color: var(--muted); }
+.ledger li > span::before { content: " · "; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .affiliate-note { clear: both; margin: 44px 0 0; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; font-style: italic; }
 
 /* ---------- Case index ---------- */
@@ -348,7 +350,7 @@ h6 { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing:
 
 /* Capitals take lining figures (old-style ones climb out of the cap line). */
 .s-mon, .archive-month, .callout-title, th, .credit, .cv-source, .cp-source, .clipping-source,
-.toc-inline h3, .paginate small, h6, .sidehead-list li > strong:first-child, .jump-label { font-variant-numeric: lining-nums; }
+.toc-inline h3, .paginate small, .about-sub, .sidehead-list li > strong:first-child, .jump-label { font-variant-numeric: lining-nums; }
 
 /* ---------- Footer ---------- */
 /* One centred line, after Jason Santa Maria's v5 footer (Kalyan, 2026-11-22): the copyright,

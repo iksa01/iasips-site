@@ -892,3 +892,17 @@ worth sharing, I will keep sharing here."
 - The LSE certificate named, on Kalyan's word: "an online certification in the Ethics of
   AI from the London School of Economics" (LSE Executive Education, Ethics of AI; no link).
 
+## 2026-11-22 (k) — Fable's final audit, then publish
+
+Kalyan: "one last audit from Fable will do and then we will go for publish." A read-only
+audit of a production build: no blockers (build and link check pass, no drafts in output,
+feed and sitemap valid, Amazon links tagged and rel=sponsored, no overflow at 390px, dark
+contrast fine, ~29 KB pages). Fixed from its "should fix" list: PROMPT.txt and RESTART.md
+no longer describe the site as Colly; About headings h5/h6 → h2/h3 (classes
+.about-section/.about-sub); quotes carry a visually hidden heading (h1 on their page, h2 in
+the stream) for screen readers; site.author "Kalyan Inampudi"; images/specimen and
+files/specimen removed from the live output after a build (draft-only). Also: " · "
+between an About ledger item and its note, feed link type application/atom+xml, portrait
+alt "Kalyan Inampudi at a microphone". Left for later: per-quote descriptions, pruning
+unused engravings/fonts and Colly-era keys in site.json.
+
