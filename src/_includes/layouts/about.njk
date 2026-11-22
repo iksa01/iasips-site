@@ -2,11 +2,11 @@
 layout: layouts/base.njk
 bodyClass: biography
 ---
-<div id="content-wrap" class="has-aside">
-<div id="content-pri">
 <h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
 {%- set parts = content | splitFootnotes %}
+{#- the portrait (2026-09-26, crop A): Kalyan at the microphone, set beside the opening -#}
+<p class="portrait"><picture><source srcset="/images/portrait.avif" type="image/avif"><source srcset="/images/portrait.webp" type="image/webp"><img src="/images/portrait.jpg" alt="Kalyan" width="170" height="227"></picture></p>
 <div class="entry{% if dropcap %} dropcap{% endif %}">
 {{ parts.body | safe }}
 </div>
@@ -48,17 +48,3 @@ bodyClass: biography
 </ul>
 {%- endif %}
 {{ parts.notes | safe }}
-</div>
-<div id="content-sec">
-<p class="home-link"><a href="/">Home</a></p>
-{#- the portrait (design change 2026-09-26): Kalyan at the microphone, crop A, v4's tilted paper frame -#}
-<p class="portrait"><picture><source srcset="/images/portrait.avif" type="image/avif"><source srcset="/images/portrait.webp" type="image/webp"><img src="/images/portrait.jpg" alt="Kalyan" width="170" height="227"></picture></p>
-<h3>Jump directly to</h3>
-<ul>
-{%- if books.length %}<li><a href="#my-books">Books</a></li>{% endif %}
-{%- if talks.length %}<li><a href="#my-presentations">Presentations</a></li>{% endif %}
-{%- if interviews.length %}<li><a href="#my-interviews">Interviews</a></li>{% endif %}
-<li><a href="/contact/">Contact</a></li>
-</ul>
-</div>
-</div>

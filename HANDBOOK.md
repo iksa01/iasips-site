@@ -9,7 +9,9 @@ what the site accepts. Anything not here is not a feature; adding one is a
 - Live at <https://iasips.in>, built by GitHub Pages from
   <https://github.com/iksa01/iasips-site> on every push to `main`.
 - Static HTML, no JavaScript, no comments, no analytics, no embeds.
-- Design: Simon Collison's Colly v4, transcribed; DESIGN.md is the law.
+- Design (2026-11-22): Seth Godin's stream, Gates Notes' centred column, Tim
+  Ferriss's blue links, Georgia; DESIGN.md is the law. Start a post with
+  `./today.sh "The title"`.
 - Voice: only Kalyan's words are published. A missing fact is a `TODO:`.
 - Publish = commit + `git push`. Live about a minute later. Check with
   `gh run list --workflow=pages.yml`.
@@ -56,8 +58,8 @@ A **Listening** entry (a talk or podcast) is a note that opens with a
 `::: video` card (§4c), then Kalyan's notes. No embedded players.
 
 ### Quote — a line worth keeping
-The index shows the quote on a pale-rose panel (a solid red “ at its left, a small notch pointing down to the name, which sits right under
-the panel; design change 2026-09-26) and the quiet line beneath; no title is printed (the title names the page for the head,
+The stream shows the quote large and italic with a blue rule at its left, the name under
+it, and the quiet line beneath; no title is printed (the title names the page for the head,
 the feed and the archive). Optional commentary after `---` shows only on
 the entry's own page. A **Books** entry is a quote with commentary.
 
@@ -79,7 +81,7 @@ the entry's own page. A **Books** entry is a quote with commentary.
 
 One category per post, by source; a subject may ride along as a second tag.
 Each becomes a page at `/journal/category/<name>/` and is listed in the
-journal and archive sidebars automatically.
+journal and archive pages automatically.
 
 | category | what goes in | kind |
 |---|---|---|
@@ -101,15 +103,15 @@ All are plain Markdown or a `:::` fence; close each fence with `:::`.
 | write | you get |
 |---|---|
 | `::: note Title` … `:::` | grey box — context, definition, where it sits |
-| `::: tip Title` … `:::` | pale-rose box — method, how to write it |
-| `::: key Title` … `:::` | rose box — the thing to remember |
+| `::: tip Title` … `:::` | pale-blue box — method, how to write it |
+| `::: key Title` … `:::` | pale-yellow box — the thing to remember |
 | `::: warning Title` … `:::` | red box — the mistake that costs marks |
 | `::: details Summary` … `:::` | a fold-away, click to open |
 | `::: plan Title` + bulleted list, items starting `**Label**` | a printed planning grid (answer skeleton). Never a code fence for this. |
 | `::: cases` + bulleted list, items starting `**Term**` | term-and-gloss list with spaced-caps sideheads |
 | `::: clipping The Paper, date` + image + `>` passage + link | a press cutting: framed picture linked to its full page, the paper as its credit; analysis goes after the closing `:::` |
 | `> quoted text` then `<cite>Name</cite>` | blockquote, the name set right UNDER it — also the home for a **long passage** (not a quote) |
-| `::: quote` + a short line + `<cite>Name</cite>` + `:::` | a short quote inside an essay or note: the rose panel, name under it |
+| `::: quote` + a short line + `<cite>Name</cite>` + `:::` | a short quote inside an essay or note: the blue-ruled quote, name under it |
 | `::: casetable slug slug +slug` then `:::` | a Case / Year / What it held table built from the case register; `+` sets a row in bold |
 | `| a | b |` table | ledger-ruled table inside the column |
 | ```` ```js/2-3 title="file.js" ```` | code with Prism colours, highlighted lines, filename tab. Code only. |
@@ -167,7 +169,7 @@ A book review is an essay in Books that opens with `::: book`.
 Every court case lives once in `src/_data/cases.json`: slug, name, year,
 `match` (the words that identify it in text), `short` (for tables) and
 `held` (for the index). From it the build makes: case tables
-(`::: casetable`), a "Cases in this entry" list in each entry's sidebar,
+(`::: casetable`), 
 and the Case index at /cases/ — every case, its holding, and the entries
 that mention it. A new case cited in a post: add it to the register first,
 from Kalyan's own words; a holding not yet supplied is a `TODO:`.
@@ -180,7 +182,7 @@ from Kalyan's own words; a holding not yet supplied is a `TODO:`.
 3. Reference it as `![alt](/images/press/2026-08-26-clip.jpg "Caption | Credit")`.
    The words before ` | ` are the caption, after it the credit (photographer,
    place and date, the paper); either may be left out. The build serves
-   AVIF/WebP with a JPEG fallback, reserves the space, sets v4's frame, and
+   AVIF/WebP with a JPEG fallback, reserves the space, centres it, and
    sets an upright picture narrower. One picture style only (Kalyan,
    2026-10-20: no frameless wide pictures).
 

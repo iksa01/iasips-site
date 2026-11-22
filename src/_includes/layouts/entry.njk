@@ -6,22 +6,21 @@ bodyId: article
 {%- set older = collections.journal | getNextCollectionItem %}
 {%- set newer = collections.journal | getPreviousCollectionItem %}
 {%- set tocItems = content | toc if toc else [] %}
-<div id="content-wrap">
-<div id="content-pri">
+<p class="date"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if updated %} · Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateLong | safe }}</time>{% endif %}</p>
 {%- if type == "quote" %}
 {%- set qhtml = content %}{% set parts = qhtml | quoteParts %}
 <div id="post">
 {%- include "partials/quote-panel.njk" %}
-<p class="meta"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if tags and tags.length %} <br>Archived in {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %}{% endif %}</p>
 {%- if parts.commentary | trim %}
 <hr>
-<div class="commentary">{{ parts.commentary | safe }}</div>
+<div class="entry commentary">{{ parts.commentary | safe }}</div>
 {%- endif %}
 </div>
+{%- if tags and tags.length %}<p class="post-foot">Filed under {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
 {%- else %}
 <h1 class="page-title">{{ title }}</h1>
-{% if sub %}<p class="sub tagline">{{ sub }}</p>{% endif %}
-<p class="meta entry-meta"><time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong | safe }}</time>{% if updated %} · Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateLong | safe }}</time>{% endif %}{% if type != "note" %} <span class="rt">· {{ content | readingTime }} min read</span>{% endif %}{% if tags and tags.length %} · Archived in {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %}{% endif %}</p>
+{% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
+<p class="meta">{% if type != "note" %}{{ content | readingTime }} min read{% if tags and tags.length %} · {% endif %}{% endif %}{% if tags and tags.length %}Filed under {% for t in tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
 {%- if tocItems.length %}
 <div class="toc-inline"><h3>In this entry</h3>{% include "partials/toc-list.njk" %}</div>
 {%- endif %}
@@ -30,17 +29,5 @@ bodyId: article
 </article>
 {%- endif %}
 {%- if older or newer %}
-<p class="paginate"><span>{% if older %}<a href="{{ older.url }}">&larr; Older: {{ older.data.title | truncate(40) }}</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}">Newer: {{ newer.data.title | truncate(40) }} &rarr;</a>{% endif %}</span></p>
+<p class="paginate"><span>{% if older %}<a href="{{ older.url }}"><small>&larr; Older</small>{{ older.data.title }}</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}"><small>Newer &rarr;</small>{{ newer.data.title }}</a>{% endif %}</span></p>
 {%- endif %}
-</div>
-<div id="content-sec">
-<p class="home-link"><a href="/journal/">The Journal</a></p>
-{%- if older or newer %}
-<p class="paginate"><span>{% if older %}<a href="{{ older.url }}" title="{{ older.data.title }}">&larr; Older</a>{% endif %}</span><span>{% if newer %}<a href="{{ newer.url }}" title="{{ newer.data.title }}">Newer &rarr;</a>{% endif %}</span></p>
-{%- endif %}
-{%- if tocItems.length %}
-<h3>In this entry</h3>
-{% include "partials/toc-list.njk" %}
-{%- endif %}
-</div>
-</div>

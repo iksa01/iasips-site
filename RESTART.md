@@ -97,7 +97,15 @@ the memory:
 Say **"frozen"** when the design is settled — after that, frozen files only
 change when your instruction contains the words **"design change"**.
 
-## 3. Where the design stands (2026-09-02)
+## 3. Where the design stands
+
+**2026-11-22: redesigned.** On Kalyan's word the Colly v4 shell was backed up and
+replaced by a daily-blog design: Seth Godin's stream, Gates Notes' centred column,
+Tim Ferriss's blue links, Georgia (DESIGN.md). Write a post with
+`./today.sh "The title"`. The Colly design is restorable from git tag `colly-v4`
+(branch `backup/colly-v4` on GitHub) or ~/Sites/kalyan-site-colly-v4-backup-20261122.tgz.
+What follows is the Colly-era record (2026-09-02), kept for history.
+
 
 Settled and not to be relitigated:
 

@@ -1,494 +1,283 @@
-/* screen.css — Simon Collison's v4 system, transcribed from
-   ~/Sites/colly-v4-reference/screen.css (measured 2026-08-30) and adopted whole on
-   Kalyan's side-by-side verdict. Pixel values are v4's own. Departures are
-   marked "ours". FROZEN once Kalyan says so (DESIGN.md §13). */
+/* screen.css — the 2026-11 design (DESIGN.md). Seth Godin's rhythm, Gates Notes' centred
+   column, Tim Ferriss's colours, Georgia throughout. No webfonts, no JavaScript.
+   The Colly v4 stylesheet this replaced is kept at git tag `colly-v4`. */
 
-/* 0. The one webfont: the wordmark face (v4 used a logo image) --------- */
-@font-face { font-family: 'League Gothic'; src: url('/fonts/LeagueGothic-Regular.woff2') format('woff2');
-             font-weight: normal; font-style: normal; font-display: swap; }
+:root {
+  --ink: #001523;        /* tim.blog foreground: titles */
+  --text: #222222;       /* body text */
+  --muted: #626b72;      /* dates, captions, meta (tim.blog #7e878e, darkened for contrast) */
+  --link: #007ca7;       /* tim.blog link blue */
+  --link-hover: #005a7a;
+  --rule: #dddddd;       /* tim.blog */
+  --wash: #f5f5f5;       /* tim.blog */
+  --tint: #eef6f9;       /* the link blue at 7% */
+  --yellow: #fffad6;     /* tim.blog */
+  --red: #dd3333;        /* tim.blog */
+  --measure: 680px;      /* the Gates Notes column */
+  --serif: Georgia, "Times New Roman", Times, serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
 
-@font-face { font-family: 'VT323'; src: url('/fonts/VT323-Regular.woff2') format('woff2');
-             font-weight: normal; font-style: normal; font-display: swap; }   /* the 8-bit code face (design change 2026-08-30) */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font: 20px/1.65 var(--serif);
+  font-kerning: normal;
+  font-variant-numeric: oldstyle-nums;
+}
+#page { max-width: calc(var(--measure) + 48px); margin: 0 auto; padding: 0 24px; }
 
-/* 1. Body and page ------------------------------------------------------ */
-html { background: #F3EFEB; }                              /* paper-tile.jpg mean */
-body { text-rendering: optimizeLegibility; margin: 0; padding: 0;
-       font-family: "Times New Roman", Times, Cambria, serif; font-size: 13px; line-height: 22px; color: #333;
-       background-image: linear-gradient(to right, rgba(192,189,183,.135) 1px, transparent 1px),
-                         linear-gradient(to bottom, rgba(192,189,183,.135) 1px, transparent 1px);
-       background-size: 10.5px 10.5px; }                   /* graph-tile.png, drawn in CSS */
+/* ---------- Links ---------- */
+a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: rgba(0, 124, 167, .4); }
+a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 2px; }
 
-/* 2. Default styling ---------------------------------------------------- */
-ul li a span.strap { display: block; text-align: center; font-style: italic; }
-ul li a span.label { display: block; text-align: center; padding: 2px 0 0 0; font-size: 12px; font-weight: normal;
-                     font-style: normal; text-transform: uppercase; letter-spacing: 1px; color: #000; }
-ul li span.label span { display: inline; font-size: 15px; }
-ul li span.label span.kern-a { display: inline; font-size: 15px; letter-spacing: 0; }
-ul li span.label span.kern { display: inline; font-size: 12px; letter-spacing: 0; }
-ul li a:link, ul li a:visited, ol li a:link, ol li a:visited { color: #6c6c6c; text-decoration: none; }   /* v4 #999; 4.5:1 on the paper (2026-09-03) */
-ul li a:hover, ol li a:hover { color: #ba1820; text-decoration: none; }
-.fl { float: left; margin: 7px 4px 0 0; padding: 0; font-size: 65px; line-height: 62%; color: #ba1820; }
-.fs { display: inline; margin: 0 4px 0 0; padding: 0; font-size: 17px; line-height: 18px; color: #ba1820; }   /* the ¶ before the newest title on the journal card (v4 floated a big §; Kalyan 2026-09-03: "too big") */
-a.dest { color: #ba1820; }
-ul li a.dest:link, ul li a.dest:visited, ul li a.arch:link, ul li a.arch:visited { color: #ba1820; text-decoration: none; }
-ul li a.dest:hover, ul li a.arch:hover { color: #999; text-decoration: none; }
-a.arch { display: block; line-height: 22px; }
-a.arch strong { font-weight: bold; }
-/* v4 home cards carry copy under the engraving: the bio and contact blurbs, the newest entry, the five latest titles */
-.home li.card p.home-copy { margin: 12px 0 0 0; padding: 0; font-size: 13px; line-height: 18px; color: #333; text-align: left; }
-.home li.card p.home-copy a { display: inline; }                        /* li.card a is block for the card link; copy links run in */
-.home li.card p.home-copy a.arch { display: block; }
+/* ---------- Header ---------- */
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 40px 0 18px; border-bottom: 1px solid var(--rule); }
+.site-name { margin: 0; font-size: 26px; line-height: 1.2; font-weight: bold; letter-spacing: -.01em; }
+.site-name a { color: var(--ink); text-decoration: none; }
+.site-name a:hover { color: var(--link); }
+nav ul { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 0; padding: 0; list-style: none; font-size: 17px; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover, nav a[aria-current] { color: var(--link); }
+nav a[aria-current] { text-decoration: underline; text-underline-offset: 6px; text-decoration-color: currentColor; }
 
-/* Code (v4 pre, plus build-time Prism colours in the v4 palette — ours) */
-pre { margin: 6px 0 15px 0; padding: 20px; background: #EEE; border-top: 1px solid #CCC; border-bottom: 1px solid #CCC;
-      font-family: 'VT323', "Courier New", Courier, monospace; font-size: 18px; line-height: 20px; overflow: auto; tab-size: 2; }
-pre[class*="language-"] { padding: 20px; }
-code { margin: 0; padding: 0; font-family: 'VT323', Courier, monospace; font-size: 18px; line-height: 1; }
-p code, li code, td code { padding: 0 4px; background: #EEE; font-size: 17px; }
-pre code { padding: 0; background: none; font-size: inherit; line-height: inherit; }
-.token.comment, .token.prolog, .token.doctype, .token.cdata { color: #999; font-style: italic; }
-.token.punctuation { color: #999; }
-.token.keyword, .token.tag, .token.important, .token.atrule, .token.rule { color: #ba1820; }
-.token.string, .token.attr-value, .token.char, .token.regex, .token.inserted { color: #d24b21; }
-.token.number, .token.boolean, .token.constant, .token.symbol, .token.deleted { color: #666; }
-.token.function, .token.class-name, .token.selector, .token.property, .token.attr-name, .token.builtin { color: #000; }
-.token.operator, .token.entity, .token.url, .token.variable { color: #333; }
-.token.bold { font-weight: bold; } .token.italic { font-style: italic; }
+main { padding: 48px 0 24px; }
 
-hr { margin: 35px 0; border: 0; border-top: 1px dashed #ccc; }
-hr.asterism { border: 0; text-align: center; color: #ccc; font-size: 16px; line-height: 1; }   /* ours */
-hr.asterism::before { content: "⁂"; }
+/* ---------- Home ---------- */
+.intro { margin: 0 0 8px; font-size: 22px; line-height: 1.5; font-style: italic; color: var(--muted); }
+.more-link { margin: 40px 0 0; font-size: 18px; }
 
-/* 3. Headings ----------------------------------------------------------- */
-/* Masthead: v4's logo.png lockup set in type (ours). */
-#branding { margin: 0 0 18px 0; padding: 8px 0 20px 0; text-align: center; }
-#branding a { display: block; width: 460px; margin: -22px auto 0 auto; text-decoration: none; color: #333; }
-#branding .m-strap { display: block; font-style: italic; font-size: 15px; line-height: 20px; color: #555; }
-#branding .m-line { display: block; font-weight: bold; font-size: 13px; line-height: 18px; letter-spacing: 2px;
-                    text-transform: uppercase; color: #333; }
-#branding .m-name { display: block; font-family: 'League Gothic', 'Arial Narrow', Impact, sans-serif; font-size: 56px;
-                    line-height: 52px; letter-spacing: .5px; text-transform: uppercase; color: #ba1820; }
-#branding a:hover .m-name { color: #333; }
+/* ---------- Page titles ---------- */
+.page-title { margin: 0 0 8px; color: var(--ink); font-size: 40px; line-height: 1.15; font-weight: bold; letter-spacing: -.015em; text-wrap: balance; }
+.sub { margin: 0 0 28px; color: var(--muted); font-size: 21px; line-height: 1.45; font-style: italic; }
+.date { margin: 0 0 8px; color: var(--muted); font-size: 16px; font-style: italic; }
+.ord { font-size: inherit; }
+.meta { margin: 0 0 36px; padding: 0 0 22px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 16px; font-style: italic; }
+.categories { margin: -12px 0 8px; font-size: 16px; color: var(--muted); }
+.categories a { margin: 0 2px; }
 
-div#content-pri .page-title { clear: both; margin: 10px 0 0 0; padding: 0 0 28px 0; font-weight: normal; font-size: 35px;
-                                line-height: 29px;
-                                background: linear-gradient(rgba(102,102,102,.24), rgba(102,102,102,.24)) center bottom 13px / 100% 1px repeat-x; }
-.journal#article div#content-pri .page-title { margin: 0; line-height: 40px; }
-#branding h1 { display: inline; margin: 0; padding: 0; font-size: inherit; line-height: inherit; font-weight: inherit; }   /* home: the name is the h1 */
-h2.ext-dests { clear: both; margin: 20px 0 32px 0; padding: 0; text-align: center; font-weight: normal; font-size: 28px;
-               line-height: 20px; font-family: 'League Gothic', 'Arial Narrow', Impact, sans-serif; text-transform: uppercase;
-               letter-spacing: .5px; }                       /* ext-refs.png set in type (ours) */
-h2.ext-dests a:link, h2.ext-dests a:visited { color: #333; text-decoration: none; }
-h2.ext-dests a span { color: #ba1820; }
-h2.ext-dests a small { font-family: "Times New Roman", Times, serif; font-size: 12px; letter-spacing: 1px; color: #ba1820; }
-h2.ext-dests a:hover { text-decoration: underline; }
-.journal#multiple div#content-pri h3 { clear: both; margin: 10px 0 0 0; padding: 0; font-weight: normal; font-size: 35px; }
-.journal#multiple div#content-pri h3 a:link, .journal#multiple div#content-pri h3 a:visited { display: block; width: 100%;
-    font-size: 25px; padding: 0 0 12px 0; text-decoration: none; border-bottom: 1px solid #DDD; line-height: 30px; }
-.journal#multiple div#content-pri h3 a:link { color: #ba1820; }
-.journal#multiple div#content-pri h3 a:visited { color: #d0656a; }
-.journal#multiple div#content-pri h3 a:hover { border-bottom: 1px solid #999; }
-div#content-sec h3 { clear: both; text-align: right; margin: 0 0 7px 25px; padding: 0; font-size: 12px; color: #000;
-                     font-weight: normal; font-style: normal; text-transform: uppercase; letter-spacing: 1px; line-height: 120%; }
-h4 { clear: both; margin: 10px 0 12px 0; padding: 0; font-weight: normal; font-size: 14px; color: #333; text-transform: uppercase; }
-.journal div#content-pri h4 span { font-size: 10px; }
-h5 { margin: 30px 0 10px 0; font-weight: normal; font-size: 20px; }
-h5 span { font-size: 11px; font-style: italic; color: #6c6c6c; }
-h6 { clear: both; margin: 30px 0 0 0; padding: 0; font-size: 14px; color: #333; text-transform: uppercase; }
-.biography h6 { margin: 14px 0 4px 0; font-weight: normal; color: #666; text-transform: capitalize; }
-.entry h1, .entry h2 { clear: both; margin: 42px 0 12px 0; font-weight: normal; font-size: 20px; line-height: 26px; }  /* ours: in-body heads */
-.entry h3 { margin: 36px 0 10px 0; font-weight: normal; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+/* ---------- The stream (home, journal, category pages) ---------- */
+.post { padding: 44px 0 40px; border-bottom: 1px solid var(--rule); }
+.post:first-of-type { padding-top: 32px; }
+.post h2 { margin: 0 0 14px; font-size: 30px; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+.post h2 a { color: var(--ink); text-decoration: none; }
+.post h2 a:hover { color: var(--link); }
+.post-foot { margin: 18px 0 0; color: var(--muted); font-size: 15px; }
+.post-foot a { color: var(--muted); }
+.post-foot a:hover { color: var(--link); }
+.read-on { margin: 10px 0 0; }
+.pages { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 36px 0 0; font-size: 17px; }
+.pages .count { color: var(--muted); font-style: italic; }
 
-/* 4. Links -------------------------------------------------------------- */
-a:link, a:visited { color: #ba1820; }
-a:hover, a:focus { color: #999; }
-a:focus-visible, summary:focus-visible { outline: 2px solid #ba1820; outline-offset: 2px; }   /* keyboard focus (v4: outline 0) */
+/* ---------- Entry text ---------- */
+.entry > :first-child, .post-body > :first-child { margin-top: 0; }
+p { margin: 0 0 1.1em; }
+.entry h2, .post-body h2 { margin: 1.8em 0 .5em; color: var(--ink); font-size: 26px; line-height: 1.25; text-wrap: balance; }
+.entry h3, .post-body h3 { margin: 1.6em 0 .4em; color: var(--ink); font-size: 21px; line-height: 1.3; text-wrap: balance; }
+.entry h4 { margin: 1.4em 0 .3em; font-size: 20px; font-style: italic; font-weight: normal; }
+.anchor { margin-left: .3em; color: var(--rule); text-decoration: none; font-weight: normal; opacity: 0; }
+h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; }
+.anchor:hover { color: var(--link); }
+strong { color: var(--ink); }
+abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+sup { line-height: 0; font-size: .7em; }
+kbd { padding: 1px 6px; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; background: var(--wash); font: .8em var(--mono); }
+.dropcap > p:first-child::first-letter { float: left; margin: .08em .1em 0 0; color: var(--ink); font-size: 3.6em; line-height: .82; font-weight: bold; }
 
-/* 5. Layout ------------------------------------------------------------- */
-div#page { width: 946px; margin: 20px auto; padding: 30px 17px 10px 17px; }
-div#content-wrap { overflow: auto; clear: both; margin: 0 3px 35px 0; padding: 40px 0 70px 0; border: 1px solid #DDD;
-                   box-shadow: 1px 1px 7px rgba(153,153,153,.2); border-radius: 5px; background: rgba(252,250,250,.69); }
-div#content-pri { float: right; width: 516px; margin: 0; padding: 5px 110px 0 87px; border-left: 1px dashed #DDD; }
-div#content-sec { float: left; width: 196px; margin: 0; padding: 0 25px 0 0; }
+ul, ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+li { margin: 0 0 .35em; }
+li > ul, li > ol { margin: .35em 0 0; }
+ul li::marker { color: var(--muted); }
+ol li::marker { color: var(--muted); font-variant-numeric: lining-nums; }
 
-div#content-pri ul { list-style-type: none; margin: 0; padding: 0; }
-div#content-pri ol { margin: 0; padding: 0; }
-div#content-pri ul li, div#content-pri ol li { width: 100%; padding: 5px 0; border-bottom: 1px dashed #DDD; font-size: 15px; }
-.archive div#content-pri ul li.date-heading { margin: 30px 0 0 0; padding-bottom: 10px; font-weight: normal; font-size: 18px; scroll-margin-top: 20px; }
-div#content-pri ul li:first-child { border-top: 1px dashed #CCC; }
-.archive div#content-pri ul li:first-child { border-top: 0; }
-div#content-pri ul li span, div#content-pri ol li span { display: inline; font-size: 11px; font-style: italic; color: #6c6c6c; }
-div#content-pri p { font-size: 15px; line-height: 24px; color: #333; margin: 0 0 15px 0; text-wrap: pretty; }
-/* Journal-entry paragraphs set ragged right, as v4. Justification, hyphenation and gutter numbers (algebrica.org,
-   2026-09-03) were removed by design change 2026-09-26 (Kalyan). */
-h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
-div#content-pri p a:link { text-decoration: underline; color: #ba1820; }
-div#content-pri ul li a:link, div#content-pri ol li a:link { text-decoration: none; color: #ba1820; }
-div#content-pri p a:visited { text-decoration: underline; color: #d0656a; }
-div#content-pri ul li a:visited, div#content-pri ol li a:visited { text-decoration: none; color: #d0656a; }
-div#content-pri p a:hover, div#content-pri ul li a:hover, div#content-pri ol li a:hover { text-decoration: underline; color: #666; }
-/* Planning grid (::: plan) — an answer skeleton is not code, so it is not
-   set as code. A printed form: stage label in spaced caps, content in the
-   body serif, hairline rules, reclaiming the right gutter like a table. */
-div#content-pri .plan { width: 100%; margin: 4px 0 22px 0;
-    border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }             /* inside the measure (2026-09-02) */
-div#content-pri .plan p.plan-title { margin: 0; padding: 7px 0; font-size: 12px; font-style: normal;
-    text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px dashed #CCC; }
-div#content-pri .plan ul { list-style: none; margin: 0; padding: 0; }
-div#content-pri .plan li { position: relative; width: auto; min-height: 22px; padding: 9px 0 9px 132px;
-    font-size: 15px; line-height: 22px; border: 0; border-bottom: 1px dashed #DDD; }
-div#content-pri .plan li:last-child { border-bottom: 0; }
-div#content-pri .plan li::before { content: none; }
-div#content-pri .plan li > strong:first-child { position: absolute; left: 0; top: 9px; width: 116px;
-    font-weight: normal; font-size: 12px; line-height: 22px; text-transform: uppercase;
-    letter-spacing: 1px; color: #6c6c6c; }
-div#content-pri .plan li em { font-style: italic; color: #666; }
+hr { width: 30%; margin: 2.2em auto; border: 0; border-top: 1px solid var(--rule); }
+hr.asterism { width: auto; border: 0; text-align: center; }
+hr.asterism::before { content: "⁂"; color: var(--muted); font-size: 22px; }
 
-/* Run-in sidehead list (::: cases) — the term in spaced caps, the gloss
-   beside it. For case lists, definitions, terms with an explanation. */
-div#content-pri .sidehead-list { margin: 4px 0 20px 0; }
-div#content-pri .sidehead-list ul { list-style: none; margin: 0; padding: 0; }
-div#content-pri .sidehead-list li { width: auto; padding: 11px 0 11px 0; border: 0;
-    border-top: 1px dashed #DDD; font-size: 15px; line-height: 24px; }         /* v4 ledger rules (2026-09-02) */
-div#content-pri .sidehead-list li:first-child { border-top: 1px dashed #CCC; }
-div#content-pri .sidehead-list li:last-child { border-bottom: 1px dashed #DDD; }
-div#content-pri .sidehead-list li::before { content: none; }
-div#content-pri .sidehead-list li > strong:first-child { display: block; margin-bottom: 2px;
-    font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #333; }   /* #6c6c6c → #333, design change 2026-09-26 */
+/* ---------- Quotes ---------- */
+blockquote { margin: 1.6em 0; padding: 2px 0 2px 22px; border-left: 3px solid var(--rule); color: #444; }
+blockquote p:last-child { margin-bottom: 0; }
+.quote-by { margin: -.9em 0 1.6em 25px; color: var(--muted); font-size: 16px; }
+cite { font-style: normal; }
+.quote-by cite::before, .quote-who cite::before { content: "— "; }
+blockquote.quote-panel { margin: 0 0 14px; padding: 4px 0 4px 26px; border-left: 4px solid var(--link); color: var(--ink); font-size: 25px; line-height: 1.5; font-style: italic; }
+blockquote.quote-panel em { font-style: normal; }
+.quote-who { margin: 0 0 1.4em 30px; color: var(--muted); font-size: 17px; }
+.quote-who cite em { font-style: italic; }
+.post blockquote.quote-panel { margin-top: 4px; }
+.post .quote-who { margin-bottom: 0; }
+.commentary { margin-top: 8px; }
 
-/* Prose lists inside an entry: v4's ruled rows (design change 2026-10-20, Kalyan: "even under numbered
-   bullets and listed bullets he uses these dashes"), checked against v4's screen.css: each row 5px above and
-   below with a 1px dashed #DDD rule under it, a dashed #CCC rule over a bulleted list's first row only, the
-   rules running the text's width. v4's numbers hang in the margin; our bullets (an en dash) hang with them. */
-div#content-pri .entry > ul, div#content-pri .commentary > ul,
-div#content-pri .entry > ol, div#content-pri .commentary > ol { list-style: none; margin: 0 0 15px 0; padding: 0; counter-reset: li; }
-div#content-pri .entry > ul > li, div#content-pri .commentary > ul > li,
-div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li {
-    position: relative; width: auto; padding: 5px 0; border-bottom: 1px dashed #DDD; line-height: 23px; }
-div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li { counter-increment: li; }
-div#content-pri .entry > ul > li:first-child, div#content-pri .commentary > ul > li:first-child { border-top: 1px dashed #CCC; }
-div#content-pri .entry > ul > li::before, div#content-pri .commentary > ul > li::before {
-    content: "\2013"; position: absolute; left: -16px; color: #999; }
-div#content-pri .entry > ol > li::before, div#content-pri .commentary > ol > li::before {
-    content: counter(li) "."; position: absolute; right: 100%; margin-right: 7px; color: #999; font-variant-numeric: tabular-nums; }
-div#content-pri .entry > ul ul, div#content-pri .entry > ol ul { margin: 4px 0 4px 0; }
+/* ---------- Boxes ---------- */
+.callout { margin: 1.6em 0; padding: 16px 22px; border-left: 4px solid var(--muted); background: var(--wash); font-size: 18px; line-height: 1.6; }
+.callout > :last-child { margin-bottom: 0; }
+.callout-title { margin: 0 0 6px; color: var(--ink); font-size: 14px; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; }
+.callout-tip { border-color: var(--link); background: var(--tint); }
+.callout-tip .callout-title { color: var(--link-hover); }
+.callout-key { border-color: #d8c349; background: var(--yellow); }
+.callout-warning { border-color: var(--red); background: #fdf1f1; }
+.callout-warning .callout-title { color: #b52222; }
 
-/* Tables sit inside the measure with v4's ledger rules (2026-09-02; the
-   2026-08-30 gutter-reclaim was reversed: "going out of the scope"). */
-div#content-pri table { border-collapse: collapse; width: 100%; margin: 4px 0 22px 0;
-    font-size: 14px; line-height: 20px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD;
-    font-variant-numeric: tabular-nums; }
-div#content-pri thead th { padding: 7px 16px 7px 0; font-weight: normal; font-size: 12px; line-height: 16px; text-align: left;
-    vertical-align: bottom; text-transform: uppercase; letter-spacing: 1px; color: #666; border-bottom: 1px dashed #CCC; }
-div#content-pri tbody td { padding: 9px 16px 9px 0; vertical-align: top; border-bottom: 1px dashed #DDD; }
-div#content-pri tbody tr:last-child td { border-bottom: 0; }
-div#content-pri tbody td:last-child, div#content-pri thead th:last-child { padding-right: 0; }
-div#content-pri td strong { font-weight: bold; }
+details { margin: 1.6em 0; padding: 12px 18px; border: 1px solid var(--rule); border-radius: 4px; font-size: 18px; }
+summary { cursor: pointer; color: var(--ink); font-weight: bold; }
+details[open] summary { margin-bottom: 10px; }
+details > :last-child { margin-bottom: 0; }
 
-div#content-pri p.sub { clear: both; margin: 0 0 44px 0; padding: 0; font-weight: normal; font-size: 15px; color: #333; text-transform: uppercase; }
-div#content-pri p.sub span { margin: 0; padding: 0; font-size: 10px; }
-div#content-pri p.sub.tagline { margin-bottom: 12px; }                         /* front-matter tagline above the meta line (ours) */
-div#content-pri p.meta.entry-meta a:link, div#content-pri p.meta.entry-meta a:visited { color: #ba1820; text-decoration: underline; }
-div#content-pri .entry > p:first-of-type { font-size: 18px; font-weight: normal; line-height: 26px; margin-bottom: 20px; }     /* v4 p.intro */
-div#content-pri .entry.dropcap > p:first-of-type::first-letter { float: left; margin: 0 3px 0 0; font-size: 57px; line-height: 92%; }
-div#content-pri p.meta { margin: 0 0 45px 0; padding: 6px 0; font-size: 13px; font-style: italic; color: #666; line-height: 19px;
-                         border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
-div#content-pri img { margin: 6px 0 2px 0; padding: 7px; background: #FFFAFA; border: 1px solid #ddd; box-shadow: 1px 1px 7px rgba(153,153,153,.2); max-width: 100%; box-sizing: border-box; }
-div#content-pri figure { margin: 0 0 15px; }
-div#content-pri figcaption { margin-top: 2px; font-size: 12px; color: #666; }                          /* v4 cite */
-div#content-pri cite { display: block; margin-top: -13px; margin-bottom: 20px; padding: 0; font-size: 12px; }
-div#content-pri cite span { color: #6c6c6c; }
-div#content-pri blockquote { position: relative; margin: 0; padding: 0 0 0 15px; border-left: 3px solid #EEE; }
-div#content-pri blockquote p { font-size: 16px; color: #666; margin-bottom: 7px; line-height: 150%; }
-div#content-pri blockquote cite { margin: 0; padding: 7px 0 0 0; color: #666; text-align: right; }   /* the name sits right (Kalyan, 2026-09-03) */
-div#content-pri #post { padding-bottom: 80px; }
-div#content-pri sup.footnote-ref { font-size: 10px; line-height: 0; color: #333; scroll-margin-top: 33vh; }  /* the "↑" lands the sentence, not the marker (ours; v4: jQuery scrollTo) */
-div#content-pri sup.footnote-ref a:link, div#content-pri sup.footnote-ref a:visited { color: #333; text-decoration: none; }
-div#content-pri ol#footnotes::before { content: "Footnotes"; display: block; padding: 10px 0; margin: 60px 0 0 0; font-size: 12px;
-    font-weight: normal; font-style: normal; text-transform: uppercase; letter-spacing: 1px; line-height: 120%; color: #333;
-    border-top: 1px solid #DDD; }                                                                       /* v4 p#footnote */
-.journal div#content-pri ol#footnotes::before { margin: 30px 0 0 0; }
-div#content-pri ol#footnotes { padding: 0 0 10px 0; color: #333;   /* #666 → #333, design change 2026-09-26 */ font-size: 11px; margin: 0; line-height: 125%; border-bottom: 1px solid #DDD; list-style: decimal outside; }
-div#content-pri ol#footnotes li { font-size: 11px; border: 0; padding: 0; width: auto; scroll-margin-top: 30px; }
-div#content-pri ol#footnotes li > p { display: inline; margin: 0; font-size: 11px; color: #333; }
-div#content-pri ol#footnotes a.scrollto { margin-top: -2px; padding: 0 3px 0 2px; font-size: 9px; text-decoration: none; }
+.plan { margin: 1.6em 0; padding: 18px 22px; border: 1px solid var(--rule); border-top: 3px solid var(--ink); font-size: 18px; }
+.plan-title { margin: 0 0 10px; color: var(--ink); font-weight: bold; }
+.plan ul { margin: 0; padding: 0; list-style: none; }
+.plan li { display: grid; grid-template-columns: 7.5em 1fr; gap: 12px; margin: 0; padding: 8px 0; border-top: 1px dashed var(--rule); }
+.plan li:first-child { border-top: 0; }
+.plan li::marker { content: none; }
 
-div#content-sec p { margin: 4px 0 0 25px; padding: 10px 0 9px 0; font-size: 14px; font-style: italic; color: #666; text-align: right;
-                    line-height: 19px; border-top: 1px dashed #CCC; }
-.biography div#content-sec p { border-top: 0; }
-div#content-sec ul { list-style-type: none; margin: 4px 0 35px 25px; padding: 0; }
-div#content-sec ul li { text-align: right; width: 100%; padding: 2px 0; font-size: 13px; border-bottom: 1px dashed #CCC; }
-div#content-sec ul li:first-child { border-top: 1px dashed #CCC; }
-div#content-sec p a:link, div#content-sec ul li a:link { text-decoration: none; color: #ba1820; }
-div#content-sec p a:visited, div#content-sec ul li a:visited { text-decoration: none; color: #d0656a; }
-div#content-sec p a:hover, div#content-sec ul li a:hover { text-decoration: underline; color: #666; }
-div#content-sec p.portrait { margin: 20px 0 30px 0; }   /* the About portrait (design change 2026-09-26): 170px so the tilted frame stays inside the sidebar */
-div#content-sec p.portrait img { display: block; margin: 0 0 0 26px; }
-div#content-sec img { background: #FFFAFA; margin: 0 0 0 30px; padding: 7px; border: 1px solid #eee;
-                      box-shadow: 1px 1px 7px rgba(153,153,153,.2); transform: rotate(-2deg); }
-div#content-sec p.home-link { text-align: left; margin: 0 0 40px 25px; padding: 0; border: 0; font-style: normal; font-size: 12px;
-                              text-transform: uppercase; letter-spacing: 1px; }                    /* v4 home-c.png, in type */
-/* entry sidebar (v4's post sidebar, 2026-09-02; simplified 2026-09-03): prev/next row, then the TOC */
-div#content-sec p.paginate { display: flex; justify-content: space-between; gap: 10px; margin: -10px 0 35px 25px; padding: 8px 0;
-                             border-top: 1px dashed #CCC; border-bottom: 1px dashed #CCC; text-align: left; font-style: normal;
-                             font-size: 12px; line-height: 18px; text-transform: uppercase; letter-spacing: 1px; }  /* v4 Prev/№/Next badge, in type */
+.sidehead-list ul { padding: 0; list-style: none; }
+.sidehead-list li { margin: 0 0 14px; }
+.sidehead-list li > strong:first-child { display: block; color: var(--ink); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
 
-/* 6. Navigation --------------------------------------------------------- */
-ul#nav-primary { clear: both; list-style-type: none; margin: 12px 0 30px 0; padding: 0 0 28px 0; display: flex; flex-wrap: wrap; gap: 10px; }
-.home ul#nav-primary { margin: 12px 0 0 0; padding: 0 0 41px 0; }
-.external ul#nav-primary { margin: 12px 0 10px 0; padding: 0; }
+/* ---------- Tables ---------- */
+table { width: 100%; margin: 1.6em 0; border-collapse: collapse; font-size: 17px; line-height: 1.45; font-variant-numeric: lining-nums tabular-nums; }
+th { padding: 8px 10px 8px 0; border-bottom: 2px solid var(--ink); color: var(--ink); text-align: left; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.casetable td a { color: var(--text); }
+.casetable td a:hover { color: var(--link); }
 
-li.card { line-height: 18px; width: 207px; padding: 10px; border: 1px solid #DDD; color: #333;
-          box-shadow: 1px 1px 7px rgba(153,153,153,.2); border-radius: 5px; background-color: #fff; opacity: .6; }
-.home li.card, .external li.card, ul.subnav li.card { background-color: rgba(253,251,251,.55); opacity: 1; }
-li.card.current, li.card:hover { background-color: #fff; opacity: 1; }
-li.card a { display: block; }
-li.card .engraving { display: flex; height: 105px; overflow: hidden; align-items: flex-end; justify-content: center; }
-li.card .engraving img { display: block; max-width: 100%; }
+/* ---------- Footnotes ---------- */
+.footnote-ref a { text-decoration: none; padding: 0 1px; }
+#footnotes { margin: 2.6em 0 0; padding: 20px 0 0 1.4em; border-top: 1px solid var(--rule); color: #444; font-size: 16px; line-height: 1.55; }
+#footnotes p { display: inline; margin: 0; }
+.scrollto { text-decoration: none; }
 
-ul.subnav { list-style-type: none; margin: 0 0 10px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; line-height: 18px; }
-ul.subnav:last-of-type { margin: 0; padding: 0 0 50px 0; }
-ul.subnav li.card { text-align: center; font-size: 13px; font-style: italic; font-weight: normal; color: #d24b21; }
+/* ---------- Pictures ---------- */
+img { max-width: 100%; height: auto; }
+figure { margin: 2em 0; }
+figure.pic { text-align: center; }
+figure.pic img { display: block; margin: 0 auto; border-radius: 2px; }
+figure.pic img.upright { max-width: 62%; }
+figcaption { margin-top: 10px; color: var(--muted); font-size: 15px; line-height: 1.45; text-align: left; }
+figure.pic figcaption { text-align: center; }
+.cap { font-style: italic; }
+.cap + .credit::before { content: " · "; letter-spacing: 0; }
+.credit { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.clipping { margin: 2em 0; }
+.clipping-source { margin: 0 0 8px; color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
 
-/* 7. Siteinfo / footer -------------------------------------------------- */
-div#siteinfo { position: relative; clear: both; text-align: center; padding: 60px 0 0 0; color: #6c6c6c; }   /* v4 #999: 125px above deranged.png */
-div#siteinfo p { margin: 0; padding: 0; }
-div#siteinfo p span { font-family: Courier, monospace; color: #fca0a5; }
-div#siteinfo a:link, div#siteinfo a:visited { text-decoration: underline; color: #8a7c7c; }   /* v4 #beb2b2 measured 1.9:1 */
+/* ---------- Code ---------- */
+code { padding: 1px 5px; border-radius: 3px; background: var(--wash); font: .82em var(--mono); }
+pre { margin: 1.6em 0; padding: 16px 18px; border-radius: 4px; background: var(--wash); font: 15px/1.55 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+pre code { padding: 0; background: none; font-size: inherit; }
+figure.code { margin: 1.6em 0; }
+figure.code figcaption { margin: 0; padding: 6px 18px; border-radius: 4px 4px 0 0; background: #e8e8e8; color: var(--muted); font: 14px var(--mono); }
+figure.code pre { margin: 0; border-radius: 0 0 4px 4px; }
+.highlight-line { display: inline-block; width: 100%; background: var(--yellow); }
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: #7e878e; font-style: italic; }
+.token.keyword, .token.atrule, .token.important, .token.selector { color: #0071c0; }
+.token.string, .token.attr-value, .token.char, .token.regex, .token.inserted { color: #4d7a12; }
+.token.number, .token.boolean, .token.constant, .token.symbol { color: #b5401f; }
+.token.function, .token.class-name, .token.tag, .token.property { color: var(--ink); font-weight: bold; }
+.token.punctuation, .token.operator { color: #555; }
+.token.deleted { color: var(--red); }
 
-/* 8. Quote entries (ours — DESIGN.md §8, in the v4 palette) ------------- */
-/* Design change 2026-09-26 (Kalyan): the 8BIT (2013) quote post, adapted — the rose panel (the key-callout
-   tint, the red rule, a dashed rose foot), a classic quotation mark in solid house red in the left margin of the
-   panel, and a speech-bubble notch pointing down to the name, which sits right, under the panel. */
-div#content-pri blockquote.quote-panel { position: relative; margin: 14px 0 0 0; padding: 22px 26px 20px 76px; background: #FDF8F8;
-    border-left: 3px solid #ba1820; border-bottom: 1px dashed #d0656a; }
-div#content-pri blockquote.quote-panel::before { content: "\201C"; position: absolute; left: 18px; top: 16px; pointer-events: none;
-    font-family: Georgia, "Times New Roman", serif; font-size: 80px; line-height: .9; color: #ba1820; }
-div#content-pri blockquote.quote-panel::after { content: ""; position: absolute; right: 38px; bottom: -9px; width: 16px; height: 16px;
-    background: #FDF8F8; border-right: 1px dashed #d0656a; border-bottom: 1px dashed #d0656a; transform: rotate(45deg); }
-div#content-pri blockquote.quote-panel p { position: relative; font-size: 22px; line-height: 30px; font-style: italic; color: #333; margin: 0 0 8px 0; }
-div#content-pri blockquote.quote-panel p:last-child { margin-bottom: 0; }
-div#content-pri #post.entry > p.quote-who { text-align: right; hyphens: manual; margin: 16px 0 18px 0; font-size: 12px; line-height: 19px; }
-div#content-pri blockquote.quote-panel em { font-style: normal; }
-div#content-pri p.quote-who { margin: 16px 0 12px 0; padding: 0 16px 0 0; font-size: 12px; line-height: 19px; text-transform: uppercase;
-    letter-spacing: 1px; color: #333; text-align: right; }
-div#content-pri p.quote-who cite { display: inline; margin: 0; font-size: inherit; font-style: normal; }
-div#content-pri p.quote-who cite em { font-style: italic; }
-div#content-pri p.quote-who::before { content: "— "; }
-/* a plain blockquote's name, lifted out under the quote and set right (design change 2026-10-20) */
-div#content-pri p.quote-by { margin: -4px 0 20px 0; font-size: 12px; line-height: 19px; font-style: italic; color: #666; text-align: right; }
-div#content-pri p.quote-by cite { display: inline; margin: 0; font-size: inherit; }
-div#content-pri p.quote-by::before { content: "— "; font-style: normal; }
+/* ---------- Cards for outside material ---------- */
+.card-video, .card-post, .card-book { display: block; margin: 1.8em 0; border: 1px solid var(--rule); border-radius: 6px; font-size: 17px; line-height: 1.5; }
+a.card-video { color: var(--text); text-decoration: none; overflow: hidden; }
+a.card-video:hover { border-color: var(--link); }
+.cv-still { position: relative; display: block; }
+.cv-still img { display: block; width: 100%; }
+.cv-play { position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(0, 21, 35, .75); }
+.cv-play::after { content: ""; position: absolute; top: 20px; left: 26px; border-style: solid; border-width: 12px 0 12px 19px; border-color: transparent transparent transparent #fff; }
+a.card-video:hover .cv-play { background: var(--link); }
+.cv-source, .cv-title, .cv-meta { display: block; padding: 0 20px; }
+.cv-source, .cp-source { padding-top: 14px; color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.cv-title { margin: 2px 0; color: var(--ink); font-size: 21px; font-weight: bold; line-height: 1.3; }
+a.card-video:hover .cv-title { color: var(--link); }
+.cv-meta { padding-bottom: 16px; color: var(--muted); font-style: italic; }
+.card-post { padding: 0 22px 16px; }
+.cp-source { margin: 0 0 4px; }
+.cp-title { margin: 0 0 10px; color: var(--ink); font-size: 21px; font-weight: bold; line-height: 1.3; }
+.card-post img { display: block; margin: 0 0 12px; border-radius: 4px; }
+.cp-text { margin: 0 0 10px; }
+.cp-link { margin: 0; font-size: 16px; }
+.card-book { display: flex; gap: 20px; padding: 18px; }
+.cb-cover { display: flex; flex: 0 0 110px; flex-direction: column; justify-content: space-between; min-height: 160px; padding: 14px 12px; border-radius: 2px 4px 4px 2px; background: var(--ink); color: #fff; box-shadow: inset 4px 0 0 rgba(255, 255, 255, .15); }
+.cb-cover-title { font-size: 16px; font-weight: bold; line-height: 1.25; }
+.cb-cover-author { font-size: 12px; font-style: italic; opacity: .8; }
+.cb-cover-img { padding: 0; background: none; box-shadow: none; }
+.cb-cover-img img { display: block; width: 110px; border-radius: 2px; }
+.cb-details p { margin: 0 0 4px; }
+.cb-title { color: var(--ink); font-size: 21px; font-weight: bold; line-height: 1.3; }
+.cb-author { font-style: italic; }
+.cb-pub, .cb-read { color: var(--muted); font-size: 15px; }
 
-/* journal pages: older / newer entries and the page count (design change 2026-09-26) */
-div#content-pri p.pages { display: flex; justify-content: space-between; gap: 10px; margin: 10px 0 0 0; padding: 10px 0; font-size: 12px;
-    text-transform: uppercase; letter-spacing: 1px; color: #6c6c6c; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; }
-div#content-pri p.pages a { text-decoration: none; }
-div#content-pri p.pages span { flex: 1; } div#content-pri p.pages span.count { text-align: center; } div#content-pri p.pages span:last-child { text-align: right; }
+/* ---------- Contents list ---------- */
+.toc-inline { margin: 0 0 36px; padding: 16px 22px; background: var(--wash); border-radius: 4px; font-size: 17px; }
+.toc-inline h3 { margin: 0 0 6px; color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.toc, .toc ul { margin: 0; padding-left: 1.2em; }
+.toc li { margin: 0 0 2px; }
 
-/* 8b. 2026 body elements (ours, in the v4 vocabulary) --------------- */
-/* callouts: the card treatment applied to a note. Muted ink hues only —
-   they must still read as printed paper, never as a screen UI. */
-div#content-pri aside.callout { margin: 6px 0 18px 0; padding: 4px 0 1px 15px; background: none;
-    border: 0; border-left: 3px solid #6b6b6b; box-shadow: none; }   /* plain: rule and title only, no fill or shadow (design change 2026-09-26) */
-div#content-pri aside.callout p { font-size: 14px; line-height: 20px; margin: 0 0 8px 0; }
-div#content-pri aside.callout p.callout-title { margin: 0 0 5px 0; font-size: 12px; font-style: normal;
-    text-transform: uppercase; letter-spacing: 1px; color: #6b6b6b; }
-div#content-pri aside.callout ul, div#content-pri aside.callout ol { margin: 0 0 8px 0; }
-div#content-pri aside.callout li { font-size: 14px; padding: 3px 0; border-bottom: 1px dotted #E4E0DA; }
-div#content-pri aside.callout li:first-child { border-top: 0; }
-div#content-pri aside.callout li:last-child { border-bottom: 0; }
-/* One hue in four weights (Kalyan, 2026-09-03, "set D"): the house red
-   getting stronger as the box gets more important. Replaces the four inks
-   of 2026-08-30, which sat oddly on a cream-and-red page. */
-/* note — grey: context, definition, "where this sits" */
-div#content-pri aside.callout-note { border-left-color: #CCC; }
-div#content-pri aside.callout-note p.callout-title { color: #6c6c6c; }
-/* tip — pale rose: method, how to write it */
-div#content-pri aside.callout-tip { border-left-color: #e3b3b5; }
-div#content-pri aside.callout-tip p.callout-title { color: #a94f54; }
-/* key — rose: the thing to remember */
-div#content-pri aside.callout-key { border-left-color: #d0656a; }
-div#content-pri aside.callout-key p.callout-title { color: #ba1820; }
-/* warning — the house red: the mistake, the caution */
-div#content-pri aside.callout-warning { border-left-color: #ba1820; }
-div#content-pri aside.callout-warning p.callout-title { color: #ba1820; }
+/* ---------- Entry foot: older / newer ---------- */
+.paginate { display: flex; justify-content: space-between; gap: 20px; margin: 48px 0 0; padding: 20px 0 0; border-top: 1px solid var(--rule); font-size: 17px; line-height: 1.45; }
+.paginate span:last-child { text-align: right; }
+.paginate small { display: block; color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 
-/* pictures (design change 2026-10-20, Kalyan: "B like colly"): v4's frame — 7px mat, hairline, soft shadow —
-   the full width of the column; caption in italic, the credit in spaced caps beside it */
-div#content-pri figure.pic { margin: 26px 0 28px; }
-div#content-pri figure.pic img { display: block; width: 100%; height: auto; margin: 0; padding: 7px; background: #FFFAFA;
-    border: 1px solid #DDD; box-shadow: 1px 1px 7px rgba(153,153,153,.2); }                     /* v4's own image frame */
-div#content-pri figure.pic figcaption { display: flex; justify-content: space-between; gap: 18px; margin-top: 9px;
-    font-size: 13px; line-height: 19px; color: #555; }
-div#content-pri figure.pic .cap { font-style: italic; }
-div#content-pri figure.pic .credit { flex: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #888; }
-div#content-pri figure.pic:has(img.upright) { width: 62%; }                   /* an upright picture is not set a column wide */
-/* press cutting (::: clipping Source) — design change 2026-10-20: no dashed frame; the cutting is a picture like
-   any other (linked to its full page), its source the credit; the quoted passage a plain blockquote; the analysis
-   runs on outside the block */
-div#content-pri .clipping { margin: 6px 0 22px 0; }
-div#content-pri .clipping p.clipping-source { margin: 0 0 10px 0; font-size: 12px; font-style: normal; text-transform: uppercase;
-    letter-spacing: 1px; color: #6c6c6c; }
-div#content-pri .clipping > p { font-size: 14px; line-height: 20px; }
-div#content-pri picture { display: block; }
-/* collapsibles */
-div#content-pri details { margin: 6px 0 15px 0; padding: 0 15px; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }
-div#content-pri details summary { cursor: pointer; padding: 8px 0; font-size: 15px; list-style-position: outside; }
-div#content-pri details summary::marker { color: #ba1820; }
-div#content-pri details[open] summary { border-bottom: 1px dashed #DDD; margin-bottom: 8px; }
-/* keys and abbreviations */
-kbd { font-family: 'VT323', Courier, monospace; font-size: 16px; padding: 0 5px; background: #fff; border: 1px solid #CCC;
-      border-bottom-width: 2px; border-radius: 3px; white-space: nowrap; }
-abbr[title] { text-decoration: underline dotted #999; text-underline-offset: 2px; cursor: help; }
-/* section anchors */
-div#content-pri .entry h2 .anchor, div#content-pri .entry h3 .anchor { visibility: hidden; margin-left: 6px; font-size: 14px;
-    text-decoration: none; color: #999; letter-spacing: 0; }
-div#content-pri .entry h2:hover .anchor, div#content-pri .entry h3:hover .anchor { visibility: visible; }
-/* code: filename tab + highlighted lines */
-div#content-pri figure.code { margin: 6px 0 15px 0; }
-div#content-pri figure.code figcaption { margin: 0; padding: 3px 20px; background: #E4E4E4; border-top: 1px solid #CCC;
-    font-family: 'VT323', Courier, monospace; font-size: 16px; color: #666; }
-div#content-pri figure.code pre { margin: 0; border-top: 0; }
-pre mark.highlight-line { display: inline-block; width: 100%; background: rgba(186,24,32,.08); color: inherit; }
-pre mark.highlight-line-add { background: rgba(210,75,33,.10); }
-pre mark.highlight-line-remove { background: rgba(153,153,153,.15); text-decoration: line-through; }
-/* table of contents: sidebar (v4 "Jump directly to") + an in-body copy for narrow canvases */
-div#content-sec h3 + ul.toc { margin-top: 0; }
-div#content-sec ul.toc { margin: 0 0 35px 25px; border-top: 1px solid #CCC; }
-div#content-sec ul.toc > li { padding: 6px 0 6px 0; font-size: 13px; line-height: 17px; border-bottom: 1px solid #E4E0DA; }
-div#content-sec ul.toc > li:first-child { border-top: 0; }
-div#content-sec ul.toc > li:last-child { border-bottom: 1px solid #CCC; }
-div#content-sec ul.toc ul { margin: 4px 0 0 0; border: 0; }
-div#content-sec ul.toc ul li { padding: 2px 0; font-size: 11px; font-style: italic; line-height: 15px;
-    color: #6c6c6c; border: 0; }
-div#content-sec ul.toc ul li a:link, div#content-sec ul.toc ul li a:visited { color: #6c6c6c; }
-div#content-sec ul.toc ul li a:hover { color: #ba1820; text-decoration: none; }
-div#content-pri .toc-inline { display: none; margin: 0 0 30px 0; padding: 10px 0; border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
-div#content-pri .toc-inline h3 { margin: 0 0 6px 0; font-size: 12px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; color: #666; }
-div#content-pri .toc-inline ul li { font-size: 14px; padding: 2px 0; border: 0; }
-div#content-pri .toc-inline ul ul { margin-left: 15px; }
-/* a note entry on the journal index shows in full (2026-09-03; raamdev.com's asides) — body text at index size */
-.journal#multiple div#content-pri .note-body { margin-top: 14px; }
-.journal#multiple div#content-pri .note-body p { font-size: 15px; line-height: 24px; margin: 0 0 12px 0; }
-.journal#multiple div#content-pri .note-body > p:last-child { margin-bottom: 0; }
-/* the quiet meta line under quotes and notes (Kalyan, 2026-09-03: "the metadata is much cleaner" on raamdev.com):
-   one small grey line set right, no rules — date · category · permanent link */
-.journal#multiple div#content-pri p.meta.quiet { margin: 6px 0 50px 0; padding: 0; border: 0; text-align: right;
-    font-size: 12px; line-height: 18px; font-style: italic; color: #6c6c6c; }
-.journal#multiple div#content-pri p.meta.quiet a:link, .journal#multiple div#content-pri p.meta.quiet a:visited { color: #6c6c6c; text-decoration: none; }
-.journal#multiple div#content-pri p.meta.quiet a:hover { color: #ba1820; }
-/* older / newer (v4 p.paginate) */
-div#content-pri p.paginate { margin: 0; padding: 10px 0; font-size: 12px; font-weight: normal; font-style: normal; text-transform: uppercase;
-    letter-spacing: 1px; color: #333; border-top: 1px solid #CCC; border-bottom: 1px solid #DDD; display: none; justify-content: space-between; gap: 20px; }
-    /* the column's Older/Newer shows only under 989px; on desktop the sidebar carries it (2026-09-02) */
-div#content-pri p.paginate a { padding: 1px 3px; text-decoration: none; }
-/* reading time sits in the v4 meta line */
-div#content-pri p.meta span.rt { color: #6c6c6c; }
-/* 9c. Print (ours) ------------------------------------------------------ */
+/* ---------- Archive ---------- */
+.archive-list { padding: 0; list-style: none; }
+.archive-list .date-heading { margin: 32px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.archive-list .date-heading:first-child { margin-top: 0; }
+.archive-list li { margin: 0 0 6px; }
+.archive-list time { display: inline-block; min-width: 2.2em; color: var(--muted); font-size: 16px; font-variant-numeric: lining-nums tabular-nums; }
+.jump { margin: 0 0 8px; color: var(--muted); font-size: 16px; }
+.jump a { margin: 0 2px; }
+
+/* ---------- About ---------- */
+.portrait { float: right; margin: 6px 0 16px 28px; }
+.portrait img { display: block; width: 170px; border-radius: 4px; }
+.entry h5, h5 { clear: both; margin: 2em 0 .5em; color: var(--ink); font-size: 24px; font-weight: bold; }
+h5 span { color: var(--muted); font-size: 15px; font-style: italic; font-weight: normal; }
+h6 { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.ledger { padding-left: 1.2em; }
+.ledger span { color: var(--muted); }
+
+/* ---------- Case index ---------- */
+.case { margin: 0 0 26px; padding: 0 0 22px; border-bottom: 1px solid var(--rule); }
+.case h3 { margin: 0 0 6px; color: var(--ink); font-size: 21px; }
+.case p { margin: 0 0 6px; }
+.case-cited { color: var(--muted); font-size: 16px; font-style: italic; }
+
+/* ---------- Footer ---------- */
+footer { margin-top: 40px; padding: 28px 0 48px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; line-height: 1.6; }
+.elsewhere { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0 0 16px; padding: 0; list-style: none; font-size: 17px; }
+.elsewhere li { margin: 0; }
+#siteinfo p { margin: 0 0 4px; }
+#siteinfo a { color: var(--muted); }
+#siteinfo a:hover { color: var(--link); }
+
+/* ---------- Phones ---------- */
+@media (max-width: 600px) {
+  body { font-size: 18px; line-height: 1.6; }
+  #page { padding: 0 18px; }
+  header { padding-top: 24px; }
+  .site-name { font-size: 23px; }
+  nav ul { font-size: 16px; gap: 4px 18px; }
+  main { padding-top: 32px; }
+  .page-title { font-size: 31px; }
+  .sub { font-size: 19px; }
+  .intro { font-size: 19px; }
+  .post h2 { font-size: 25px; }
+  blockquote.quote-panel { font-size: 21px; padding-left: 18px; }
+  .quote-who { margin-left: 22px; }
+  .plan li { grid-template-columns: 1fr; gap: 0; }
+  .portrait { float: none; margin: 0 0 20px; }
+  .card-book { flex-direction: column; }
+  .paginate { flex-direction: column; }
+  .paginate span:last-child { text-align: left; }
+}
+
 @media print {
-  body { background: #fff; font-size: 12pt; }
-  ul#nav-primary, h2.ext-dests, ul.subnav, div#content-sec, div#content-pri p.paginate, .anchor, .toc-inline { display: none; }
-  div#page { width: auto; padding: 0; }
-  div#content-wrap { border: 0; box-shadow: none; background: none; }
-  div#content-pri { float: none; width: auto; padding: 0; border: 0; }
-  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
-  #branding .m-name { color: #000; }
+  header nav, footer, .paginate, .anchor { display: none; }
+  body { font-size: 12pt; }
+  a { color: inherit; }
 }
-
-/* 9. Media queries (v4's two widths) ------------------------------------ */
-@media (max-width: 989px) {
-  div#page { width: 468px; }
-  .home ul#nav-primary { padding-bottom: 30px; }
-  #page ul.subnav { margin-bottom: 0; }
-  div#content-pri { float: none; width: 408px; margin: 0; padding: 0 30px; border-left: 0; }   /* ours: gutter both sides (v4: 0 30px 0 0) */
-  div#content-sec { display: none; }
-  div#content-pri ol { padding-left: 1.6em; }
-  div#content-pri ol#footnotes { padding-left: 1.6em; }
-  div#content-pri .toc-inline { display: block; }
-  div#content-pri p.paginate { display: flex; }
-  /* tap targets on touch canvases (2026-09-03) */
-  div#content-pri .toc-inline ul li { padding: 7px 0; }
-  div#content-pri p.paginate a { padding: 8px 3px; }
-  div#content-pri ol#footnotes a.scrollto { padding: 6px 8px 6px 4px; }
-  div#content-pri sup.footnote-ref a { padding: 8px 4px; }
-  div#content-pri .plan { width: 100%; }
-  div#content-pri .plan li { padding-left: 0; }
-  div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
-  div#content-pri #post img { width: 380px; height: auto; }
-  div#content-pri #post figure.pic img { width: 100%; }
-  div#siteinfo p { font-size: 14px; }
-}
-@media (max-width: 509px) {
-  /* the phone tier, fluid (2026-09-02; v4: a fixed 306px canvas and 260px column) */
-  div#page { width: auto; margin: 12px 10px; padding: 24px 0 10px 0; }
-  .home ul#nav-primary { padding-bottom: 30px; }
-  #branding a { width: auto; }
-  ul#nav-primary li.card, ul.subnav li.card { width: auto; flex: 1 1 100%; box-sizing: border-box; }
-  .biography li.card .engraving, .journal li.card .engraving, .archive li.card .engraving, .contact li.card .engraving { display: none; }
-  div#content-pri { width: auto; margin: 0; padding: 0 18px; }
-  div#content-pri .page-title { font-size: 25px; }
-  div#content-pri table { width: 100%; font-size: 13px; }
-  div#content-pri .plan { width: 100%; }
-  div#content-pri .plan li { padding-left: 0; }
-  div#content-pri .plan li > strong:first-child { position: static; display: block; width: auto; margin-bottom: 2px; }
-  div#content-pri #post img { width: auto; max-width: 100%; height: auto; }
-  div#content-pri #post figure.pic img { width: 100%; }
-  div#content-pri figure.pic figcaption { display: block; }
-  div#content-pri .entry > ul > li, div#content-pri .commentary > ul > li { padding-left: 16px; }
-  div#content-pri .entry > ul > li::before, div#content-pri .commentary > ul > li::before { left: 0; }
-  div#content-pri .entry > ol > li, div#content-pri .commentary > ol > li { padding-left: 22px; }
-  div#content-pri .entry > ol > li::before, div#content-pri .commentary > ol > li::before { right: auto; left: 0; margin: 0; }
-  div#content-pri figure.pic .credit { display: block; margin-top: 3px; }
-  div#siteinfo p { font-size: 12px; }
-}
-
-/* The case index (/cases/, design change 2026-09-26): one entry per case, a dashed rule between,
-   the holding at body size, the citing entries in the quiet italic of the meta line */
-div#content-pri div.case { padding: 12px 0 6px 0; border-top: 1px dashed #DDD; scroll-margin-top: 30px; }
-div#content-pri div.case h3 { margin: 0 0 4px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: normal; color: #000; }
-div#content-pri div.case p { margin: 0 0 6px 0; }
-div#content-pri div.case p.case-cited { font-size: 12px; line-height: 18px; font-style: italic; color: #6c6c6c; }
-div#content-pri div.case:target h3 { color: #ba1820; }
-
-/* Case names in a ::: casetable link to /cases/ quietly: table ink, no underline, the house red on hover
-   (design change 2026-09-26, "quiet case links"). */
-div#content-pri table.casetable a:link, div#content-pri table.casetable a:visited { color: inherit; text-decoration: none; }
-div#content-pri table.casetable a:hover, div#content-pri table.casetable a:focus-visible { color: #ba1820; }
-
-/* Cards for outside material (design change 2026-09-26; built by the `cards` preprocessor, HANDBOOK §4c).
-   Nothing is loaded from YouTube, X or Meta: the still, the words and any picture are this site's files.
-   p rules carry #content-wrap so they outrank the journal index's note-body paragraph rule. */
-/* video — the still in the home-page card, a red play mark, source in spaced caps, title, quiet meta */
-div#content-pri a.card-video { display: block; margin: 8px 0 26px; padding: 8px 8px 12px; background: #fff; border: 1px solid #DDD;
-    border-radius: 5px; box-shadow: 1px 1px 7px rgba(153,153,153,.2); text-decoration: none; color: #333; }
-div#content-pri a.card-video span { display: block; }
-div#content-pri a.card-video .cv-still { position: relative; }
-div#content-pri a.card-video img { display: block; width: 100%; height: auto; margin: 0; padding: 0; border: 0; box-shadow: none; }
-div#content-pri a.card-video .cv-play { position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; margin: -27px 0 0 -27px;
-    border-radius: 50%; background: rgba(186,24,32,.92); }
-div#content-pri a.card-video .cv-play::after { content: ""; position: absolute; left: 21px; top: 16px; border-left: 17px solid #fff;
-    border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
-div#content-pri a.card-video .cv-source { margin: 10px 4px 2px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #ba1820; }
-div#content-pri a.card-video .cv-title { margin: 0 4px; font-size: 17px; line-height: 23px; }
-div#content-pri a.card-video .cv-meta { margin: 2px 4px 0; font-size: 12px; font-style: italic; color: #6c6c6c; }
-div#content-pri a.card-video:hover .cv-title { color: #ba1820; }
-/* post (X, Instagram, …) — the press-cutting frame: dashed edge, source in spaced caps, a title, the words, a quiet link */
-div#content-pri .card-post { margin: 8px 0 26px; padding: 12px 15px 6px; border: 1px dashed #BBB; background: #FFFDFB; }
-#content-wrap div#content-pri .card-post p.cp-source { margin: 0 0 8px; font-size: 11px; line-height: 16px; text-transform: uppercase; letter-spacing: 1px; color: #6c6c6c; }
-#content-wrap div#content-pri .card-post p.cp-title { margin: 0 0 6px; font-size: 18px; line-height: 24px; color: #333; }
-#content-wrap div#content-pri .card-post p.cp-text { font-size: 16px; line-height: 24px; margin: 0 0 8px; }
-div#content-pri .card-post img { display: block; width: 100%; height: auto; margin: 0 0 10px; padding: 0; border: 1px solid #DDD; box-shadow: none; }
-#content-wrap div#content-pri .card-post p.cp-link { margin: 0 0 6px; text-align: right; font-size: 12px; font-style: italic; }
-/* book — the cover (a photograph, or a typeset cover in the house red) beside a ledger of details */
-div#content-pri .card-book { display: flex; gap: 18px; margin: 8px 0 26px; padding: 14px 0; border-top: 1px dashed #CCC; border-bottom: 1px dashed #DDD; }
-div#content-pri .card-book .cb-cover { flex: 0 0 96px; min-height: 140px; padding: 12px 8px; box-sizing: border-box; background: #7a1a1f; color: #F3EFEB;
-    box-shadow: 2px 2px 6px rgba(0,0,0,.25); display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
-div#content-pri .card-book .cb-cover-img { padding: 0; background: none; min-height: 0; }
-div#content-pri .card-book .cb-cover-img img { display: block; width: 96px; height: auto; margin: 0; padding: 0; border: 0; box-shadow: none; }
-div#content-pri .card-book .cb-cover-title { font-size: 13px; line-height: 16px; }
-div#content-pri .card-book .cb-cover-author { font-size: 9px; line-height: 13px; text-transform: uppercase; letter-spacing: 1px; }
-#content-wrap div#content-pri .card-book p { margin: 0 0 4px; }
-#content-wrap div#content-pri .card-book p.cb-title { font-size: 19px; line-height: 24px; margin-bottom: 6px; }
-#content-wrap div#content-pri .card-book p.cb-author { font-size: 12px; line-height: 18px; text-transform: uppercase; letter-spacing: 1px; }
-#content-wrap div#content-pri .card-book p.cb-pub, #content-wrap div#content-pri .card-book p.cb-read { font-size: 13px; line-height: 19px; font-style: italic; color: #6c6c6c; }

@@ -1,17 +1,17 @@
-{#- One journal-index entry, v4 shape: h3 title, h4 date, blurb, meta. Expects: e.
-    Three kinds (2026-09-03): essays show their opening and "Read on"; quotes show the panel under their title;
-    notes show in full — a thought is its own post, as on raamdev.com. -#}
+{#- One entry in the stream (home, journal, category pages), Seth Godin's way: the date, the title, the words.
+    Quotes and notes are shown whole; an essay shows its opening paragraph and a link on. Expects: e. -#}
+<article class="post">
+<p class="date"><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time></p>
 {%- if e.data.type == "quote" %}
 {%- set qhtml = e.templateContent %}
 {%- include "partials/quote-panel.njk" %}
-<p class="meta quiet"><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time>{% if e.data.tags and e.data.tags.length %} · {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %} · <a href="{{ e.url }}">Permanent link &rarr;</a></p>
 {%- elif e.data.type == "note" %}
-<h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
-<div class="note-body">{{ e.templateContent | listingRefs(e.url) | safe }}</div>
-<p class="meta quiet"><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time>{% if e.data.tags and e.data.tags.length %} · {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %} · <a href="{{ e.url }}">Permanent link &rarr;</a></p>
+<h2><a href="{{ e.url }}">{{ e.data.title }}</a></h2>
+<div class="post-body">{{ e.templateContent | listingRefs(e.url) | safe }}</div>
 {%- else %}
-<h3><a href="{{ e.url }}">{{ e.data.title }}</a></h3>
-<h4><time datetime="{{ e.date | dateISO }}">{{ e.date | dateLong | safe }}</time></h4>
-<p class="blurb">{{ e.templateContent | firstParagraph | listingRefs(e.url) | safe }}</p>
-<p class="meta">{% if e.data.tags and e.data.tags.length %}Archived in {% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}{% endfor %} · {% endif %}Read on, <a href="{{ e.url }}">there is more &rarr;</a></p>
+<h2><a href="{{ e.url }}">{{ e.data.title }}</a></h2>
+<div class="post-body"><p>{{ e.templateContent | firstParagraph | listingRefs(e.url) | safe }}</p></div>
+<p class="read-on"><a href="{{ e.url }}">Continue reading ({{ e.templateContent | readingTime }} min) &rarr;</a></p>
 {%- endif %}
+<p class="post-foot">{% if e.data.tags and e.data.tags.length %}{% for t in e.data.tags %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %}, {% endif %}{% endfor %} · {% endif %}<a href="{{ e.url }}">Permalink</a></p>
+</article>

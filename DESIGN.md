@@ -1,467 +1,149 @@
-# DESIGN.md — Visual Specification (FROZEN)
+# DESIGN.md — Visual Specification
 
-Status: frozen upon Kalyan's approval. This file may only change when an
-instruction from Kalyan contains the phrase "design change", and every
-design change edits this file in the same PR as the implementation.
+Status: NOT YET FROZEN. Built 2026-11-22 on Kalyan's instruction ("back up the colly blog,
+then make the complete design changes inspired by seth + gates notes in tim colours").
+After Kalyan says "frozen", this file changes only when an instruction contains "design
+change", and every design change edits this file in the same commit as the implementation.
 
-Character in one line: Simon Collison's v4 (colly.com/v4) — graph-paper
-field, white translucent card panels with engravings, condensed red
-wordmark, Times text, dashed hairlines, a white content panel — plus one
-addition of ours, quote entries. When in doubt, open ~/Sites/colly-v4-reference/
-and measure; do not reason from taste.
+Character in one line: a writer's daily blog. Seth Godin's rhythm (seths.blog: the newest
+posts in full, one after another), Gates Notes' page (one centred column, wide white
+margins), Tim Ferriss's colours (tim.blog), Georgia throughout.
 
-HISTORY. 2026-08-30 v1 of this file reinterpreted v4 (no fills, no radius,
-no shadows, no engravings, Georgia, bordered boxes). Kalyan's side-by-side
-verdict: "not even close". v2 (this file) adopts v4 whole: the stylesheet
-is a transcription of ~/Sites/colly-v4-reference/screen.css with v4's own pixel
-values (~/Sites/colly-v4-reference/MEASUREMENTS.md). Departures are listed in §14.
+HISTORY. 2026-08-30 to 2026-11-22 the site was a transcription of Simon Collison's v4
+(colly.com/v4): graph-paper field, engraved cards, League Gothic wordmark, rose quote
+panels. That design and its spec are kept whole at git tag `colly-v4` (branch
+`backup/colly-v4` on GitHub) and in ~/Sites/kalyan-site-colly-v4-backup-20261122.tgz.
 
-## 1. Type
+## 1. Sources (measured 2026-11-22)
 
-Text stack (v4): "Times New Roman", Times, Cambria, serif.
-Wordmark and crosshead face: League Gothic (SIL OFL), self-hosted as
-src/fonts/LeagueGothic-Regular.woff2, standing in for v4's logo.png /
-ext-refs.png lettering. Fallback 'Arial Narrow', Impact.
-Code face: VT323 (SIL OFL), self-hosted as src/fonts/VT323-Regular.woff2 —
-the "8-bit" terminal face Kalyan asked for on 2026-08-30 (design change);
-18px/20px in blocks, 17px inline. Fallback Courier New.
-These are the only two webfonts. Never a sans-serif for text.
-
-- Entry paragraphs are JUSTIFIED with automatic hyphenation (`hyphens:
-  auto`, `lang="en"`), `text-wrap: pretty`; headings `text-wrap: balance`.
-  Borrowed from algebrica.org on Kalyan's ask, 2026-09-03 — the even block
-  is what makes that site read as a book. Lists, callouts, tables stay
-  ragged.
-- Paragraph numbers: added 2026-09-03 (algebrica.org), REMOVED by design
-  change 2026-09-26 on Kalyan's word. Entry paragraphs stay justified and
-  hyphenated; the gutter is empty, as in v4.
-- body 13px / 22px; paragraphs 15px/24px with 15px between them (v4 set
-  22px; raised 2026-08-30 on Kalyan's ask — the measure is 516px and needed
-  the air). Prose list rows 15px/23px with 9px beneath. Table cells 14px/20px.
-- Section heads sit 42px clear of the text above them (v4: 30px).
-- lede (first paragraph of an entry, v4 p.intro): 18px / 26px.
-- page title h2: 35px / 29px normal weight (article: 40px), 28px below,
-  a 1px rgba(102,102,102,.24) rule 13px above the bottom (v4 underline.png).
-- p.sub: 15px uppercase, no tracking, 44px below. A front-matter `sub`
-  tagline on an entry sits 12px above the meta line.
-- Entry meta line (2026-09-03, Kalyan: "can it all be in one line?"): one
-  italic 13px #666 line between #DDD rules, v4's index p.meta form —
-  "30th August 2026 · Updated 3rd September 2026 · 7 min read · Archived in
-  GS2 | Polity", categories as red links to their category pages. The same
-  line at every width. (2026-09-02 tried v4's uppercase p.sub date with the
-  rest in the sidebar; Kalyan found the sidebar "complicated".)
-- journal-index entry title: 25px / 30px red link with a 1px #DDD rule;
-  date h4 14px uppercase with a 10px ordinal span; blurb = first
-  paragraph, no drop cap; p.meta 13px italic #666 between rules.
-- section head h5: 20px normal, title case; qualifier span 11px italic #999.
-  h6 14px (#666 capitalised on the about page). In-body h2 20px; h3 14px
-  spaced caps.
-- spaced caps = uppercase, letter-spacing 1px, 12px: nav labels, sidebar
-  h3, footnote heading, quote author line.
-- footnotes 11px / 125% #333 (v4 #666; darkened by design change
-  2026-09-26: "almost mixing with the background"); backlink 9px.
-- Curly quotes, real ellipsis, en dashes — markdown-it typographer, frozen.
-
-## 2. Color (all v4)
-
-paper #F3EFEB (mean of paper-tile.jpg) · text #333 · labels/sidebar h3
-#000 · red #ba1820 (links, versal hover, wordmark, drop-cap helper, quote
-rule) · visited #d0656a · link hover #999 / #666 in text · secondary #666,
-tertiary #999 · rules #DDD, first-row tops #CCC · blockquote rule #EEE ·
-image fill #FFFAFA · subnav strap #d24b21 · colophon links #beb2b2, span
-#fca0a5 · grid rgba(192,189,183,.135) · card fill rgba(253,251,251,.55) ·
-content fill rgba(252,250,250,.69) · shadow 1px 1px 7px rgba(153,153,153,.2).
-Links in text: red, underlined. No dark mode.
-Contrast (2026-09-03): #999 is kept for MARKERS — list dashes, ol numerals,
-the hr, anchors, code punctuation — but where #999 coloured WORDS (card
-straps, the h5 qualifier, ledger-row spans, sidebar h3 items, the reading
-time, the colophon) the ink is now #6c6c6c, the lightest grey that clears
-4.5:1 on the paper. v4's #999 text measured 2.6:1.
-Keyboard focus: a 2px #ba1820 outline, 2px off, on :focus-visible only
-(v4 switched outlines off).
-
-## 3. Graph-paper field
-
-Paper colour plus a one-weight CSS lattice every 10.5px at the grid colour
-(v4 graph-tile.png: lines at 10, 21, 32, 42, 52). The content panel and
-cards sit on it as translucent white.
-
-## 4. Page skeleton (v4 markup, ids kept)
-
-Headings (2026-09-03): every page has ONE h1 — the page title on inner
-pages (class .page-title carries v4's h2 styling), the wordmark on the
-home page. In-body heads are h2/h3. Search engines read the outline.
-robots.txt allows everything and names the sitemap.
-Landmarks (2026-09-03, invisible): `<header>` wraps masthead and nav,
-`<nav aria-label="Site">` wraps ul#nav-primary, `<main>` wraps the page
-content, `<footer>` wraps external references and #siteinfo; an entry's
-#post is an `<article>`; every date is a `<time datetime>`.
-Head: charset, viewport, title, description (the entry's `sub`, else
-site.json `description`), author, canonical (`site.url` + page URL),
-rel=prev / rel=next on entries (older / newer), color-scheme light, the
-stylesheet for ALL media (print rules were dead while it said
-`media="screen"`), RSS, a preload for the wordmark font.
-Search and answer engines (2026-09-03, Kalyan: "SEO- and GEO-friendly"):
-Open Graph title/description/url/type/site_name, og:image when site.json
-`ogImage` names a 1200×630 image, twitter:card summary, article
-published/modified times, and a JSON-LD block — BlogPosting on entries,
-WebSite elsewhere — carrying headline, dates, author, keywords (the tags)
-and URL. JSON-LD is DATA in a script element, not code that runs; §10's
-no-JavaScript rule stands.
-  - Category pages (/journal/category/<slug>/, 2026-09-03): one per tag,
-    built from the tags in front matter, in the journal index's shape with
-    the title "Archived in <Tag>". Every "Archived in" is a link to them —
-    v4 linked its categories the same way.
-
-Canvas div#page 946px wide, margin 20px auto, padding 30px 17px 10px.
-
-  #branding      the logo lockup set in type, one link home, 460px wide:
-                 italic 15px line · bold 13px caps line tracked 2px ·
-                 the name in League Gothic 56px/52px red (hover #333).
-  ul#nav-primary four cards (§5). Home: no content panel below.
-  #content-wrap  white translucent panel: 1px #DDD border, 5px radius,
-                 shadow, padding 40px 0 70px, margin 0 3px 35px 0.
-    #content-pri floats RIGHT, 516px, padding 5px 110px 0 87px, 1px dashed
-                 #DDD left rule. Furniture: h2.page-title → p.sub → lede →
-                 body; h5/h6 section heads; ol#footnotes last.
-                 On an entry: h2.page-title → p.sub tagline (optional) →
-                 p.meta line (§1) → lede.
-    #content-sec floats LEFT, 196px + 25px right padding, right-aligned:
-                 p.home-link, portrait (7px #FFFAFA padding, rotated -2°),
-                 h3, list with dashed rows. Always present; may be empty.
-                 On an entry (2026-09-03): p.home-link → p.paginate
-                 "← OLDER / NEWER →" in 12px spaced caps between dashed
-                 rules (v4's Prev/№/Next badge, in type) → h3 "In this
-                 entry" + the TOC. Nothing else — the case lists tried on
-                 2026-09-26 were taken out the same day to keep v4's quiet
-                 sidebar; /cases/ is reached from case names in tables.
-                 The journal sidebar: home link, categories, favourites.
-                 Under 989px, where the
-                 sidebar hides, the TOC moves inline under the meta line and
-                 v4's p.paginate returns at the post foot.
-  h2.ext-dests   "EXTERNAL REFERENCES { VIEW ALL }" — League Gothic 28px,
-                 "References" red, links to /external/.
-  ul.subnav ×1   one row of four cards (§5) for external destinations —
-                 Substack, Instagram, X, RSS (Kalyan, 2026-09-03: "I won't
-                 be using so many"). v4 had four rows.
-  #siteinfo      centred #999 prose, two paragraphs, 60px above.
-
-  - Journal (/journal/): v4 "multiple" shape per entry — h3 title link,
-    h4 date, p.blurb (first paragraph), p.meta "Archived in … · Read on,
-    there is more →" on ONE line (v4 broke it over two; Kalyan 2026-09-03).
-    Sidebar (v4's, restored 2026-09-03): home link, "Categories" (the
-    category pages), and a favourites list from site.json `favourites`
-    under `favouritesHeading` (v4: "Mr. Collison's Favourites"), shown
-    only when the list has entries.
-    Three entry kinds sit in the one stream as equals (raamdev.com,
-    Kalyan 2026-09-03: "a quote… is a post of its own"): an ESSAY shows
-    its opening and "Read on"; a QUOTE (type: quote) shows the §8 panel
-    alone — no title, no date block (Kalyan, 2026-09-03: "I don't need a
-    title for the quotes… the metadata is much cleaner" on raamdev.com); a
-    NOTE (type: note) — a thought of a paragraph or two — shows its title
-    and its whole body at 15px/24px. Under both, ONE quiet meta line: 12px
-    italic #6c6c6c set right, no rules — "date · Category · Permanent
-    link →". Essays keep v4's h4 date and ruled p.meta.
-  - Archive (/archive/): 18px year headings, then title + 11px italic
-    date rows with dashed rules.
-  - Home (/): masthead, cards, external references, colophon. Each home
-    card carries v4's COPY under its engraving (missed on 08-30; Kalyan
-    spotted it 2026-09-03): the about and contact cards a drop-cap lead
-    (`.fl`), a sentence or two and a red "read on →" (`a.dest`); the
-    journal card a small red ¶ run in before the newest entry's title
-    (`.fs`, 17px inline; v4 floated a 48px §, Kalyan 2026-09-03: "something
-    else… too big") + its opening
-    (150 chars) and "More →"; the archive card the five latest titles as
-    `a.arch` rows, numbered from the oldest entry = 1 (v4 used entry ids).
-    Copy is 13px/18px #333, 12px below the engraving. The two prose blurbs
-    live in site.json `nav[].home` — Kalyan's words.
-  - Archive (/archive/): v4's shape — entries under "August 2026" month
-    headings, title-only rows with dashed rules; the sidebar carries "By
-    year" (anchors into the list) and "By category" (the category pages),
-    v4's "By animal years" / "By categories". (08-30 grouped by year with
-    a date span, and left the sidebar empty.)
-
-## 5. Nav cards (v4 markup)
-
-  <li class="card"><a href="…">
-    <span class="strap">Bottled for your pleasure</span>
-    <span class="label"><span>P</span>otted <span>A</span>utobiography</span>
-    <span class="engraving"><img src="/images/engravings/….png" alt=""></span>
-  </a></li>
-
-- 207px wide + 10px padding, 1px #DDD border, 5px radius, shadow, white
-  fill; line-height 18px; 10px gaps; four across, wrapping on narrow
-  canvases (2 across ≤989px, 1 across ≤509px). Never a hamburger.
-- strap: italic, #999 (link colour), hover red.
-- label: 12px spaced caps #000; the initial of each word in its own span
-  at 15px (`versals` filter); `kern` map adds .kern-a etc.
-- engraving: a 200×160 transparent PNG, bottom-anchored in a 105px slot.
-  Every card has one, from Gosse's *Natural History* (public domain;
-  images/engravings/CREDITS.md). Colly's own animals, kept as placeholders
-  until 2026-09-03, are deleted.
-  Hidden on inner pages ≤509px, as v4.
-- On inner pages non-current cards are at opacity .6, the current card and
-  hovered cards at 1 with a solid white fill. On the home and external
-  pages, and in the subnav rows, cards are translucent (.55) at opacity 1.
-
-## 6. Drop caps
-
-- The lede gets a floated 57px first letter (line-height 92%, 3px right)
-  only where front matter sets `dropcap: true`; journal-index blurbs get
-  none (v4's blurb rule never fires — its blurbs nest a <p>). Colour inherits (#333) — v4's intro cap is not
-  red; the red 65px `.fl` helper exists for hand-marked openings.
-
-## 7. Rules, lists, footnotes, quotes
-
-- hr: 1px dashed #ccc, 35px above/below (markdown `---`); `***` = "⁂".
-- Two list registers (split 2026-08-30):
-  **Prose lists**, inside an entry — since 2026-10-20 (design change,
-  Kalyan: "even under numbered bullets and listed bullets he uses these
-  dashes") v4's rows: 5px padding, 1px dashed #DDD below each row, dashed
-  #CCC above a bulleted list's first row (v4 gives an ol no top rule).
-  Markers hang in the margin as v4's ol numbers do: en dash #999 for
-  bullets, CSS-counter numbers #999 for ol (so `3.` start numbers are not
-  honoured). Phone tier: the markers come inside, the 18px gutter being
-  too narrow.
-  **Ledger lists** — the archive, the about-page data lists, the sidebar:
-  v4's rows, 15px, 5px padding, dashed #DDD below, dashed #CCC above the
-  first; `span` inside a row is 11px italic #999.
-- Footnotes: `[n]` markers 10px #666; a "FOOTNOTES" spaced-caps heading
-  with a #DDD rule 60px above (30px in the journal); ol#footnotes 11px
-  #666, #DDD rule below; each note begins with a 9px "↑" backlink.
-  Jumps land with context: markers carry `scroll-margin-top: 33vh` and
-  notes 30px, so the "↑" puts the sentence, not just the marker, in view
-  (v4 did this with a jQuery scrollTo; we ship no script). A note at the
-  foot of a short page still cannot reach the top of the screen — the page
-  ends — and that is accepted.
-- Blockquote: 3px #EEE left rule, 15px padding, 16px #666 text — v4's —
-  with the `<cite>` 7px below in #666, RIGHT-aligned (Kalyan, 2026-09-03:
-  "push B. R. Ambedkar to the right"). A red opening quotation mark was
-  tried twice that day, hanging and then inline, and rejected both times:
-  "remove the quotation marks, I think we can understand that."
-- Tables (ours; reworked 2026-09-02): a table sits INSIDE the 516px
-  measure like everything else — the 2026-08-30 gutter-reclaim was reversed
-  on Kalyan's "the table is going out of the scope". 14px/20px, tabular
-  numerals, header in 12px spaced caps #666 that wraps rather than
-  overflowing, and v4's ledger rules: 1px dashed #CCC above the table and
-  under the header, 1px dashed #DDD between and below the rows. 9px cell
-  padding, no vertical rules, no zebra.
-- Planning grid (`::: plan Title`): an answer skeleton, a structure, a
-  schedule. Title in 12px spaced caps over a #CCC rule; each row is a
-  hanging label in 12px spaced-caps slate at 116px, gloss beside it at
-  15px/22px, dashed #DDD rules between (dashed #CCC above the title). Sits
-  inside the measure like a table; the label stacks above the gloss at the
-  breakpoints.
-  **An answer skeleton is not code and must never be set as code** — that
-  was the 2026-08-30 correction. Code styling (§7) is for code only.
-- Run-in sidehead list (`::: cases`): term as its own line in 12px spaced
-  caps slate, gloss beneath at 15px/24px, dashed #DDD rules between,
-  dashed #CCC above the first and dashed #DDD below the last (the ledger
-  register). Use where a bullet would collide with an em dash — case
-  lists, definitions, any term-plus-explanation.
-- Code: v4 pre (20px padding, #EEE fill, 1px #CCC rules above and below)
-  set in VT323 18px/20px (v4: Courier New 12px/140%). Fenced blocks are coloured at build time by
-  Prism classes (ours) in the palette only: keywords/tags red, strings
-  #d24b21, comments #999 italic, numbers #666, names #000. Inline code
-  12px Courier on #EEE. No client script.
-- Images: 7px #FFFAFA padding, 1px #ddd border, shadow (v4's frame, kept
-  2026-10-20: Kalyan chose it over a frameless wide picture). A picture
-  alone in a paragraph is `figure.pic`, the column's full width; an upright
-  one (taller than wide, from manifest.json) is set at 62%. Caption = the
-  markdown image title, "Words | Credit": the words 13px italic #555, the
-  credit 11px spaced caps #888 to the right (under it on a phone).
-
-## 7b. The 2026 body (ours — Kalyan, 2026-08-30: "imagine we are
-rebuilding Colly in 2026"; the shell stays v4, the post body gains
-modern elements drawn in v4's vocabulary)
-
-- Callouts (`::: note|tip|key|warning Title`): plain since 2026-09-26
-  (design change, "plainer boxes", to sit closer to v4's hairlines) — a
-  3px left rule, 15px in, 12px spaced-caps title in the rule's colour,
-  14px/20px text; no border box, no shadow, no fill. (Was: the card
-  treatment — 1px #DDD border, shadow, tinted fill.) Four muted ink
-  hues, added 2026-08-30 on Kalyan's ask for "better colours"; they are the
-  ONLY exception to §2's one-accent rule and exist nowhere else:
-    note    grey      rule #CCC,    title #6c6c6c on #FBFAF9 — context
-    tip     pale rose rule #e3b3b5, title #a94f54 on #FDFAFA — method
-    key     rose      rule #d0656a, title #ba1820 on #FDF8F8 — remember
-    warning red       rule #ba1820, title #ba1820 on #FDF6F6 — the mistake
-  (2026-09-03, Kalyan chose "set D" — one hue in four weights — over the
-  slate/moss/ochre inks of 2026-08-30, which "sat oddly on a cream-and-red
-  page". With the inks gone, the `::: plan` and `::: cases` labels are
-  #6c6c6c, and the site is back to one accent.)
-  Lists inside a callout use dotted rules, not dashed.
-- Collapsibles (`::: details Summary`): native <details>, dashed rules,
-  red marker. No JS.
-- Code fences: language, `/2-3` highlighted lines (rgba red .08), and
-  `title="file.js"` which adds a filename tab (#E4E4E4, VT323 16px).
-- Table of contents (front matter `toc: true`): built from ## and ###
-  heads; rendered in the v4 sidebar under "In this entry" (the "Jump
-  directly to" pattern) and, on canvases ≤989px where the sidebar hides,
-  as a rule-bound block under the meta line. Sidebar form: #CCC rule top
-  and bottom, #E4E0DA between; h2 items 13px/17px, h3 items 11px italic
-  #999 indented beneath their parent.
-- Section anchors: every ## and ### gets an id and a "#" link visible on
-  hover (#999, 14px).
-- <kbd>: VT323 16px on white, 1px #CCC border, 2px bottom, 3px radius.
-  <abbr title>: dotted #999 underline.
-- Reading time, updated date and categories sit in the one meta line under
-  the title (§1). Older/Newer live in the sidebar p.paginate and fall back
-  to the post foot under 989px.
-- Touch canvases (≤989px): TOC rows 7px padding, Older/Newer 8px, footnote
-  markers and backlinks padded to a fingertip (2026-09-03).
-- Print: nav, cards, sidebar and pagination hidden; white ground; external
-  link URLs printed after the link text.
-- Front matter `updated: YYYY-MM-DD` (2026-09-03): shown as "Updated …" in
-  the meta line; feeds dateModified, article:modified_time and the
-  sitemap's lastmod. Optional.
-
-## 8. Quote entries (type: quote) — ours
-
-- Body = quote paragraph(s), then `<cite>Name</cite>`, then optionally
-  `---` and commentary (permalink only).
-- Rose panel (design change 2026-09-26, Kalyan, from 8BIT's 2013 quote
-  posts): the key-callout tint #FDF8F8, the 3px red rule, a 1px dashed
-  #d0656a foot — with a classic 80px Georgia “ in solid house red, hanging in the
-  panel's left margin (text indented 76px); text 22px/30px Times italic; a 16px speech-bubble notch at
-  the foot, 38px from the right, pointing down to "— NAME" in 12px spaced
-  caps set right under the card (p.quote-who, lifted out by the
-  quoteParts filter). Shortlisted and rejected: dots, engraved, outline,
-  seal, wordmark, pixel, rose-petal gradient, the 12% watermark and the white card (built
-  first, then changed the same day: "the other color… suits the theme"). The journal index shows the panel and the quiet meta
-  line (§4); the permalink adds p.meta and, after a dashed hr, the
-  commentary. `title` in front matter names the page (head, feed,
-  archive) but is not printed on the index or the panel.
-- Note entries (type: note, 2026-09-03): a short thought, shown whole on
-  the index (§4) and as an ordinary entry at its permalink.
-
-- A quote's name always sits outside the quote (design change 2026-10-20,
-  Kalyan: "the author will be outside the quote"): a closing `<cite>` —
-  its own paragraph or the last line — is lifted out by the "quotes"
-  transform: under a rose panel as p.quote-who, under a plain blockquote
-  as p.quote-by (12px italic #666, set right, "— " before it).
-- `::: quote` (design change 2026-09-26) gives the same panel and name
-  line inside an essay (p.quote-who is not paragraph-numbered). Quote
-  numbers were built the same day and removed on Kalyan's word.
-
-## 9. Images — see §7. loading="lazy" is added by the build.
-
-Pictures go through `tools/prepare-image.py` (2026-09-03): fitted to
-1400px wide, saved as a progressive JPG with .webp and .avif siblings, and
-their dimensions recorded in images/manifest.json. The build then writes a
-`<picture>` with the AVIF and WebP sources and puts width/height on the
-img, so the browser takes the smallest format it can and reserves the
-space before the file arrives. An unprepared image still works, as a plain
-img. No client script; no npm package — PIL does the work at prepare time.
-
-§7c. Press cutting (`::: clipping Source line`, 2026-09-03, for the Press
-category). Redone 2026-10-20 (Kalyan: the whole page squeezed into the
-column with a dashed frame was "not like professional look"): no frame;
-the picture is an ordinary framed figure, linked to its own full-size file,
-with the source line as its credit; the quoted passage a plain blockquote;
-a "See the full page →" link may follow. Show a readable crop (headline,
-illustration, the passage) and link the whole page. The source line stands
-above in 12px spaced caps only when the clipping has no picture. The
-analysis follows OUTSIDE the block in ordinary paragraphs.
-
-## 10. Motion and JavaScript
-
-No JavaScript on any page (a JSON-LD data block in the head is not
-JavaScript — nothing executes). No transitions beyond the browser defaults; the
-only transform is the sidebar portrait's -2° (v4). RSS (/feed.xml) and
-sitemap (/sitemap.xml) are built at build time.
-
-## 11. Responsive behavior — v4's two widths
-
-≤989px: canvas 468px, cards two across, sidebar hidden, text column 408px
-with a 30px gutter each side, list numerals indented.
-≤509px (the phone tier; made fluid 2026-09-02): the canvas fills the
-viewport with 10px of paper each side and no canvas padding; cards full
-width; inner-page engravings hidden; the text column fills the panel with
-an 18px gutter each side; page title 25px; images no wider than the column.
-v4 fixed this tier at a 306px canvas / 260px column, which on a 375–430px
-phone left 35–62px of graph paper each side — Kalyan, 2026-09-02: "the
-middle of the body is getting less space whereas the squares in the
-background are eating up a lot of space."
-
-## 12. Permanently forbidden
-
-Sans-serif text; Tailwind or utility frameworks; hamburger or JS
-navigation; dark mode; hero/product blocks; emoji; icon fonts/SVG icon
-sets; cookie banners; client-side analytics; newsletter modals; skeleton
-loaders; hover-lift or scroll effects; any second accent hue.
-
-## 13. Frozen files covered by this spec
-
-src/css/**, src/fonts/**, src/_includes/**, src/_data/site.json,
-src/_data/build.js, .eleventy.js, content/*.njk,
-content/journal/journal.11tydata.js, images/engravings/**, package.json,
-package-lock.json, .nvmrc, reference/**, this file.
-
-## 14. Departures from v4 (each is a decision, reversible by "design change")
-
-| v4 | ours | why |
+| from | what | value |
 |---|---|---|
-| logo.png, ext-refs.png, home-c.png sprites | the same words set in League Gothic / type | no image assets of Kalyan's yet |
-| Colly's animal engravings | Gosse's birds and fishes, public domain | his artwork; placeholders deleted 2026-09-03 |
-| paper-tile.jpg texture | flat #F3EFEB | Colly's texture asset |
-| deranged.png + underline-flourish.png ornaments | omitted; 60px colophon gap | Colly's artwork |
-| contact form, comments | none | no JS, no services |
-| journal pagination | 20 a page, ← Newer · Page N of M · Older → at the foot | design change 2026-09-26 |
-| — | quote entries (§8) | Kalyan's addition |
-| — | dashed table rules, in-body h2/h3 sizes | v4 has no tables / in-body heads |
-| pre only, Courier | Prism colours at build time; VT323 8-bit face; inline code on #EEE | posts carry code; Kalyan's ask |
-| ≤989px: text flush left, numerals hidden | 30px gutter both sides; ol and footnote numerals kept | "not showing fully" — Kalyan 2026-08-30 |
-| — | `sub`, `toc` front-matter keys | tagline under titles; table of contents |
-| — | four muted callout hues (§7b) | Kalyan, "better colours" |
-| 22px leading, 30px above heads | 24px leading, 42px above heads | Kalyan, "line-spacing-wise there is scope" |
-| — | tables, `::: plan`, `::: cases` inside the 516px column with v4's dashed ledger rules | 2026-08-30 they reclaimed the gutter; reversed 2026-09-02, "the table is going out of the scope" |
-| ≤509px: fixed 306px canvas | fluid phone tier, 10px paper each side | Kalyan 2026-09-02, the paper "eating up a lot of space" |
-| jQuery scrollTo for footnotes | `scroll-margin-top` on markers and notes | no script |
-| answer skeleton set as a code block | `::: plan` printed grid | Kalyan: "the worst of all the designs" — it was never code |
-| v4 dashed rows for every list | the same since 2026-10-20 (hanging en-dashes kept as bullets); 2026-08-30 to 2026-10-20 prose lists had no rules | Kalyan 2026-10-20: lists should carry v4's dashes |
-| — | §7b: callouts, details, code tabs/line marks, TOC, anchors, kbd/abbr, reading time, older/newer, print | "Colly rebuilt in 2026" |
-| post: title → date → lede; categories and prev/next in the sidebar | the same (restored 2026-09-02; the meta block under the title is gone) | Kalyan: "when I finally post a blog, it should look like his posts" |
-| ragged-right paragraphs | ragged right again (justified 09-03 → 09-26); `updated` line kept | algebrica.org, Kalyan 2026-09-03: "adopt best practices from algebrica" |
-| sidebar aside ("Superfluous Aside") with categories, read time | one meta line under the title; sidebar = journal link, Older/Newer, TOC | Kalyan 2026-09-03: "we are complicating the sidebar… push it below the title" |
-| four callout inks (ours, 08-30) | one hue in four weights (§7b) | Kalyan 2026-09-03: "I like set D" |
-| cite under the quote, left | cite right-aligned on blockquotes and the quote panel | Kalyan 2026-09-03: "push the name to the right" |
-| h2 page titles, no h1 | h1 page titles, styled as before; h1 wordmark on the home page | one h1 per page, 2026 |
-| category pages, hCard | category pages; Open Graph, JSON-LD, sitemap lastmod, image dimensions, font preload | Kalyan 2026-09-03: "lightning-fast, SEO- and GEO-friendly" |
-| #999 text, outlines off, `media="screen"`, div soup | #6c6c6c text, focus ring, all-media stylesheet, landmarks, time, description/canonical/prev/next | 2026 practices, Kalyan 2026-09-03 |
+| tim.blog (page CSS) | link colour, the page's most-used colour | #007CA7 |
+| tim.blog | foreground (titles) | #001523 |
+| tim.blog | rules / wash / yellow / red / grey | #DDDDDD / #F5F5F5 / #FFFAD6 / #DD3333 / #7E878E |
+| tim.blog | link underline offset | 3px |
+| gatesnotes.com | one centred reading column | 680px (set by eye; their site refused the download) |
+| seths.blog | home page = newest posts in full, title + date + text | — |
+| Kalyan | "a Georgia kind of font" | Georgia |
 
-## 14a. Quiet case links, darker sideheads (design change 2026-09-26)
+Ours, not measured: grey text darkened from #7E878E to #626B72 so small text passes
+contrast; link hover #005A7A; the tip box tint #EEF6F9 (the link blue at 7%).
 
-- `::: casetable` case names: the table's ink, no underline, #ba1820 on
-  hover. They are the way into /cases/, so they stay links.
-- `::: cases` sidehead labels #6c6c6c → #333 (Kalyan: "a bit dark").
-  `::: plan` labels keep #6c6c6c.
+## 2. Type
 
-## 15. Build checks (design change 2026-09-26)
+- Georgia, "Times New Roman", Times, serif — a system font, nothing downloaded. Never a
+  sans-serif for text. Old-style figures in running text; lining figures in tables.
+- Code: the system monospace (ui-monospace, SF Mono, Menlo, Consolas). VT323 and League
+  Gothic stay in src/fonts/ but are no longer used.
+- Body 20px / 1.65 (phones 18px / 1.6). Paragraphs 1.1em apart. Ragged right.
+- Page title 40px bold #001523 (phones 31px); stream title 30px (phones 25px); in-body h2
+  26px, h3 21px, h4 20px italic.
+- Sub (tagline) 21px italic grey. Dates 16px italic grey: "30th October 2026".
+- Small labels (box titles, table heads, "In this entry"): 13–14px bold uppercase, 0.08em.
 
-- Every heading carries an id (Eleventy's IdAttributePlugin), so any
-  section can be linked to.
-- Link check after every build: each internal link, picture and
-  #fragment must resolve. The live build fails on a broken one; the local
-  preview warns. Outside links are not checked.
-- Lede line-height corrected to v4's 26px (had drifted to 29px,
-  undocumented); the narrow-screen TOC head set normal weight.
+## 3. Colour
 
-## 16. Portrait and cards (design change 2026-09-26)
+| token | value | use |
+|---|---|---|
+| --ink | #001523 | titles, bold, drop cap |
+| --text | #222222 | body |
+| --muted | #626B72 | dates, meta, captions, nav |
+| --link | #007CA7 | every link; quote rule; tip box |
+| --link-hover | #005A7A | hover |
+| --rule | #DDDDDD | hairlines |
+| --wash | #F5F5F5 | note box, code, contents |
+| --tint | #EEF6F9 | tip box |
+| --yellow | #FFFAD6 | key box, highlighted code lines |
+| --red | #DD3333 | warning box |
 
-- About portrait: crop A of Kalyan at the microphone (black and white),
-  170px wide in v4's frame (#FFFAFA 7px mat, #eee edge, card shadow,
-  rotated −2°), 26px in so the tilt stays inside the sidebar; <picture>
-  with AVIF/WebP. Earlier photo rejected for privacy: students' faces.
-- Cards (HANDBOOK §4c): video — the home-page card (#fff, #DDD, 5px, card
-  shadow) holding the still, a 54px #ba1820 play disc at 92%, "WATCH ON
-  YOUTUBE" 11px spaced caps red, title 17px, meta 12px italic #6c6c6c.
-  Post — the press cutting (1px dashed #BBB on #FFFDFB), source 11px
-  spaced caps #6c6c6c, title 18px, words 16px/24px, "View on X →" 12px
-  italic right. Book — dashed ledger rules; a 96px cover (photo, or
-  typeset in #7a1a1f with paper-coloured type) beside title 19px, author
-  spaced caps, publisher and "Read in" 13px italic #6c6c6c.
-- Card p rules carry #content-wrap: the index's note-body p rule outranked
-  them (found in the preview).
-- Category pages come from collections.liveTags, so a tag carried only by
-  drafts makes no page.
+White page (#FFFFFF). Links underlined at 40% of their colour, full colour on hover.
+
+## 4. Page skeleton
+
+    header: Kalyan Inampudi (site.title, bold 26px, link home)  ·  Journal Archive About Contact
+    ── 1px rule ──
+    main: one column, max 680px, centred, 24px gutters (18px on phones)
+    ── 1px rule ──
+    footer: Substack Letters · Instagram Pictures · Follow Me On X · RSS Feed (site.externals)
+            the colophon lines (site.colophon)
+
+No sidebar on any page. The current nav item is blue and underlined. The head (description,
+canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from before.
+
+## 5. Pages
+
+- **Home** (`/`): one italic line about Kalyan (site.nav[0].home.copy — his words, set in
+  2026-09) with "More about me →", then the ten newest entries as a stream (§6), then
+  "Older entries →" and "Everything, by month".
+- **Journal** (`/journal/`, `/journal/page/N/`): title, sub, the categories in one line,
+  the stream, 20 a page, "← Newer · Page 1 of N · Older →".
+- **Category** (`/journal/category/<tag>/`): the same, unpaginated.
+- **Entry**: date (and "Updated …"); title; sub; one meta line ("4 min read · Filed under
+  Notes") over a rule; optional contents box; the text; at the foot, older and newer
+  entries by title.
+- **Quote entry**: date, the quote (§7), the name, "Filed under Quotes", any commentary
+  after a short rule. No printed title.
+- **Archive**: years and categories in one line each; months as small grey heads; each
+  entry as day-of-month + title.
+- **About**: the portrait (crop A, 170px) floated right beside the opening; Books, Talks,
+  Interviews from the JSON files; footnotes last.
+- **Contact, External, Cases, 404**: the plain page — title, sub, text.
+
+## 6. The stream (seths.blog)
+
+Each entry: date in italic grey; title 30px bold ink link; then
+- a **note** in full;
+- a **quote** in full (§7), no title;
+- an **essay**: its first paragraph and "Continue reading (N min) →".
+Below each, a small grey line: categories · Permalink. Entries are divided by 1px rules
+with 44px above and 40px below.
+
+## 7. Quotes
+
+- Quote entries and `::: quote`: 25px italic ink (phones 21px), a 4px #007CA7 rule at the
+  left, 26px in; the name under it in 17px grey, "— Name".
+- A long passage (`>`): body size, #444, a 3px #DDD rule at the left; its `<cite>` under
+  it, "— Name", 16px grey.
+
+## 8. Blocks
+
+- Callouts: 18px text on a wash, 4px left rule, bold spaced-caps title.
+  note = grey wash, grey rule; tip = blue tint, blue rule; key = #FFFAD6, #D8C349 rule;
+  warning = #FDF1F1, #DD3333 rule.
+- details: 1px rule border, 4px radius, bold summary.
+- plan: 1px border, 3px ink top rule; label column 7.5em, dashed row rules; one column on
+  phones.
+- cases (sidehead list): the term in bold spaced caps above its gloss.
+- Tables: full column width, 17px, 2px ink rule under the head, 1px rules between rows.
+- Code: wash background, 4px radius, 15px mono, lines wrap (never a sideways scroll);
+  filename tab above; highlighted lines yellow.
+- Pictures: full column width, centred, 2px radius; upright pictures 62%; caption below,
+  centred, italic grey, credit in small spaced caps after a "·".
+- Clipping: the picture (linked to its full page) and a plain blockquote; the analysis
+  after.
+- Cards (video, post, book): 1px rule border, 6px radius, 17px text. Video: the still with
+  a round dark play button (blue on hover), "Watch on YouTube", title, channel · length.
+  Book: a 110px cover — Kalyan's photo, or a typeset ink cover with white title.
+- Footnotes: [n] markers in blue; notes 16px under a rule, each starting with ↑.
+- `---` a short centred hairline (30% wide); `***` a centred ⁂.
+- Drop cap (`dropcap: true`): 3.6em bold ink, floated.
+
+## 9. Responsive
+
+One column at every width. At 600px and below: body 18px, gutters 18px, the nav drops
+under the name, smaller titles, the plan grid and book card stack, the portrait sits above
+the text. No page scrolls sideways at 320px (checked 2026-11-22 on every page).
+
+## 10. Writing every day
+
+`./today.sh "The title"` makes `content/journal/<today>-<slug>.md` as a note in Notes,
+ready to write in. Publishing is unchanged (HANDBOOK §7).
+
+## 11. Permanently forbidden
+
+JavaScript on the page; webfonts beyond the two files already in src/fonts/; embeds;
+analytics; a sidebar; colours outside §3.
+
+## 12. Frozen files covered by this spec
+
+src/css/screen.css, src/_includes/**, src/_data/site.json, .eleventy.js, today.sh.

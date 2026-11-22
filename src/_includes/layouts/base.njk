@@ -38,7 +38,6 @@
   "inLanguage": site.language
 } | dump | safe }}</script>
 {%- endif %}
-<link rel="preload" href="/fonts/LeagueGothic-Regular.woff2" as="font" type="font/woff2" crossorigin>
 {%- if bodyId == "article" %}
 {%- set olderHead = collections.journal | getNextCollectionItem %}
 {%- set newerHead = collections.journal | getPreviousCollectionItem %}

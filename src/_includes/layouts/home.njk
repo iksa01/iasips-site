@@ -2,4 +2,14 @@
 layout: layouts/base.njk
 bodyClass: home
 ---
-{#- v4 home: masthead, the four cards, external references, colophon. No content panel. -#}
+{#- Home (2026-11 design): one line about Kalyan, then the newest entries in full, as on seths.blog. -#}
+{%- set about = site.nav[0].home %}
+{%- if about %}<p class="intro">{{ about.copy | safe }} <a href="/about/">More about me &rarr;</a></p>{% endif %}
+{%- for e in collections.journal | limit(10) %}
+{%- include "partials/index-entry.njk" %}
+{%- endfor %}
+{%- if collections.journal.length > 10 %}
+<p class="more-link"><a href="/journal/page/2/">Older entries &rarr;</a> &nbsp;·&nbsp; <a href="/archive/">Everything, by month</a></p>
+{%- else %}
+<p class="more-link"><a href="/archive/">Everything, by month &rarr;</a></p>
+{%- endif %}

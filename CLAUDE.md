@@ -1,12 +1,13 @@
 # Kalyan's personal site
 
-Eleventy 3 static site that reproduces Simon Collison's v4 (colly.com/v4)
-whole — Kalyan's verdict on 2026-08-30 was that a reinterpretation was
-"not even close"; the stylesheet is now a transcription of v4's. Two files
-govern everything:
+Eleventy 3 static site: a writer's daily blog. Since 2026-11-22 the design is
+Seth Godin's rhythm (newest posts in full), Gates Notes' single centred column,
+Tim Ferriss's colours (links #007CA7), Georgia throughout. The Colly v4
+transcription it replaced (2026-08-30 to 2026-11-22) is kept at git tag
+`colly-v4`, branch `backup/colly-v4`, and in
+~/Sites/kalyan-site-colly-v4-backup-20261122.tgz. Two files govern everything:
 
-- **DESIGN.md** — the visual spec. Every CSS value traces to a measurement
-  in `~/Sites/colly-v4-reference/MEASUREMENTS.md`. Nothing is invented.
+- **DESIGN.md** — the visual spec; §1 lists where each value was measured.
 - **AGENTS.md** — what an agent may touch (content/**/*.md, three JSON
   data files, drafts/**) and the git protocol. Everything else is frozen.
 
@@ -36,7 +37,7 @@ or talk; date and page if known), the **category** it is filed under, and
 its **address**. He asked for this "so that I will remember". Never guess
 an attribution: an unknown source is asked for or written as `TODO:`.
 A long passage is not a quote — it goes in a plain `>` blockquote, not
-the numbered rose panel. HANDBOOK §7 has the routine.
+the blue-ruled quote. HANDBOOK §7 has the routine.
 
 ## Build
 
@@ -54,12 +55,12 @@ Node 24 (`.nvmrc`). Never `npm install`; the lockfile is frozen.
 | pages | `content/{index,about,journal,archive,external,contact}.md` |
 | journal entries | `content/journal/<slug>.md` → `/journal/<slug>/` |
 | layouts & partials | `src/_includes/` |
-| the stylesheet | `src/css/screen.css` (transcribed from `~/Sites/colly-v4-reference/screen.css`) |
-| wordmark font | `src/fonts/LeagueGothic-Regular.woff2` (OFL) |
-| code font | `src/fonts/VT323-Regular.woff2` (OFL, 8-bit terminal face) |
-| card engravings | `images/engravings/gosse/` — public-domain Gosse cuts (CREDITS.md) |
+| the stylesheet | `src/css/screen.css` (DESIGN.md) |
+| fonts | none loaded: Georgia and the system monospace. League Gothic and VT323 stay in `src/fonts/`, unused since 2026-11-22 |
+| start today's post | `./today.sh "The title"` |
+| engravings | `images/engravings/` — unused since 2026-11-22 (CREDITS.md) |
 | markdown config (typographer, footnotes, figures, asterism) | `.eleventy.js` |
-| the reference | `~/Sites/colly-v4-reference/` (private, on Kalyan's Mac only) (snapshot of colly.com/v4, 2026-08-30) |
+| the old reference | `~/Sites/colly-v4-reference/` (private, on Kalyan's Mac only) — only for restoring the Colly design |
 
 ## Every "TODO:" in the tree is a fact only Kalyan can supply
 

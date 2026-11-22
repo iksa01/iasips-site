@@ -67,7 +67,7 @@ decline and report.
   on the journal index.
 - `---` is the hairline; `***` is the asterism. Footnotes are `[^n]`.
 - Callouts: `::: note Title` / `::: tip Title` / `::: key Title` /
-  `::: warning Title` … `:::` — slate, moss, ochre, red respectively.
+  `::: warning Title` … `:::` — grey, pale blue, pale yellow, red respectively (DESIGN.md §8).
   Collapsible: `::: details Summary line` … `:::`.
 - Code fences: ```js/2-3 title="file.js" — language, highlighted lines,
   filename tab; all optional. Keep lines short enough to fit the column;

@@ -718,3 +718,37 @@ as site.ogImage, and twitter:card summary_large_image when one is set.
 Left as TODO: the three drafts' comments and the Better India caption —
 his opinions, and the drafts are not live.
 Contact, same day: kalyan@iksa.in and Telegram @Kalyanzz, both from Kalyan.
+
+## 2026-11-22 — redesign: Seth + Gates Notes in Tim's colours
+
+Kalyan sent tim.blog (Mark Pincus episode), a Gates Notes book review and seths.blog:
+he likes Tim's link colour, Gates Notes' post "totally there in the center", a
+"Georgia kind of font", and wants to write every day as Seth does ("whether good or
+bad English … I want to write"). Instruction: "back up the colly blog, then make the
+complete design changes inspired by seth + gates notes in tim colours". Taken as a
+design change (the words were "desing changes").
+- Backup first: git tag `colly-v4` and branch `backup/colly-v4`, both pushed to
+  GitHub (neither deploys; Pages builds main only); a tarball of the repo with the
+  built Colly site, ~/Sites/kalyan-site-colly-v4-backup-20261122.tgz.
+- Measured: tim.blog's most-used colour #007CA7 (links), foreground #001523, rules
+  #DDDDDD, wash #F5F5F5, yellow #FFFAD6, red #DD3333, underline offset 3px.
+  gatesnotes.com refused the download (403): the 680px column is set by eye.
+- Built on branch agent/redesign-seth-gates: new screen.css; header = name + four
+  links; no sidebar anywhere; home = his one-line intro + the ten newest entries in
+  full (essays show their opening and "Continue reading"); journal and category
+  pages the same stream; entry pages with older/newer by title at the foot; quotes
+  with a blue rule; callouts grey / blue / yellow / red; footer = Substack,
+  Instagram, X, RSS + colophon. No webfonts (League Gothic preload removed).
+- site.json colophon: the Colly credit ("Designed after Mr. Simon Collison … his
+  brainchild") no longer true; now "Written in Hyderabad. Built with Eleventy; set in
+  Georgia." Kalyan may reword.
+- today.sh: `./today.sh "Title"` makes today's note file.
+- Unchanged: every address, every entry, every block (callouts, plan, cases,
+  casetable, clipping, cards, footnotes, code), the head metadata, the link check,
+  drafts and scheduling, the feed.
+- Checked: build exit 0 with the link check; screenshots at 1280px and 500px; no page
+  scrolls sideways at 320px (journal and archive did until the category line got
+  separators).
+- Not yet done: images/og.jpg (link preview) still shows the old League Gothic
+  masthead; the engravings and two font files stay in the repo, unused.
+
