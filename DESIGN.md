@@ -121,7 +121,8 @@ always shown: "30 Oct 2026 · Quotes". Rules between entries run the text column
 only, matching the header and footer rules.
 
 The stream (seths.blog): a **note** in full under its 30px title; a **quote** in full
-(§7), no title; an **essay**: title, first paragraph, "Continue reading →". Entries are
+(§7), no title; an **essay**: title, first paragraph, and "Continue reading →" at the end of that
+paragraph, on its last line (kept together, never split; 2026-11-22). Entries are
 divided by 1px rules, 44px above and 40px below.
 
 ## 7. Quotes

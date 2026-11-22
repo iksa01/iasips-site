@@ -6,4 +6,4 @@ type: quote
 ---
 It is a capital mistake to theorise before one has data. Insensibly one begins to twist facts to suit theories, instead of theories to suit facts.
 
-<cite>Sherlock Holmes, in Arthur Conan Doyle’s “A Scandal in Bohemia”, 1891</cite>
+<cite>Sherlock Holmes, in Arthur Conan Doyle’s [“A Scandal in Bohemia”](https://www.amazon.in/s?k=The+Adventures+of+Sherlock+Holmes+Arthur+Conan+Doyle), 1891</cite>

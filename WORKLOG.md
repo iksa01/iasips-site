@@ -851,3 +851,21 @@ counts, and per line the day, the title and "Quote · name" / "Note" / "Essay ·
 The name is read from the quote's <cite> up to the first comma (so the speaker: Michael
 Corleone, V, Sherlock Holmes), via a quoteWho filter in .eleventy.js.
 
+## 2026-11-22 (i) — Amazon tag automated, books linked, Continue reading inline
+
+Kalyan sent an amazon.in link (ASIN 178125981X: Fukuyama, *Identity*, Profile Books 2019)
+and his Associates tag, parivarthan-21: "add it behind every link … Amazon India …
+automate". Samples deleted (never committed). He is happy with the old link-preview
+picture; left as it is.
+- site.json amazonTag; .eleventy.js amazonHref: every Amazon link in markdown and in book
+  cards becomes amazon.in/dp/<ASIN>?tag=parivarthan-21 (tracking dropped, .com moved to
+  .in); `amazon:<ASIN>` shorthand; search links keep k/i/rh and gain the tag; amzn.to
+  untouched. Tested on his link, the shorthand, an amazon.com /gp/product link, amzn.to.
+- Book titles in five quotes now link to Amazon India searches (title + author), tag added
+  by the build: Pensées; Deathly Hallows; The Sign of the Four; Man's Search for Meaning;
+  "A Scandal in Bohemia" → The Adventures of Sherlock Holmes. Search links, not product
+  links, because no edition was chosen by Kalyan; swap in a /dp/ link whenever he sends one.
+  Not linked: Transit of Venus (Crosby, 1931), the two films, Emerson's journal.
+- "Continue reading →" now ends the essay's opening paragraph on the home and journal pages.
+- Disclosure line: no rule of its own (it doubled the stream's last rule).
+

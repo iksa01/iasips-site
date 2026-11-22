@@ -219,11 +219,30 @@ module.exports = function (eleventyConfig) {
   // Amazon links are affiliate links (Kalyan is an Amazon Associate, 2026-11-22): Google asks that paid links
   // carry rel="sponsored"; the footer carries Amazon's required disclosure. Applies to links in text, quotes and cards.
   const isAmazon = (url) => { try { return /(^|\.)amazon\.[a-z.]+$|^amzn\.(to|in|eu|asia)$|^a\.co$/.test(new URL(url).hostname); } catch { return false; } };
+  // Kalyan's Associates tag goes on every Amazon link at build time (2026-11-22), so a link can be written plain:
+  //   https://www.amazon.in/dp/178125981X  ·  any amazon.in/.com product or search link  ·  or the shorthand amazon:178125981X
+  // Product links are rewritten to Amazon India (his readers are in India) as /dp/<ASIN>?tag=…, dropping list and
+  // tracking parameters; search links keep their words and gain the tag. Short links (amzn.to) already carry a tag.
+  const AMAZON_TAG = require("./src/_data/site.json").amazonTag || "";
+  const amazonHref = (href) => {
+    if (/^amazon:/i.test(href)) href = "https://www.amazon.in/dp/" + href.slice(7).trim();
+    let u; try { u = new URL(href); } catch { return href; }
+    if (!/(^|\.)amazon\.[a-z.]+$/.test(u.hostname) || !AMAZON_TAG) return href;
+    const asin = (/\/(?:dp|gp\/product|gp\/aw\/d)\/([A-Z0-9]{10})/i.exec(u.pathname) || [])[1];
+    if (asin) return `https://www.amazon.in/dp/${asin.toUpperCase()}?tag=${AMAZON_TAG}`;
+    const out = new URL(u.pathname, "https://www.amazon.in");
+    for (const k of ["k", "i", "rh"]) if (u.searchParams.get(k)) out.searchParams.set(k, u.searchParams.get(k));
+    out.searchParams.set("tag", AMAZON_TAG);
+    return out.toString();
+  };
   const defaultLinkOpen = md.renderer.rules.link_open || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
   md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
-    if (isAmazon(tokens[idx].attrGet("href") || "")) tokens[idx].attrSet("rel", "sponsored nofollow");
+    const href = amazonHref(tokens[idx].attrGet("href") || "");
+    tokens[idx].attrSet("href", href);
+    if (isAmazon(href)) tokens[idx].attrSet("rel", "sponsored nofollow");
     return defaultLinkOpen(tokens, idx, options, env, self);
   };
+  // markdown-it refuses unknown link schemes only for javascript:/vbscript:/file:/data:, so amazon: passes through to the rule above.
   const relFor = (url) => (isAmazon(url) ? ' rel="sponsored nofollow"' : "");
 
   eleventyConfig.setLibrary("md", md);
@@ -366,7 +385,7 @@ module.exports = function (eleventyConfig) {
       f.author ? `<p class="cb-author">${esc(f.author)}</p>` : "",
       f.published ? `<p class="cb-pub">${md.renderInline(f.published)}</p>` : "",
       f.read ? `<p class="cb-read">Read in ${md.renderInline(f.read)}</p>` : "",
-      f.link ? `<p class="cb-buy"><a href="${esc(f.link)}"${relFor(f.link)}>${isAmazon(f.link) ? "Buy on Amazon" : "About the book"} →</a>${isAmazon(f.link) ? ' <span class="cb-aff">affiliate link</span>' : ""}</p>` : "",
+      f.link ? ((l) => `<p class="cb-buy"><a href="${esc(l)}"${relFor(l)}>${isAmazon(l) ? "Buy on Amazon" : "About the book"} →</a>${isAmazon(l) ? ' <span class="cb-aff">affiliate link</span>' : ""}</p>`)(amazonHref(f.link)) : "",
       `</div>`, `</div>`].filter(Boolean).join("\n");
   };
   eleventyConfig.addPreprocessor("cards", "md", (data, content) =>

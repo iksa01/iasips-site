@@ -13,8 +13,7 @@
 <div class="post-body">{{ e.templateContent | listingRefs(e.url) | safe }}</div>
 {%- else %}
 <h2><a href="{{ e.url }}">{{ e.data.title }}</a></h2>
-<div class="post-body"><p>{{ e.templateContent | firstParagraph | listingRefs(e.url) | safe }}</p></div>
-<p class="read-on"><a href="{{ e.url }}">Continue reading &rarr;</a></p>
+<div class="post-body"><p>{{ e.templateContent | firstParagraph | listingRefs(e.url) | safe }} <a class="read-on" href="{{ e.url }}">Continue&nbsp;reading&nbsp;&rarr;</a></p></div>
 {%- endif %}
 </div>
 </article>

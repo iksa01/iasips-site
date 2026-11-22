@@ -144,7 +144,7 @@ a.s-day:hover .s-num, a.s-day:hover .s-mon { color: var(--link); }
 .post h2 { margin: 0 0 14px; font-size: 30px; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
 .post h2 a { color: var(--ink); text-decoration: none; }
 .post h2 a:hover { color: var(--link); }
-.read-on { margin: 10px 0 0; }
+.read-on { white-space: nowrap; }
 .pages { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 36px 0 0; font-size: 17px; }
 .pages .count { color: var(--muted); font-style: italic; }
 
@@ -361,7 +361,7 @@ footer a:hover { color: var(--link); text-decoration: underline; }
 .foot-sep { margin: 0 9px; color: var(--faint); }
 .foot-copy, .foot-links { white-space: nowrap; }
 .foot-small { margin-top: 0; }
-.disclosure { clear: both; margin: 48px 0 0; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; font-style: italic; }
+.disclosure { clear: both; margin: 36px 0 0; color: var(--muted); font-size: 14px; font-style: italic; }
 
 /* ---------- Phones ---------- */
 @media (max-width: 600px) {

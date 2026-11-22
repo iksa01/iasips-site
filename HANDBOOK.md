@@ -175,8 +175,14 @@ subject, then
 The card shows a page icon, the title, "PDF · 12 pages · 1.4 MB" (the size is
 read from the file) and "Open the PDF →".
 
-**Amazon links** (Kalyan is an Amazon Associate). Use his affiliate links
-anywhere — in text, in a book card's `link:`, or on the book title in a
+**Amazon links** (Kalyan is an Amazon Associate, tag `parivarthan-21`, in
+site.json as `amazonTag`). Write any Amazon link plainly — the build adds his
+tag (2026-11-22). Three ways, all becoming `https://www.amazon.in/dp/<ASIN>?tag=parivarthan-21`:
+`https://www.amazon.in/dp/178125981X` (a copied link, tracking and all, is
+cleaned), an amazon.com product link (moved to Amazon India, where his
+readers are), or the shorthand `amazon:178125981X`. A search link
+(`https://www.amazon.in/s?k=Title+Author`) keeps its words and gains the tag.
+Use them anywhere — in text, in a book card's `link:`, or on the book title in a
 quote's name: `<cite>Viktor E. Frankl, [*Man's Search for Meaning*](https://amzn.to/…)</cite>`.
 The build marks every Amazon link `rel="sponsored nofollow"` (what Google
 asks of paid links), a book card adds "affiliate link" beside it, and any page
