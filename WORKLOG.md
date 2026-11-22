@@ -886,4 +886,7 @@ worth sharing, I will keep sharing here."
   affiliate links: as an Amazon Associate I earn from qualifying purchases."
 - Same day: the About sub is now "Do your part and part" — Kalyan: "about nishkama karma,
   not to be attached to the process" (do your part, then part from it).
+- Correction: "Later I was persuaded to pursue my M.A." was a voice-typing slip, taken
+  literally; Kalyan is still pursuing it. Now: "I am now pursuing my M.A. in Public
+  Administration and Gandhian Ethics."
 
