@@ -5,11 +5,13 @@ layout: layouts/about.njk
 permalink: /about/
 dropcap: true
 ---
-I am Kalyan Inampudi, a UPSC mentor and, as I like to put it, an edutainer from Hyderabad. For sixteen years I have lived inside this examination: as an aspirant, as a teacher, and now as Chief Mentor at La Excellence IAS, where I teach Essay and Ethics.
+I am Kalyan Inampudi, a UPSC mentor and an edutainer from Hyderabad, a word I took from Hans Rosling. For sixteen years I have lived inside this examination: as an aspirant, as a teacher, and now as Chief Mentor at La Excellence IAS, where I teach Essay and Ethics.
 
 I believe talent can come from any place; sometimes all it needs is a nudge. I have been reading the newspaper almost every day and sharing articles with aspirants since 2013. If one aspirant uses what I share and reaches their dream, that is the only satisfaction I need. Impact lies in quality and connect, not in numbers.
 
-I studied commerce at Osmania University, later studied at the London School of Economics, and am reading for an M.A. at IGNOU in Public Administration and Gandhian ethics. This journal is where I keep what I read and hear: lines worth keeping, books, the morning paper, talks, and my own notes.
+I studied commerce at Osmania University. Later I was persuaded to pursue my M.A. in Public Administration and Gandhian Ethics. I also have an online certification in AI from the London School of Economics.
+
+This journal is my personal curiosity, not only about UPSC but about life, the world and India. Books, music, whatever I feel is worth sharing, I will keep sharing here.
 
 ## Elsewhere
 

@@ -288,7 +288,6 @@ a.card-video:hover .cv-title { color: var(--link); }
 .cb-author { font-style: italic; }
 .cb-pub, .cb-read { color: var(--muted); font-size: 15px; }
 .cb-buy { margin-top: 10px !important; font-size: 16px; }
-.cb-aff { margin-left: 6px; color: var(--muted); font-size: 13px; font-style: italic; }
 a.card-pdf { display: flex; gap: 20px; align-items: center; margin: 1.8em 0; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 6px; color: var(--text); font-size: 17px; line-height: 1.45; text-decoration: none; }
 a.card-pdf:hover { border-color: var(--link); }
 .cf-icon { position: relative; flex: 0 0 56px; height: 72px; border: 1px solid var(--rule-strong); border-radius: 3px 14px 3px 3px; background: var(--wash); }
@@ -339,6 +338,7 @@ h5 span { color: var(--muted); font-size: 15px; font-style: italic; font-weight:
 h6 { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
 .ledger { padding-left: 1.2em; }
 .ledger span { color: var(--muted); }
+.affiliate-note { clear: both; margin: 44px 0 0; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; font-style: italic; }
 
 /* ---------- Case index ---------- */
 .case { margin: 0 0 26px; padding: 0 0 22px; border-bottom: 1px solid var(--rule); }
@@ -361,7 +361,6 @@ footer a:hover { color: var(--link); text-decoration: underline; }
 .foot-sep { margin: 0 9px; color: var(--faint); }
 .foot-copy, .foot-links { white-space: nowrap; }
 .foot-small { margin-top: 0; }
-.disclosure { clear: both; margin: 36px 0 0; color: var(--muted); font-size: 14px; font-style: italic; }
 
 /* ---------- Phones ---------- */
 @media (max-width: 600px) {

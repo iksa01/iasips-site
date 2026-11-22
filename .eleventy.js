@@ -217,7 +217,7 @@ module.exports = function (eleventyConfig) {
   };
 
   // Amazon links are affiliate links (Kalyan is an Amazon Associate, 2026-11-22): Google asks that paid links
-  // carry rel="sponsored"; the footer carries Amazon's required disclosure. Applies to links in text, quotes and cards.
+  // carry rel="sponsored"; Amazon's disclosure is the About page's last line (site.affiliateNote). Applies to links in text, quotes and cards.
   const isAmazon = (url) => { try { return /(^|\.)amazon\.[a-z.]+$|^amzn\.(to|in|eu|asia)$|^a\.co$/.test(new URL(url).hostname); } catch { return false; } };
   // Kalyan's Associates tag goes on every Amazon link at build time (2026-11-22), so a link can be written plain:
   //   https://www.amazon.in/dp/178125981X  ·  any amazon.in/.com product or search link  ·  or the shorthand amazon:178125981X
@@ -385,7 +385,7 @@ module.exports = function (eleventyConfig) {
       f.author ? `<p class="cb-author">${esc(f.author)}</p>` : "",
       f.published ? `<p class="cb-pub">${md.renderInline(f.published)}</p>` : "",
       f.read ? `<p class="cb-read">Read in ${md.renderInline(f.read)}</p>` : "",
-      f.link ? ((l) => `<p class="cb-buy"><a href="${esc(l)}"${relFor(l)}>${isAmazon(l) ? "Buy on Amazon" : "About the book"} →</a>${isAmazon(l) ? ' <span class="cb-aff">affiliate link</span>' : ""}</p>`)(amazonHref(f.link)) : "",
+      f.link ? ((l) => `<p class="cb-buy"><a href="${esc(l)}"${relFor(l)}>${isAmazon(l) ? "Buy on Amazon" : "About the book"} →</a></p>`)(amazonHref(f.link)) : "",
       `</div>`, `</div>`].filter(Boolean).join("\n");
   };
   eleventyConfig.addPreprocessor("cards", "md", (data, content) =>
@@ -411,14 +411,6 @@ module.exports = function (eleventyConfig) {
       .replace(/\s*([{};,>])\s*/g, "$1")
       .replace(/;}/g, "}")
       .trim());
-
-  // Amazon's required disclosure (Kalyan, 2026-11-22: "add the disclaimer … not in the footer"): printed at the
-  // foot of the text on every page that carries an Amazon link, and nowhere else.
-  eleventyConfig.addTransform("affiliateDisclosure", function (html) {
-    const out = this.page.outputPath || "";
-    if (!out.endsWith(".html") || !html.includes('rel="sponsored nofollow"')) return html;
-    return html.replace("</main>", '<p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>\n</main>');
-  });
 
   eleventyConfig.addTransform("quotes", function (html) {
     const out = this.page.outputPath || "";

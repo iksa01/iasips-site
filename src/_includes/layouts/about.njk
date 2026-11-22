@@ -48,3 +48,7 @@ bodyClass: biography
 </ul>
 {%- endif %}
 {{ parts.notes | safe }}
+{#- Amazon's disclosure, once for the whole site, as the About page's last line (Kalyan, 2026-11-22). -#}
+{%- if site.affiliateNote %}
+<p class="affiliate-note">{{ site.affiliateNote }}</p>
+{%- endif %}

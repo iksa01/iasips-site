@@ -185,9 +185,8 @@ readers are), or the shorthand `amazon:178125981X`. A search link
 Use them anywhere — in text, in a book card's `link:`, or on the book title in a
 quote's name: `<cite>Viktor E. Frankl, [*Man's Search for Meaning*](https://amzn.to/…)</cite>`.
 The build marks every Amazon link `rel="sponsored nofollow"` (what Google
-asks of paid links), a book card adds "affiliate link" beside it, and any page
-with an Amazon link prints Amazon's required line at the foot of the text,
-"As an Amazon Associate I earn from qualifying purchases." Only Kalyan's own links: never build one with a
+asks of paid links), and Amazon's disclosure is printed once, as the About page's last line
+(site.affiliateNote). Only Kalyan's own links: never build one with a
 guessed product or tag.
 
 A book review is an essay in Books that opens with `::: book`.

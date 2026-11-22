@@ -171,14 +171,13 @@ the text. No page scrolls sideways at 320px (checked 2026-11-22 on every page).
   readers who ask for reduced motion.
 - Phones: links outside sentences are at least 24px tall (WCAG 2.2 target size).
 - theme-color for both modes, so the phone's browser bar matches the page.
-- Amazon links carry rel="sponsored nofollow". Amazon's required line, "As an Amazon
-  Associate I earn from qualifying purchases.", is printed at the foot of the main column
-  (14px grey italic over a hairline) on every page that carries an Amazon link, and only
-  there — not in the footer (Kalyan, 2026-11-22).
+- Amazon links carry rel="sponsored nofollow". Amazon's disclosure appears once for the
+  whole site, as the About page's last line (site.affiliateNote, 15px grey italic over a
+  hairline): not in the footer, not on every post (Kalyan, 2026-11-22).
 - PDF card (§8): a 56×72px page icon with a folded corner and a red "PDF" tab, title 20px
   bold, an italic note, "PDF · N pages · size" in spaced caps, "Open the PDF →"; the whole
   card one link, 1px rule border, 6px radius, blue border on hover.
-- Book card: optional "Buy on Amazon →" with "affiliate link" in small grey italic.
+- Book card: optional "Buy on Amazon →".
 
 ## 10. Writing every day
 

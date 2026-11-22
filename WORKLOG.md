@@ -869,3 +869,19 @@ picture; left as it is.
 - "Continue reading →" now ends the essay's opening paragraph on the home and journal pages.
 - Disclosure line: no rule of its own (it doubled the stream's last rule).
 
+## 2026-11-22 (j) — About corrected; Amazon disclosure once, on About
+
+Kalyan: the About page's "later studied at the London School of Economics" was wrong ("an
+absolute blunder"). Now, in his words: "I studied commerce at Osmania University. Later I
+was persuaded to pursue my M.A. in Public Administration and Gandhian Ethics. I also have
+an online certification in AI from the London School of Economics." (IGNOU dropped: his
+new wording does not name it.) Opening: "a UPSC mentor and an edutainer from Hyderabad, a
+word I took from Hans Rosling." New paragraph: "This journal is my personal curiosity, not
+only about UPSC but about life, the world and India. Books, music, whatever I feel is
+worth sharing, I will keep sharing here."
+- Sub "The calmest person wins" to change to something he dictated as "do your part and
+  part" — wording awaited, unchanged until he confirms.
+- Amazon disclosure: removed from every page and from book cards; now once, as the About
+  page's last line (site.affiliateNote): "Links to books on Amazon in this journal are
+  affiliate links: as an Amazon Associate I earn from qualifying purchases."
+
