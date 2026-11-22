@@ -1,6 +1,6 @@
 ---
 title: "Edutainer from Hyderabad"
-sub: "The calmest person wins"
+sub: "Do your part and part"
 layout: layouts/about.njk
 permalink: /about/
 dropcap: true

@@ -884,4 +884,6 @@ worth sharing, I will keep sharing here."
 - Amazon disclosure: removed from every page and from book cards; now once, as the About
   page's last line (site.affiliateNote): "Links to books on Amazon in this journal are
   affiliate links: as an Amazon Associate I earn from qualifying purchases."
+- Same day: the About sub is now "Do your part and part" — Kalyan: "about nishkama karma,
+  not to be attached to the process" (do your part, then part from it).
 
