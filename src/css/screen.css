@@ -8,21 +8,74 @@
   --muted: #626b72;      /* dates, captions, meta (tim.blog #7e878e, darkened for contrast) */
   --link: #007ca7;       /* tim.blog link blue */
   --link-hover: #005a7a;
-  --rule: #dddddd;       /* tim.blog */
+  --rule: #e6e6e6;       /* hairlines: tim.blog #DDDDDD, softened 2026-11-22 ("a little bit more muted") */
+  --rule-strong: #d3d8dc; /* the one firmer line: under table heads, over a plan */
   --wash: #f5f5f5;       /* tim.blog */
   --tint: #eef6f9;       /* the link blue at 7% */
   --yellow: #fffad6;     /* tim.blog */
   --red: #dd3333;        /* tim.blog */
+  --bg: #ffffff;
+  --quiet: #444444;      /* long passages, footnotes */
+  --faint: #c4c4c4;      /* bullets in the footer, the same-day dash */
+  --code-tab: #e8e8e8;
+  --key-rule: #d8c349;
+  --warn-bg: #fdf1f1;
+  --warn-ink: #b52222;
+  --underline: rgba(0, 124, 167, .4);
+  --side-underline: rgba(98, 107, 114, .4);
+  --cover: #001523;
+  --cover-ink: #ffffff;
   --measure: 680px;      /* the Gates Notes column */
   --serif: Georgia, "Times New Roman", Times, serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light dark;
 }
+
+/* Dark mode (2026-11-22): follows the reader's phone or computer setting; no switch, no script.
+   The same blue, lifted so it reads on a dark page. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121416;
+    --ink: #eef1f3;
+    --text: #d5d9dc;
+    --muted: #9aa3aa;
+    --link: #4fb3d9;
+    --link-hover: #86cde8;
+    --rule: #2a2f33;
+    --rule-strong: #3a4146;
+    --wash: #1b1f22;
+    --tint: #13242c;
+    --yellow: #29261a;
+    --red: #ef6b6b;
+    --quiet: #c2c7cb;
+    --faint: #4c5358;
+    --code-tab: #23282c;
+    --key-rule: #9c8a2e;
+    --warn-bg: #2b1919;
+    --warn-ink: #f19595;
+    --underline: rgba(79, 179, 217, .45);
+    --side-underline: rgba(154, 163, 170, .4);
+    --cover: #24343f;
+    --cover-ink: #f2f4f5;
+  }
+  .token.keyword, .token.atrule, .token.important, .token.selector { color: #6cb6ff; }
+  .token.string, .token.attr-value, .token.char, .token.regex, .token.inserted { color: #a5d16a; }
+  .token.number, .token.boolean, .token.constant, .token.symbol { color: #ff9a76; }
+  .token.punctuation, .token.operator { color: #a8b0b6; }
+  .token.comment, .token.prolog, .token.doctype, .token.cdata { color: #8a949b; }
+  img { filter: brightness(.92); }
+}
+
+/* Smooth page changes (2026-11-22): a soft cross-fade between pages in browsers that support it,
+   none for readers who ask for less motion. No script. */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: #fff;
+  background: var(--bg);
   color: var(--text);
   font: 20px/1.65 var(--serif);
   font-kerning: normal;
@@ -31,7 +84,7 @@ body {
 #page { max-width: calc(var(--measure) + 48px); margin: 0 auto; padding: 0 24px; }
 
 /* ---------- Links ---------- */
-a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: rgba(0, 124, 167, .4); }
+a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--underline); }
 a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
 a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 2px; }
 
@@ -63,7 +116,7 @@ main { padding: 48px 0 24px; }
    680px; narrower screens keep it inside; phones fold it into one line above. */
 .row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 28px; }
 .side { padding: 6px 18px 0 0; border-right: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.5; text-align: right; }
-.side a { color: var(--muted); text-decoration-color: rgba(98, 107, 114, .4); }
+.side a { color: var(--muted); text-decoration-color: var(--side-underline); }
 .side a:hover { color: var(--link); text-decoration-color: currentColor; }
 .s-day, .s-item { display: block; }
 a.s-day { text-decoration: none; }
@@ -80,7 +133,7 @@ a.s-day:hover .s-num, a.s-day:hover .s-mon { color: var(--link); }
 }
 /* A second entry of the same day: a short dash where the date would be (the dash is still the permalink). */
 .s-again .s-num, .s-again .s-mon { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.s-again a.s-day::before { content: "—"; display: block; color: #c4c4c4; font-size: 22px; line-height: 1; }
+.s-again a.s-day::before { content: "—"; display: block; color: var(--faint); font-size: 22px; line-height: 1; }
 .s-again a.s-day:hover::before { color: var(--link); }
 .entry-row .quote-who:last-child { margin-bottom: 0; }
 
@@ -121,13 +174,13 @@ hr.asterism { width: auto; border: 0; text-align: center; }
 hr.asterism::before { content: "⁂"; color: var(--muted); font-size: 22px; }
 
 /* ---------- Quotes ---------- */
-blockquote { margin: 1.6em 0; padding: 2px 0 2px 22px; border-left: 3px solid var(--rule); color: #444; }
+blockquote { margin: 1.6em 0; padding: 2px 0 2px 22px; border-left: 3px solid var(--rule); color: var(--quiet); }
 blockquote p:last-child { margin-bottom: 0; }
 .quote-by { margin: -.9em 0 1.6em; color: var(--muted); font-size: 16px; text-align: right; }
 cite { font-style: normal; }
 .quote-by cite::before, .quote-who cite::before { content: "— "; }
 blockquote.quote-panel { margin: 1.6em 0 14px; padding: 2px 0 2px 24px; border-left: 4px solid var(--link); color: var(--ink); font-size: 24px; line-height: 1.5; font-style: italic; }
-.main > blockquote.quote-panel, #post > blockquote.quote-panel { margin: 0 0 26px; padding: 0; border: 0; }
+.main > blockquote.quote-panel, div#post > blockquote.quote-panel { margin: 0 0 26px; padding: 0; border: 0; }
 blockquote.quote-panel em { font-style: normal; }
 .quote-who { margin: 0 0 1.6em; color: var(--text); font-size: 18px; text-align: right; text-wrap: balance; }
 .quote-who cite em { font-style: italic; }
@@ -141,16 +194,16 @@ blockquote p, .entry p, .post-body p { text-wrap: pretty; }
 .callout-title { margin: 0 0 6px; color: var(--ink); font-size: 14px; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; }
 .callout-tip { border-color: var(--link); background: var(--tint); }
 .callout-tip .callout-title { color: var(--link-hover); }
-.callout-key { border-color: #d8c349; background: var(--yellow); }
-.callout-warning { border-color: var(--red); background: #fdf1f1; }
-.callout-warning .callout-title { color: #b52222; }
+.callout-key { border-color: var(--key-rule); background: var(--yellow); }
+.callout-warning { border-color: var(--red); background: var(--warn-bg); }
+.callout-warning .callout-title { color: var(--warn-ink); }
 
 details { margin: 1.6em 0; padding: 12px 18px; border: 1px solid var(--rule); border-radius: 4px; font-size: 18px; }
 summary { cursor: pointer; color: var(--ink); font-weight: bold; }
 details[open] summary { margin-bottom: 10px; }
 details > :last-child { margin-bottom: 0; }
 
-.plan { margin: 1.6em 0; padding: 18px 22px; border: 1px solid var(--rule); border-top: 3px solid var(--ink); font-size: 18px; }
+.plan { margin: 1.6em 0; padding: 18px 22px; border: 1px solid var(--rule); border-top: 2px solid var(--rule-strong); font-size: 18px; }
 .plan-title { margin: 0 0 10px; color: var(--ink); font-weight: bold; }
 .plan ul { margin: 0; padding: 0; list-style: none; }
 .plan li { display: grid; grid-template-columns: 7.5em 1fr; gap: 12px; margin: 0; padding: 8px 0; border-top: 1px dashed var(--rule); }
@@ -163,14 +216,14 @@ details > :last-child { margin-bottom: 0; }
 
 /* ---------- Tables ---------- */
 table { width: 100%; margin: 1.6em 0; border-collapse: collapse; font-size: 17px; line-height: 1.45; font-variant-numeric: lining-nums tabular-nums; }
-th { padding: 8px 10px 8px 0; border-bottom: 2px solid var(--ink); color: var(--ink); text-align: left; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+th { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--rule-strong); color: var(--ink); text-align: left; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
 td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 .casetable td a { color: var(--text); }
 .casetable td a:hover { color: var(--link); }
 
 /* ---------- Footnotes ---------- */
 .footnote-ref a { text-decoration: none; padding: 0 1px; }
-#footnotes { margin: 2.6em 0 0; padding: 20px 0 0 1.4em; border-top: 1px solid var(--rule); color: #444; font-size: 16px; line-height: 1.55; }
+#footnotes { margin: 2.6em 0 0; padding: 20px 0 0 1.4em; border-top: 1px solid var(--rule); color: var(--quiet); font-size: 16px; line-height: 1.55; }
 #footnotes p { display: inline; margin: 0; }
 .scrollto { text-decoration: none; }
 
@@ -193,7 +246,7 @@ code { padding: 1px 5px; border-radius: 3px; background: var(--wash); font: .82e
 pre { margin: 1.6em 0; padding: 16px 18px; border-radius: 4px; background: var(--wash); font: 15px/1.55 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
 pre code { padding: 0; background: none; font-size: inherit; }
 figure.code { margin: 1.6em 0; }
-figure.code figcaption { margin: 0; padding: 6px 18px; border-radius: 4px 4px 0 0; background: #e8e8e8; color: var(--muted); font: 14px var(--mono); }
+figure.code figcaption { margin: 0; padding: 6px 18px; border-radius: 4px 4px 0 0; background: var(--code-tab); color: var(--muted); font: 14px var(--mono); }
 figure.code pre { margin: 0; border-radius: 0 0 4px 4px; }
 .highlight-line { display: inline-block; width: 100%; background: var(--yellow); }
 .token.comment, .token.prolog, .token.doctype, .token.cdata { color: #7e878e; font-style: italic; }
@@ -225,7 +278,7 @@ a.card-video:hover .cv-title { color: var(--link); }
 .cp-text { margin: 0 0 10px; }
 .cp-link { margin: 0; font-size: 16px; }
 .card-book { display: flex; gap: 20px; padding: 18px; }
-.cb-cover { display: flex; flex: 0 0 110px; flex-direction: column; justify-content: space-between; min-height: 160px; padding: 14px 12px; border-radius: 2px 4px 4px 2px; background: var(--ink); color: #fff; box-shadow: inset 4px 0 0 rgba(255, 255, 255, .15); }
+.cb-cover { display: flex; flex: 0 0 110px; flex-direction: column; justify-content: space-between; min-height: 160px; padding: 14px 12px; border-radius: 2px 4px 4px 2px; background: var(--cover); color: var(--cover-ink); box-shadow: inset 4px 0 0 rgba(255, 255, 255, .15); }
 .cb-cover-title { font-size: 16px; font-weight: bold; line-height: 1.25; }
 .cb-cover-author { font-size: 12px; font-style: italic; opacity: .8; }
 .cb-cover-img { padding: 0; background: none; box-shadow: none; }
@@ -234,6 +287,23 @@ a.card-video:hover .cv-title { color: var(--link); }
 .cb-title { color: var(--ink); font-size: 21px; font-weight: bold; line-height: 1.3; }
 .cb-author { font-style: italic; }
 .cb-pub, .cb-read { color: var(--muted); font-size: 15px; }
+.cb-buy { margin-top: 10px !important; font-size: 16px; }
+.cb-aff { margin-left: 6px; color: var(--muted); font-size: 13px; font-style: italic; }
+a.card-pdf { display: flex; gap: 20px; align-items: center; margin: 1.8em 0; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 6px; color: var(--text); font-size: 17px; line-height: 1.45; text-decoration: none; }
+a.card-pdf:hover { border-color: var(--link); }
+.cf-icon { position: relative; flex: 0 0 56px; height: 72px; border: 1px solid var(--rule-strong); border-radius: 3px 14px 3px 3px; background: var(--wash); }
+.cf-icon::before { content: ""; position: absolute; top: -1px; right: -1px; width: 14px; height: 14px; border-bottom: 1px solid var(--rule-strong); border-left: 1px solid var(--rule-strong); border-radius: 0 3px 0 3px; background: var(--bg); }
+.cf-icon span { position: absolute; left: 6px; bottom: 9px; padding: 1px 5px; border-radius: 2px; background: var(--red); color: #fff; font: bold 11px/1.3 var(--serif); letter-spacing: .06em; }
+.cf-details { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cf-title { color: var(--ink); font-size: 20px; font-weight: bold; line-height: 1.3; }
+.cf-note { font-style: italic; }
+.cf-meta { color: var(--muted); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; font-variant-numeric: lining-nums; }
+.cf-open { margin-top: 4px; color: var(--link); text-decoration: underline; text-decoration-color: var(--underline); text-underline-offset: 3px; }
+a.card-pdf:hover .cf-open { color: var(--link-hover); text-decoration-color: currentColor; }
+
+/* Skip link (2026-11-22): the first thing a keyboard or screen-reader user meets; hidden until focused. */
+.skip { position: absolute; top: -60px; left: 16px; z-index: 10; padding: 8px 14px; border-radius: 0 0 4px 4px; background: var(--ink); color: var(--bg); text-decoration: none; }
+.skip:focus { top: 0; }
 
 /* ---------- Contents list ---------- */
 .toc-inline { margin: 0 0 36px; padding: 16px 22px; background: var(--wash); border-radius: 4px; font-size: 17px; }
@@ -286,7 +356,7 @@ footer p { margin: 0; }
 footer b { color: inherit; font-weight: normal; }
 footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { color: var(--link); text-decoration: underline; }
-.foot-sep { margin: 0 9px; color: #c4c4c4; }
+.foot-sep { margin: 0 9px; color: var(--faint); }
 .foot-copy, .foot-links { white-space: nowrap; }
 .foot-small { margin-top: 0; }
 

@@ -802,3 +802,26 @@ anywhere; body 18px on phones, 20px from 601px. Found: menu, ledger, footer and 
 links 17–19px tall on phones, under WCAG 2.2's 24px target size. Fixed with padding
 (menu links now about 39px tall). Links inside sentences are exempt and unchanged.
 
+## 2026-11-22 (f) — Amazon links, softer lines, new intro, dark mode, PDF card
+
+Kalyan: he recommends many books and is an Amazon Associate — use his links, including
+on book titles in quotes; lines "a little bit more muted"; "follow the best practices
+that are possible and change my bio".
+- Amazon: every Amazon link (amazon.*, amzn.to/in, a.co) gets rel="sponsored nofollow" at
+  build time; book cards take `link:` ("Buy on Amazon →", "affiliate link"); the footer
+  carries Amazon's required line. No links added to existing quotes yet: they need his
+  own affiliate links (never guessed).
+- Lines: --rule #DDDDDD → #E6E6E6; table heads 1px #D3D8DC instead of 2px ink; plan top
+  2px #D3D8DC instead of 3px ink.
+- Home intro (site.json nav[0].home.copy), drafted from his own facts on his request
+  ("chief mentor … my curiosity share here"): "I'm Kalyan Inampudi, Chief Mentor at La
+  Excellence IAS in Hyderabad, where I teach Essay and Ethics. This is where I share what
+  my curiosity finds each day." His to reword.
+- Best practice: dark mode (all colours now tokens), cross-fade page transitions, skip
+  link, theme-color, `::: pdf` card with size read from the file (files/ is copied to the
+  site). Specimen gained a PDF card, a book link and an Amazon-linked quote.
+- Fixed while checking: in-body ::: quote lost its blue rule (selector #post caught the
+  essay's article#post); now div#post only.
+- Checked: build and link check pass; light and dark screenshots; no sideways scroll at
+  any width 320–1280px.
+

@@ -216,6 +216,16 @@ module.exports = function (eleventyConfig) {
     return anchor + defaultHeadingClose(tokens, idx, options, env, self);
   };
 
+  // Amazon links are affiliate links (Kalyan is an Amazon Associate, 2026-11-22): Google asks that paid links
+  // carry rel="sponsored"; the footer carries Amazon's required disclosure. Applies to links in text, quotes and cards.
+  const isAmazon = (url) => { try { return /(^|\.)amazon\.[a-z.]+$|^amzn\.(to|in|eu|asia)$|^a\.co$/.test(new URL(url).hostname); } catch { return false; } };
+  const defaultLinkOpen = md.renderer.rules.link_open || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+  md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+    if (isAmazon(tokens[idx].attrGet("href") || "")) tokens[idx].attrSet("rel", "sponsored nofollow");
+    return defaultLinkOpen(tokens, idx, options, env, self);
+  };
+  const relFor = (url) => (isAmazon(url) ? ' rel="sponsored nofollow"' : "");
+
   eleventyConfig.setLibrary("md", md);
 
   /* ---------- Plugins / passthrough ---------- */
@@ -258,7 +268,7 @@ module.exports = function (eleventyConfig) {
     if (runMode === "build") throw new Error(msg);
     console.warn(msg);
   });
-  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/fonts": "fonts", "images": "images" });
+  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/fonts": "fonts", "images": "images", "files": "files" });
   eleventyConfig.setServerOptions({ showAllHosts: false });
 
   /* ---------- Drafts and scheduled entries (design change 2026-09-26) ----------
@@ -291,7 +301,8 @@ module.exports = function (eleventyConfig) {
     return "";
   };
   const CARD_KEYS = { video: ["title", "channel", "length", "still"], post: ["source", "title", "link", "picture", "alt"],
-                      book: ["title", "author", "published", "read", "cover"] };
+                      book: ["title", "author", "published", "read", "cover", "link"],
+                      pdf: ["title", "pages", "note"] };
   const buildCard = (kind, arg, inner, where) => {
     const f = {}, body = [];
     let head = true;
@@ -322,8 +333,28 @@ module.exports = function (eleventyConfig) {
         f.title ? `<p class="cp-title">${md.renderInline(f.title)}</p>` : "",
         f.picture ? cardPicture(f.picture, f.alt || "") : "",
         text,
-        `<p class="cp-link"><a href="${esc(f.link)}">View ${label ? "on " + label : "the original"} →</a></p>`,
+        `<p class="cp-link"><a href="${esc(f.link)}"${relFor(f.link)}>View ${label ? "on " + label : "the original"} →</a></p>`,
         `</div>`].filter(Boolean).join("\n");
+    }
+    if (kind === "pdf") {
+      // ::: pdf /files/….pdf — a document card (2026-11-22): title, pages and the file's size, read from the file itself.
+      need("a file after '::: pdf'", arg); need("title:", f.title);
+      let size = "";
+      if (arg.startsWith("/")) {
+        const file = require("path").join(__dirname, decodeURI(arg));
+        if (!require("fs").existsSync(file)) throw new Error(`${where}: "::: pdf" file not found: ${arg}`);
+        const b = require("fs").statSync(file).size;
+        size = b >= 1048576 ? `${(b / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`;
+      }
+      const meta = ["PDF", f.pages ? `${f.pages} page${f.pages === "1" ? "" : "s"}` : "", size].filter(Boolean).join(" · ");
+      return [`<a class="card-pdf" href="${esc(arg)}">`,
+        `<span class="cf-icon" aria-hidden="true"><span>PDF</span></span>`,
+        `<span class="cf-details">`,
+        `<span class="cf-title">${esc(f.title)}</span>`,
+        f.note ? `<span class="cf-note">${esc(f.note)}</span>` : "",
+        `<span class="cf-meta">${esc(meta)}</span>`,
+        `<span class="cf-open">Open the PDF →</span>`,
+        `</span>`, `</a>`].filter(Boolean).join("\n");
     }
     need("title:", f.title);
     const short = f.title.split(":")[0];
@@ -335,10 +366,11 @@ module.exports = function (eleventyConfig) {
       f.author ? `<p class="cb-author">${esc(f.author)}</p>` : "",
       f.published ? `<p class="cb-pub">${md.renderInline(f.published)}</p>` : "",
       f.read ? `<p class="cb-read">Read in ${md.renderInline(f.read)}</p>` : "",
+      f.link ? `<p class="cb-buy"><a href="${esc(f.link)}"${relFor(f.link)}>${isAmazon(f.link) ? "Buy on Amazon" : "About the book"} →</a>${isAmazon(f.link) ? ' <span class="cb-aff">affiliate link</span>' : ""}</p>` : "",
       `</div>`, `</div>`].filter(Boolean).join("\n");
   };
   eleventyConfig.addPreprocessor("cards", "md", (data, content) =>
-    content.replace(/^:::[ \t]*(video|post|book)(?:[ \t]+(\S+))?[ \t]*\n([\s\S]*?)^:::[ \t]*$/gm,
+    content.replace(/^:::[ \t]*(video|post|book|pdf)(?:[ \t]+(\S+))?[ \t]*\n([\s\S]*?)^:::[ \t]*$/gm,
       (m, kind, arg, inner) => "\n" + buildCard(kind, arg || "", inner, data.page.inputPath) + "\n"));
 
   eleventyConfig.addPreprocessor("drafts", "md", (data) => {

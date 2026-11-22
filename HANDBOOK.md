@@ -160,7 +160,29 @@ paste it. Never copy another account's picture.
     published: Publisher, year
     read: September 2026             (optional)
     cover: /images/books/…jpg        (optional — Kalyan's own photo of the cover; else a typeset cover)
+    link: https://amzn.to/…          (optional — Kalyan's Amazon affiliate link → "Buy on Amazon →")
     :::
+
+A document (2026-11-22): put the PDF in `files/<folder>/`, named by date and
+subject, then
+
+    ::: pdf /files/2026-11-22-federalism-notes.pdf
+    title: Federalism: the full notes
+    pages: 12                        (optional)
+    note: One line about what is inside   (optional)
+    :::
+
+The card shows a page icon, the title, "PDF · 12 pages · 1.4 MB" (the size is
+read from the file) and "Open the PDF →".
+
+**Amazon links** (Kalyan is an Amazon Associate). Use his affiliate links
+anywhere — in text, in a book card's `link:`, or on the book title in a
+quote's name: `<cite>Viktor E. Frankl, [*Man's Search for Meaning*](https://amzn.to/…)</cite>`.
+The build marks every Amazon link `rel="sponsored nofollow"` (what Google
+asks of paid links), a book card adds "affiliate link" beside it, and the
+footer carries Amazon's required line, "As an Amazon Associate I earn from
+qualifying purchases." Only Kalyan's own links: never build one with a
+guessed product or tag.
 
 A book review is an essay in Books that opens with `::: book`.
 

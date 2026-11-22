@@ -128,6 +128,23 @@ title: Lorem Ipsum: Dolor Sit Amet
 author: A. N. Author
 published: Lorem Press, 2026
 read: October 2026
+link: https://www.amazon.in/
+:::
+
+A document, with its size read from the file:
+
+::: pdf /files/specimen/2026-11-22-lorem-analysis.pdf
+title: Lorem ipsum: an analysis
+pages: 1
+note: Dolor sit amet, the full notes as a PDF
+:::
+
+A quote whose book links to Amazon:
+
+::: quote
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+<cite>A. N. Author, [*Lorem Ipsum*](https://www.amazon.in/)</cite>
 :::
 
 ## Rules

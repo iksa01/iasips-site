@@ -57,8 +57,17 @@ contrast; link hover #005A7A; the tip box tint #EEF6F9 (the link blue at 7%).
 | --tint | #EEF6F9 | tip box |
 | --yellow | #FFFAD6 | key box, highlighted code lines |
 | --red | #DD3333 | warning box |
+| --rule-strong | #D3D8DC | the one firmer line: under table heads, over a plan |
 
 White page (#FFFFFF). Links underlined at 40% of their colour, full colour on hover.
+Lines softened 2026-11-22 (Kalyan: "a little bit more muted"): --rule #E6E6E6 (was
+tim.blog's #DDDDDD); table heads and the plan's top take one 1–2px --rule-strong line
+instead of ink.
+
+**Dark mode** (2026-11-22) follows the reader's device setting — no switch, no script:
+page #121416, text #D5D9DC, titles #EEF1F3, grey #9AA3AA, link #4FB3D9 (Tim's blue
+lifted), rules #2A2F33; boxes, code and the typeset book cover darkened to match; pictures
+at 92% brightness. Every colour in screen.css is a token so both modes stay in step.
 
 ## 4. Page skeleton
 
@@ -150,6 +159,20 @@ divided by 1px rules, 44px above and 40px below.
 One column at every width. At 600px and below: body 18px, gutters 18px, the nav drops
 under the name, smaller titles, the plan grid and book card stack, the portrait sits above
 the text. No page scrolls sideways at 320px (checked 2026-11-22 on every page).
+
+## 9a. Best-practice extras (2026-11-22)
+
+- Skip link: "Skip to the text", hidden until a keyboard user tabs to it; main is #content.
+- Page changes cross-fade (`@view-transition`) where the browser supports it; none for
+  readers who ask for reduced motion.
+- Phones: links outside sentences are at least 24px tall (WCAG 2.2 target size).
+- theme-color for both modes, so the phone's browser bar matches the page.
+- Amazon links carry rel="sponsored nofollow"; the footer's third line is Amazon's
+  required disclosure.
+- PDF card (§8): a 56×72px page icon with a folded corner and a red "PDF" tab, title 20px
+  bold, an italic note, "PDF · N pages · size" in spaced caps, "Open the PDF →"; the whole
+  card one link, 1px rule border, 6px radius, blue border on hover.
+- Book card: optional "Buy on Amazon →" with "affiliate link" in small grey italic.
 
 ## 10. Writing every day
 

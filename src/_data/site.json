@@ -20,7 +20,7 @@
       "home": {
         "lead": "Hello",
         "after": ".",
-        "copy": "I’m Kalyan. I read and write about the UPSC syllabus from Hyderabad, and this is where the notes and the journal live.",
+        "copy": "I’m Kalyan Inampudi, Chief Mentor at La Excellence IAS in Hyderabad, where I teach Essay and Ethics. This is where I share what my curiosity finds each day.",
         "more": "Please read on &rarr;"
       },
       "engraving": "/images/engravings/obi/lamp.png"
@@ -88,6 +88,7 @@
   ],
   "colophon": [
     "<b>Copyright © 2026</b> <a href=\"/about/\">Kalyan Inampudi</a>",
-    "All rights reserved. Written in Hyderabad; built with <a href=\"https://www.11ty.dev/\">Eleventy</a>."
+    "All rights reserved. Written in Hyderabad; built with <a href=\"https://www.11ty.dev/\">Eleventy</a>.",
+    "As an Amazon Associate I earn from qualifying purchases."
   ]
 }
