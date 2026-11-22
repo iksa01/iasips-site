@@ -843,3 +843,11 @@ Hyderabad … built with Eleventy" if optional; X label is fine; asked whether R
   → 10-11, ideas-are-bulletproof → 10-14, however-improbable → 10-17, enemies-closer →
   10-22, always → 10-24, a-quiet-room → 10-27. Filenames and addresses unchanged.
 
+## 2026-11-22 (h) — archive Model A
+
+Four archive models shown (A ledger filled in, B table of contents, C writing calendar,
+D compact index). Kalyan chose A: "it tells post, post type, date". Year headings, month
+counts, and per line the day, the title and "Quote · name" / "Note" / "Essay · N min".
+The name is read from the quote's <cite> up to the first comma (so the speaker: Michael
+Corleone, V, Sherlock Holmes), via a quoteWho filter in .eleventy.js.
+

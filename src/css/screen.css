@@ -318,12 +318,14 @@ a.card-pdf:hover .cf-open { color: var(--link-hover); text-decoration-color: cur
 .paginate a:hover { text-decoration: underline; }
 .paginate small { display: block; color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 
-/* ---------- Archive ---------- */
-.archive-list { padding: 0; list-style: none; }
-.archive-list .date-heading { margin: 32px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
-.archive-list .date-heading:first-child { margin-top: 0; }
-.archive-list li { margin: 0 0 6px; }
-.archive-list time { display: inline-block; min-width: 2.2em; color: var(--muted); font-size: 16px; font-variant-numeric: lining-nums tabular-nums; }
+/* ---------- Archive (Model A, 2026-11-22) ---------- */
+.archive-year { margin: 40px 0 4px; color: var(--ink); font-size: 44px; line-height: 1; font-variant-numeric: lining-nums; }
+.archive-month { margin: 22px 0 6px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 14px; font-weight: normal; letter-spacing: .08em; text-transform: uppercase; font-variant-numeric: lining-nums; }
+.archive-month span { float: right; font-size: 14px; font-style: italic; letter-spacing: 0; text-transform: none; }
+.archive-list { margin: 0 0 8px; padding: 0; list-style: none; }
+.archive-list li { display: grid; grid-template-columns: 2.2em minmax(0, 1fr) auto; gap: 10px; align-items: baseline; margin: 0; padding: 5px 0; }
+.archive-list time { color: var(--muted); font-size: 16px; font-variant-numeric: lining-nums tabular-nums; }
+.archive-list .kind { color: var(--muted); font-size: 15px; text-align: right; }
 .jump { margin: 0 0 32px; color: var(--muted); font-size: 16px; }
 .jump-label { margin-right: 6px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 .jump-gap { display: inline-block; width: 28px; }
@@ -345,7 +347,7 @@ h6 { margin: 1.2em 0 .3em; color: var(--muted); font-size: 14px; letter-spacing:
 .case-cited { color: var(--muted); font-size: 16px; font-style: italic; }
 
 /* Capitals take lining figures (old-style ones climb out of the cap line). */
-.s-mon, .archive-list .date-heading, .callout-title, th, .credit, .cv-source, .cp-source, .clipping-source,
+.s-mon, .archive-month, .callout-title, th, .credit, .cv-source, .cp-source, .clipping-source,
 .toc-inline h3, .paginate small, h6, .sidehead-list li > strong:first-child, .jump-label { font-variant-numeric: lining-nums; }
 
 /* ---------- Footer ---------- */
@@ -389,6 +391,8 @@ footer a:hover { color: var(--link); text-decoration: underline; }
   .s-again .s-num, .s-again .s-mon { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
   .s-again a.s-day::before { content: none; }
   .jump-gap { display: block; width: 0; height: 4px; }
+  .archive-list li { grid-template-columns: 2em minmax(0, 1fr); gap: 0 10px; }
+  .archive-list .kind { grid-column: 2; margin-top: -2px; text-align: left; font-size: 14px; }
   .plan li { grid-template-columns: 1fr; gap: 0; }
   .portrait { float: none; margin: 0 0 20px; }
   .card-book { flex-direction: column; }

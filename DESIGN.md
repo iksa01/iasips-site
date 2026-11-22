@@ -95,8 +95,12 @@ canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from
   text; at the foot, older and newer entries by title.
 - **Quote entry**: the ledger beside the quote (§7) and the name; any commentary after a
   short rule. No printed title.
-- **Archive**: years and categories in one line each; months as small grey heads; each
-  entry as day-of-month + title.
+- **Archive** (Model A, 2026-11-22): "By year · By category" on one line; each year as a
+  44px ink heading; each month as a 14px spaced-caps grey head over a hairline with its
+  count on the right in italic ("9 entries"); then one line per entry — the day (lining,
+  tabular), the title, and on the right in 15px grey what it is: "Quote · <the name in its
+  cite, up to the first comma>", "Note", or "Essay · N min". On phones the right-hand part
+  drops under the title.
 - **About**: the portrait (crop A, 170px) floated right beside the opening; Books, Talks,
   Interviews from the JSON files; footnotes last.
 - **Contact, External, Cases, 404**: the plain page — title, sub, text.

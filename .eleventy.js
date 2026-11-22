@@ -527,6 +527,11 @@ module.exports = function (eleventyConfig) {
     }
     return out;
   });
+  // Archive (Model A, 2026-11-22): whose words a quote holds — the name in its <cite>, up to the first comma.
+  eleventyConfig.addFilter("quoteWho", (html) => {
+    const m = /<cite>([\s\S]*?)<\/cite>/.exec(html || "");
+    return m ? m[1].replace(/<[^>]+>/g, "").split(/,\s/)[0].trim() : "";
+  });
   // Every tag in use, alphabetical, for the archive sidebar.
   eleventyConfig.addFilter("tagList", (items) => {
     const s = new Set();

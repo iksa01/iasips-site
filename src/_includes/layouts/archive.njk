@@ -2,14 +2,22 @@
 layout: layouts/base.njk
 bodyClass: archive
 ---
+{#- The archive (Model A, Kalyan 2026-11-22: "it tells post, post type, date"): a large year, each month with its
+    count, then one line per entry — the day, the title, and on the right what it is and, for a quote, whose words. -#}
 <h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
-<p class="jump"><span class="jump-label">By year</span> {% for g in collections.journal | byYear %}<a href="#{{ g.year }}-{{ (g.items[0].date | monthName) | lower }}">{{ g.year }}</a>{% if not loop.last %} · {% endif %}{% endfor %}<span class="jump-gap"></span><span class="jump-label">By category</span> {% for t in collections.journal | tagList %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
-<ul class="archive-list">
+<p class="jump"><span class="jump-label">By year</span> {% for g in collections.journal | byYear %}<a href="#{{ g.year }}">{{ g.year }}</a>{% if not loop.last %} · {% endif %}{% endfor %}<span class="jump-gap"></span><span class="jump-label">By category</span> {% for t in collections.journal | tagList %}<a href="/journal/category/{{ t | slugify }}/">{{ t }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+{%- set lastYear = "" %}
 {%- for g in collections.journal | byMonth %}
-<li class="date-heading" id="{{ g.year }}-{{ g.month | lower }}">{{ g.month }} {{ g.year }}</li>
+{%- if loop.first or g.year != (collections.journal | byMonth)[loop.index0 - 1].year %}
+<h2 class="archive-year" id="{{ g.year }}">{{ g.year }}</h2>
+{%- endif %}
+<h3 class="archive-month" id="{{ g.year }}-{{ g.month | lower }}">{{ g.month }} <span>{{ g.items.length }} {{ "entry" if g.items.length == 1 else "entries" }}</span></h3>
+<ul class="archive-list">
 {%- for e in g.items %}
-<li><time datetime="{{ e.date | dateISO }}">{{ e.date.getUTCDate() }}</time> <a href="{{ e.url }}">{{ e.data.title }}</a></li>
-{%- endfor %}
+{%- set kind = "Quote" if e.data.type == "quote" else ("Note" if e.data.type == "note" else "Essay") %}
+{%- set who = (e.templateContent | quoteWho) if e.data.type == "quote" else "" %}
+<li><time datetime="{{ e.date | dateISO }}">{{ e.date.getUTCDate() }}</time><a href="{{ e.url }}">{{ e.data.title }}</a><span class="kind">{{ kind }}{% if who %} · {{ who }}{% elif kind == "Essay" %} · {{ e.templateContent | readingTime }} min{% endif %}</span></li>
 {%- endfor %}
 </ul>
+{%- endfor %}
