@@ -104,7 +104,9 @@ canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from
   cite, up to the first comma>", "Note", or "Essay · N min". On phones the right-hand part
   drops under the title.
 - **About**: the portrait (crop A, 170px) floated right beside the opening; Books, Talks,
-  Interviews from the JSON files; footnotes last.
+  Interviews from the JSON files; footnotes; then the Amazon line and, under it in the
+  same 15px grey italic, the note on the name (site.nameNote, design change 2026-11-23,
+  Kalyan's option 2 of three).
 - **Contact, External, Cases, 404**: the plain page — title, sub, text.
 
 ## 6. The margin ledger and the stream
@@ -149,8 +151,11 @@ divided by 1px rules, 44px above and 40px below.
 - Tables: full column width, 17px, 2px ink rule under the head, 1px rules between rows.
 - Code: wash background, 4px radius, 15px mono, lines wrap (never a sideways scroll);
   filename tab above; highlighted lines yellow.
-- Pictures: full column width, centred, 2px radius; upright pictures 62%; caption below,
-  centred, italic grey, credit in small spaced caps after a "·".
+- Pictures (design change 2026-11-23, Kalyan chose "D" of five shown): a card — the
+  picture and its caption inside one 1px --rule border, 6px radius, square-cornered picture
+  at the top, caption below it at the left in 12px/18px padding, italic grey, credit in
+  small spaced caps after a "·". Full column width; an upright picture's card is 62% wide,
+  centred. (Before: a bare picture, 2px radius, caption centred under it.)
 - Clipping: the picture (linked to its full page) and a plain blockquote; the analysis
   after.
 - Cards (video, post, book): 1px rule border, 6px radius, 17px text. Video: the still with

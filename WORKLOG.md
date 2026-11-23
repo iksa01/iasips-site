@@ -942,3 +942,13 @@ Hyderabad, to launch the LAEX.AI app with Satish sir and Karthik sir. Notes,
 - Design change (his word): the 11th entry exposed a bug — home's "Older entries →"
   pointed at /journal/page/2/, which exists only from entry 21, and the link check
   stopped the build. Now it points at /journal/. DESIGN.md §5 records it.
+
+## 2026-11-23 (c) — pictures as cards; the note on the name (design change)
+
+Five picture styles shown on a local preview (A now, B mounted print, C Gates Notes
+caption, D card, E soft shadow). Kalyan chose D: every picture now sits in a card, 1px
+--rule border, 6px radius, caption inside at the left; an upright picture's card is 62%.
+About: a disclaimer on the site's name, his option 2 of three drafted from his words
+("ias ips is just a catch title, not associated with the All India Services or anyone,
+and have utmost respect"), as site.nameNote under the Amazon line in the same style.
+Files: DESIGN.md §5 and §8, screen.css, about.njk, site.json.
