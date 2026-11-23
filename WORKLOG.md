@@ -932,3 +932,13 @@ Kalyan: "frozen the design and remove all todos … live iasips.in design is app
   breaks): Guha on Gandhi's nonviolence (X card), The Better India free consultations
   (Instagram card), the student-led podcast (video card, its still and manifest entry).
   No TODO is left in the tree.
+
+## 2026-11-23 (b) — Launching LAEX.AI; home "Older entries" fixed (design change)
+
+Kalyan's note and photo: meeting Dr Mahesh Bhagwat, IPS, Commissioner of Police,
+Hyderabad, to launch the LAEX.AI app with Satish sir and Karthik sir. Notes,
+/journal/launching-laex-ai/, picture at images/photos/2026-11-23-laex-ai-launch.jpg.
+"gave us good time" kept in his words; caption names only the Commissioner (his choice).
+- Design change (his word): the 11th entry exposed a bug — home's "Older entries →"
+  pointed at /journal/page/2/, which exists only from entry 21, and the link check
+  stopped the build. Now it points at /journal/. DESIGN.md §5 records it.
