@@ -952,3 +952,9 @@ About: a disclaimer on the site's name, his option 2 of three drafted from his w
 ("ias ips is just a catch title, not associated with the All India Services or anyone,
 and have utmost respect"), as site.nameNote under the Amazon line in the same style.
 Files: DESIGN.md §5 and §8, screen.css, about.njk, site.json.
+
+## 2026-11-23 (d) — post text 1px smaller (design change)
+
+Kalyan asked about 1px smaller everywhere; previewed, then: "may be not overall only the
+post body". Body 20px → 19px, phones 18px → 17px; every explicitly sized element (titles,
+quotes, captions, ledger, nav, footer) unchanged. DESIGN.md §2 and §9, screen.css.

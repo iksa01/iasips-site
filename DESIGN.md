@@ -36,7 +36,8 @@ contrast; link hover #005A7A; the tip box tint #EEF6F9 (the link blue at 7%).
   sans-serif for text. Old-style figures in running text; lining figures in tables.
 - Code: the system monospace (ui-monospace, SF Mono, Menlo, Consolas). No font files are
   shipped (League Gothic and VT323 were removed 2026-11-22; Colly's are at tag colly-v4).
-- Body 20px / 1.65 (phones 18px / 1.6). Paragraphs 1.1em apart. Ragged right.
+- Body 19px / 1.65 (phones 17px / 1.6); was 20px / 18px until the design change of
+  2026-11-23 (Kalyan: the post text 1px smaller, nothing else). Paragraphs 1.1em apart. Ragged right.
 - Page title 40px bold #001523 (phones 31px); stream title 30px (phones 25px); in-body h2
   26px, h3 21px, h4 20px italic.
 - Sub (tagline) 21px italic grey. Entry details live in the margin ledger (§6).
@@ -167,7 +168,7 @@ divided by 1px rules, 44px above and 40px below.
 
 ## 9. Responsive
 
-One column at every width. At 600px and below: body 18px, gutters 18px, the nav drops
+One column at every width. At 600px and below: body 17px, gutters 18px, the nav drops
 under the name, smaller titles, the plan grid and book card stack, the portrait sits above
 the text. No page scrolls sideways at 320px (checked 2026-11-22 on every page).
 
