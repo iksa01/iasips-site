@@ -88,7 +88,8 @@ canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from
 
 - **Home** (`/`): one italic line about Kalyan (site.nav[0].home.copy — his words, set in
   2026-09) with "More about me →", then the ten newest entries as a stream (§6), then
-  "Older entries →" and "Everything, by month".
+  "Older entries →" (to /journal/, which holds entries 1–20; design change 2026-11-23: it
+  pointed at /journal/page/2/, which does not exist until entry 21) and "Everything, by month".
 - **Journal** (`/journal/`, `/journal/page/N/`): title, sub, the categories in one line,
   the stream, 20 a page, "← Newer · Page 1 of N · Older →".
 - **Category** (`/journal/category/<tag>/`): the same, unpaginated.
