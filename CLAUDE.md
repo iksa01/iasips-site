@@ -11,10 +11,10 @@ transcription it replaced (2026-08-30 to 2026-11-22) is kept at git tag
 - **AGENTS.md** — what an agent may touch (content/**/*.md, three JSON
   data files, drafts/**) and the git protocol. Everything else is frozen.
 
-**Freeze status: NOT YET FROZEN.** This is the first session's build,
-awaiting Kalyan's read. Until Kalyan says "frozen", CSS/layout edits are
-allowed on his instruction. After that, DESIGN.md is law and frozen files
-change only when his instruction contains "design change" (AGENTS.md §9).
+**Freeze status: FROZEN (Kalyan, 2026-11-23: "frozen the design … live
+iasips.in design is approved").** DESIGN.md is law. Frozen files (src/css/**,
+src/_includes/**, src/_data/site.json, .eleventy.js, today.sh) change only
+when his instruction contains "design change" (AGENTS.md §9).
 
 ## Where we are
 

@@ -94,7 +94,7 @@ the memory:
 | `AGENTS.md` | what an agent may touch, and the git protocol |
 | `CLAUDE.md` | the short pointer that loads automatically |
 
-Say **"frozen"** when the design is settled — after that, frozen files only
+The design was **frozen** on 2026-11-23 — frozen files only
 change when your instruction contains the words **"design change"**.
 
 ## 3. Where the design stands

@@ -920,3 +920,15 @@ Kalyan: "remove all the lorem ipsum … You can do the housekeeping."
 - Sitemap: lastmod only on journal entries (real dates); 404.html has no canonical.
 - Docs updated (CLAUDE, HANDBOOK, RESTART, HOW-TO-START, DESIGN, AGENTS).
 
+
+## 2026-11-23 — design frozen; the last TODOs gone
+
+Kalyan: "frozen the design and remove all todos … live iasips.in design is approved".
+- Frozen: CLAUDE.md, DESIGN.md and RESTART.md now say so. From here on src/css/**,
+  src/_includes/**, src/_data/site.json, .eleventy.js and today.sh change only on an
+  instruction containing "design change" (AGENTS.md §9). The home intro lives in site.json,
+  so changing its wording now needs that phrase too.
+- The three drafts of 2026-09-26 deleted on his word (never published, so no address
+  breaks): Guha on Gandhi's nonviolence (X card), The Better India free consultations
+  (Instagram card), the student-led podcast (video card, its still and manifest entry).
+  No TODO is left in the tree.

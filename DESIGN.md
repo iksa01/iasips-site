@@ -1,8 +1,9 @@
 # DESIGN.md — Visual Specification
 
-Status: NOT YET FROZEN. Built 2026-11-22 on Kalyan's instruction ("back up the colly blog,
+Status: FROZEN 2026-11-23 (Kalyan: "frozen the design … live iasips.in design is
+approved"). Built 2026-11-22 on Kalyan's instruction ("back up the colly blog,
 then make the complete design changes inspired by seth + gates notes in tim colours").
-After Kalyan says "frozen", this file changes only when an instruction contains "design
+From now on this file changes only when an instruction contains "design
 change", and every design change edits this file in the same commit as the implementation.
 
 Character in one line: a writer's daily blog. Seth Godin's rhythm (seths.blog: the newest
