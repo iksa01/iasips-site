@@ -999,3 +999,9 @@ tags, categories, permalink, speed, GEO, SEO". DESIGN §4a records it.
 - Checked: build and link check pass; JSON-LD parses on all 23 pages; feed and sitemap
   are valid XML.
 - Not done, Kalyan's to do: Google Search Console and Bing Webmaster Tools (his accounts).
+
+## 2026-11-24 (c) — subjects: posts and links only
+
+Kalyan: "quotes are just quotes, posts and links have tags". Quotes keep their one
+category and no subject; notes, essays and links take one. Launching LAEX.AI → [Notes, AI].
+HANDBOOK §3.

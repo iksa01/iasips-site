@@ -113,7 +113,8 @@ journal and archive pages automatically.
 
 Subjects in use: AI. The short list to choose from: AI, Ethics, Polity, Economy,
 World, History, Society, Environment. One subject per entry, rarely two; never a new
-one for a single post. Each subject gets its own page, as a category does.
+one for a single post. **Quotes carry no subject** — a quote is just a quote, filed
+under Quotes (Kalyan, 2026-11-24); notes, essays and links take a subject. Each subject gets its own page, as a category does.
 
 ## 3a. Search, previews and AI engines (design change 2026-11-24, DESIGN §4a)
 
