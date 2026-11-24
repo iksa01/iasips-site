@@ -179,8 +179,8 @@ blockquote p:last-child { margin-bottom: 0; }
 .quote-by { margin: -.9em 0 1.6em; color: var(--muted); font-size: 16px; text-align: right; }
 cite { font-style: normal; }
 .quote-by cite::before, .quote-who cite::before { content: "— "; }
-blockquote.quote-panel { margin: 1.6em 0 14px; padding: 2px 0 2px 24px; border-left: 4px solid var(--link); color: var(--ink); font-size: 24px; line-height: 1.5; font-style: italic; }
-.main > blockquote.quote-panel, div#post > blockquote.quote-panel { margin: 0 0 26px; padding: 0; border: 0; }
+blockquote.quote-panel { margin: 1.6em 0 14px; padding: 2px 0 2px 24px; border-left: 4px solid var(--link); color: var(--ink); font-size: 20px; line-height: 1.5; font-style: italic; }
+.main > blockquote.quote-panel, div#post > blockquote.quote-panel { margin: 0 0 26px; padding: 0; border: 0; font-size: 24px; }
 blockquote.quote-panel em { font-style: normal; }
 .quote-who { margin: 0 0 1.6em; color: var(--text); font-size: 18px; text-align: right; text-wrap: balance; }
 .quote-who cite em { font-style: italic; }
@@ -394,7 +394,8 @@ footer a:hover { color: var(--link); text-decoration: underline; }
   .sub { font-size: 19px; }
   .intro { font-size: 19px; }
   .post h2 { font-size: 25px; }
-  blockquote.quote-panel { font-size: 21px; padding-left: 18px; }
+  blockquote.quote-panel { font-size: 18px; padding-left: 18px; }
+  .main > blockquote.quote-panel, div#post > blockquote.quote-panel { font-size: 21px; }
   .link-title, .post h2.link-title { font-size: 21px; }
   .link-body blockquote { font-size: 17px; padding-left: 14px; }
   .row { grid-template-columns: minmax(0, 1fr); gap: 10px; }

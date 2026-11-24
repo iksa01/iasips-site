@@ -1005,3 +1005,17 @@ tags, categories, permalink, speed, GEO, SEO". DESIGN §4a records it.
 Kalyan: "quotes are just quotes, posts and links have tags". Quotes keep their one
 category and no subject; notes, essays and links take one. Launching LAEX.AI → [Notes, AI].
 HANDBOOK §3.
+
+## 2026-11-24 (d) — Meeting A.K. Khan sir; in-post quote 20px (design change)
+
+Kalyan's note and photo (24 Nov 2026, with Karthik sir and Satish sir): A.K. Khan, IPS
+(retd.), former Commissioner of Police, Hyderabad, retired DG, ACB Telangana. A fuller
+profile was drafted from Wikipedia, Deccan Chronicle and the New Indian Express; Kalyan:
+"just … former etc IPS and simple 1-2 lines". Their talk (diplomacy in the Mahabharata,
+the middle path) and the verse "Ati dānād Balir baddho …", his translation, set as a
+`::: quote` credited "Sanskrit subhāṣita" (no author or text known; none guessed). He has
+registered for the Kerala Literature Festival, Kozhikode (linked to its site).
+/journal/meeting-a-k-khan/, [Notes, Ethics], picture images/photos/2026-11-24-ak-khan.jpg.
+- Design change (Kalyan: the quote "a little bit too big for the post body"): four sizes
+  shown side by side (24 now, 20, 21, 19); he chose A. `::: quote` inside a post 24px →
+  20px (phones 21 → 18px); quote entries unchanged at 24px (21px). DESIGN §7, screen.css.

@@ -164,8 +164,10 @@ divided by 1px rules, 44px above and 40px below.
 - Quote entries: 24px italic ink (phones 21px), no rule of their own (the ledger's rule
   is beside them); the name 26px under it, RIGHT-aligned, 18px, "— Name, *Source*" with the
   source in grey italic.
-- `::: quote` inside an essay: the same type with a 4px #007CA7 rule at the left; the name
-  right-aligned under it.
+- `::: quote` inside an essay or note: italic ink, 20px (phones 18px), with a 4px #007CA7
+  rule at the left; the name right-aligned under it. Design change 2026-11-24 (Kalyan, "A"
+  of 24/20/21/19 shown side by side): it was 24px, the quote entry's size, and stood too
+  large against the 19px text; quote entries keep 24px (phones 21px).
 - A long passage (`>`): body size, #444, a 3px #DDD rule at the left; its `<cite>` under
   it, right-aligned, "— Name", 16px grey.
 
