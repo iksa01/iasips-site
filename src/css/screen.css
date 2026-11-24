@@ -185,7 +185,7 @@ blockquote.quote-panel em { font-style: normal; }
 .quote-who { margin: 0 0 1.6em; color: var(--text); font-size: 18px; text-align: right; text-wrap: balance; }
 .quote-who cite em { font-style: italic; }
 blockquote p, .entry p, .post-body p { text-wrap: pretty; }
-.post .quote-who { margin-bottom: 0; }
+.post .quote-who:last-child { margin-bottom: 0; }
 /* Link entries (design change 2026-11-24, E1; DESIGN §7a): kind, title out, credit, passage, Kalyan's line. */
 .link-kind { margin: 0 0 6px; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
 .link-title, .post h2.link-title { margin: 0; color: var(--ink); font-size: 24px; line-height: 1.25; font-weight: bold; letter-spacing: -.01em; text-wrap: balance; }

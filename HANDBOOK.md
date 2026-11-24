@@ -111,8 +111,9 @@ journal and archive pages automatically.
 | Listening | a YouTube talk or podcast, with notes | note, link first |
 | Notes | your own thoughts | note, or essay when long |
 
-Subjects in use: AI. The short list to choose from: AI, Ethics, Polity, Economy,
-World, History, Society, Environment. One subject per entry, rarely two; never a new
+Subjects in use: AI, Mahabharata. The short list to choose from: AI, Ethics, Polity, Economy,
+World, History, Society, Environment, Mahabharata (Kalyan, 2026-11-24: "Mahabharata is
+Mahabharata", not Ethics). One subject per entry, rarely two; never a new
 one for a single post. **Quotes carry no subject** — a quote is just a quote, filed
 under Quotes (Kalyan, 2026-11-24); notes, essays and links take a subject. Each subject gets its own page, as a category does.
 

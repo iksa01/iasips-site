@@ -1019,3 +1019,13 @@ registered for the Kerala Literature Festival, Kozhikode (linked to its site).
 - Design change (Kalyan: the quote "a little bit too big for the post body"): four sizes
   shown side by side (24 now, 20, 21, 19); he chose A. `::: quote` inside a post 24px →
   20px (phones 21 → 18px); quote entries unchanged at 24px (21px). DESIGN §7, screen.css.
+
+## 2026-11-24 (e) — A.K. Khan post revised; space under an in-post quote's name (design change)
+
+Kalyan: the Kerala line now thanks Amal; the diplomacy lines polished on his word; subject
+Mahabharata, not Ethics ("Mahabharata is Mahabharata"), added to HANDBOOK §3; the caption
+names, from second left, Satish sir, A.K. Khan sir, Karthik sir and Kalyan (the man on the
+far left left unnamed, his word). Title kept, note kept whole in the stream.
+- Design change: `.post .quote-who { margin-bottom: 0 }` meant for quote entries also took
+  the space from under a `::: quote` name in the stream; now only `:last-child`. DESIGN §7.
+- Offered, not done: schema `about`/`mentions` (people, topics, events in a post).
