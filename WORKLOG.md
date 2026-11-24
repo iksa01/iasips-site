@@ -1029,3 +1029,9 @@ far left left unnamed, his word). Title kept, note kept whole in the stream.
 - Design change: `.post .quote-who { margin-bottom: 0 }` meant for quote entries also took
   the space from under a `::: quote` name in the stream; now only `:last-child`. DESIGN §7.
 - Offered, not done: schema `about`/`mentions` (people, topics, events in a post).
+
+## 2026-11-24 (f) — Quote: Nietzsche, the abyss
+
+Kalyan: "post this quote". Beyond Good and Evil (1886), aphorism 146, in the English he
+sent; translator not named (his wording matches no single translation exactly). Title
+linked to an Amazon India search. /journal/the-abyss-gazes-also/, [Quotes].
