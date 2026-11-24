@@ -57,7 +57,8 @@ decline and report.
   the index summary), date (YYYY-MM-DD), tags, permalink, dropcap, toc
   (true = table of contents from ## and ### heads), updated (YYYY-MM-DD,
   optional; shown as "Updated …"), type (permitted values: "quote",
-  "note"; omit for ordinary posts). Introducing
+  "note", "link"; omit for ordinary posts), link (the outside address,
+  only with type: link — DESIGN.md §7a). Introducing
   any new key or value is a design change.
 - Quote entries (type: quote): the quote as plain paragraphs, then
   `<cite>Author</cite>` on its own line, then optionally `---` followed
@@ -114,8 +115,8 @@ decline and report.
 - No JavaScript, anywhere.
 - No analytics, SEO plugins, meta-tag "improvements", redirects, or
   third-party services. (The head's description, Open Graph and JSON-LD
-  are the template's, set once by design change — DESIGN.md §4 — and
-  are not to be extended.)
+  are the template's, set by design change — DESIGN.md §4a, 2026-11-24 —
+  and are not to be extended without another.)
 - No redesign suggestions, style tweaks, or "modernization" — not in
   commits, not as drive-by fixes, not as comments in content files.
 - No creation of new sections, page types, or templates.

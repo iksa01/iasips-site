@@ -186,6 +186,16 @@ blockquote.quote-panel em { font-style: normal; }
 .quote-who cite em { font-style: italic; }
 blockquote p, .entry p, .post-body p { text-wrap: pretty; }
 .post .quote-who { margin-bottom: 0; }
+/* Link entries (design change 2026-11-24, E1; DESIGN §7a): kind, title out, credit, passage, Kalyan's line. */
+.link-kind { margin: 0 0 6px; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.link-title, .post h2.link-title { margin: 0; color: var(--ink); font-size: 24px; line-height: 1.25; font-weight: bold; letter-spacing: -.01em; text-wrap: balance; }
+.link-title a, .post h2.link-title a { color: var(--ink); text-decoration: none; }
+.link-arrow { color: var(--link); }
+.link-title a:hover, .link-title a:hover .link-arrow { color: var(--link-hover); }
+.link-by { margin: 4px 0 18px; color: var(--muted); font-size: 15px; font-style: italic; }
+.link-body blockquote { margin: 0 0 18px; padding: 0 0 0 20px; border-left: 2px solid var(--rule-strong); color: var(--text); font-size: 18px; line-height: 1.6; font-style: normal; }
+.link-body blockquote p { margin: 0 0 .8em; }
+.link-body blockquote p:last-child { margin-bottom: 0; }
 .commentary { margin-top: 8px; }
 
 /* ---------- Boxes ---------- */
@@ -385,6 +395,8 @@ footer a:hover { color: var(--link); text-decoration: underline; }
   .intro { font-size: 19px; }
   .post h2 { font-size: 25px; }
   blockquote.quote-panel { font-size: 21px; padding-left: 18px; }
+  .link-title, .post h2.link-title { font-size: 21px; }
+  .link-body blockquote { font-size: 17px; padding-left: 14px; }
   .row { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .side { padding: 0; border: 0; text-align: left; font-size: 15px; }
   .s-day, .s-item, .s-num, .s-mon { display: inline; }

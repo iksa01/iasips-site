@@ -531,6 +531,86 @@ module.exports = function (eleventyConfig) {
     const m = /<cite>([\s\S]*?)<\/cite>/.exec(html || "");
     return m ? m[1].replace(/<[^>]+>/g, "").split(/,\s/)[0].trim() : "";
   });
+  // Link entries (design change 2026-11-24, DESIGN §7a): the domain of `link:`, www. dropped. A link entry
+  // without a full http(s) address stops the build.
+  eleventyConfig.addFilter("linkHost", (url, where) => {
+    let u;
+    try { u = new URL(url); } catch (e) { u = null; }
+    if (!u || !/^https?:$/.test(u.protocol)) throw new Error(`${where || "a link entry"}: "type: link" needs "link:" set to a full https:// address`);
+    return u.hostname.replace(/^www\./, "");
+  });
+  // Structured data (design change 2026-11-24, DESIGN §4a): one JSON-LD @graph per page. The Person and the
+  // WebSite on every page; an entry adds its BlogPosting and a BreadcrumbList; About is a ProfilePage; the
+  // stream, journal, category and archive pages are CollectionPages. Facts come only from site.json and the
+  // entry: no claim here that is not already printed somewhere on the site.
+  eleventyConfig.addFilter("jsonLd", function (d) {
+    const slug = eleventyConfig.getFilter("slugify");
+    const site = d.site, url = site.url, pageUrl = d.pageUrl;
+    const iso = (x) => new Date(x).toISOString().slice(0, 10);
+    const person = {
+      "@type": "Person", "@id": `${url}/#person`, name: site.author, url: `${url}/about/`,
+      image: `${url}/images/portrait.jpg`,
+      jobTitle: "Chief Mentor",
+      worksFor: { "@type": "Organization", name: "La Excellence IAS" },
+      homeLocation: { "@type": "Place", name: "Hyderabad, India" },
+      sameAs: (site.externals || []).map((x) => x.href).filter((h) => /^https?:/.test(h)),
+    };
+    const website = {
+      "@type": "WebSite", "@id": `${url}/#website`, name: site.title, url: `${url}/`,
+      description: site.description, inLanguage: site.language, publisher: { "@id": `${url}/#person` },
+    };
+    const graph = [person, website];
+    const pu = d.page.url;
+    if (d.bodyId === "article") {
+      const tags = d.tags || [];
+      const post = {
+        "@type": "BlogPosting", "@id": `${pageUrl}#post`, headline: d.title, description: d.description,
+        url: pageUrl, mainEntityOfPage: pageUrl, isPartOf: { "@id": `${url}/#website` },
+        datePublished: iso(d.page.date), dateModified: iso(d.updated || d.page.date),
+        author: { "@id": `${url}/#person` }, publisher: { "@id": `${url}/#person` },
+        inLanguage: site.language,
+      };
+      if (d.shareImg) post.image = url + d.shareImg;
+      if (tags.length) { post.articleSection = tags[0]; post.keywords = tags.join(", "); }
+      if (d.type === "quote" && d.quoteWords) {
+        post.hasPart = { "@type": "Quotation", text: d.quoteWords };
+        if (d.quoteBy) post.hasPart.creator = { "@type": "Person", name: d.quoteBy };
+      }
+      if (d.type === "link" && d.link) {
+        post.citation = { "@type": "CreativeWork", name: d.title, url: d.link };
+        if (d.linkAuthor) post.citation.author = { "@type": "Person", name: d.linkAuthor };
+      }
+      graph.push(post);
+      const crumbs = [["Home", `${url}/`], ["Journal", `${url}/journal/`]];
+      if (tags.length) crumbs.push([tags[0], `${url}/journal/category/${slug(tags[0])}/`]);
+      crumbs.push([d.title, pageUrl]);
+      graph.push({ "@type": "BreadcrumbList", itemListElement: crumbs.map(([name, item], i) =>
+        ({ "@type": "ListItem", position: i + 1, name, item })) });
+    } else if (pu === "/about/") {
+      graph.push({ "@type": "ProfilePage", "@id": `${pageUrl}#page`, url: pageUrl, name: d.title,
+        description: d.description, isPartOf: { "@id": `${url}/#website` }, mainEntity: { "@id": `${url}/#person` } });
+    } else if (pu !== "/404.html") {
+      const collection = pu === "/" || pu.startsWith("/journal/") || pu === "/archive/";
+      graph.push({ "@type": collection ? "CollectionPage" : "WebPage", "@id": `${pageUrl}#page`, url: pageUrl,
+        name: d.title || site.title, description: d.description, isPartOf: { "@id": `${url}/#website` },
+        inLanguage: site.language });
+    }
+    return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
+  });
+  // Speed (design change 2026-11-24): the first picture of a page's first entry is the largest thing in view,
+  // so it loads at once with high priority; every other picture stays lazy.
+  eleventyConfig.addTransform("firstPicture", function (html) {
+    const out = this.page.outputPath || "";
+    if (!out.endsWith(".html")) return html;
+    const main = html.indexOf('<main');
+    if (main < 0) return html;
+    const end = html.indexOf('</article>', main);
+    const img = html.indexOf('<img ', main);
+    if (img < 0 || (end > 0 && img > end)) return html;
+    const close = html.indexOf('>', img);
+    const tag = html.slice(img, close).replace(' loading="lazy"', ' fetchpriority="high"');
+    return html.slice(0, img) + tag + html.slice(close);
+  });
   // Every tag in use, alphabetical, for the archive sidebar.
   eleventyConfig.addFilter("tagList", (items) => {
     const s = new Set();

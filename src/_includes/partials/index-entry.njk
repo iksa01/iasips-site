@@ -2,13 +2,17 @@
     Quotes and notes are shown whole; an essay shows its opening paragraph and a link on. Expects: e. -#}
 <article class="post row">
 {%- set sd = e.date %}{% set stags = e.data.tags %}{% set supdated = "" %}{% set slink = e.url %}{% set sagain = again %}
-{%- set smins = "" if (e.data.type == "quote" or e.data.type == "note") else (e.templateContent | readingTime) %}
+{%- set smins = "" if (e.data.type == "quote" or e.data.type == "note" or e.data.type == "link") else (e.templateContent | readingTime) %}
 {%- include "partials/side.njk" %}
 <div class="main">
 {%- if e.data.type == "quote" %}
 <h2 class="sr-only"><a href="{{ e.url }}">{{ e.data.title }}</a></h2>
 {%- set qhtml = e.templateContent %}
 {%- include "partials/quote-panel.njk" %}
+{%- elif e.data.type == "link" %}
+{%- set ltitle = e.data.title %}{% set llink = e.data.link %}{% set lsub = e.data.sub %}{% set ltag = "h2" %}{% set lwhere = e.inputPath %}
+{%- include "partials/link-head.njk" %}
+<div class="post-body link-body">{{ e.templateContent | listingRefs(e.url) | safe }}</div>
 {%- elif e.data.type == "note" %}
 <h2><a href="{{ e.url }}">{{ e.data.title }}</a></h2>
 <div class="post-body">{{ e.templateContent | listingRefs(e.url) | safe }}</div>

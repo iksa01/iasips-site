@@ -958,3 +958,44 @@ Files: DESIGN.md §5 and §8, screen.css, about.njk, site.json.
 Kalyan asked about 1px smaller everywhere; previewed, then: "may be not overall only the
 post body". Body 20px → 19px, phones 18px → 17px; every explicitly sized element (titles,
 quotes, captions, ledger, nav, footer) unchanged. DESIGN.md §2 and §9, screen.css.
+
+## 2026-11-24 — link entries, "E1" (design change)
+
+Kalyan wanted to post Alexandr Wang's X Article "Superintelligence is Arriving" (22 Nov
+2026) as a link, "like a link blog". Shown locally: models A–E (Daring Fireball, Simon
+Willison, Kottke aside, the ::: post card, 8BIT Standard's labelled formats — his example,
+web.archive.org of 8bit.io and standardtheme.com/demo), F–G (Standard's quote and link
+formats), screenshots of four link blogs today; he chose E, Fable drew four versions, he
+chose E1: "design change: E1 link post".
+- `type: link` + new key `link:`; `sub:` is the credit. Partial link-head.njk (kind and
+  domain, title linking out with →, credit); index-entry.njk, entry.njk (h1 links out),
+  archive "Link · x.com"; linkHost filter in .eleventy.js (a missing or non-http link stops
+  the build); screen.css .link-*; no reading time. DESIGN §7a, §5; HANDBOOK §2, §6; AGENTS §4.
+- The first entry is a draft: content/journal/2026-11-24-superintelligence-is-arriving.md,
+  Kalyan: "when i dont say anything that will be the post" — no line from him, no line:
+  the entry ends with the passage (HANDBOOK §2, DESIGN §7a).
+
+## 2026-11-24 (b) — search, structured data, previews, speed (design change)
+
+Kalyan: "design change: SEO and schema 1–5, Publish, only use best practices for schema,
+tags, categories, permalink, speed, GEO, SEO". DESIGN §4a records it.
+- Descriptions: 12 of 13 entries shared the site's description. Now each is made from the
+  entry (journal.11tydata.js computed data): quotes "“words” — Name", links "Name,
+  “Title”: “passage…”", notes their first paragraph, ≤155 characters; category pages and
+  /cases/ have their own. Only home and 404 share the site description.
+- JSON-LD @graph (jsonLd filter, .eleventy.js): Person #person (About page, portrait,
+  Chief Mentor at La Excellence IAS, Hyderabad, sameAs Substack/Instagram/X — all already
+  on the site), WebSite; entries BlogPosting (author/publisher #person, image,
+  articleSection, keywords) + BreadcrumbList; quotes a Quotation with its creator; links
+  cite the work and its author; About ProfilePage; lists CollectionPage.
+- Previews: og:image = the entry's first picture (else og.jpg) with og:image:alt;
+  twitter:site @UPSCVerse; article:author, section, tag.
+- Speed: the first picture of the first entry gets fetchpriority="high", not lazy
+  (firstPicture transform). Home is 36 KB, 8.9 KB gzipped.
+- Feed: <summary> and <category> per entry; a link entry's content opens with the link.
+  Sitemap: category pages added. /llms.txt (content/llms.njk), made from the data.
+- Tags: the Wang link is [Notes, AI]; subject list in HANDBOOK §3. Addresses unchanged.
+- Published with the first link entry, Superintelligence is Arriving (draft mark removed).
+- Checked: build and link check pass; JSON-LD parses on all 23 pages; feed and sitemap
+  are valid XML.
+- Not done, Kalyan's to do: Google Search Console and Bing Webmaster Tools (his accounts).

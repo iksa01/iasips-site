@@ -7,4 +7,8 @@ eleventyExcludeFromCollections: true
 {%- for p in collections.all %}
   <url><loc>{{ site.url }}{{ p.url }}</loc>{% if p.url.startsWith("/journal/") and p.url != "/journal/" %}<lastmod>{{ (p.data.updated or p.date) | dateISO }}</lastmod>{% endif %}</url>
 {%- endfor %}
+{#- category and subject pages (design change 2026-11-24, DESIGN §4a) #}
+{%- for t in collections.liveTags %}
+  <url><loc>{{ site.url }}/journal/category/{{ t | slugify }}/</loc></url>
+{%- endfor %}
 </urlset>

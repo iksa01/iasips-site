@@ -17,7 +17,14 @@ eleventyExcludeFromCollections: true
     <link href="{{ absurl }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absurl }}</id>
-    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absurl) }}</content>
+    {%- for t in post.data.tags %}
+    <category term="{{ t }}"/>
+    {%- endfor %}
+    {%- if post.data.description %}
+    <summary>{{ post.data.description }}</summary>
+    {%- endif %}
+    {%- set linkHead %}{% if post.data.type == "link" %}<p>Link: <a href="{{ post.data.link }}">{{ post.data.title }}</a>{% if post.data.sub %} — {{ post.data.sub }}{% endif %}</p>{% endif %}{% endset %}
+    <content type="html">{{ (linkHead + post.templateContent) | htmlToAbsoluteUrls(absurl) }}</content>
   </entry>
   {%- endfor %}
 </feed>

@@ -1,0 +1,33 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+{#- A plain-text map of the site for AI tools, after llmstxt.org (design change 2026-11-24, DESIGN §4a).
+    Made from site.json and the entries' own descriptions; nothing written here by hand. -#}
+# {{ site.title }}
+
+> {{ site.description | striptags }}
+
+{{ site.intro | striptags }}
+
+Every entry is at {{ site.url }}/journal/<slug>/, a permanent address. Entries are quotes (a line with its source), notes, links (a passage from someone else's piece, with the link) and essays. The first tag is the category; a second is the subject.
+
+## Pages
+
+- [About]({{ site.url }}/about/): who Kalyan Inampudi is
+- [Journal]({{ site.url }}/journal/): every entry, newest first
+- [Archive]({{ site.url }}/archive/): every entry by month, with what kind it is
+- [Feed]({{ site.url }}/feed.xml): Atom feed of the newest 20 entries
+{%- for t in collections.liveTags %}
+- [{{ t }}]({{ site.url }}/journal/category/{{ t | slugify }}/): entries filed under {{ t }}
+{%- endfor %}
+
+## Entries
+{% for e in collections.journal %}
+- [{{ e.data.title }}]({{ site.url }}{{ e.url }}) ({{ e.date | dateISO }}{% if e.data.tags %}; {{ e.data.tags | join(", ") }}{% endif %}): {{ e.data.description }}{% if e.data.type == "link" %} Links to {{ e.data.link }}{% endif %}
+{%- endfor %}
+
+## Elsewhere
+{% for x in site.externals %}{% if x.href.startsWith("http") %}
+- [{{ x.label }}]({{ x.href }})
+{%- endif %}{% endfor %}

@@ -1,0 +1,7 @@
+{#- The head of a link entry (design change 2026-11-24, Kalyan chose E1; DESIGN §7a): the kind and the
+    domain, the title linking out, the credit line (sub). Expects: ltitle, llink, lsub, ltag (h1 or h2), lwhere. -#}
+<p class="link-kind">Link · {{ llink | linkHost(lwhere) }}</p>
+<{{ ltag }} class="link-title"><a href="{{ llink }}">{{ ltitle }}<span class="link-arrow" aria-hidden="true">&nbsp;&rarr;</span></a></{{ ltag }}>
+{%- if lsub %}
+<p class="link-by">{{ lsub }}</p>
+{%- endif %}

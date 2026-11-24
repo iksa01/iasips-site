@@ -16,7 +16,7 @@ what the site accepts. Anything not here is not a feature; adding one is a
 - Publish = commit + `git push`. Live about a minute later. Check with
   `gh run list --workflow=pages.yml`.
 
-## 2. Three kinds of entry
+## 2. Four kinds of entry
 
 Every entry is one Markdown file in `content/journal/`, named
 `YYYY-MM-DD-slug.md`. The date prefix is stripped from the address:
@@ -77,6 +77,26 @@ the entry's own page. A **Books** entry is a quote with commentary.
 
     Commentary, if any.
 
+### Link — someone else's piece, with your line (design change 2026-11-24)
+Kalyan's "E1" (DESIGN §7a). The stream and the page show "LINK · X.COM" (the
+domain read from `link:`), the title linking out to the piece with a blue →,
+the credit (`sub:`), the passage, then Kalyan's own line. The date in the
+ledger stays the permalink. The passage is a plain `>` blockquote, quoted
+from the piece; the line under it is Kalyan's, never written for him. When he
+sends no line, there is none: the post ends with the passage (Kalyan, 2026-11-24).
+
+    ---
+    title: "Superintelligence is Arriving"
+    sub: "by Alexandr Wang · X Article · 22 Nov 2026"
+    date: 2026-11-24
+    tags: [Notes]
+    type: link
+    link: https://x.com/alexandr_wang/status/2124636606959345776
+    ---
+    > The passage, quoted from the piece.
+
+    Kalyan's own line.
+
 ## 3. Categories
 
 One category per post, by source; a subject may ride along as a second tag.
@@ -91,8 +111,18 @@ journal and archive pages automatically.
 | Listening | a YouTube talk or podcast, with notes | note, link first |
 | Notes | your own thoughts | note, or essay when long |
 
-Subjects so far: Polity, World. Add others as needed (Economy, History,
-Geography, Environment, Society, Ethics). Renaming a category is a bulk
+Subjects in use: AI. The short list to choose from: AI, Ethics, Polity, Economy,
+World, History, Society, Environment. One subject per entry, rarely two; never a new
+one for a single post. Each subject gets its own page, as a category does.
+
+## 3a. Search, previews and AI engines (design change 2026-11-24, DESIGN §4a)
+
+Automatic; nothing to write. Each entry's description (what Google and AI answers
+show) is made from the entry: a quote's words and name, a link's passage, a note's
+first paragraph — or `sub:` where it describes the page. The structured data names
+Kalyan as one person across the site, Substack, Instagram and X. A post's first
+picture becomes its link preview. /llms.txt lists every entry for AI tools; the
+sitemap lists every entry and every category page. Renaming a category is a bulk
 find-and-replace in front matter, but after going live a rename breaks
 the old category address.
 
@@ -226,7 +256,8 @@ text and put the analysis outside the clipping block.
 - Raw HTML beyond the four tags in §4; `<style>`, `<script>`, `<iframe>`,
   embeds of any kind, inline styles.
 - New front-matter keys or values. The keys are: title, sub, date, updated,
-  tags, type (quote | note), dropcap, toc, permalink, draft.
+  tags, type (quote | note | link), link (only with type: link), dropcap, toc,
+  permalink, draft.
 - Renaming or deleting a published file; changing a date in a filename.
 - Invented facts, quotes, biography. A gap is a `TODO:` line.
 - Emoji. Sans-serif. Any colour beyond the palette. Client-side anything.

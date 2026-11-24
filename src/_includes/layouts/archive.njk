@@ -15,7 +15,7 @@ bodyClass: archive
 <h3 class="archive-month" id="{{ g.year }}-{{ g.month | lower }}">{{ g.month }} <span>{{ g.items.length }} {{ "entry" if g.items.length == 1 else "entries" }}</span></h3>
 <ul class="archive-list">
 {%- for e in g.items %}
-{%- set kind = "Quote" if e.data.type == "quote" else ("Note" if e.data.type == "note" else "Essay") %}
+{%- set kind = "Quote" if e.data.type == "quote" else ("Note" if e.data.type == "note" else ("Link · " + (e.data.link | linkHost(e.inputPath)) if e.data.type == "link" else "Essay")) %}
 {%- set who = (e.templateContent | quoteWho) if e.data.type == "quote" else "" %}
 <li><time datetime="{{ e.date | dateISO }}">{{ e.date.getUTCDate() }}</time><a href="{{ e.url }}">{{ e.data.title }}</a><span class="kind">{{ kind }}{% if who %} · {{ who }}{% elif kind == "Essay" %} · {{ e.templateContent | readingTime }} min{% endif %}</span></li>
 {%- endfor %}

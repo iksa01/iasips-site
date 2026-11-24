@@ -7,7 +7,12 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121416" media="(prefers-color-scheme: dark)">
 <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
-{%- set pageDescription = (sub or site.description) | striptags %}
+{#- Search, previews and AI answer engines (design change 2026-11-24, DESIGN §4a). -#}
+{%- set pageDescription = (description or sub or site.description) | striptags %}
+{%- set pageUrl = site.url + page.url %}
+{%- set xHref = "" %}{% for x in site.externals %}{% if x.label == "X" %}{% set xHref = x.href %}{% endif %}{% endfor %}
+{%- set shareImg = firstImage.src if firstImage else site.ogImage %}
+{%- set shareAlt = (firstImage.alt if firstImage else "") %}
 <meta name="description" content="{{ pageDescription | escape }}">
 <meta name="author" content="{{ site.author }}">
 {%- if page.url != "/404.html" %}
@@ -18,30 +23,24 @@
 <meta property="og:title" content="{{ (title or site.title) | escape }}">
 <meta property="og:description" content="{{ pageDescription | escape }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-{%- if site.ogImage %}
-<meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+{%- if shareImg %}
+<meta property="og:image" content="{{ site.url }}{{ shareImg }}">
+{%- if shareAlt %}<meta property="og:image:alt" content="{{ shareAlt | escape }}">{% endif %}
 {%- endif %}
-<meta name="twitter:card" content="{{ "summary_large_image" if site.ogImage else "summary" }}">
+<meta name="twitter:card" content="{{ "summary_large_image" if shareImg else "summary" }}">
+{%- if xHref %}<meta name="twitter:site" content="@{{ xHref | replace("https://x.com/", "") }}">{% endif %}
 {%- if bodyId == "article" %}
 <meta property="article:published_time" content="{{ page.date | dateISO }}">
 {%- if updated %}<meta property="article:modified_time" content="{{ updated | dateISO }}">{% endif %}
-<script type="application/ld+json">{{ {
-  "@context": "https://schema.org", "@type": "BlogPosting",
-  "headline": title, "description": pageDescription,
-  "datePublished": page.date | dateISO, "dateModified": (updated or page.date) | dateISO,
-  "author": { "@type": "Person", "name": site.author, "url": site.url },
-  "keywords": (tags | join(", ")) if tags else "",
-  "inLanguage": site.language,
-  "mainEntityOfPage": site.url + page.url, "url": site.url + page.url
-} | dump | safe }}</script>
-{%- else %}
-<script type="application/ld+json">{{ {
-  "@context": "https://schema.org", "@type": "WebSite",
-  "name": site.title, "url": site.url, "description": site.description | striptags,
-  "author": { "@type": "Person", "name": site.author, "url": site.url },
-  "inLanguage": site.language
-} | dump | safe }}</script>
+<meta property="article:author" content="{{ site.url }}/about/">
+{%- if tags and tags.length %}<meta property="article:section" content="{{ tags[0] }}">{% endif %}
+{%- for t in tags %}<meta property="article:tag" content="{{ t }}">{% endfor %}
 {%- endif %}
+<script type="application/ld+json">{{ {
+  site: site, page: page, pageUrl: pageUrl, title: title, description: pageDescription,
+  bodyId: bodyId, tags: tags, updated: updated, type: type, link: link, linkAuthor: linkAuthor,
+  quoteWords: quoteWords, quoteBy: quoteBy, shareImg: shareImg
+} | jsonLd | safe }}</script>
 {%- if bodyId == "article" %}
 {%- set olderHead = collections.journal | getNextCollectionItem %}
 {%- set newerHead = collections.journal | getPreviousCollectionItem %}

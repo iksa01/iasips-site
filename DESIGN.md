@@ -82,8 +82,35 @@ at 92% brightness. Every colour in screen.css is a token so both modes stay in s
             (one line only, 2026-11-22: site.colophon[0], then site.externals' `short`
             labels; on phones the links drop to their own line)
 
-No sidebar on any page. The current nav item is blue and underlined. The head (description,
-canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from before.
+No sidebar on any page. The current nav item is blue and underlined.
+
+## 4a. The head: search, previews, AI answer engines (design change 2026-11-24)
+
+Kalyan: "design change: SEO and schema 1–5 … only use best practices for schema, tags,
+categories, permalink, speed, GEO, SEO". Nothing visible on the page changes.
+
+- **Description**, one per page, never shared: `sub:` where it describes the page; else
+  made from the entry itself (journal.11tydata.js) — a quote: "“the words…” — Name"; a link:
+  "Name, “Title”: “the passage…”"; a note or essay: its first paragraph; at most 155
+  characters, cut at a word with "…". Category pages: "Every entry filed under <tag> …".
+- **Structured data** (JSON-LD, one @graph): a Person (#person: name, the About page,
+  sameAs = the Substack, Instagram and X in site.externals, Chief Mentor at La Excellence
+  IAS, Hyderabad, the portrait) and the WebSite on every page. An entry adds a BlogPosting
+  (author and publisher = #person, image, articleSection = its category, keywords = its
+  tags) and a BreadcrumbList (Home › Journal › category › entry); a quote entry adds the
+  Quotation and its creator, a link entry cites the linked work and its author. About is a
+  ProfilePage; the stream, journal, category and archive pages are CollectionPages.
+- **Previews**: og:image is the entry's first picture, else site.ogImage, with its alt;
+  twitter:site from the X link; article:section and article:tag.
+- **Speed**: the first picture of a page's first entry loads at once with
+  fetchpriority="high" (the largest thing in view); every other picture stays lazy.
+- **Feed**: each entry has a summary (the description); a link entry's content opens with
+  the link.
+- **/llms.txt**: a plain-text map of the site for AI tools (llmstxt.org): who, what, the
+  pages, every entry with its description.
+- **Tags**: the first tag is the category (one of five); a second is the subject, from a
+  short list (AI, Ethics, Polity, World, …), and gets its own page. Addresses stay
+  /journal/<slug>/, never changed.
 
 ## 5. Pages
 
@@ -98,11 +125,13 @@ canonical, Open Graph, JSON-LD, prev/next, inlined stylesheet) is unchanged from
   text; at the foot, older and newer entries by title.
 - **Quote entry**: the ledger beside the quote (§7) and the name; any commentary after a
   short rule. No printed title.
+- **Link entry**: the ledger beside the kind, the outgoing title, the credit, the passage and
+  Kalyan's line (§7a).
 - **Archive** (Model A, 2026-11-22): "By year · By category" on one line; each year as a
   44px ink heading; each month as a 14px spaced-caps grey head over a hairline with its
   count on the right in italic ("9 entries"); then one line per entry — the day (lining,
   tabular), the title, and on the right in 15px grey what it is: "Quote · <the name in its
-  cite, up to the first comma>", "Note", or "Essay · N min". On phones the right-hand part
+  cite, up to the first comma>", "Note", "Link · <domain>" (2026-11-24) or "Essay · N min". On phones the right-hand part
   drops under the title.
 - **About**: the portrait (crop A, 170px) floated right beside the opening; Books, Talks,
   Interviews from the JSON files; footnotes; then the Amazon line and, under it in the
@@ -139,6 +168,25 @@ divided by 1px rules, 44px above and 40px below.
   right-aligned under it.
 - A long passage (`>`): body size, #444, a 3px #DDD rule at the left; its `<cite>` under
   it, right-aligned, "— Name", 16px grey.
+
+## 7a. Link entries (design change 2026-11-24)
+
+Kalyan chose "E1" of four (Fable's variants of model E, after 8BIT's Standard theme, 2012,
+and today's link blogs: Simon Willison, Daring Fireball, Justin Miller). Front matter
+`type: link` and `link: <url>`; `sub:` is the credit line. Shown the same in the stream and
+on the entry's own page, top to bottom:
+
+- the kind: "LINK · X.COM" — 12px spaced caps (.12em), --muted, 6px below; the domain is
+  read from `link:` (www. dropped);
+- the title, linking OUT to `link:` (the ledger date stays the permalink): 24px/1.25 bold
+  --ink, a --link "→" after it (aria-hidden), all --link-hover on hover; phones 21px;
+- the credit (`sub:`), "by Alexandr Wang · X Article · 22 Nov 2026": 15px italic --muted,
+  4px above, 18px below;
+- the passage, a plain `>` blockquote: 18px/1.6 roman --text behind a 2px --rule-strong
+  rule, 20px in (phones 17px, 14px in);
+- Kalyan's own line(s), if any: ordinary paragraphs. Without one the entry ends with the passage.
+
+No reading time. Archive line: "Link · x.com".
 
 ## 8. Blocks
 

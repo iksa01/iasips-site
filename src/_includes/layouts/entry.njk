@@ -8,7 +8,7 @@ bodyId: article
 {%- set tocItems = content | toc if toc else [] %}
 <div class="row entry-row">
 {%- set sd = page.date %}{% set stags = tags %}{% set slink = "" %}{% set supdated = updated or "" %}{% set sagain = false %}
-{%- set smins = (content | readingTime) if (type != "quote" and type != "note") else "" %}
+{%- set smins = (content | readingTime) if (type != "quote" and type != "note" and type != "link") else "" %}
 {%- include "partials/side.njk" %}
 <div class="main">
 {%- if type == "quote" %}
@@ -21,6 +21,12 @@ bodyId: article
 <div class="entry commentary">{{ parts.commentary | safe }}</div>
 {%- endif %}
 </div>
+{%- elif type == "link" %}
+{%- set ltitle = title %}{% set llink = link %}{% set lsub = sub %}{% set ltag = "h1" %}{% set lwhere = page.inputPath %}
+{%- include "partials/link-head.njk" %}
+<article id="post" class="entry link-body">
+{{ content | safe }}
+</article>
 {%- else %}
 <h1 class="page-title">{{ title }}</h1>
 {% if sub %}<p class="sub">{{ sub }}</p>{% endif %}
