@@ -54,7 +54,8 @@ decline and report.
   hacks in content. A caption is the image's markdown title:
   `![alt](/images/x.jpg "Caption")`.
 - Front matter keys are fixed: title, sub (one-line tagline; doubles as
-  the index summary), date (YYYY-MM-DD), tags, permalink, dropcap, toc
+  the index summary), date (YYYY-MM-DD HH:MM:SS, India time; the time orders same-day
+  entries — DESIGN.md §10; older entries carry the day alone), tags, permalink, dropcap, toc
   (true = table of contents from ## and ### heads), updated (YYYY-MM-DD,
   optional; shown as "Updated …"), type (permitted values: "quote",
   "note", "link"; omit for ordinary posts), link (the outside address,
@@ -96,7 +97,8 @@ decline and report.
   The lockfile is frozen.
 - If tooling reports a vulnerability or deprecation, report it to
   Kalyan; take no action.
-- Before every commit: `npx @11ty/eleventy` must exit 0.
+- Before every commit: `npx @11ty/eleventy` must exit 0 and `python3 tools/check.py`
+  must report 0 errors (HANDBOOK §7, the SOP).
 
 ## 7. Git protocol
 

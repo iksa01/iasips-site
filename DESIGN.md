@@ -244,6 +244,15 @@ the text. No page scrolls sideways at 320px (checked 2026-11-22 on every page).
 `./today.sh "The title"` makes `content/journal/<today>-<slug>.md` as a note in Notes,
 ready to write in. Publishing is unchanged (HANDBOOK §7).
 
+**The time of day** (design change 2026-11-24; Kalyan: three entries on one day stood in
+alphabetical order, the newest third). `date:` may carry the time, India time as on the
+clock: `date: 2026-11-24 23:51:00`. today.sh writes it. Only the order uses it: same-day
+entries stand newest first; every page still shows the day alone. The build reads the time
+as written (no zone), so all day logic stays on the date in the file name; a post is held
+back as scheduled only when its DAY is after today in India; the feed gives the time with
++05:30. `python3 tools/check.py` after every build checks dates, tags, descriptions and the
+order (HANDBOOK §7).
+
 ## 11. Permanently forbidden
 
 JavaScript on the page; webfonts; embeds;

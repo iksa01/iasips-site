@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
   <title>{{ site.title }}</title>
   <link href="{{ site.url }}/feed.xml" rel="self"/>
   <link href="{{ site.url }}/"/>
-  <updated>{{ collections.journal | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <updated>{{ collections.journal | getNewestCollectionItemDate | dateIndia }}</updated>
   <id>{{ site.url }}/</id>
   <author><name>{{ site.author }}</name></author>
   {%- for post in collections.journal | limit(20) %}
@@ -15,7 +15,7 @@ eleventyExcludeFromCollections: true
   <entry>
     <title>{{ post.data.title }}</title>
     <link href="{{ absurl }}"/>
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <updated>{{ post.date | dateIndia }}</updated>
     <id>{{ absurl }}</id>
     {%- for t in post.data.tags %}
     <category term="{{ t }}"/>

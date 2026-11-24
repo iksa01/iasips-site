@@ -395,7 +395,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPreprocessor("drafts", "md", (data) => {
     if (process.env.ELEVENTY_RUN_MODE !== "build") return;
     if (data.draft) return false;
-    if (data.page && data.page.inputPath.includes("/journal/") && data.date && new Date(data.date) > new Date()) return false;
+    // Held back only when its DAY is after today in India: `date:` may carry India time with no zone
+    // (DESIGN §10, 2026-11-24), so comparing full times would hold back an evening post.
+    const todayIndia = new Date(Date.now() + 330 * 60000).toISOString().slice(0, 10);
+    if (data.page && data.page.inputPath.includes("/journal/") && data.date && new Date(data.date).toISOString().slice(0, 10) > todayIndia) return false;
   });
 
   /* ---------- The stylesheet, inlined (design change 2026-09-26) ----------
@@ -450,6 +453,8 @@ module.exports = function (eleventyConfig) {
     return `${d.getUTCDate()}<span class="ord">${ordinal(d.getUTCDate())}</span> ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
   });
   eleventyConfig.addFilter("dateISO", (date) => new Date(date).toISOString().slice(0, 10));
+  // Feed time: `date:` holds India clock time read as if UTC (DESIGN §10), so label it +05:30.
+  eleventyConfig.addFilter("dateIndia", (date) => new Date(date).toISOString().slice(0, 19) + "+05:30");
   eleventyConfig.addFilter("year", (date) => new Date(date).getUTCFullYear());
   eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
   // Cases a piece of HTML mentions, in date order, matched by the register's `match` names.

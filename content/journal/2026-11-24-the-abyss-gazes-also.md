@@ -1,6 +1,6 @@
 ---
 title: "The abyss gazes also"
-date: 2026-11-24
+date: 2026-11-24 23:51:34
 tags: [Quotes]
 type: quote
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Superintelligence is Arriving"
 sub: "by Alexandr Wang · X Article · 22 Nov 2026"
-date: 2026-11-24
+date: 2026-11-24 07:28:48
 tags: [Notes, AI]
 type: link
 link: https://x.com/alexandr_wang/status/2124636606959345776

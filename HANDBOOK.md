@@ -31,7 +31,7 @@ paragraphs, and, if asked, a table of contents.
     ---
     title: "Less romance, more realism"
     sub: "One line under the title; also the description search engines show"
-    date: 2026-08-26
+    date: 2026-08-26 21:40:00     # India time; ./today.sh writes it
     updated: 2026-09-01        # optional; shows "Updated …"
     tags: [Press, World]       # category first, subject second (§3)
     dropcap: true              # optional: red-free drop cap on the lede
@@ -296,11 +296,31 @@ category, address. Then publish. If the source is unknown, ask; never
 guess an attribution.
 
     # 1. write or edit the file in content/journal/ (and prepare any picture)
-    npx @11ty/eleventy                 # must exit 0; fix anything it reports
+    rm -rf _site && npx @11ty/eleventy # must exit 0; fix anything it reports
+    python3 tools/check.py             # must say 0 errors; read every WARN
     git add -A && git commit -m "…"    # one line: what changed, which files
     git push                           # live in about a minute
     gh run list --workflow=pages.yml --limit 1   # "completed success"
     curl -s -o /dev/null -w "%{http_code}\n" https://iasips.in/journal/<slug>/
+
+**The SOP, every post, every time** (Kalyan, 2026-11-24: "make this sop every time:
+check dates, tags, SEO best practices"). `tools/check.py` does the starred items itself.
+
+1. **Source** told to Kalyan: who, which work, date, page; category; address.
+2. **Date** \*: `date: YYYY-MM-DD HH:MM:SS`, India time, the day matching the file name
+   (`./today.sh` writes both). Same-day entries stand newest first by that time.
+3. **Tags** \*: the category first (one of five); quotes nothing more; a note, essay or
+   link one subject from §3. A new subject only on Kalyan's word, then added to §3.
+4. **Front matter** \*: only the keys in §6; a link entry has `link:`.
+5. **Words**: Kalyan's, or approved by him; no `TODO:` left \*; no guessed attribution.
+6. **SEO / GEO** \*: a description of its own, ≤ 155 characters (the first paragraph, or
+   `sub:` — so the first paragraph should say plainly what the post is about); page title
+   under ~60 characters; canonical address; link preview picture; structured data that
+   parses. Pictures have alt text that says what is in them \*, and a caption naming people.
+   Links: real, outside pages checked to answer; Amazon links plain (the build tags them).
+7. **Order** \*: the home page shows the new entry where it belongs (newest first).
+8. **After the push**: the run is "completed success", the address answers 200, and the
+   entry stands where it should on the live home page.
 
 July–September 2026 were deleted on Kalyan's word, 2026-10-20.
 

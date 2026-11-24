@@ -1035,3 +1035,18 @@ far left left unnamed, his word). Title kept, note kept whole in the stream.
 Kalyan: "post this quote". Beyond Good and Evil (1886), aphorism 146, in the English he
 sent; translator not named (his wording matches no single translation exactly). Title
 linked to an Amazon India search. /journal/the-abyss-gazes-also/, [Quotes].
+
+## 2026-11-24 (g) — the time of day; the publishing SOP and tools/check.py (design change)
+
+Kalyan could not find the Nietzsche quote: three entries on 24 Nov stood alphabetically
+(Khan, Wang, Nietzsche), the newest third. "design changes, make this sop everytime check
+dates, tags, seo best practices etc".
+- `date:` may carry India clock time (`2026-11-24 23:51:34`); today.sh writes it; today's
+  three entries got the times they were first committed (07:28, 23:38, 23:51). Pages still
+  show the day. The scheduled-post hold now compares the day in India (comparing full
+  times would have held back any evening post); the feed says +05:30. DESIGN §10, AGENTS §4.
+- tools/check.py, run after a clean build: file-name day, time for same-day entries, keys,
+  tags (category first, quotes no subject, subjects from the list), TODOs, alt text, the
+  built page's description (own, ≤155), title length, canonical, og:image, JSON-LD, and the
+  home page's order. 0 errors before every push. Older October quotes keep their
+  spread-out dates (checked from 2026-11-24 on). HANDBOOK §7 holds the written SOP.
