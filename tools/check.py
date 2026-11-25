@@ -9,7 +9,7 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 JOURNAL, SITE = ROOT / "content" / "journal", ROOT / "_site"
 CATEGORIES = ["Quotes", "Books", "Press", "Listening", "Notes"]
-SUBJECTS = ["AI", "Ethics", "Polity", "Economy", "World", "History", "Society", "Environment", "Mahabharata"]
+SUBJECTS = ["AI", "Ethics", "Polity", "Economy", "World", "History", "Society", "Environment", "Mahabharata", "Chess"]
 KEYS = {"title", "sub", "date", "updated", "tags", "type", "link", "dropcap", "toc", "permalink", "draft"}
 TYPES = {None, "quote", "note", "link"}
 errors, warns = [], []

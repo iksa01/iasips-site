@@ -1050,3 +1050,20 @@ dates, tags, seo best practices etc".
   built page's description (own, ≤155), title length, canonical, og:image, JSON-LD, and the
   home page's order. 0 errors before every push. Older October quotes keep their
   spread-out dates (checked from 2026-11-24 on). HANDBOOK §7 holds the written SOP.
+
+## 2026-11-25 — What I owe Tal and Waitzkin; Chess as a subject
+
+Kalyan's note, dictated, after news of the Gukesh–Sindarov World Championship (Geneva,
+from 24 Nov 2026). Three drafts: the first told his story and read "like a confession";
+he asked for Seth Godin's way, short and point by point, with his insights: Tal sees only
+the opponent's king, an anchor; energy long-term, in one direction; thanks to Lichess,
+Tal, Mato Jelić, Waitzkin and, above all, his father. The Tal quote is his, credited to
+"Mikhail Tal" only (no book or date known). Cards: Mato Jelić's "Tal vs Petrosian" (Chess
+School), Ayrton Twigg's playlist "Chessmaster: All Josh Waitzkin Lectures" (72 videos),
+and a book card for the book he has just bought, Jennifer Shahade's *Thinking Sideways*,
+with the subtitle as he gave it ("What Chess Reveals about True Success"; the US edition's
+is "How to Think Like a Chess Player and Win at Life"). Links: FIDE's match page, Lichess,
+Huberman Lab episode, Amazon India searches for both books (no edition chosen; Chessmaster
+not linked: only Chessmaster 4000 is listed on amazon.in). Stills in images/listening/.
+/journal/what-i-owe-tal-and-waitzkin/, [Notes, Chess]. New subject Chess on his word,
+added to HANDBOOK §3 and tools/check.py.
