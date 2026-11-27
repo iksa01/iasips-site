@@ -1081,3 +1081,16 @@ and the closing on power cut. The line "Liberty and equality can be written into
 Fraternity cannot. It has to be felt." was drafted, shown to him, approved with "publish".
 Time 09:00 (none given; only entry that day). /journal/a-life-of-contradictions/,
 [Notes, Polity] — first use of Polity.
+
+## 2026-11-27 — Brahmam okkate (Listening)
+
+Kalyan sent https://youtu.be/JANs64oZf8s, "Brahma Mukate" (voice slip for Brahmam
+Okkate): Annamacharya's kirtana, Chanticleer a cappella, arranged by its tenor Vineel
+Garisa Mahal (recorded live 29 Jun 2026, Solsberg Festival, Rheinfelden; channel
+Hochrhein Musikfestival Productions). His line kept: "really nice … spreads the universal
+message". Telugu lyrics from Tallapaka Padasahityam vol. 2, reku 177 (0177-04, raga
+Bauli), te.wikisource; two typos fixed (వాయువు, నెండొకటే), చండాలుడు as the other
+Wikisource copy spells it. Lyrics in a ::: details fold; an English gist verse by verse
+drafted and shown to him. No subject: none on the list fits; Society or a new "Music"
+offered, he said "publish" without choosing, so it went out with none (check.py WARN).
+/journal/brahmam-okkate/, [Listening]; still images/listening/2026-11-27-brahmam-okkate.jpg.
