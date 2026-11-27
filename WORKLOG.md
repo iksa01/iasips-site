@@ -1067,3 +1067,17 @@ Huberman Lab episode, Amazon India searches for both books (no edition chosen; C
 not linked: only Chessmaster 4000 is listed on amazon.in). Stills in images/listening/.
 /journal/what-i-owe-tal-and-waitzkin/, [Notes, Chess]. New subject Chess on his word,
 added to HANDBOOK §3 and tools/check.py.
+
+## 2026-11-26 — A life of contradictions (Constitution Day)
+
+Kalyan pasted the close of Ambedkar's last speech to the Constituent Assembly (25 Nov
+1949, CAD Vol. XI, paras 11.165.324–329) for a Constitution Day post: quotes plus a
+summary. Text checked against constitutionofindia.net (it carries the same typos as his
+paste: "which is Assembly", "graded inequality which elevation"; those lines summarised,
+not quoted). First draft had four sections (hero-worship, social democracy, nation, room);
+Kalyan: "The focus is on liberty without equality, equality without liberty. That
+fraternity is the king point." Rebuilt on the trinity, fraternity as the key; hero-worship
+and the closing on power cut. The line "Liberty and equality can be written into law.
+Fraternity cannot. It has to be felt." was drafted, shown to him, approved with "publish".
+Time 09:00 (none given; only entry that day). /journal/a-life-of-contradictions/,
+[Notes, Polity] — first use of Polity.
